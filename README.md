@@ -1,7 +1,5 @@
 ## Introduction
 
-This style guide has been developed over some time with input from the iOS team. The team will add, subtract, and edit it as our style evolves.
-
 Here are some of the documents that went into building the style guide. If something isn't mentioned here, it's probably covered in great detail in one of these:
 
 * [The Objective-C Programming Language](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html)
