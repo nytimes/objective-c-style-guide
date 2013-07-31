@@ -39,11 +39,16 @@ Here are some of the documents that went into building the style guide. If somet
 Dot syntax notation should always be used for accessing and mutating properties. Bracket notation is preferred in all other instances.
 
 **For example:**  
-
 ```objc
-view.backgroundColor = [UIColor orangeColor]; // It's okay to use a dot here.
-[developer setName:@"Matt" age:21];
-[[UIApplication sharedApplication] delegate];
+view.backgroundColor = [UIColor orangeColor];
+[UIApplication sharedApplication].delegate;
+[singer setName:@"Taylor" age:22];
+```
+
+**Not:**
+```objc
+[view setBackgroundColor:[UIColor orangeColor]];
+UIApplication.sharedApplication.delegate;
 ```
 
 ## Spacing
