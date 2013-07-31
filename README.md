@@ -1,4 +1,4 @@
-# The New York Times Objective–C Style Guide
+# NYTimes Objective–C Style Guide
 
 This style guide outlines the coding conventions of the iOS team at The New York Times. We welcome your feedback in [issues](https://github.com/NYTimes/objetive-c-style-guide/issues), [pull requests](https://github.com/NYTimes/objetive-c-style-guide/pulls), or [tweets](https://twitter.com/nytimesmobile).
 
