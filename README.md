@@ -13,12 +13,12 @@ Here are some of the documents that went into building the style guide. If somet
 
 ## Table of Contents
 
-* [Dot-Notation Syntax](#DotNotation)
+* [Dot-Notation Syntax](#dot-notation-syntax)
 * [Spacing](#spacing)
-* [Conditionals](#Conditionals)
-* [Methods](#Methods)
-* [Variables](#Variables)
-* [Naming](#Naming)
+* [Conditionals](#conditionals)
+* [Methods](#methods)
+* [Variables](#variables)
+* [Naming](#naming)
   * [Underscores](#underscores)
 * [Init & Dealloc](#init-and-dealloc)
 * [Literals](#literals)
@@ -29,7 +29,7 @@ Here are some of the documents that went into building the style guide. If somet
 * [Image Naming](#image-naming)
 * [Booleans](#booleans)
 * [Singletons](#singletons)
-* [Executing Code After a Delay](#Delays)
+* [Executing Code After a Delay](#executing-code-after-a-delay)
 * [Concurrency](#concurrency)
 * [Notifications](#notifications)
 * [Xcode Project](#xcode-project)
