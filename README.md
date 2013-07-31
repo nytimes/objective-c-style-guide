@@ -1,3 +1,7 @@
+## The New York Times Objective–C Style Guide
+
+This style guide outlines the coding conventions of the iOS team at The New York Times. We welcome your feedback in issues, pull requests, or on Twitter.
+
 ## Introduction
 
 Here are some of the documents that went into building the style guide. If something isn't mentioned here, it's probably covered in great detail in one of these:
@@ -10,7 +14,7 @@ Here are some of the documents that went into building the style guide. If somet
 ## Table of Contents
 
 * [Dot-Notation Syntax](#DotNotation)
-* [Spacing](#Spacing)
+* [Spacing](#spacing)
 * [Conditionals](#Conditionals)
 * [Methods](#Methods)
 * [Variables](#Variables)
