@@ -34,7 +34,6 @@ Here are some of the documents that went into building the style guide. If somet
 * [Notifications](#notifications)
 * [Xcode Project](#xcode-project)
 
-<a id="DotNotation"></a>
 ## Dot-Notation Syntax
 
 Dot syntax notation should always be used for accessing and mutating properties. Bracket notation is preferred in all other instances.
@@ -47,7 +46,6 @@ view.backgroundColor = [UIColor orangeColor]; // It's okay to use a dot here.
 [[UIApplication sharedApplication] delegate];
 ```
 
-<a id="Spacing"></a>
 ## Spacing
 
 * Indent using 4 spaces. Never indent with tabs. Be sure to set this preference in Xcode.
@@ -65,7 +63,6 @@ else {
 * There should be exactly one blank line between methods to aid in visual clarity and organization. Whitespace within methods should separate functionality, but often there should probably be new methods.
 * `@synthesize` and `@dynamic` should each be declared on new lines in the implementation.
 
-<a id="Conditionals"></a>
 ## Conditionals
 
 Conditional bodies should always use braces even when a conditional body could be written without braces (i.e., it is one line only) braces should still be used. There are just too many little ways to get burned otherwise.
@@ -89,7 +86,6 @@ or
 if (condition) return success;
 ```
 
-<a id="methods"></a>
 ## Methods
 
 In method signatures, there should be a space after the scope (-/+ symbol). There should be a space between the method segments.  
@@ -118,7 +114,6 @@ Property definitions should be used in place of naked instance variables. As of 
 NSString *newspaperTitle;
 ```
 
-<a id="naming"></a>
 ## Naming
 
 Apple naming conventions should be adhered to wherever possible, especially those related to memory management rules (NARC). 
@@ -165,26 +160,22 @@ Properties should be camel-case with the leading word being lowercase. **If Xcod
 id varnm;
 ```
 
-<a id="underscores"></a>
 ### Underscores
 
 When using properties, instance variables should always be accessed and mutated using `self.`. This means that all properties will be visually distinct, as they will all be prefaced with `self.`. 
 
 As such, and in anticipation of the move to ARC, the need for underscores in local variables is far diminished. It serves only to complicate and slow down typing and efficiency and propagate an unnecessarily different naming convention. **Therefore, local variables should not contain underscores.**
 
-<a id="comments"></a>
 ## Comments
 
 When they are needed, comments should be used to explain why a particular piece of code does something. Any comments that are used must be kept up-to-date or deleted.
 
 Block comments should generally be avoided, as code should be as self-documenting as possible, with only the need for intermittent, few-line explanations. This does not apply to those comments used to generate documentation.
 
-<a id="init-and-dealloc"></a>
 ## init and dealloc
 
 `dealloc` methods should be placed at the top of the implementation, directly after the `@synthesize` and `@dynamic` statements. `init` should be placed directly below the `dealloc` methods of any class.
 
-<a id="literals"></a>
 ## Literals
 
 `NSString`, `NSDictionary`, `NSArray`, and `NSNumber` literals should be used whenever creating immutable instances of those objects. Pay special care that nil values not be passed into `NSArray` and `NSDictionary` literals, as this will now cause a crash. Previously, the list would be nil-terminated early and produce unexpected behavior.
@@ -207,7 +198,6 @@ NSNumber *shouldUseLiterals = [NSNumber numberWithBool:YES];
 NSNumber *zipCode = [NSNumber numberWithInteger:10018];
 ```
 
-<a id="cgrect-functions"></a>
 ### CGRect Functions
 
 When accessing the `x`, `y`, `width`, or `height` of a `CGRect`, always use the [`CGGeometry` functions](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) instead of direct struct member access.
@@ -256,7 +246,6 @@ static const CGFloat NYTConstantSize = 10.0;
 	#define ConstantSize 2
 ```
 
-<a id="enumerated-types"></a>
 ## Enumerated Types
 
 When using enums, it is recommended to use the new fixed underlying type specification. This looks like
@@ -283,7 +272,6 @@ typedef NS_ENUM(NSInteger, NYTAdRequestState) {
 };
 ```
 
-<a id="private-properties"></a>
 ## Private Properties
 
 Private variables should be declared in class extensions (anonymous categories) in the implementation file of a class. Named categories (such as `NYTPrivate` or `private`) should never be used unless extending another class.
@@ -300,7 +288,6 @@ Private variables should be declared in class extensions (anonymous categories) 
 @end
 ```
 
-<a id="image-naming"></a>
 ## Image Naming
 
 Image names should be named consistently to preserve organization and developer sanity. They should be named as one camel case string with a description of their purpose, followed by the un-prefixed name of the class or property they are customizing (if there is one), followed by a further description of color and/or placement, and finally their state. 
@@ -312,7 +299,6 @@ Image names should be named consistently to preserve organization and developer 
 
 Images that are used for a similar purpose should be grouped in respective groups in an Images folder.
 
-<a id="booleans"></a>
 ## Booleans
 
 Since `nil` resolves to `NO` it is unnecessary to compare it in conditions. Never compare something directly to `YES`, because `YES` is defined to 1 and a `BOOL` can be up to 8 bits. 
@@ -358,8 +344,8 @@ If the name of a BOOL property is expressed as an adjective, the property can om
 ```
 Text and example taken from the [Cocoa Naming Guidelines](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE).
 
-<a id="singletons"></a>
 ## Singletons
+
 Singleton objects should use a thread-safe pattern for creating their shared instance.
 ```objc
 + (id)sharedInstance {
@@ -375,26 +361,22 @@ Singleton objects should use a thread-safe pattern for creating their shared ins
 ```
 This will prevent [possible and sometimes prolific crashes] (http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
 
-<a id="executing-code-after-a-delay"></a>
 ## Executing Code After a Delay
 
 `dispatch_after` is preferred over `performSelector:withDelay:` for executing code after a delay, because if `self` is deallocated before `performSelector:withDelay:` executes, a crash will occur. `dispatch_after` however, retains self until the block is finished executing. NOTE: To avoid retain cycles do not hold a strong reference to the block. [Further reading about performSelector crashes](http://adamernst.com/post/10052965047/be-careful-with-performselector).
 
-<a id="concurrency"></a>
 ## Concurrency
 
 Explicitly managing threads with `NSThread` is expressly discouraged. As of iOS 4, there are much better and more performant ways of taking advantage of multi-threaded programming - in particular Grand Central Dispatch. Please refer to Apple's document on [Migrating Away From Threads](https://developer.apple.com/library/ios/#DOCUMENTATION/General/Conceptual/ConcurrencyProgrammingGuide/ThreadMigration/ThreadMigration.html) for reference. Since manually managing threads is strongly discouraged, so are locking mechanisms such as `@synchronized`. 
 
 When attempting to protect a portion of code with locking, consider the root cause - why is a variable being mutated or mutating code being executed at the same time across threads? Additionally, `@synchronized` is a slow lock that wastes valuable CPU cycles. Further, nesting `@synchronized` does not make it any more effective. If a lock is absolutely necessary, consider instead using `dispatch_async` on a private serial queue. 
 
-<a id="notifications"></a>
 ## Notifications
 
 Notifications, while useful, are often unnecessary. Before creating a notification, carefully consider how many objects need to be notified of an event. Often, the delegation pattern or blocks are more appropriate.
 
 Block-based notification observation is to be avoided as it can easily cause inadvertent retain cycles and there are issues with removing observers from within blocks. See [Ben Scheirman's article](http://benscheirman.com/2012/01/careful-with-block-based-notification-handlers) for further reference.
 
-<a id="xcode-project"></a>
 ## Xcode project
 
 The physical files should be kept in sync with the Xcode project files in order to avoid file sprawl. Any Xcode groups created should be reflected by folders in the filesystem. Code should be grouped not only by type, but also by feature for greater clarity.
