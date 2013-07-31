@@ -385,3 +385,16 @@ Block-based notification observation is to be avoided as it can easily cause ina
 ## Xcode project
 
 The physical files should be kept in sync with the Xcode project files in order to avoid file sprawl. Any Xcode groups created should be reflected by folders in the filesystem. Code should be grouped not only by type, but also by feature for greater clarity.
+
+
+## Other Objective-C Style Guides
+
+If ours doesn't fit your tastes, have a look at some other style guides:
+
+* [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
+* [GitHub](https://github.com/github/objective-c-conventions)
+* [Adium](https://trac.adium.im/wiki/CodingStyle)
+* [Sam Soffes](https://gist.github.com/soffes/812796)
+* [CocoaDevCentral](http://cocoadevcentral.com/articles/000082.php)
+* [Luke Redpath](http://lukeredpath.co.uk/blog/my-objective-c-style-guide.html)
+* [Marcus Zarra](http://www.cimgf.com/zds-code-style-guide/)
