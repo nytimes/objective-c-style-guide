@@ -1,4 +1,4 @@
-## The New York Times Objective–C Style Guide
+# The New York Times Objective–C Style Guide
 
 This style guide outlines the coding conventions of the iOS team at The New York Times. We welcome your feedback in [issues](https://github.com/NYTimes/objetive-c-style-guide/issues), [pull requests](https://github.com/NYTimes/objetive-c-style-guide/pulls), or [tweets](https://twitter.com/nytimesmobile).
 
@@ -387,7 +387,7 @@ Block-based notification observation is to be avoided as it can easily cause ina
 The physical files should be kept in sync with the Xcode project files in order to avoid file sprawl. Any Xcode groups created should be reflected by folders in the filesystem. Code should be grouped not only by type, but also by feature for greater clarity.
 
 
-## Other Objective-C Style Guides
+# Other Objective-C Style Guides
 
 If ours doesn't fit your tastes, have a look at some other style guides:
 
