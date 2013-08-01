@@ -249,9 +249,9 @@ static const CGFloat NYTImageThumbnailHeight = 50.0;
 **Not:**  
 
 ```objc
-	#define CompanyName @"The New York Times Company"
-	
-	#define thumbnailHeight 2
+#define CompanyName @"The New York Times Company"
+
+#define thumbnailHeight 2
 ```
 
 ## Enumerated Types
