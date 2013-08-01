@@ -138,7 +138,7 @@ UIButton *settingsButton;
 
 **Not**  
 
-```
+```objc
 UIButton *setBut;
 ```
 
