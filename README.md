@@ -208,7 +208,7 @@ NSNumber *ZIPCode = [NSNumber numberWithInteger:10018];
 
 ### CGRect Functions
 
-When accessing the `x`, `y`, `width`, or `height` of a `CGRect`, always use the [`CGGeometry` functions](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) instead of direct struct member access.
+When accessing the `x`, `y`, `width`, or `height` of a `CGRect`, always use the [`CGGeometry` functions](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) instead of direct struct member access. From Apple's CGGeometry reference:
 
 > All functions described in this reference that take CGRect data structures as inputs implicitly standardize those rectangles before calculating their results. For this reason, your applications should avoid directly reading and writing the data stored in the CGRect data structure. Instead, use the functions described here to manipulate rectangles and to retrieve their characteristics.
 
@@ -355,22 +355,6 @@ Singleton objects should use a thread-safe pattern for creating their shared ins
 }
 ```
 This will prevent [possible and sometimes prolific crashes] (http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
-
-## Executing Code After a Delay
-
-`dispatch_after` is preferred over `performSelector:withDelay:` for executing code after a delay, because if `self` is deallocated before `performSelector:withDelay:` executes, a crash will occur. `dispatch_after` however, retains self until the block is finished executing. NOTE: To avoid retain cycles do not hold a strong reference to the block. [Further reading about performSelector crashes](http://adamernst.com/post/10052965047/be-careful-with-performselector).
-
-## Concurrency
-
-Explicitly managing threads with `NSThread` is expressly discouraged. As of iOS 4, there are much better and more performant ways of taking advantage of multi-threaded programming - in particular Grand Central Dispatch. Please refer to Apple's document on [Migrating Away From Threads](https://developer.apple.com/library/ios/#DOCUMENTATION/General/Conceptual/ConcurrencyProgrammingGuide/ThreadMigration/ThreadMigration.html) for reference. Since manually managing threads is strongly discouraged, so are locking mechanisms such as `@synchronized`. 
-
-When attempting to protect a portion of code with locking, consider the root cause - why is a variable being mutated or mutating code being executed at the same time across threads? Additionally, `@synchronized` is a slow lock that wastes valuable CPU cycles. Further, nesting `@synchronized` does not make it any more effective. If a lock is absolutely necessary, consider instead using `dispatch_async` on a private serial queue. 
-
-## Notifications
-
-Notifications, while useful, are often unnecessary. Before creating a notification, carefully consider how many objects need to be notified of an event. Often, the delegation pattern or blocks are more appropriate.
-
-Block-based notification observation is to be avoided as it can easily cause inadvertent retain cycles and there are issues with removing observers from within blocks. See [Ben Scheirman's article](http://benscheirman.com/2012/01/careful-with-block-based-notification-handlers) for further reference.
 
 ## Xcode project
 
