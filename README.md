@@ -120,7 +120,7 @@ Property definitions should be used in place of naked instance variables wheneve
 
 ```objc
 @interface NYTSection : NSObject {
-    NSString *headline; // Instance variable
+    NSString *headline;
 }
 ```
 
