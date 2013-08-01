@@ -348,7 +348,7 @@ Singleton objects should use a thread-safe pattern for creating their shared ins
 
    static dispatch_once_t onceToken;
    dispatch_once(&onceToken, ^{
-   sharedInstance = [[self alloc] init];
+      sharedInstance = [[self alloc] init];
    });
 
    return sharedInstance;
