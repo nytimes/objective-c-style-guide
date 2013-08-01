@@ -1,10 +1,10 @@
 # NYTimes Objective–C Style Guide
 
-This style guide outlines the coding conventions of the iOS team at The New York Times. We welcome your feedback in [issues](https://github.com/NYTimes/objetive-c-style-guide/issues), [pull requests](https://github.com/NYTimes/objetive-c-style-guide/pulls), or [tweets](https://twitter.com/nytimesmobile).
+This style guide outlines the coding conventions of the iOS team at The New York Times. We welcome your feedback in [issues](https://github.com/NYTimes/objetive-c-style-guide/issues), [pull requests](https://github.com/NYTimes/objetive-c-style-guide/pulls), and [tweets](https://twitter.com/nytimesmobile).
 
 ## Introduction
 
-Here are some of the documents that went into building the style guide. If something isn't mentioned here, it's probably covered in great detail in one of these:
+Here are some of the documents from Apple that informed the style guide. If something isn't mentioned here, it's probably covered in great detail in one of these:
 
 * [The Objective-C Programming Language](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html)
 * [Cocoa Fundamentals Guide](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
@@ -36,13 +36,12 @@ Here are some of the documents that went into building the style guide. If somet
 
 ## Dot-Notation Syntax
 
-Dot syntax notation should always be used for accessing and mutating properties. Bracket notation is preferred in all other instances.
+Dot-notation should **always** be used for accessing and mutating properties. Bracket notation is preferred in all other instances.
 
 **For example:**  
 ```objc
 view.backgroundColor = [UIColor orangeColor];
 [UIApplication sharedApplication].delegate;
-[singer setName:@"Taylor" age:22];
 ```
 
 **Not:**
@@ -58,7 +57,7 @@ UIApplication.sharedApplication.delegate;
 
 **For example:**  
 ```objc
-if (condition) {
+if (user.isHappy) {
 //Do something
 }
 else {
@@ -74,21 +73,21 @@ Conditional bodies should always use braces even when a conditional body could b
 
 **For example:**
 ```objc
-if (condition) {
+if (!error) {
     return success;
 }
 ```
 
 **Not:**
 ```objc
-if (condition)
+if (!error)
     return success;
 ```
 
 or  
 
 ```objc
-if (condition) return success;
+if (!error) return success;
 ```
 
 ## Methods
@@ -101,27 +100,33 @@ In method signatures, there should be a space after the scope (-/+ symbol). Ther
 ```
 ## Variables
 
-Variables should be named as descriptively as possible. Single letter variables should be avoided except in `for()` loops. 
+Variables should be named as descriptively as possible. Single letter variable names should be avoided except in `for()` loops. 
 
-Asterisks indicating pointers belong with the variable, i.e. `NSString *text` not `NSString* text` or `NSString * text`.
+Asterisks indicating pointers belong with the variable, i.e. `NSString *text` not `NSString* text` or `NSString * text`, except in the case of global string constants.
 
-Property definitions should be used in place of naked instance variables. As of Xcode 3.2.5, we should no longer be declaring any instance variables at all. Direct instance variable access should be avoided except in `dealloc` methods and within custom setters and getters.
+Property definitions should be used in place of naked instance variables whenever possible. Direct instance variable access should be avoided except in `dealloc` methods and within custom setters and getters.
 
 **For example:**  
 
 ```objc
-@property (nonatomic, retain) NSString *newspaperTitle;
+@interface NYTSection: NSObject
+
+@property (nonatomic) NSString *headline;
+
+@end
 ```
 
 **Not:**
 
 ```objc
-NSString *newspaperTitle;
+@interface NYTSection : NSObject {
+    NSString *headline; // Instance variable
+}
 ```
 
 ## Naming
 
-Apple naming conventions should be adhered to wherever possible, especially those related to memory management rules (NARC). 
+Apple naming conventions should be adhered to wherever possible, especially those related to [memory management rules](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html) (NARC). 
 
 Long, descriptive method and variable names are good. 
 
@@ -137,12 +142,12 @@ UIButton *settingsButton;
 UIButton *setBut;
 ```
 
-The `NYT` prefix should always be used for classes and constants. Constants should be camel-case with all words capitalized and prefixed by the class name for clarity. 
+A three letter prefix (e.g. `NYT`) should always be used for class names and constants, however may be omitted for Core Data entity names. Constants should be camel-case with all words capitalized and prefixed by the related class name for clarity. 
 
 **For example:**  
 
 ```objc
-const NSTimeInterval NYTArticleViewControllerFadeAnimationDuration = 0.3;
+static const NSTimeInterval NYTArticleViewControllerNavigationFadeAnimationDuration = 0.3;
 ```
 
 **Not:**
@@ -167,13 +172,11 @@ id varnm;
 
 ### Underscores
 
-When using properties, instance variables should always be accessed and mutated using `self.`. This means that all properties will be visually distinct, as they will all be prefaced with `self.`. 
-
-As such, and in anticipation of the move to ARC, the need for underscores in local variables is far diminished. It serves only to complicate and slow down typing and efficiency and propagate an unnecessarily different naming convention. **Therefore, local variables should not contain underscores.**
+When using properties, instance variables should always be accessed and mutated using `self.`. This means that all properties will be visually distinct, as they will all be prefaced with `self.`. Local variables should not contain underscores.
 
 ## Comments
 
-When they are needed, comments should be used to explain why a particular piece of code does something. Any comments that are used must be kept up-to-date or deleted.
+When they are needed, comments should be used to explain **why** a particular piece of code does something. Any comments that are used must be kept up-to-date or deleted.
 
 Block comments should generally be avoided, as code should be as self-documenting as possible, with only the need for intermittent, few-line explanations. This does not apply to those comments used to generate documentation.
 
@@ -183,15 +186,15 @@ Block comments should generally be avoided, as code should be as self-documentin
 
 ## Literals
 
-`NSString`, `NSDictionary`, `NSArray`, and `NSNumber` literals should be used whenever creating immutable instances of those objects. Pay special care that nil values not be passed into `NSArray` and `NSDictionary` literals, as this will now cause a crash. Previously, the list would be nil-terminated early and produce unexpected behavior.
+`NSString`, `NSDictionary`, `NSArray`, and `NSNumber` literals should be used whenever creating immutable instances of those objects. Pay special care that `nil` values not be passed into `NSArray` and `NSDictionary` literals, as this will cause a crash.
 
 **For example:**  
 
 ```objc
 NSArray *names = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
-NSDictionary *productManagers = @{@"iPhone" : @"Kate", @"iPad" : @"Kamal", @"Mobile Web" : @"Bill"}; //note that the format is now `key : value` as opposed to the old method of `value, key`
+NSDictionary *productManagers = @{@"iPhone" : @"Kate", @"iPad" : @"Kamal", @"Mobile Web" : @"Bill"};
 NSNumber *shouldUseLiterals = @YES;
-NSNumber *zipCode = @10018;
+NSNumber *buildingZIPCode = @10018;
 ```
 
 **Not:**  
@@ -200,7 +203,7 @@ NSNumber *zipCode = @10018;
 NSArray *names = [NSArray arrayWithObjects:@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul", nil];
 NSDictionary *productManagers = [NSDictionary dictionaryWithObjectsAndKeys: @"Kate", @"iPhone", @"Kamal", @"iPad", @"Bill", @"Mobile Web", nil];
 NSNumber *shouldUseLiterals = [NSNumber numberWithBool:YES];
-NSNumber *zipCode = [NSNumber numberWithInteger:10018];
+NSNumber *ZIPCode = [NSNumber numberWithInteger:10018];
 ```
 
 ### CGRect Functions
@@ -233,40 +236,27 @@ CGFloat height = frame.size.height;
 
 ## Constants
 
-Constants are preferred over in-line string literals or numbers, as they allow for easy reproduction of commonly used variables, and can be quickly and dynamically changed. Constants should be declared as static constants and not `#define`s unless explicitly being used as a macro. 
+Constants are preferred over in-line string literals or numbers, as they allow for easy reproduction of commonly used variables, and can be quickly changed without the need for find and replace. Constants should be declared as `static` constants and not `#define`s unless explicitly being used as a macro. 
 
 **For example:**  
 
 ```objc
-static NSString * const NYTConstantName = @"Name";  
+static NSString * const NYTAboutViewControllerCompanyName = @"The New York Times Company";  
 
-static const CGFloat NYTConstantSize = 10.0;
+static const CGFloat NYTImageThumbnailHeight = 50.0;
 ```
 
 **Not:**  
 
 ```objc
-	#define ConstantName @"Name"
+	#define CompanyName @"The New York Times Company"
 	
-	#define ConstantSize 2
+	#define thumbnailHeight 2
 ```
 
 ## Enumerated Types
 
-When using enums, it is recommended to use the new fixed underlying type specification. This looks like
-
-```objc
-typedef enum : NSInteger {
-    NYTAdRequestStateInactive,
-    NYTAdRequestStateLoading    
-} NYTAdRequestState;
-```
-
-This has the following important advantages:
-1. Better code completion
-2. Stronger type checking
-
-The SDK now includes a macro to facilitate and encourage use of fixed underlying types -- `NS_ENUM()`
+When using `enum`s, it is recommended to use the new fixed underlying type specification because it has stronger type checking and code completion. The SDK now includes a macro to facilitate and encourage use of fixed underlying types — `NS_ENUM()`
 
 **Example:**  
 
@@ -279,7 +269,7 @@ typedef NS_ENUM(NSInteger, NYTAdRequestState) {
 
 ## Private Properties
 
-Private variables should be declared in class extensions (anonymous categories) in the implementation file of a class. Named categories (such as `NYTPrivate` or `private`) should never be used unless extending another class.
+Private properties should be declared in class extensions (anonymous categories) in the implementation file of a class. Named categories (such as `NYTPrivate` or `private`) should never be used unless extending another class.
 
 **For example:**  
 
