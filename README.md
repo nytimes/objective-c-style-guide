@@ -102,7 +102,7 @@ In method signatures, there should be a space after the scope (-/+ symbol). Ther
 
 Variables should be named as descriptively as possible. Single letter variable names should be avoided except in `for()` loops. 
 
-Asterisks indicating pointers belong with the variable, i.e. `NSString *text` not `NSString* text` or `NSString * text`, except in the case of global string constants.
+Asterisks indicating pointers belong with the variable, i.e. `NSString *text` not `NSString* text` or `NSString * text`, except in the case of constants.
 
 Property definitions should be used in place of naked instance variables whenever possible. Direct instance variable access should be avoided except in `dealloc` methods and within custom setters and getters.
 
