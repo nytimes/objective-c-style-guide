@@ -104,7 +104,7 @@ Variables should be named as descriptively as possible. Single letter variable n
 
 Asterisks indicating pointers belong with the variable, i.e. `NSString *text` not `NSString* text` or `NSString * text`, except in the case of constants.
 
-Property definitions should be used in place of naked instance variables whenever possible. Direct instance variable access should be avoided except in `dealloc` methods and within custom setters and getters.
+Property definitions should be used in place of naked instance variables whenever possible. Direct instance variable access should be avoided except in `init` and `dealloc` methods and within custom setters and getters.
 
 **For example:**  
 
