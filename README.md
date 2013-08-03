@@ -16,6 +16,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Dot-Notation Syntax](#dot-notation-syntax)
 * [Spacing](#spacing)
 * [Conditionals](#conditionals)
+  * [Ternary Operator](#ternaryoperator)
 * [Methods](#methods)
 * [Variables](#variables)
 * [Naming](#naming)
@@ -88,6 +89,20 @@ or
 
 ```objc
 if (!error) return success;
+```
+
+### Ternary Operators
+
+The Ternary operator, ? , should only be used sparingly. When used, only evaluate a single condition. Multiple conditions should never be evaluated with the Ternary operator.
+
+**For example:**
+```objc
+result = a > b ? x : y;
+```
+
+**Not:**
+```objc
+result = a > b ? x = c > d ? c : d : y;
 ```
 
 ## Methods
