@@ -91,7 +91,7 @@ or
 if (!error) return success;
 ```
 
-### Ternary Operators
+### Ternary Operator
 
 The Ternary operator, ? , should only be used sparingly. When used, only evaluate a single condition. Multiple conditions should never be evaluated with the Ternary operator.
 
