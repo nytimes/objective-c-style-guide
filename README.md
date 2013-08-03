@@ -16,7 +16,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Dot-Notation Syntax](#dot-notation-syntax)
 * [Spacing](#spacing)
 * [Conditionals](#conditionals)
-  * [Ternary Operator](#ternaryoperator)
+  * [Ternary Operator](#ternary-operator)
 * [Methods](#methods)
 * [Variables](#variables)
 * [Naming](#naming)
