@@ -70,7 +70,7 @@ else {
 
 ## Conditionals
 
-Conditional bodies should always use braces even when a conditional body could be written without braces (i.e., it is one line only) braces should still be used. There are just too many [little ways](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256) to get burned otherwise. These cases include adding a second line and expecting it to be part of the if-statement - we have gotten burned by this in legacy code, in which a line was added and manually indented. Another, [even more dangerous occurrence](http://programmers.stackexchange.com/a/16530) may happen where the line "inside" the if-statement is commented out, and the next line is now unwittingly (and unclearly) part of the if-statement. These particular cases are difficult to catch because the indentation is correct, while the statement is not. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.
+Conditional bodies should always use braces even when a conditional body could be written without braces (i.e., it is one line only) to prevent [errors](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256). These errors include adding a second line and expecting it to be part of the if-statement. Another, [even more dangerous defect](http://programmers.stackexchange.com/a/16530) may happen where the line "inside" the if-statement is commented out, and the next line unwittingly becomes part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.
 
 **For example:**
 ```objc
