@@ -32,9 +32,6 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Image Naming](#image-naming)
 * [Booleans](#booleans)
 * [Singletons](#singletons)
-* [Executing Code After a Delay](#executing-code-after-a-delay)
-* [Concurrency](#concurrency)
-* [Notifications](#notifications)
 * [Xcode Project](#xcode-project)
 
 ## Dot-Notation Syntax
