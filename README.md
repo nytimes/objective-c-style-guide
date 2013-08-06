@@ -93,7 +93,7 @@ if (!error) return success;
 
 ### Ternary Operator
 
-The Ternary operator, ? , should only be used sparingly. When used, only evaluate a single condition. Multiple conditions should never be evaluated with the Ternary operator.
+The Ternary operator, ? , should only be used when it increases clarity or code neatness. A single condition is usually all that should be evaluated. Evaluating multiple conditions is usually more understandable as an if statement, or refactored into instance variables.
 
 **For example:**
 ```objc
