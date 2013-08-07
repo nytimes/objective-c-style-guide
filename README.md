@@ -273,11 +273,13 @@ static const CGFloat NYTImageThumbnailHeight = 50.0;
 
 When using `enum`s, it is recommended to use the new fixed underlying type specification because it has stronger type checking and code completion. The SDK now includes a macro to facilitate and encourage use of fixed underlying types — `NS_ENUM()`
 
+Whenever possible, the first constant should be given the value of 1 to prevent accidentally mistaking it with an undefined variable.
+
 **Example:**  
 
 ```objc
 typedef NS_ENUM(NSInteger, NYTAdRequestState) {
-    NYTAdRequestStateInactive,
+    NYTAdRequestStateInactive = 1,
     NYTAdRequestStateLoading
 };
 ```
