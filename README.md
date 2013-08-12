@@ -199,10 +199,10 @@ Block comments should generally be avoided, as code should be as self-documentin
 
 `dealloc` methods should be placed at the top of the implementation, directly after the `@synthesize` and `@dynamic` statements. `init` should be placed directly below the `dealloc` methods of any class.
 
-`init` methods should like this:
+`init` methods should be structured like this:
 
 ```objc
-self = [super init];
+self = [super init]; // or call the designated initalizer
 if (self) {
 
 }
