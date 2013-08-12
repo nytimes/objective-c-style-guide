@@ -199,6 +199,18 @@ Block comments should generally be avoided, as code should be as self-documentin
 
 `dealloc` methods should be placed at the top of the implementation, directly after the `@synthesize` and `@dynamic` statements. `init` should be placed directly below the `dealloc` methods of any class.
 
+`init` methods should be structured like this:
+
+```objc
+- (instancetype)init {
+self = [super init]; // or call the designated initalizer
+if (self) {
+    // Custom initialization    
+}
+return self;
+}
+```
+
 ## Literals
 
 `NSString`, `NSDictionary`, `NSArray`, and `NSNumber` literals should be used whenever creating immutable instances of those objects. Pay special care that `nil` values not be passed into `NSArray` and `NSDictionary` literals, as this will cause a crash.
