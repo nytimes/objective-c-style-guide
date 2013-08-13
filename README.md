@@ -343,7 +343,7 @@ if (someObject == nil) {
 
 -----
 
-**For a BOOL, here's two examples:**  
+**For a `BOOL`, here are two examples:**  
 
 ```objc
 if (isAwesome)
@@ -359,7 +359,7 @@ if (isAwesome == YES) // Never do this.
 
 -----
 
-If the name of a BOOL property is expressed as an adjective, the property can omit the “is” prefix but specifies the conventional name for the get accessor, for example:
+If the name of a `BOOL` property is expressed as an adjective, the property can omit the “is” prefix but specifies the conventional name for the get accessor, for example:
 
 ```objc
 @property (assign, getter=isEditable) BOOL editable;
