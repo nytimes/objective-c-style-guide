@@ -231,7 +231,7 @@ NSNumber *buildingZIPCode = @10018;
 NSArray *names = [NSArray arrayWithObjects:@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul", nil];
 NSDictionary *productManagers = [NSDictionary dictionaryWithObjectsAndKeys: @"Kate", @"iPhone", @"Kamal", @"iPad", @"Bill", @"Mobile Web", nil];
 NSNumber *shouldUseLiterals = [NSNumber numberWithBool:YES];
-NSNumber *ZIPCode = [NSNumber numberWithInteger:10018];
+NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 ```
 
 ## CGRect Functions
