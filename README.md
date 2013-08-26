@@ -19,6 +19,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Spacing](#spacing)
 * [Conditionals](#conditionals)
   * [Ternary Operator](#ternary-operator)
+* [Error handling](#error-handling)
 * [Methods](#methods)
 * [Variables](#variables)
 * [Naming](#naming)
@@ -104,6 +105,29 @@ result = a > b ? x : y;
 ```objc
 result = a > b ? x = c > d ? c : d : y;
 ```
+
+## Error handling
+
+When methods return an error parameter by reference, switch on the returned value, not the error variable.
+
+**For example:**
+```objc
+NSError *error;
+if (![self trySomethingWithError:&error]) {
+    …handle error…
+}
+```
+
+**Not:**
+```objc
+NSError *error;
+[self trySomethingWithError:&error];
+if (error) {
+    …handle error…
+}
+```
+
+Some of Apple’s APIs write garbage values to the error parameter (if non-NULL) in successful cases, so switching on the error can cause false negatives (and subsequently crash).
 
 ## Methods
 
