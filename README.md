@@ -114,7 +114,7 @@ When methods return an error parameter by reference, switch on the returned valu
 ```objc
 NSError *error;
 if (![self trySomethingWithError:&error]) {
-    …handle error…
+    // Handle Error
 }
 ```
 
@@ -123,7 +123,7 @@ if (![self trySomethingWithError:&error]) {
 NSError *error;
 [self trySomethingWithError:&error];
 if (error) {
-    …handle error…
+    // Handle Error
 }
 ```
 
