@@ -372,13 +372,13 @@ if (someObject == nil) {
 
 ```objc
 if (isAwesome)
-if (![someObject boolValue])
+if (!someObject.boolValue)
 ```
 
 **Not:**
 
 ```objc
-if ([someObject boolValue] == NO)
+if (someObject.boolValue == NO)
 if (isAwesome == YES) // Never do this.
 ```
 
