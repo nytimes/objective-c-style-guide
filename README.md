@@ -61,8 +61,7 @@ UIApplication.sharedApplication.delegate;
 ```objc
 if (user.isHappy) {
 //Do something
-}
-else {
+} else {
 //Do something else
 }
 ```
@@ -98,7 +97,7 @@ The Ternary operator, ? , should only be used when it increases clarity or code 
 
 **For example:**
 ```objc
-result = a > b ? x : y;
+result = (a > b) ? x : y;
 ```
 
 **Not:**
