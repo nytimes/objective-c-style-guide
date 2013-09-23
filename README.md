@@ -108,7 +108,7 @@ When methods return an error parameter by reference, switch on the returned valu
 
 **For example:**
 ```objc
-NSError *error;
+NSError *error = nil;
 if (![self trySomethingWithError:&error]) {
     // Handle Error
 }
@@ -116,7 +116,7 @@ if (![self trySomethingWithError:&error]) {
 
 **Not:**
 ```objc
-NSError *error;
+NSError *error = nil;
 [self trySomethingWithError:&error];
 if (error) {
     // Handle Error
