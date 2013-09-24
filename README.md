@@ -183,7 +183,7 @@ A three letter prefix (e.g. `HYP`) should always be used for class names and con
 **For example:**
 
 ```objc
-static const NSTimeInterval NYTArticleViewControllerNavigationFadeAnimationDuration = 0.3;
+static const NSTimeInterval HYPArticleViewControllerNavigationFadeAnimationDuration = 0.3;
 ```
 
 **Not:**
