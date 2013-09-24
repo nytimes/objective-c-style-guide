@@ -109,7 +109,8 @@ When methods return an error parameter by reference, switch on the returned valu
 **For example:**
 ```objc
 NSError *error = nil;
-if (![self trySomethingWithError:&error]) {
+BOOL shouldAcceptCalls = [self trySomethingWithError:&error];
+if (!shouldAcceptCalls) {
     // Handle Error
 }
 ```
