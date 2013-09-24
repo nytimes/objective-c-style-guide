@@ -136,7 +136,7 @@ In method signatures, there should be a space after the scope (-/+ symbol). Ther
 - (void)setExampleText:(NSString *)text image:(UIImage *)image;
 ```
 
-In the method implementation opening bracket should **always** go in a new line.
+In the method implementation opening bracket should **always** be placed in a new line.
 
 **For Example**:
 ```objc
