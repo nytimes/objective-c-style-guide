@@ -134,6 +134,17 @@ In method signatures, there should be a space after the scope (-/+ symbol). Ther
 ```objc
 - (void)setExampleText:(NSString *)text image:(UIImage *)image;
 ```
+
+In the method implementation opening bracket should **always** go in a new line.
+
+**For Example**:
+```objc
+- (void)setExampleText:(NSString *)text image:(UIImage *)image
+{
+    // Implementation
+}
+```
+
 ## Variables
 
 Variables should be named as descriptively as possible. Single letter variable names should be avoided except in `for()` loops.
