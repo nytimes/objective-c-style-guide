@@ -22,7 +22,6 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Methods](#methods)
 * [Variables](#variables)
 * [Naming](#naming)
-  * [Underscores](#underscores)
 * [Comments](#comments)
 * [Init & Dealloc](#init-and-dealloc)
 * [Literals](#literals)
@@ -185,9 +184,7 @@ Properties should be camel-case with the leading word being lowercase. **If Xcod
 id varnm;
 ```
 
-### Underscores
-
-When using properties, instance variables should always be accessed and mutated using `self.`. This means that all properties will be visually distinct, as they will all be prefaced with `self.`. Local variables should not contain underscores.
+Local variables should not contain underscores.
 
 ## Comments
 
