@@ -141,7 +141,7 @@ In method signatures, there should be a space after the scope (-/+ symbol). Ther
 
 Group related methods together using `#pragma mark - Description of group`. In particular, methods that implement a protocol should be labelled as a group according to the protocol.
 
-```
+```objc
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
