@@ -68,6 +68,7 @@ else {
 ```
 * There should be exactly one blank line between methods to aid in visual clarity and organization. Whitespace within methods should separate functionality, but often there should probably be new methods.
 * `@synthesize` and `@dynamic` should each be declared on new lines in the implementation.
+* All files should end with a new line.
 
 ## Conditionals
 
