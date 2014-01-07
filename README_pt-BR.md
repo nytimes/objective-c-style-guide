@@ -69,7 +69,7 @@ else {
 // falso
 }
 ```
-* Deve haver exatamente ua linha em branco entre os métodos para auxiliar na organização visual. Espaços em branco dentro dos métodos devem separar funcionalidades, mas sua principal função é separadar métodos.
+* Deve haver exatamente uma linha em branco entre os métodos para auxiliar na organização visual. Espaços em branco dentro dos métodos devem separar funcionalidades, mas sua principal função é separadar métodos.
 * `@synthesize` e `@dynamic` devem ser declarados em novas linhas.
 
 ## Condicionais
@@ -130,7 +130,7 @@ if (error) {
 }
 ```
 
-Algumas APIs da Apple armazenam valores ao parâmetro de erro sem existir um erro de fato (um exemplo seria armazenar o valor 'não existem erros'), por isso validar se a váriavel é nula pode ocasionar a negação do falso (e, posteriormente, falhas).
+Algumas APIs da Apple armazenam valores ao parâmetro de erro sem existir um erro de fato (um exemplo seria armazenar o valor 'não existem erros'), por isso validar se a váriavel é nula pode ocasionar a falso negativo (e, posteriormente, falhas).
 
 ## Métodos
 
@@ -146,7 +146,7 @@ As variáveis devem ser nomeadas de forma mais descritiva possível. Nomes de va
 
 Os asteriscos, que indicam ponteiros, pertencem a variável, por exemplo: `NSString *text`, não `NSString* text` ou `NSString * text`, exceto em caso onde sejam aplicados a constantes.
 
-As definições de propriedade vem ser utilizadas sempre que possível. O acesso direto a variáveis de instância deve ser evitado, com excessão a métodos inicializadores (`init`, `initWithCoder:`...), métodos `dealloc` e métodos acessores (`set` e `get`). Para mais informações sobre o uso de métodos acessores em métodos inicializadores e `dealloc`, consulte [esta página](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
+As definições de propriedade vem ser utilizadas sempre que possível. O acesso direto a variáveis de instância deve ser evitado, com excessão de métodos inicializadores (`init`, `initWithCoder:`...), métodos `dealloc` e métodos acessores (`set` e `get`). Para mais informações sobre o uso de métodos acessores em métodos inicializadores e `dealloc`, consulte [esta página](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
 
 **Exemplo correto:**
 
@@ -184,7 +184,7 @@ UIButton *settingsButton;
 UIButton *setBut;
 ```
 
-O prefixo de 3 letras (exemplo: `NYT`) deve sempre ser usado em nomes de classes e contantes, no entanto, pode ser omitido para nomes de entidades do tipo Core Data. Contantes devem ser camel-case com todas as palavraas em a maiúsculo e prefixadas com o nome da classe, facilitando a interpretação do código.
+O prefixo de 3 letras (exemplo: `NYT`) deve sempre ser usado em nomes de classes e contantes, no entanto, pode ser omitido para nomes de entidades do tipo Core Data. Contantes devem ser camel-case com todas as palavras em a maiúsculo e prefixadas com o nome da classe, facilitando a interpretação do código.
 
 **Exemplo correto:**
 
@@ -198,7 +198,7 @@ static const NSTimeInterval NYTArticleViewControllerNavigationFadeAnimationDurat
 static const NSTimeInterval fadetime = 1.7;
 ```
 
-Propriedades devem ser nomeadas utilizando o padrão camel-case com a primeira palavra em letras minúsculas. **Se o Xcode sintetiza a variável automaticamente, utilize esse recurso.** Caso contrário, para manter a consistência, a variável de instância referenciada nessa propriedade deve utilizar o padrão camel-case iniciando com o subtraço (`_`) e a primeira palavra com letras minúsculas. Este é o formato de síntese padrão do Xcode.
+Propriedades devem ser nomeadas utilizando o padrão camel-case com a primeira palavra em letras minúsculas. **Se o Xcode sintetiza a variável automaticamente, utilize esse recurso.** Caso contrário, para manter a consistência, a variável de instância referenciada nessa propriedade deve utilizar o padrão camel-case iniciando com o underscore (`_`) e a primeira palavra com letras minúsculas. Este é o formato de síntese padrão do Xcode.
 
 **Exemplo correto:**
 
@@ -218,7 +218,7 @@ Quando uma propriedade for utilizada, as variáveis de instância devem ser aces
 
 ## Comentários
 
-Quando forem necessários, os comentários devem explicar **why** um determinado bloco de código faz algo. Qualquer comentário utilizado deve ser mantido atualizado ou excluído.
+Quando forem necessários, os comentários devem explicar o porquê um determinado bloco de código faz algo. Qualquer comentário utilizado deve ser mantido atualizado ou excluído.
 
 Blocos de comentários devem ser evitados, assim como o código deve se auto-documentar, ou seja, necessitar de uma quantidade mínima de explicações. Isso não se aplica as informações utilizadas para gerar uma documentação.
 
@@ -241,7 +241,7 @@ Métodos `init` devem ser estruturados da seguinte forma:
 
 ## Literais
 
-`NSString`, `NSDictionary`, `NSArray` e `NSNumber` devem ser usados sempre para a criação de instâncias imutáveis desses objetos. Atenção especial as falhas causadas pela utilização do valor `nil` que em `NSArray` e/ou `NSDictionary`.
+`NSString`, `NSDictionary`, `NSArray` e `NSNumber` devem ser usados sempre para a criação de instâncias imutáveis desses objetos. Atenção especial a utilização do valor `nil` em `NSArray` e/ou `NSDictionary`, ela pode gerar falha.
 
 **Exemplo correto:**
 
