@@ -170,7 +170,9 @@ static const NSTimeInterval NYTArticleViewControllerNavigationFadeAnimationDurat
 static const NSTimeInterval fadetime = 1.7;
 ```
 
-Properties should be camel-case with the leading word being lowercase. **If Xcode can automatically synthesize the variable, then let it.** Otherwise, in order to be consistent, the backing instance variables for these properties should be camel-case with the leading word being lowercase and a leading underscore. This is the same format as Xcode's default synthesis.
+Properties and local variables should be camel-case with the leading word being lowercase. 
+
+Instance variables should be camel-case with the leading word being lowercase, and should be prefixed with an underscore. This is consistent with instance variables synthesized automatically by LLVM. **If LLVM can synthesize the variable automatically, then let it.**
 
 **For example:**  
 
@@ -183,8 +185,6 @@ Properties should be camel-case with the leading word being lowercase. **If Xcod
 ```objc
 id varnm;
 ```
-
-Local variables should not contain underscores.
 
 ## Comments
 
