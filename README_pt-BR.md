@@ -170,7 +170,7 @@ As definições de propriedade vem ser utilizadas sempre que possível. O acesso
 
 As convenções de nomenclatura da Apple devem ser respeitadas sempre que possível, especialmente aquelas relacionadas a [regras de gerenciamento de memória](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html) ([NARC](http://stackoverflow.com/a/2865194/340508)).
 
-Nomes longos para variáveis e métodos são sempre uma boa opção.
+Nomes longos para variáveis e métodos são uma boa opção.
 
 **Exemplo correto:**
 
