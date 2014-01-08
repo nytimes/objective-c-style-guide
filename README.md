@@ -23,7 +23,6 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Methods](#methods)
 * [Variables](#variables)
 * [Naming](#naming)
-  * [Underscores](#underscores)
 * [Comments](#comments)
 * [Init & Dealloc](#init-and-dealloc)
 * [Literals](#literals)
@@ -195,7 +194,9 @@ static const NSTimeInterval NYTArticleViewControllerNavigationFadeAnimationDurat
 static const NSTimeInterval fadetime = 1.7;
 ```
 
-Properties should be camel-case with the leading word being lowercase. **If Xcode can automatically synthesize the variable, then let it.** Otherwise, in order to be consistent, the backing instance variables for these properties should be camel-case with the leading word being lowercase and a leading underscore. This is the same format as Xcode's default synthesis.
+Properties and local variables should be camel-case with the leading word being lowercase. 
+
+Instance variables should be camel-case with the leading word being lowercase, and should be prefixed with an underscore. This is consistent with instance variables synthesized automatically by LLVM. **If LLVM can synthesize the variable automatically, then let it.**
 
 **For example:**
 
@@ -208,10 +209,6 @@ Properties should be camel-case with the leading word being lowercase. **If Xcod
 ```objc
 id varnm;
 ```
-
-### Underscores
-
-When using properties, instance variables should always be accessed and mutated using `self.`. This means that all properties will be visually distinct, as they will all be prefaced with `self.`. Local variables should not contain underscores.
 
 ## Comments
 
