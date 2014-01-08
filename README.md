@@ -422,3 +422,9 @@ If ours doesn't fit your tastes, have a look at some other style guides:
 * [CocoaDevCentral](http://cocoadevcentral.com/articles/000082.php)
 * [Luke Redpath](http://lukeredpath.co.uk/blog/my-objective-c-style-guide.html)
 * [Marcus Zarra](http://www.cimgf.com/zds-code-style-guide/)
+
+# Objective-C Cheat Sheet
+
+If you'd like a high-level summary of Objective-C topics, have a look at this cheat sheet:
+
+* [Objective-C Cheat Sheet](https://github.com/iwasrobbed/Objective-C-CheatSheet)
