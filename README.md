@@ -30,6 +30,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Constants](#constants)
 * [Enumerated Types](#enumerated-types)
 * [Private Properties](#private-properties)
+* [Method Ordering](#method-ordering)
 * [Image Naming](#image-naming)
 * [Booleans](#booleans)
 * [Singletons](#singletons)
@@ -330,6 +331,46 @@ Private properties should be declared in class extensions (anonymous categories)
 @property (nonatomic, strong) UIWebView *adXWebView;
 
 @end
+```
+
+## Method Ordering
+
+Methods implementations are grouped and ordered by inheritance, then delegate methods separated by protocol, then public methods, then private methods.  A pragma is used to seperate each group.
+
+**For example:**
+```objc
+#pragma mark - NSObject
+
+- (void)dealloc {
+}
+
+#pragma mark - UIViewController
+
+- (instanceType)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+}
+
+- (void)viewDidLoad {
+}
+
+#pragma mark - NYTArticleViewController
+
+- (instancetype)initWithArticle:(NYTArticle *)article section:(NYTSection *)section {
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+}
+
+#pragma mark - Public
+
+- (void) destroyAllHumans {
+}
+
+#pragma mark - Private
+
+- (void) _saveAllHumans {
+}
 ```
 
 ## Image Naming
