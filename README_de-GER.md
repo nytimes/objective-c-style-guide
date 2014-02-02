@@ -287,3 +287,144 @@ CGFloat y = frame.origin.y;
 CGFloat width = frame.size.width;
 CGFloat height = frame.size.height;
 ```
+
+## Konstanten
+
+Konstanten werden gegenüber in-line Zeichenketten oder Zahlen bevorzugt, da sie eine einfache Wiederverwendung von gemeinsam verwendeten Variablen erlauben. Zudem können sie einfach ersetzt werden, ohne sie zuvor mit Finde und Ersetze ausfindig gemacht zu haben. Konstanten sollten als `static` Konstanten und nicht als #define deklariert werden, so fern sie nicht explizit in Makros verwendet werden.
+
+**Beispiel:**
+
+```objc
+static NSString * const NYTAboutViewControllerCompanyName = @"The New York Times Company";
+
+static const CGFloat NYTImageThumbnailHeight = 50.0;
+```
+
+**Nicht:**
+
+```objc
+#define CompanyName @"The New York Times Company"
+
+#define thumbnailHeight 2
+```
+
+## Aufzählungstypen
+
+Bei der Verwendung von `enum`s wird empfohlen, von der neueren Typ-Spezifizierung Gebrauch zu machen, da eine stärkere Typ-Prüfung und Code Vervollständigung mit inbegriffen ist. Das SDK stellt nun ein Makro mit dem festgelegten Typen `NS_ENUM` zur Verfügung
+
+**Beispiel:**
+
+```objc
+typedef NS_ENUM(NSInteger, NYTAdRequestState) {
+    NYTAdRequestStateInactive,
+    NYTAdRequestStateLoading
+};
+```
+
+## Private Eigenschaften
+
+Private Eigenschaften sollten in den Klassenerweiterungen der Implementationsdatei einer Klasse deklariert werden (Anonyme Kategorien). 
+
+**Beispiel:**
+
+```objc
+@interface NYTAdvertisement ()
+
+@property (nonatomic, strong) GADBannerView *googleAdView;
+@property (nonatomic, strong) ADBannerView *iAdView;
+@property (nonatomic, strong) UIWebView *adXWebView;
+
+@end
+```
+
+## Benennung von Bildern
+
+Bilder sollten einheitlich benannt werden um der Verwirrung bei den Entwicklern und im Unternehmen vorzubeugen. Sie sollten als eine Camel-Case Zeichenkette benannt werden und ihr Name sollte auf ihre Verwendung aufmerksam machen. Darauf folgt der Name (ohne Präfix) der Klasse oder der Eigenschaft, die sie anpassen (wenn sie das überhaupt tun). Darauf folgt eine weitere Beschreibung ihrer Farbe, Position und schliesslich der Zustand.
+
+**Beispiel:**
+
+* `RefreshBarButtonItem` / `RefreshBarButtonItem@2x` and `RefreshBarButtonItemSelected` / `RefreshBarButtonItemSelected@2x`
+* `ArticleNavigationBarWhite` / `ArticleNavigationBarWhite@2x` and `ArticleNavigationBarBlackSelected` / `ArticleNavigationBarBlackSelected@2x`.
+
+Bilder die in einem ähnlichen Bereich eingesetzt werden, sollten innerhalb des Bilder-Ordners in entsprechende Unterordner eingeteilt werden.
+
+## Wahrheitswerte (Booleans)
+
+Da `nil` zu `NO` aufgelöst wird, ist es nicht notwendig, es in Bedingungen zu vergleichen. Vergleiche nie etwas direkt mit `YES`, da `YES` als 1 definiert ist und ein `BOOL`-Typ kann 8 Bits lang sein.
+
+Dadurch ist eine Gleichmäßigkeit über mehrere Files hinweg und bessere visuelle Klarheit gewährleistet.
+
+**Beispiel:**
+
+```objc
+if (!someObject) {
+}
+```
+
+**Not:**
+
+```objc
+if (someObject == nil) {
+}
+```
+
+-----
+
+**Für ein `BOOL`, hier ein weiteres Beispiel:**
+
+```objc
+if (isAwesome)
+if (![someObject boolValue])
+```
+
+**Not:**
+
+```objc
+if ([someObject boolValue] == NO)
+if (isAwesome == YES) // Niemals so.
+```
+
+-----
+
+Wenn der Name eines `BOOL` Property als Adjektiv formuliert wurde, kann die Vorsilbbe "is" weggelassen werden. Allerdings sollte der konventionelle Name für den Getter Zugriff spezifiert werden, z.B.:
+
+```objc
+@property (assign, getter=isEditable) BOOL editable;
+```
+Text und Beispiel stammen von [Cocoa Naming Guidelines](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE).
+
+## Singletons
+
+Singletons sollten ein thread-sicheres Muster bei der Erstellung ihrer Instanzen einhalten.
+```objc
++ (instancetype)sharedInstance {
+   static id sharedInstance = nil;
+
+   static dispatch_once_t onceToken;
+   dispatch_once(&onceToken, ^{
+      sharedInstance = [[self alloc] init];
+   });
+
+   return sharedInstance;
+}
+```
+
+Dies wird [einigen möglichen Abstürzen] vorbeugen (http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
+
+## Xcode Projekt
+
+Die real vorhanden Dateien sollten mit den Dateien in Xcode synchronisiert werden, um ein Durcheinander zu vermeiden. Alle Gruppen, die in Xcode erstellt wurden, sollten sich im Dateisystem widerspiegeln. Code sollte nicht nur nach seinem Typ, sondern auch nach den entsprechenden Features gruppiert werden, um eine bessere Übersicht zu gewährleisten.
+
+Wenn möglich, sollte die Option "Treat Warnings as Errors" in den Target Build Einstellungen angepasst werden und soviel [zusätzliche Warnungen] wie möglich ausgeben (http://boredzo.org/blog/archives/2009-11-07/warnings). Wenn eine bestimmte Warnung ignoriert werden soll, benutze [Clangs pragma feature] (http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
+
+# Weitere Objective-C Styleguides
+
+Wenn unserer nicht Euren Geschmack trifft, schaut euch ein paar andere Styleguides an:
+
+* [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
+* [GitHub](https://github.com/github/objective-c-conventions)
+* [Adium](https://trac.adium.im/wiki/CodingStyle)
+* [Sam Soffes](https://gist.github.com/soffes/812796)
+* [CocoaDevCentral](http://cocoadevcentral.com/articles/000082.php)
+* [Luke Redpath](http://lukeredpath.co.uk/blog/my-objective-c-style-guide.html)
+* [Marcus Zarra](http://www.cimgf.com/zds-code-style-guide/)
