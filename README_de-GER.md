@@ -290,7 +290,7 @@ CGFloat height = frame.size.height;
 
 ## Konstanten
 
-Konstanten werden gegenüber in-line Zeichenketten oder Zahlen bevorzugt, da sie eine einfache Wiederverwendung von gemeinsam verwendeten Variablen erlauben. Zudem können sie einfach ersetzt werden, ohne sie zuvor mit Finde und Ersetze ausfindig gemacht zu haben. Konstanten sollten als `static` Konstanten und nicht mit #define deklariert werden, so fern sie nicht explizit in Makros verwendet werden.
+Konstanten werden gegenüber in-line Zeichenketten oder Zahlen bevorzugt, da sie eine einfache Wiederverwendung von gemeinsam verwendeten Variablen erlauben. Zudem können sie einfach ersetzt werden, ohne sie zuvor mit Finde und Ersetze ausfindig gemacht zu haben. Konstanten sollten als `static` Konstanten ud nicht mit #define deklariert werden, so fern sie nicht explizit in Makros verwendet werden.
 
 **Beispiel:**
 
