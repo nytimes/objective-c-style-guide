@@ -1,6 +1,7 @@
 Licensed under the **MIT** license
 
 > Copyright (c) 2013 - 2014 The New York Times Company
+>
 > Copyright (c) 2014 Hyper Interaktiv AS
 >
 > Permission is hereby granted, free of charge, to any person obtaining
