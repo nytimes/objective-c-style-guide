@@ -29,6 +29,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [CGRect Functions](#cgrect-functions)
 * [Constants](#constants)
 * [Enumerated Types](#enumerated-types)
+* [Bitmasks](#bitmasks)
 * [Private Properties](#private-properties)
 * [Image Naming](#image-naming)
 * [Booleans](#booleans)
@@ -313,6 +314,21 @@ When using `enum`s, it is recommended to use the new fixed underlying type speci
 typedef NS_ENUM(NSInteger, NYTAdRequestState) {
     NYTAdRequestStateInactive,
     NYTAdRequestStateLoading
+};
+```
+
+## Bitmasks
+
+When working with bitmasks, it is recommended to use the `NS_OPTIONS` macro.
+
+**Example:**
+
+```objc
+typedef NS_OPTIONS(NSInteger, NYTAdCategory) {
+    NYTAdCategoryAutos,
+    NYTAdCategoryJobs,
+    NYTAdCategoryRealState,
+    NYTAdCategoryTechnology
 };
 ```
 
