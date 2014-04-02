@@ -319,16 +319,16 @@ typedef NS_ENUM(NSInteger, NYTAdRequestState) {
 
 ## Bitmasks
 
-When working with bitmasks, it is recommended to use the `NS_OPTIONS` macro.
+When working with bitmasks, use the `NS_OPTIONS` macro.
 
 **Example:**
 
 ```objc
-typedef NS_OPTIONS(NSInteger, NYTAdCategory) {
-    NYTAdCategoryAutos,
-    NYTAdCategoryJobs,
-    NYTAdCategoryRealState,
-    NYTAdCategoryTechnology
+typedef NS_OPTIONS(NSUInteger, NYTAdCategory) {
+  NYTAdCategoryAutos      = 1 << 0,
+  NYTAdCategoryJobs       = 1 << 1,
+  NYTAdCategoryRealState  = 1 << 2,
+  NYTAdCategoryTechnology = 1 << 3
 };
 ```
 
