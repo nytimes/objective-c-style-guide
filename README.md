@@ -29,6 +29,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [CGRect Functions](#cgrect-functions)
 * [Constants](#constants)
 * [Enumerated Types](#enumerated-types)
+* [Bitmasks](#bitmasks)
 * [Private Properties](#private-properties)
 * [Image Naming](#image-naming)
 * [Booleans](#booleans)
@@ -194,7 +195,7 @@ static const NSTimeInterval NYTArticleViewControllerNavigationFadeAnimationDurat
 static const NSTimeInterval fadetime = 1.7;
 ```
 
-Properties and local variables should be camel-case with the leading word being lowercase. 
+Properties and local variables should be camel-case with the leading word being lowercase.
 
 Instance variables should be camel-case with the leading word being lowercase, and should be prefixed with an underscore. This is consistent with instance variables synthesized automatically by LLVM. **If LLVM can synthesize the variable automatically, then let it.**
 
@@ -313,6 +314,21 @@ When using `enum`s, it is recommended to use the new fixed underlying type speci
 typedef NS_ENUM(NSInteger, NYTAdRequestState) {
     NYTAdRequestStateInactive,
     NYTAdRequestStateLoading
+};
+```
+
+## Bitmasks
+
+When working with bitmasks, use the `NS_OPTIONS` macro.
+
+**Example:**
+
+```objc
+typedef NS_OPTIONS(NSUInteger, NYTAdCategory) {
+  NYTAdCategoryAutos      = 1 << 0,
+  NYTAdCategoryJobs       = 1 << 1,
+  NYTAdCategoryRealState  = 1 << 2,
+  NYTAdCategoryTechnology = 1 << 3
 };
 ```
 
