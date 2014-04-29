@@ -165,10 +165,12 @@ When sending messages to an object, the method parameters should be colon aligne
 ```
 
 **For Example**:
+```objc
 [someObject name:(NSString *)name path:(NSString *)path parameters:(NSDictionary *)parameters 
       usingBlock:^(NSString *responseValue) {
           // Implementation
 }];
+```
 
 ## Variables
 
