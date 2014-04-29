@@ -150,7 +150,8 @@ Method declarations should conform to be written on one line unless it exceeds t
 **For Example**:
 ```objc
 - (void)setExampleText:(NSString *)text image:(UIImage *)image
-           description:(NSString *)description {
+           description:(NSString *)description 
+{
     // Implementation
 }
 ```
