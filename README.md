@@ -155,13 +155,13 @@ Method declarations should conform to be written on one line unless it exceeds t
 }
 ```
 
-When sending messages to an object, the method parameters should be colon aligned. An exception to this rule is when working with blocks. For the sake of readabilty the block should be on a new line and should colon align with the first colon of the previous line.
+In method invocations the parameters should be colon aligned. An exception to this rule is when working with blocks. For the sake of readabilty the block should be on a new line and should colon align with the first colon of the previous line.
 
 **For Example**:
 ```objc
 [someObject setExampleText:@"Example Text"
-                     image:[UIImage imageNamed:@"Sample Image.png]
-               description:@"Example descriPtion"];
+                     image:[UIImage imageNamed:@"Image.png"]
+               description:@"Example description"];
 ```
 
 **For Example**:
