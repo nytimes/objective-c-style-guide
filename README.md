@@ -145,6 +145,34 @@ In the method implementation opening bracket should **always** be placed in a ne
 }
 ```
 
+Method declarations should conform to be written on one line unless it exceeds the width of 137. If it does exceed the proposed limit then it should colon align the exceeding parameters with the first colon on the previous line.
+
+**For Example**:
+```objc
+- (void)setExampleText:(NSString *)text image:(UIImage *)image
+           description:(NSString *)description 
+{
+    // Implementation
+}
+```
+
+In method invocations the parameters should be colon aligned. An exception to this rule is when working with blocks. For the sake of readabilty the block should be on a new line and should colon align with the first colon of the previous line.
+
+**For Example**:
+```objc
+[someObject setExampleText:@"Example Text"
+                     image:[UIImage imageNamed:@"Image.png"]
+               description:@"Example description"];
+```
+
+**For Example**:
+```objc
+[someObject name:(NSString *)name path:(NSString *)path parameters:(NSDictionary *)parameters 
+      usingBlock:^(NSString *responseValue) {
+          // Implementation
+}];
+```
+
 ## Variables
 
 Variables should be named as descriptively as possible. Single letter variable names should be avoided except in `for()` loops.
