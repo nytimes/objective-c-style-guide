@@ -145,7 +145,7 @@ In the method implementation opening bracket should **always** be placed in a ne
 }
 ```
 
-Method declarations should conform to be written on one line unless it exceeds the width of 137. If it does exceed the proposed limit then it should colon align the exceeding parameters with the first colon on the previous line.
+Method declarations should conform to be written on one line unless it exceeds the width of 120. If it does exceed the proposed limit then it should colon align the exceeding parameters with the first colon on the previous line.
 
 **For Example**:
 ```objc
