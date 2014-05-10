@@ -76,14 +76,14 @@ else {
 * There should be exactly one blank line between methods to aid in visual clarity and organization. Whitespace within methods should separate functionality, but often there should probably be new methods.
 * `@synthesize` and `@dynamic` should each be declared on new lines in the implementation.
 
-* 시각적 선명도와 조직을 도와주기 위해 메소드 사이에 딱 빈 줄 하나가 있어야 합니다. 메소드 내에서 공백은 기능을 분리할 수 있지만, 종종 새로운 메소드가 될 수도 있습니다.
+* 시각적 선명도와 조직을 도와주기 위해 메소드 사이에 빈 줄이 있어야 합니다. 메소드 내에서 공백은 기능을 분리할 수 있지만, 종종 새로운 메소드가 될 수도 있습니다.
 * `@synthesize`와 `@dynamic`는 implementation에 새로운 줄로 각각 선언해야 합니다.
 
 ## <a name='conditionals'>Conditionals</a> [원문](https://github.com/NYTimes/objective-c-style-guide#conditionals)
 
 Conditional bodies should always use braces even when a conditional body could be written without braces (e.g., it is one line only) to prevent [errors](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256). These errors include adding a second line and expecting it to be part of the if-statement. Another, [even more dangerous defect](http://programmers.stackexchange.com/a/16530) may happen where the line "inside" the if-statement is commented out, and the next line unwittingly becomes part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.
 
-조건문 본체는 중괄호가 없이 작성할 때(한 줄인 경우) [에러](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256)를 방지하기 위해 항상 중괄호를 사용해야 합니다. 이러한 오류는 두 번째 줄을 추가하고 if-문의 한 부분으로 예상하여 발생합니다. 또한, 줄 내부 if-문을 주석처리하고 다음 줄이 if-문의 한 부분으로 무심코 되는 곳에서 [더 심각한 문제](http://programmers.stackexchange.com/a/16530)가 발생할 수 있습니다. 게다가 이러한 스타일은 그 밖에 모든 조건문과 더욱 일치하기 때문에 더욱 쉽게 찾을 수 있습니다.
+조건문 본체는 중괄호가 없이 작성할 때(한 줄인 경우) [에러](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256)를 방지하기 위해 항상 중괄호를 사용해야 합니다. 이러한 오류는 추가된 두 번째 줄이 if-문의 한 부분으로 예상하여 발생합니다. 또한, 줄 내부 if-문을 주석처리하고 다음 줄이 if-문의 한 부분으로 무심코 되는 곳에서 [더 심각한 문제](http://programmers.stackexchange.com/a/16530)가 발생할 수 있습니다. 게다가 이러한 스타일은 그 밖에 모든 조건문과 더욱 일치하기 때문에 더욱 쉽게 찾을 수 있습니다.
 
 **For example:**
 ```objc
@@ -108,7 +108,7 @@ if (!error) return success;
 
 The Ternary operator, ? , should only be used when it increases clarity or code neatness. A single condition is usually all that should be evaluated. Evaluating multiple conditions is usually more understandable as an if statement, or refactored into instance variables.
 
-3항 연산자 ?는 명료함과 코드 간결함을 높일 때 사용해야 합니다. 보통 단일 조건은 모든 것을 평가해야 합니다. 일반적으로 여러 조건을 평가하는 것은 if문 또는 인스턴스 변수로 리펙토링을 통해 더 이해할 수 있습니다.
+3항 연산자 ?는 명료함과 코드 간결함을 높일 때 사용해야 합니다. 보통 단일 조건은 모든 것을 비교해야 합니다. 일반적으로 다중 조건 비교는 if 문 또는 인스턴스 변수로 리펙토링을 통해 더 쉽게 이해할 수 있습니다.
 
 **For example:**
 ```objc
@@ -145,7 +145,7 @@ if (error) {
 
 Some of Apple’s APIs write garbage values to the error parameter (if non-NULL) in successful cases, so switching on the error can cause false negatives (and subsequently crash).
 
-Apple API 일부는 성공인 경우 에러 파라미터(NULL이 아니라면)에 쓰래기 값을 기록합니다. 그래서 에러에 전환하는 것은 오류 (그리고 이후 충돌)를 야기할 수 있습니다.
+Apple API 일부는 성공인 경우 에러 파라미터(NULL이 아니라면)에 쓰래기 값을 기록합니다. 그래서 에러로 바꾸는 것은 오류 (그리고 이후 충돌)를 야기할 수 있습니다.
 
 
 ## <a name='methods'>Methods</a> [원문](https://github.com/NYTimes/objective-c-style-guide#methods)
@@ -170,7 +170,7 @@ Property definitions should be used in place of naked instance variables wheneve
 
 변수는 서술이 가능하도록 명명되어야 합니다. 단일 문자 변수 이름은 `for()` 문을 제외하곤 피해야 합니다.
 
-예를 들어 포인터를 나타내는 별표와 함께 있는 변수는 상수의 경우를 제외하고 `NSString *text` 이며  `NSString* text` 또는 `NSString * text`는 아닙니다.
+예를 들어 상수의 경우를 제외하고 포인터를 나타내는 별표와 함께 있는 변수는 `NSString *text` 이며  `NSString* text` 또는 `NSString * text`는 아닙니다.
 
 프로퍼티 정의는 노출된 인스턴스 변수에 위치하여 언제든지 사용 가능합니다. 직접 인스턴스 변수는 초기화 메소드(`init`, `initWithCoder:`, etc…), `dealloc` 메소드와 내부 커스텀 setter와 getter를 제외하고 피해야 합니다. 초기화 메소드와 dealloc에 접근자 메소드를 사용하려면 [여기](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6)에서 더 많은 정보를 볼 수 있습니다.
 
@@ -256,8 +256,9 @@ When they are needed, comments should be used to explain **why** a particular pi
 
 Block comments should generally be avoided, as code should be as self-documenting as possible, with only the need for intermittent, few-line explanations. This does not apply to those comments used to generate documentation.
 
-필요한 경우 주석은 특정 코드가 어떤 것을 하는 **이유**를 설명해야 합니다. 주석은 최신 상태로 유지하거나 삭제해야 합니다.
-몇 줄의 설명만으로 가능하면 코드 스스로 문서가 되어야 하고, 주석 블럭은 간혹 필요할 때를 제외하곤 피해야 합니다.
+필요한 경우 주석은 코드의 특정 부분이 어떤 행동하는지 **이유**를 설명해야 합니다. 주석은 최신 상태로 유지하거나 삭제해야 합니다.
+
+주석 블럭을 만드는 것은 피해야 하며, 코드는 가능하면 스스로 문서가 되도록 해야 하고, 필요할 때 몇 줄로 설명해야 합니다.
 
 ## <a name='init-and-dealloc'>init and dealloc</a> [원문](https://github.com/NYTimes/objective-c-style-guide#init-and-dealloc)
 
@@ -311,14 +312,10 @@ When accessing the `x`, `y`, `width`, or `height` of a `CGRect`, always use the 
 > All functions described in this reference that take CGRect data structures as inputs implicitly standardize those rectangles before calculating their results. For this reason, your applications should avoid directly reading and writing the data stored in the CGRect data structure. Instead, use the functions described here to manipulate rectangles and to retrieve their characteristics.
 
 
-`CGRect`의 `x`, `y`, `width` 또는 `height`를 접근하는 경우 직접 struct 멤버에 접근하지말고 [`CGGeometry` functions](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html)를 항상 사용하세요. 애플의 `CGGeometry` 레퍼런스 : 
+`CGRect`의 `x`, `y`, `width` 또는 `height`를 접근하는 경우, 직접 struct 멤버에 접근하지말고 [`CGGeometry` functions](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html)를 항상 사용하세요. 애플의 `CGGeometry` 참조 : 
 
 
-> 결과를 계산하기 전에 표준화된 사각형에 내제되어 입력된 CGRect 데이타 구조를 가지는 참조에 모든 함수가 설명됩니다. 
-
-All functions described / in this reference that / take CGRect data structures / as inputs implicitly standardize those rectangles before calculating their results.
-
-> All functions described in this reference that take CGRect data structures as inputs implicitly standardize those rectangles before calculating their results. 이러한 이유로 어플리케이션은 CGRect 데이타 구조에 저장된 데이타를 직접 읽고 쓰는 것을 피해야 합니다. 대신 사각형을 다루고 그 특성을 검색하도록 여기에 기술된 함수를 사용합니다.
+> 결과를 계산하기 전에 표준화된 사각형에 내제되어 입력된 CGRect 데이타 구조를 가지는 참조에서 모든 함수가 설명됩니다. 이러한 이유로 어플리케이션은 CGRect 데이타 구조에 저장된 데이타를 직접 읽고 쓰는 것을 피해야 합니다. 대신 사각형을 다루고 그 특성을 검색하도록 여기에 기술된 함수를 사용합니다.
 
 **For example:**
 
@@ -400,7 +397,7 @@ typedef NS_OPTIONS(NSUInteger, NYTAdCategory) {
 
 Private properties should be declared in class extensions (anonymous categories) in the implementation file of a class. Named categories (such as `NYTPrivate` or `private`) should never be used unless extending another class.
 
-비공개 프로퍼티는 클래스의 implementation 파일안에 클래스 익스텐션(익명 카테고리)에 선언합니다.
+비공개 프로퍼티는 클래스의 implementation 파일안에 클래스 익스텐션(익명 카테고리)에 선언합니다. 명시된 카테고리(`NYTPrivate` 또는 `private` 같은)는 다른 클래스를 확장 하지 않는 한 절대로 사용하지 마세요.
 
 **For example:**
 
@@ -418,7 +415,7 @@ Private properties should be declared in class extensions (anonymous categories)
 
 Image names should be named consistently to preserve organization and developer sanity. They should be named as one camel case string with a description of their purpose, followed by the un-prefixed name of the class or property they are customizing (if there is one), followed by a further description of color and/or placement, and finally their state.
 
-이미지 이름은 조직과 개발자 정신을 유지하기 위해 일관되게 이름을 정해야 합니다. 이미지의 목적을 설명하기 위해 처음 문자열은 낙타 표기법으로, 다음으로 클래스의 이름이나 사용자 지정 속성, 마지막으로 색상 과/또는 위치, 상태의 추가 설명으로 이름을 정해집니다.
+이미지 이름은 조직과 개발자 정신을 유지하기 위해 일관되게 이름을 정해야 합니다. 이미지의 목적을 설명하기 위해 처음 문자열은 낙타 표기법으로, 다음으로 클래스의 이름이나 사용자 지정 속성, 마지막으로 색상과/또는 위치, 상태의 추가 설명으로 이름을 정해집니다.
 
 **For example:**
 
@@ -436,6 +433,8 @@ Since `nil` resolves to `NO` it is unnecessary to compare it in conditions. Neve
 This allows for more consistency across files and greater visual clarity.
 
 `nil`은 `NO`로 해석하기 때문에 조건문에서 비교할 필요가 없습니다. 무언가를 직접적으로 `YES`로 비교하지 마세요. `YES`는 1로 정의되며 `BOOL`은 최대 8비트가 될 수 있습니다.
+
+파일에서 더 많은 일관성과 더 큰 시각적 명확성이 있도록 합니다.
 
 **For example:**
 
@@ -516,7 +515,7 @@ When possible, always turn on "Treat Warnings as Errors" in the target's Build S
 
 If ours doesn't fit your tastes, have a look at some other style guides:
 
-이 스타일 가이드가 당신 입맛에 맞지 않다면, 여기 다른 스타일 가이드를 보세요.
+이 스타일 가이드가 당신 입맛에 맞지 않다면, 다른 스타일 가이드를 보세요.
 
 * [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
 * [GitHub](https://github.com/github/objective-c-conventions)
