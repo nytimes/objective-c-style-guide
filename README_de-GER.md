@@ -380,8 +380,8 @@ if (![someObject boolValue])
 **Not:**
 
 ```objc
-if ([someObject boolValue] == NO)
 if (isAwesome == YES) // Niemals so.
+if ([someObject boolValue] == NO)
 ```
 
 -----
