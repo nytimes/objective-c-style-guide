@@ -428,17 +428,17 @@ This will prevent [possible and sometimes prolific crashes](http://cocoasamurai.
 
 ## Imports
 
-Group `#imports` statements [together](http://ashfurrow.com/blog/structuring-modern-objective-c).
+If there are many `#imports` statements, group them [together](http://ashfurrow.com/blog/structuring-modern-objective-c) (commenting each group is optional).
 ```objc
 // Frameworks
 #import <QuartzCore/QuartzCore.h>
 
+// Models
+#import "NYTUser.h"
+
 // Views
 #import "NYTButton.h"
 #import "NYTUserView.h"
-
-// View Controllers
-#import "NYTOtherViewController.h"
 ```
 
 ## Xcode project
