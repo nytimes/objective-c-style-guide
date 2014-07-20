@@ -68,7 +68,7 @@ if (user.isHappy) {
 
 ## Conditionals
 
-Conditional bodies should always use braces even when a conditional body could be written without braces (e.g., it is one line only) to prevent errors. These errors include adding a second line and expecting it to be part of the if-statement. Another, [even more dangerous defect](http://programmers.stackexchange.com/a/16530) may happen where the line "inside" the if-statement is commented out, and the next line unwittingly becomes part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.
+Conditional bodies should always use braces unless it is one line only. These errors include adding a second line and expecting it to be part of the if-statement. Another, even more dangerous defect may happen where the line "inside" the if-statement is commented out, and the next line unwittingly becomes part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.
 
 **For example:**
 ```objc
@@ -77,16 +77,16 @@ if (!error) {
 }
 ```
 
+or if it's one line
+
+```objc
+if (!error) return success;
+```
+
 **Not:**
 ```objc
 if (!error)
     return success;
-```
-
-or
-
-```objc
-if (!error) return success;
 ```
 
 ### Ternary Operator
@@ -264,10 +264,10 @@ Block comments should generally be avoided, as code should be as self-documentin
 - (instancetype)init 
 {
     self = [super init]; // or call the designated initalizer
-    if (self) {
-        // Custom initialization
-    }
+    if (!self) return nil;
 
+    // Custom initialization
+    
     return self;
 }
 ```
