@@ -5,15 +5,19 @@ ProjectName
 |—— LZOPhotoViewer
 |
 |— Library # Anything that falls outside of the MVC pattern
+|-- Views
+|-- Networking
 |—— Categories
-|—— Custom Containers
-|—— Base Classes
-|—— Utils
+|—— Containers
+|—— Base
+|-- Managers
+|—— Utils (better if can be a category)
 |
 |— AppDelegate
 |
 |— Source
 |—— Recipes
+|——— Cells
 |——— Views
 |——— Controllers
 |——— Networking
