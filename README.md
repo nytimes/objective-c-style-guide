@@ -127,7 +127,7 @@ if (error) {
 }
 ```
 
-Some of Apple’s APIs write garbage values to the error parameter (if non-NULL) in successful cases, so switching on the error can cause false negatives (and subsequently crash).
+Some of Apple’s APIs write garbage values to the error parameter (if non-NIL) in successful cases, so switching on the error can cause false negatives (and subsequently crash).
 
 ## Methods
 
