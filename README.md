@@ -240,7 +240,7 @@ Block comments should generally be avoided, as code should be as self-documentin
 
 ## Literals
 
-`NSString`, `NSDictionary`, `NSArray`, and `NSNumber` literals should be used whenever creating immutable instances of those objects. Pay special care that `nil` values not be passed into `NSArray` and `NSDictionary` literals, as this will cause a crash.
+`NSString`, `NSDictionary`, `NSArray`, and `NSNumber` literals should be used whenever creating immutable instances of those objects. Pay special care that `nil` values cannot be passed into `NSArray` and `NSDictionary` literals, as this will cause a crash.
 
 **For example:**
 
