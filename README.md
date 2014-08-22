@@ -410,7 +410,7 @@ Text and example taken from the [Cocoa Naming Guidelines](https://developer.appl
 
 -----
 
-If a method returns a `BOOL` and the condition to evaluate is simple enough, return its result on a simple line instead of storing it in a local variable first.
+If a method returns a `BOOL` and the condition to evaluate is simple enough, return its result on a single line instead of storing it in a local variable first.
 
 **For example:**
 
