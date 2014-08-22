@@ -415,7 +415,7 @@ If a method returns a `BOOL` and the condition to evaluate is simple enough, ret
 **For example:**
 
 ```objc
-- (BOOL)
+- (BOOL)isAutomaticUpdate {
     return [[NSUserDefaults standardUserDefaults] boolForKey:NYTDefaultsUpdateAutomatically];
 }
 ```
@@ -423,7 +423,7 @@ If a method returns a `BOOL` and the condition to evaluate is simple enough, ret
 **Not:**
 
 ```objc
-- (BOOL)
+- (BOOL)isAutomaticUpdate {
     BOOL isAutomaticUpdate = [[NSUserDefaults standardUserDefaults] boolForKey:NYTDefaultsUpdateAutomatically];
     if (isAutomaticUpdate) {
         return YES;
