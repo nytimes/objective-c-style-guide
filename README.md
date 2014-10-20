@@ -362,27 +362,33 @@ In general within a group, try to organize by chronology (e.g. `viewWillAppear` 
 
 #pragma mark - NSObject
 
-- (instancetype)init {}
+- (instancetype)init {
+}
 
 #pragma mark - UIViewController
 
-- (void)viewDidLoad {}
+- (void)viewDidLoad {
+}
 
 #pragma mark - UITableViewController
 
-- (BOOL)clearsSelectionOnViewWillAppear {}
+- (BOOL)clearsSelectionOnViewWillAppear {
+}
 
 #pragma mark - NYTSectionFrontViewController
 
-- (void)setSection:(NYTSection *) {}
+- (void)setSection:(NYTSection *) {
+}
 
 #pragma mark - UITableViewDelegate
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+}
 
 #pragma mark - NYTSectionLoaderDelegate
 
-- (void)sectionLoader:(NYTSectionLoader *) didLoadSection:(NYTSection *)section {}
+- (void)sectionLoader:(NYTSectionLoader *) didLoadSection:(NYTSection *)section {
+}
 
 @end
 ```
