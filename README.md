@@ -370,6 +370,9 @@ In general within a group, try to organize by chronology (e.g. `viewWillAppear` 
 - (void)viewDidLoad {
 }
 
+- (void)viewWillAppear {
+}
+
 #pragma mark - UITableViewController
 
 - (BOOL)clearsSelectionOnViewWillAppear {
