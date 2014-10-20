@@ -24,7 +24,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Variables](#variables)
 * [Naming](#naming)
 * [Comments](#comments)
-* [Init & Dealloc](#init-and-dealloc)
+* [Initializers](#initializers)
 * [Literals](#literals)
 * [CGRect Functions](#cgrect-functions)
 * [Constants](#constants)
@@ -221,15 +221,13 @@ When they are needed, comments should be used to explain **why** a particular pi
 
 Block comments should generally be avoided, as code should be as self-documenting as possible, with only the need for intermittent, few-line explanations. This does not apply to those comments used to generate documentation.
 
-## init and dealloc
+## Initializers
 
-`dealloc` methods should be placed at the top of the implementation, directly after the `@synthesize` and `@dynamic` statements. `init` should be placed directly below the `dealloc` methods of any class.
-
-`init` methods should be structured like this:
+Initializer methods should be structured as follows:
 
 ```objc
 - (instancetype)init {
-    self = [super init]; // or call the designated initalizer
+    self = [super init]; // or call the designated initializer
     if (self) {
         // Custom initialization
     }
