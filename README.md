@@ -31,6 +31,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Enumerated Types](#enumerated-types)
 * [Bitmasks](#bitmasks)
 * [Private Properties](#private-properties)
+* [Method Ordering](#method-ordering)
 * [Image Naming](#image-naming)
 * [Booleans](#booleans)
 * [Singletons](#singletons)
@@ -346,6 +347,42 @@ Private properties should be declared in class extensions (anonymous categories)
 @property (nonatomic, strong) GADBannerView *googleAdView;
 @property (nonatomic, strong) ADBannerView *iAdView;
 @property (nonatomic, strong) UIWebView *adXWebView;
+
+@end
+```
+
+## Method Ordering
+
+Method implementations are grouped and ordered by class inheritance, then by protocol conformance with system protocols proceeding custom protocols. A `pragma mark` is used to separate each group.
+
+In general within a group, try to organize by chronology (e.g. `viewWillAppear` before `viewDidAppear`).
+
+```objc
+@implementation NYTSectionFrontViewController
+
+#pragma mark - NSObject
+
+- (instancetype)init {}
+
+#pragma mark - UIViewController
+
+- (void)viewDidLoad {}
+
+#pragma mark - UITableViewController
+
+- (BOOL)clearsSelectionOnViewWillAppear {}
+
+#pragma mark - NYTSectionFrontViewController
+
+- (void)setSection:(NYTSection *) {}
+
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {}
+
+#pragma mark - NYTSectionLoaderDelegate
+
+- (void)sectionLoader:(NYTSectionLoader *) didLoadSection:(NYTSection *)section {}
 
 @end
 ```
