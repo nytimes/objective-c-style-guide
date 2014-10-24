@@ -1,8 +1,7 @@
-# NYTimes Objective-C Style Guide
+# Intrepid Pursuits Objective-C Style Guide
 
-This style guide outlines the coding conventions of the iOS team at The New York Times. We welcome your feedback in [issues](https://github.com/NYTimes/objetive-c-style-guide/issues), [pull requests](https://github.com/NYTimes/objetive-c-style-guide/pulls) and [tweets](https://twitter.com/nytimesmobile). Also, [we're hiring](http://jobs.nytco.com/job/New-York-iOS-Developer-Job-NY/2572221/).
+This style guide outlines the coding conventions of the iOS team at Intrepid Pursuits. It started as a fork of the coding convections of the New York Times iOS team (https://github.com/NYTimes/objective-c-style-guide). We welcome your feedback.
 
-Thanks to all of [our contributors](https://github.com/NYTimes/objective-c-style-guide/contributors).
 
 ## Introduction
 
@@ -61,9 +60,10 @@ UIApplication.sharedApplication.delegate;
 ```objc
 if (user.isHappy) {
 //Do something
-}
-else {
+} else if (user.isDead) {
 //Do something else
+} else {
+//Do yet another thing
 }
 ```
 * There should be exactly one blank line between methods to aid in visual clarity and organization. Whitespace within methods should separate functionality, but often there should probably be new methods.
@@ -71,7 +71,7 @@ else {
 
 ## Conditionals
 
-Conditional bodies should always use braces even when a conditional body could be written without braces (e.g., it is one line only) to prevent [errors](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256). These errors include adding a second line and expecting it to be part of the if-statement. Another, [even more dangerous defect](http://programmers.stackexchange.com/a/16530) may happen where the line "inside" the if-statement is commented out, and the next line unwittingly becomes part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.
+Conditional bodies should always use braces even when a conditional body could be written without braces. These errors include adding a second line and expecting it to be part of the if-statement. Another, [even more dangerous defect](http://programmers.stackexchange.com/a/16530) may happen where the line "inside" the if-statement is commented out, and the next line unwittingly becomes part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.
 
 **For example:**
 ```objc
@@ -108,7 +108,7 @@ result = a > b ? x = c > d ? c : d : y;
 
 ## Error handling
 
-When methods return an error parameter by reference, switch on the returned value, not the error variable.
+When methods return a success bool and uses an error parameter by reference, switch on the returned value, not the error variable.
 
 **For example:**
 ```objc
@@ -136,6 +136,17 @@ In method signatures, there should be a space after the scope (-/+ symbol). Ther
 **For Example**:
 ```objc
 - (void)setExampleText:(NSString *)text image:(UIImage *)image;
+```
+
+More general methods should call more specific ones with default parameters
+
+```objc
+- (void)runBlock:(IPExecutionBlock)executionBlock {
+    [self runBlock:executionBlock timeout:5];
+}
+- (void)runBlock:(IPExecutionBlock)executionBlock timeout:(NSTimeInterval)timeout {
+    ...
+}
 ```
 ## Variables
 
