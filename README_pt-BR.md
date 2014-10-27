@@ -69,7 +69,7 @@ else {
 // falso
 }
 ```
-* Deve haver exatamente uma linha em branco entre os métodos para auxiliar na organização visual. Espaços em branco dentro dos métodos devem separar funcionalidades, mas sua principal função é separadar métodos.
+* Deve haver exatamente uma linha em branco entre os métodos para auxiliar na organização visual. Espaços em branco dentro dos métodos devem separar funcionalidades, mas sua principal função é separar métodos.
 * `@synthesize` e `@dynamic` devem ser declarados em novas linhas.
 
 ## Condicionais
@@ -111,7 +111,7 @@ result = a > b ? x = c > d ? c : d : y;
 
 ## Tratamento de erros
 
-Quando os métodos retornarem um parâmetro de erro referênciado, deve-se tratar o valor retornado e não a variável de erro.
+Quando os métodos retornarem um parâmetro de erro referenciado, deve-se tratar o valor retornado e não a variável de erro.
 
 **Exemplo correto:**
 ```objc
@@ -130,7 +130,7 @@ if (error) {
 }
 ```
 
-Algumas APIs da Apple armazenam valores ao parâmetro de erro sem existir um erro de fato (um exemplo seria armazenar o valor 'não existem erros'), por isso validar se a váriavel é nula pode ocasionar a falso negativo (e, posteriormente, falhas).
+Algumas APIs da Apple armazenam valores ao parâmetro de erro sem existir um erro de fato (um exemplo seria armazenar o valor 'não existem erros'), por isso validar se a váriavel é nula pode ocasionar um falso negativo (e, posteriormente, falhas).
 
 ## Métodos
 
@@ -144,7 +144,7 @@ Na assinatura de um método, deve haver um espaço após o escopo (símbolo de -
 
 As variáveis devem ser nomeadas de forma mais descritiva possível. Nomes de variáveis com uma única letra devem ser evitados, exceto em estruturas de repetição do tipo `for()`.
 
-Os asteriscos, que indicam ponteiros, pertencem a variável, por exemplo: `NSString *text`, não `NSString* text` ou `NSString * text`, exceto em caso onde sejam aplicados a constantes.
+Os asteriscos, que indicam ponteiros, pertencem à variável, por exemplo: `NSString *text`, não `NSString* text` ou `NSString * text`, exceto em caso onde sejam aplicados a constantes.
 
 As definições de propriedade vem ser utilizadas sempre que possível. O acesso direto a variáveis de instância deve ser evitado, com excessão de métodos inicializadores (`init`, `initWithCoder:`...), métodos `dealloc` e métodos acessores (`set` e `get`). Para mais informações sobre o uso de métodos acessores em métodos inicializadores e `dealloc`, consulte [esta página](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
 
@@ -224,7 +224,7 @@ Blocos de comentários devem ser evitados, assim como o código deve se auto-doc
 
 ## init e dealloc
 
-Métodos `dealloc` devem er colocados no topo das classes de implementação, logo após as declarações de `@synthesize` e `@dynamic`. O `init` deve ser colocado imediatamente abaixo do método `dealloc` de qualquer classe.
+Métodos `dealloc` devem ser colocados no topo das classes de implementação, logo após as declarações de `@synthesize` e `@dynamic`. O `init` deve ser colocado imediatamente abaixo do método `dealloc` de qualquer classe.
 
 Métodos `init` devem ser estruturados da seguinte forma:
 
@@ -340,7 +340,7 @@ Propriedades privadas devem ser decladas em extensões da classe (categorias an�
 
 ## Nomenclatura de imagens
 
-O nome de uma imagem deve ser consistente, preservando a organização e o objetivo ao qual foi criada. Ela deve utilizar o padrão camel-case para descrever sua finalidade, seguido do prefixo da classe ou propriedade que esta sendo personalizada (caso exista), seguido por uma descrição mais detalhada de sua coloração e, finalmente, seu estado (selecionado, por exemplo).
+O nome de uma imagem deve ser consistente, preservando a organização e o objetivo ao qual foi criada. Ela deve utilizar o padrão camel-case para descrever sua finalidade, seguido do prefixo da classe ou propriedade que está sendo personalizada (caso exista), seguido por uma descrição mais detalhada de sua coloração e, finalmente, seu estado (selecionado, por exemplo).
 
 **Exemplo correto:**
 
@@ -351,7 +351,7 @@ Imagens que são utilizadas para um propósito similar devem fazer parte do mesm
 
 ## Booleanos
 
-`nil` é interpretado como `NO` portanto não é necessário compara-lo em condições. Nunca compare algo diretamente com `YES` porque `YES` é definido como 1 e um `BOOL` pode ser de até 8 bits.
+`nil` é interpretado como `NO` portanto não é necessário compará-lo em condições. Nunca compare algo diretamente com `YES` porque `YES` é definido como 1 e um `BOOL` pode ser de até 8 bits.
 
 Isso permite uma maior consistência entre os arquivos e maior clareza visual.
 
@@ -381,7 +381,7 @@ if (![someObject boolValue])
 **Inadequado:**
 
 ```objc
-if (isAwesome == YES) // Never do this.
+if (isAwesome == YES) // Nunca faça isso.
 if ([someObject boolValue] == NO)
 ```
 
