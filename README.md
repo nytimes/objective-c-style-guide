@@ -147,7 +147,7 @@ In the method implementation opening bracket should **always** be placed in a ne
 }
 ```
 
-Method declarations should conform to be written on one line unless it exceeds the width of 120. If it does exceed the proposed limit then it should colon align the exceeding parameters with the first colon on the previous line.
+Method declarations should conform to be written on one line unless it exceeds the width of 110. If it does exceed the proposed limit then it should colon align the exceeding parameters with the first colon on the previous line when possible.
 
 **For Example**:
 ```objc
@@ -472,7 +472,7 @@ OCLint is a static code analysis tool for improving quality and reducing defects
   $ xcodebuild clean
   $ xcodebuild >> xcodebuild.log
   $ oclint-xcodebuild
-  $ oclint-json-compilation-database oclint_args "-rc LONG_LINE=120" | sed 's/\(.*\.\m\{1,2\}:[0-9]*:[0-9]*:\)/\1 warning:/' >> oclint.log
+  $ oclint-json-compilation-database oclint_args "-rc LONG_LINE=110" | sed 's/\(.*\.\m\{1,2\}:[0-9]*:[0-9]*:\)/\1 warning:/' >> oclint.log
 ```
 
 Based on the NYTimes Objective-C Style Guide.
