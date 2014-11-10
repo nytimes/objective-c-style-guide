@@ -428,7 +428,7 @@ This will prevent [possible and sometimes prolific crashes](http://cocoasamurai.
 
 ## Imports
 
-If there is more than one `#import` statement, group the statements [together](http://ashfurrow.com/blog/structuring-modern-objective-c) (commenting each group is optional).
+If there is more than one `#import` statement, group the statements [together](http://ashfurrow.com/blog/structuring-modern-objective-c). Commenting each group is optional.
 
 Note: For modules use the @import syntax where possible.
 
