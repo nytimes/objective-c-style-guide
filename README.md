@@ -430,7 +430,7 @@ This will prevent [possible and sometimes prolific crashes](http://cocoasamurai.
 
 If there is more than one `#import` statement, group the statements [together](http://ashfurrow.com/blog/structuring-modern-objective-c) (commenting each group is optional).
 
-Note: For frameworks use the module syntax where possible.
+Note: For modules use the @import syntax where possible.
 
 ```objc
 // Frameworks
