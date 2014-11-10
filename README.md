@@ -430,7 +430,7 @@ This will prevent [possible and sometimes prolific crashes](http://cocoasamurai.
 
 If there is more than one import statement, group the statements [together](http://ashfurrow.com/blog/structuring-modern-objective-c). Commenting each group is optional.
 
-Note: For modules use the [@import](https://developer.apple.com/library/ios/documentation/DeveloperTools/Conceptual/WhatsNewXcode/Articles/xcode_5_0.html#//apple_ref/doc/uid/TP40012953-SW27) syntax where possible.
+Note: For modules use the @import syntax [where possible](https://developer.apple.com/library/ios/documentation/DeveloperTools/Conceptual/WhatsNewXcode/Articles/xcode_5_0.html#//apple_ref/doc/uid/TP40012953-SW27).
 
 ```objc
 // Frameworks
