@@ -34,6 +34,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Image Naming](#image-naming)
 * [Booleans](#booleans)
 * [Singletons](#singletons)
+* [Imports](#imports)
 * [Xcode Project](#xcode-project)
 
 ## Dot-Notation Syntax
@@ -424,6 +425,21 @@ Singleton objects should use a thread-safe pattern for creating their shared ins
 }
 ```
 This will prevent [possible and sometimes prolific crashes](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
+
+## Imports
+
+If there are many `#import` statements, group them [together](http://ashfurrow.com/blog/structuring-modern-objective-c) (commenting each group is optional).
+```objc
+// Frameworks
+#import <QuartzCore/QuartzCore.h>
+
+// Models
+#import "NYTUser.h"
+
+// Views
+#import "NYTButton.h"
+#import "NYTUserView.h"
+```
 
 ## Xcode project
 
