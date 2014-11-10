@@ -428,7 +428,7 @@ This will prevent [possible and sometimes prolific crashes](http://cocoasamurai.
 
 ## Imports
 
-If there are many `#import` statements, group them [together](http://ashfurrow.com/blog/structuring-modern-objective-c) (commenting each group is optional).
+If there is more than one `#import` statement, group them [together](http://ashfurrow.com/blog/structuring-modern-objective-c) (commenting each group is optional).
 ```objc
 // Frameworks
 #import <QuartzCore/QuartzCore.h>
