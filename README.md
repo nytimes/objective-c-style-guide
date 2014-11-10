@@ -434,7 +434,7 @@ Note: For modules use the [@import](http://clang.llvm.org/docs/Modules.html#usin
 
 ```objc
 // Frameworks
-@import QuartzCore
+@import QuartzCore;
 
 // Models
 #import "NYTUser.h"
