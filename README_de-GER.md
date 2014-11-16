@@ -229,7 +229,7 @@ Blockkommentare sollten generell vermieden werden, da Code (abgesehen von ein pa
 
 ```objc
 - (instancetype)init {
-    self = [super init]; // oder Aufruf des designated initalizer
+    self = [super init]; // oder Aufruf des designated initializer
     if (self) {
         // Custom initialization
     }
