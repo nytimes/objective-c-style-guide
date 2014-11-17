@@ -165,7 +165,7 @@ NSString *headline;s
 
 #### Qualifiers de Variables
 
-En ce qui concerne les qualifiers de variables [introduits avec ARC](https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4), le qualifer (`__strong`, `__weak`, `__unsafe_unretained`, `__autoreleasing`) doit être placé entre l'astérisque et le nom de la variable, par ex., `NSString * __weak text`.
+En ce qui concerne les qualifiers de variables [introduits avec ARC](https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4), le qualifier (`__strong`, `__weak`, `__unsafe_unretained`, `__autoreleasing`) doit être placé entre l'astérisque et le nom de la variable, par ex., `NSString * __weak text`.
 
 ## Nommage
 
