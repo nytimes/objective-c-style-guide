@@ -410,40 +410,24 @@ Text and example taken from the [Cocoa Naming Guidelines](https://developer.appl
 
 -----
 
-If a method returns a `BOOL` and the condition to evaluate is simple enough, return its result on a single line instead of storing it in a local variable first.
-
-This:
-```objc
-if (aBool) {
-return true
-}
-return false
-```
-
-is the same as this:
-```objc
-return aBool
-```
+If a method returns a `BOOL`, return its result on a single line instead of storing it in a local variable first.
 
 **For example:**
 
 ```objc
-- (BOOL)isAutomaticUpdate {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:NYTDefaultsUpdateAutomatically];
-}
+return [[NSUserDefaults standardUserDefaults] boolForKey:NYTBoolKey];
 ```
 
 **Not:**
 
 ```objc
-- (BOOL)isAutomaticUpdate {
-    BOOL isAutomaticUpdate = [[NSUserDefaults standardUserDefaults] boolForKey:NYTDefaultsUpdateAutomatically];
-    if (isAutomaticUpdate) {
-        return YES;
-    }
+BOOL aBool = [[NSUserDefaults standardUserDefaults] boolForKey:NYTBoolKey];
 
-    return NO;
+if (aBool) {
+	return YES;
 }
+
+return NO;
 ```
 
 ## Singletons
