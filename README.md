@@ -433,6 +433,21 @@ If a method returns a `BOOL` and the condition to evaluate is simple enough, ret
 }
 ```
 
+or in a simpler form:
+
+```objc
+if (aBool) {
+return true
+}
+return false
+```
+
+which returns
+
+```objc
+return aBool
+```
+
 ## Singletons
 
 Singleton objects should use a thread-safe pattern for creating their shared instance.
