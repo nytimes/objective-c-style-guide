@@ -412,6 +412,19 @@ Text and example taken from the [Cocoa Naming Guidelines](https://developer.appl
 
 If a method returns a `BOOL` and the condition to evaluate is simple enough, return its result on a single line instead of storing it in a local variable first.
 
+This:
+```objc
+if (aBool) {
+return true
+}
+return false
+```
+
+is the same as this:
+```objc
+return aBool
+```
+
 **For example:**
 
 ```objc
@@ -431,21 +444,6 @@ If a method returns a `BOOL` and the condition to evaluate is simple enough, ret
 
     return NO;
 }
-```
-
-or in a simpler form:
-
-```objc
-if (aBool) {
-return true
-}
-return false
-```
-
-which returns
-
-```objc
-return aBool
 ```
 
 ## Singletons
