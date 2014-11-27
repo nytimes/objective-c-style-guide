@@ -475,4 +475,4 @@ OCLint is a static code analysis tool for improving quality and reducing defects
   $ oclint-json-compilation-database oclint_args "-rc LONG_LINE=110" | sed 's/\(.*\.\m\{1,2\}:[0-9]*:[0-9]*:\)/\1 warning:/' >> oclint.log
 ```
 
-Based on the NYTimes Objective-C Style Guide.
+Based on the [NYTimes Objective-C Style Guide](https://github.com/NYTimes/objective-c-style-guide).
