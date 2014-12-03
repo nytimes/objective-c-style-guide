@@ -1,10 +1,10 @@
-# 纽约时报 移动团队 Objective-C 风格指南
+# 纽约时报 移动团队 Objective-C 规范指南
 
-这份风格指南概括了纽约时报 iOS 团队的代码约定。
+这份规范指南概括了纽约时报 iOS 团队的代码约定。
 
-## 背景介绍
+## 介绍
 
-这里是苹果提供的一些风格指南，如果有什么东西没在这里提到，那么它可能在其中一个有详细的介绍：
+关于这个编程语言的所有规范，如果这里没有写到，那就在苹果的文档里： 
 
 * [Objective-C 编程语言][Introduction_1]
 * [Cocoa 基本原理指南][Introduction_2]
@@ -41,6 +41,7 @@
 * [图片命名](#图片命名)
 * [布尔](#布尔)
 * [单例](#单例)
+* [导入](#导入)
 * [Xcode 工程](#Xcode-工程)
 
 ## 点语法
@@ -457,6 +458,26 @@ if (isAwesome == YES) // 永远别这么做
 
 [Singletons_1]:http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html
 
+## 导入   
+
+如果有一个以上的 import 语句，就对这些语句进行[分组][Import_1]。每个分组的注释是可选的。   
+注：对于模块使用 [@import][Import_2] 语法。   
+
+```objc   
+// Frameworks
+@import QuartzCore;
+
+// Models
+#import "NYTUser.h"
+
+// Views
+#import "NYTButton.h"
+#import "NYTUserView.h"
+```   
+
+
+[Import_1]: http://ashfurrow.com/blog/structuring-modern-objective-c
+[Import_2]: http://clang.llvm.org/docs/Modules.html#using-modules
 
 ## Xcode 工程
 
