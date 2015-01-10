@@ -71,7 +71,7 @@ else {
 
 ## Conditions
 
-Les instructions de condition doivent toujours utiliser des accolades même quand la condition pourrait être écrite sans (par ex. sur une seule ligne) pour éviter des [erreurs](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256). Une de ces erreurs serait d'ajouter une deuxième ligne et de penser qu'elle fait partie de la condition. Une autre, [plus dangereuse](http://programmers.stackexchange.com/a/16530) peut arriver quand la ligne "intérieure" de la condition est commentée, et la prochaine ligne devient involontairement une partie de la condition. De plus, ce style est plus cohérent avec d'autres conditions et donc plus facile à détecter.
+Les instructions de condition doivent toujours utiliser des accolades même quand la condition pourrait être écrite sans (par ex. sur une seule ligne) pour éviter des [erreurs](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256). Une de ces erreurs serait d'ajouter une deuxième ligne et de penser qu'elle fait partie de la condition. Une autre, [plus dangereuse](http://programmers.stackexchange.com/a/16530) peut arriver quand la ligne «&#8239;intérieure&#8239;» de la condition est commentée, et la prochaine ligne devient involontairement une partie de la condition. De plus, ce style est plus cohérent avec d'autres conditions et donc plus facile à détecter.
 
 **Par exemple:**
 ```objc
@@ -201,7 +201,7 @@ static const NSTimeInterval fadetime = 1.7;
 
 Les properties et variables locales doivent adopter la convention camelCase avec le premier mot en minuscules.
 
-Les variables d'instance doivent adopter la convention camelCase avec le premier mot en miniscules, précédé par le préfixe "_". Ceci est cohérent avec les variables d'instance synthetisées automatiquement par LLVM. **Si LLVM peut synthetiser la variable automatiquement, laissez-le faire.**
+Les variables d'instance doivent adopter la convention camelCase avec le premier mot en miniscules, précédé par le préfixe  «&#8239;_&#8239;». Ceci est cohérent avec les variables d'instance synthetisées automatiquement par LLVM. **Si LLVM peut synthetiser la variable automatiquement, laissez-le faire.**
 
 **Par exemple:**
 
@@ -310,7 +310,7 @@ static const CGFloat NYTImageThumbnailHeight = 50.0;
 
 ## Type Enumération
 
-Pour l'utilisation d' `enum`, il est recommendé de choisir le type fixe spécifié avec un "_" parce qu'il est de type fort et pour bénéficier de la complétion de code. Le SDK inclus maintenant un macro pour faciliter et encourager l'utilisation de type fixe et souligné — `NS_ENUM()`
+Pour l'utilisation d' `enum`, il est recommendé de choisir le type fixe spécifié avec un «&#8239;_&#8239;» parce qu'il est de type fort et pour bénéficier de la complétion de code. Le SDK inclus maintenant un macro pour faciliter et encourager l'utilisation de type fixe et souligné — `NS_ENUM()`
 
 **Exemple:**
 
@@ -401,7 +401,7 @@ if ([unObject boolValue] == NO)
 
 -----
 
-Si le nom d'une propriété `BOOL` est exprimée comme un adjectif, la propriété peut omettre le prefixe “is” mais doit specifier un nom conventionel pour l'accesseur get, par exemple:
+Si le nom d'une propriété `BOOL` est exprimée comme un adjectif, la propriété peut omettre le prefixe «&#8239;is&#8239;» mais doit specifier un nom conventionel pour l'accesseur get, par exemple:
 
 ```objc
 @property (assign, getter=isEditable) BOOL editable;
@@ -430,7 +430,7 @@ Celui permet d'éviter des [plantages possibles, et parfois fréquents](http://c
 
 Les fichiers physiques doivent être maintenus en accordance avec le projet Xcode pour éviter d'avoir des fichiers éparpillés. Les groupes crées dans Xcode doivent avoir un dossier équivalent dans le système de fichiers. Le code doit être groupé non seulement par type, mais aussi par caractéristique pour une plus grande clarté.
 
-Si possible, choisissez toujours "Treat Warnings as Errors" dans le Build Settings du target et exposer autant d'[avertissements supplémentaires](http://boredzo.org/blog/archives/2009-11-07/warnings) que possible. Si vous avez besoin d'ignorer un avertissement specifique, utiliser [Clang's pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
+Si possible, choisissez toujours «&#8239;Treat Warnings as Errors&#8239;» dans le Build Settings du target et exposer autant d'[avertissements supplémentaires](http://boredzo.org/blog/archives/2009-11-07/warnings) que possible. Si vous avez besoin d'ignorer un avertissement specifique, utiliser [Clang's pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
 
 # Autres guides de style Objective-C
 
