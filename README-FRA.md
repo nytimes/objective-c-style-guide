@@ -29,7 +29,7 @@ Voici une partie de la documentation Apple qui nous a aidée à écrire ce guide
 * [Fonctions CGRect](#fonctions-cgrect)
 * [Constantes](#constantes)
 * [Types énumérés](#type-enumeration)
-* [Bitmasks](#bitmasks) // Masque Binaire
+* [Masques de bits](#bitmasks)
 * [Propriétés privées](#propriétés-privées)
 * [Nommage d'image](#nommage-image)
 * [Booléens](#booléens)
@@ -165,7 +165,7 @@ NSString *headline;s
 
 #### Qualification des variables
 
-En ce qui concerne les qualifiers de variables [introduits avec ARC](https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4), le qualifier (`__strong`, `__weak`, `__unsafe_unretained`, `__autoreleasing`) doit être placé entre l'astérisque et le nom de la variable, par ex., `NSString * __weak text`.
+En ce qui concerne les qualificateurs de variables [introduits avec ARC](https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4), le qualificateur (`__strong`, `__weak`, `__unsafe_unretained`, `__autoreleasing`) doit être placé entre l'astérisque et le nom de la variable, par ex., `NSString * __weak text`.
 
 ## Nommage
 
@@ -321,9 +321,9 @@ NYTAdRequestStateLoading
 };
 ```
 
-## Bitmasks
+## Masques de bits
 
-Quand vous travaillez avec des bitmasks, utilisez le macro `NS_OPTIONS`.
+Quand vous travaillez avec des masques de bits, utilisez le macro `NS_OPTIONS`.
 
 **Exemple:**
 
