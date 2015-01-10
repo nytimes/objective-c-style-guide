@@ -13,30 +13,30 @@ Voici une partie de la documentation Apple qui nous a aidée à écrire ce guide
 * [Conseils Généraux de Codage pour Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
 * [Guide de Programmation pour App iOS](http://developer.apple.com/library/ios/#documentation/iphone/conceptual/iphoneosprogrammingguide/Introduction/Introduction.html)
 
-## Table des Matières
+## Table des matières
 
-* [La Notation Pointée](#notation-pointée)
+* [La notation pointée](#notation-pointée)
 * [Espacement](#espacement)
 * [Conditions](#conditions)
-* [Opérateur Ternaire](#operateur-ternaire)
-* [Gestion d'Erreurs](#gestion-d'erreurs)
+* [Opérateur ternaire](#operateur-ternaire)
+* [Gestion des erreurs](#gestion-d'erreurs)
 * [Méthodes](#méthodes)
 * [Variables](#variables)
 * [Nommage](#nommage)
 * [Commentaires](#commentaires)
 * [Init & Dealloc](#init-et-dealloc)
-* [Literals](#literals)
+* [Libellés](#literals)
 * [Fonctions CGRect](#fonctions-cgrect)
 * [Constantes](#constantes)
-* [Type Enumération](#type-enumeration)
+* [Types énumérés](#type-enumeration)
 * [Bitmasks](#bitmasks) // Masque Binaire
-* [Propriétés Privées](#propriétés-privées)
-* [Nommage d'Image](#nommage-image)
+* [Propriétés privées](#propriétés-privées)
+* [Nommage d'image](#nommage-image)
 * [Booléens](#booléens)
 * [Singletons](#singletons)
-* [Project Xcode](#project-xcode)
+* [Projet Xcode](#project-xcode)
 
-## La Notation Pointée
+## La notation pointée
 
 La notation pointée doit **toujours** être utilisée pour accéder aux ou changer les propriétés. La notation crochée est préférable dans tous les autres cas.
 
@@ -92,7 +92,7 @@ ou
 if (!error) return success;
 ```
 
-### Opérateur Ternaire
+### Opérateur ternaire
 
 L'opérateur ternaire, ? , doit seulement être utilisé s'il rend le code plus lisible ou propre. Il doit seulement évaluer une condition simple. Évaluer plusieurs conditions est généralement plus facile à comprendre avec une condition de type if, ou refactorisé avec des variables d'instance.
 
@@ -106,7 +106,7 @@ result = a > b ? x : y;
 result = a > b ? x = c > d ? c : d : y;
 ```
 
-## Gestion d'Erreurs
+## Gestion des erreurs
 
 Quand une méthode renvoie un paramètre d'erreur par référence, continuez l'exécution du programme sur la valeur returnée, et non sur la variable erreur.
 
@@ -163,7 +163,7 @@ NSString *headline;s
 }
 ```
 
-#### Qualifiers de Variables
+#### Qualification des variables
 
 En ce qui concerne les qualifiers de variables [introduits avec ARC](https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4), le qualifier (`__strong`, `__weak`, `__unsafe_unretained`, `__autoreleasing`) doit être placé entre l'astérisque et le nom de la variable, par ex., `NSString * __weak text`.
 
@@ -238,7 +238,7 @@ return self;
 }
 ```
 
-## Literals
+## Libellés
 
 `NSString`, `NSDictionary`, `NSArray`, et `NSNumber` literals doivent être utilisés quand des instances immutables sont créées pour ces objets. Faites bien attention que la valeur `nil` ne soit pas passée aux literals `NSArray` et `NSDictionary`, parce que ça causerait un plantage.
 
@@ -308,7 +308,7 @@ static const CGFloat NYTImageThumbnailHeight = 50.0;
 #define thumbnailHeight 2
 ```
 
-## Type Enumération
+## Types énumérés
 
 Pour l'utilisation d' `enum`, il est recommendé de choisir le type fixe spécifié avec un «&#8239;_&#8239;» parce qu'il est de type fort et pour bénéficier de la complétion de code. Le SDK inclus maintenant un macro pour faciliter et encourager l'utilisation de type fixe et souligné — `NS_ENUM()`
 
@@ -336,7 +336,7 @@ NYTAdCategoryTechnology = 1 << 3
 };
 ```
 
-## Propriétés Privées
+## Propriétés privées
 
 Les propriétés privées doivent être déclarées dans l'extension de la classe dans le fichier d'implémentation. Des catégories appelées (telles que `NYTPrivate` ou `private`) ne doivent jamais être utilisées à moins qu'elle soit extendues d'une autre classe.
 
@@ -352,7 +352,7 @@ Les propriétés privées doivent être déclarées dans l'extension de la class
 @end
 ```
 
-## Nommage d'Image
+## Nommage d'image
 
 Les noms des images doit être cohérents pour préserver une bonne organisation. Elles doivent être nommées en utilisant la convention camelCase avec la description de leur utilisation, suivi du suffixe de la classe ou propriété qu'elles customisent (si elle existe), suivie de la description de la couleur et/ou emplacement, et finalement leur état.
 **Par exemple:**
@@ -426,7 +426,7 @@ return sharedInstance;
 ```
 Celui permet d'éviter des [plantages possibles, et parfois fréquents](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
 
-## Project Xcode
+## Projet Xcode
 
 Les fichiers physiques doivent être maintenus en accordance avec le projet Xcode pour éviter d'avoir des fichiers éparpillés. Les groupes crées dans Xcode doivent avoir un dossier équivalent dans le système de fichiers. Le code doit être groupé non seulement par type, mais aussi par caractéristique pour une plus grande clarté.
 
