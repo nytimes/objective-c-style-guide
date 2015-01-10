@@ -6,11 +6,11 @@ Merci à tous [nos collaborateurs (trices)](https://github.com/NYTimes/objective
 
 ## Introduction
 
-Voici une partie de la documentation Apple qui nous ont aidé à écrire ce guide. Si quelque chose n'est pas mentionné ici, c'est parce que c'est certainement couvert en détail dans:
+Voici une partie de la documentation Apple qui nous a aidée à écrire ce guide. Si quelque chose n'est pas mentionné ici, c'est parce que c'est certainement couvert en détail dans:
 
-* [Le Language de Programmation Objective-C](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html)
-* [Les Bases Fundamentales de Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
-* [Conseils Générals de Codage pour Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
+* [Le langage de Programmation Objective-C](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html)
+* [Les Bases Fondamentales de Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
+* [Conseils Généraux de Codage pour Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
 * [Guide de Programmation pour App iOS](http://developer.apple.com/library/ios/#documentation/iphone/conceptual/iphoneosprogrammingguide/Introduction/Introduction.html)
 
 ## Table des Matières
@@ -66,12 +66,12 @@ else {
 //Faire quelque chose d'autre
 }
 ```
-* It doit y avoir exactement une ligne vide entre les méthodes pour clarité visuelle et meilleure organisation. Une ligne vide à l'intérieur d'une méthode indique une séparation de fonction, qui devrait souvent être mise dans une nouvelle méthode.
-* `@synthesize` et `@dynamic` doivent chacun être déclarés sur une nouvelles ligne dans l'implementation.
+* It doit y avoir exactement une ligne vide entre les méthodes pour la clarté visuelle et une meilleure organisation. Une ligne vide à l'intérieur d'une méthode indique une séparation de fonction, qui devrait souvent être mise dans une nouvelle méthode.
+* `@synthesize` et `@dynamic` doivent chacun être déclarés sur une nouvelle ligne dans l'implémentation.
 
 ## Conditions
 
-Les instructions de condition doivent toujours utiliser des accolades même quand la condition pourrait être écrite sans (par ex. sur une seule ligne) pour éviter des [erreurs](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256). Une des ces erreurs serait d'ajouter une deuxième ligne et penser qu'elle fait partie de la condition. Une autre, [plus dangeureuse](http://programmers.stackexchange.com/a/16530) peut arriver quand la ligne "intérieure" de la condition est commentée, et la prochaine ligne devient involontairement une partie de la condition. De plus, ce style is plus cohérent avec d'autres conditions et donc plus facile à détecter.
+Les instructions de condition doivent toujours utiliser des accolades même quand la condition pourrait être écrite sans (par ex. sur une seule ligne) pour éviter des [erreurs](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256). Une de ces erreurs serait d'ajouter une deuxième ligne et de penser qu'elle fait partie de la condition. Une autre, [plus dangereuse](http://programmers.stackexchange.com/a/16530) peut arriver quand la ligne "intérieure" de la condition est commentée, et la prochaine ligne devient involontairement une partie de la condition. De plus, ce style est plus cohérent avec d'autres conditions et donc plus facile à détecter.
 
 **Par exemple:**
 ```objc
@@ -86,7 +86,7 @@ if (!error)
 return success;
 ```
 
-or
+ou
 
 ```objc
 if (!error) return success;
@@ -94,7 +94,7 @@ if (!error) return success;
 
 ### Opérateur Ternaire
 
-L'opérateur ternaire, ? , doit seulement être utilisé s'il rend le code plus lisible ou propre. Il ne doit seulement évaluer une condition simple. Evaluer plusieurs conditions est généralement plus facile à comprendre avec une condition de type if, ou refactoré avec des variables d'instance.
+L'opérateur ternaire, ? , doit seulement être utilisé s'il rend le code plus lisible ou propre. Il doit seulement évaluer une condition simple. Évaluer plusieurs conditions est généralement plus facile à comprendre avec une condition de type if, ou refactorisé avec des variables d'instance.
 
 **Par exemple:**
 ```objc
@@ -108,7 +108,7 @@ result = a > b ? x = c > d ? c : d : y;
 
 ## Gestion d'Erreurs
 
-Quand une méthode renvoie un paramètre erreur par référence, continuez l'exécution du programme sur la value returnée, et non sur la variable erreur.
+Quand une méthode renvoie un paramètre d'erreur par référence, continuez l'exécution du programme sur la valeur returnée, et non sur la variable erreur.
 
 **Par exemple:**
 ```objc
@@ -127,11 +127,11 @@ if (error) {
 }
 ```
 
-Certains des APIs d'Apple renvoient des valeurs de données poubeille pour un paramètre erreur (si non-NULL), donc continuer l'exécution du programme sur l'erreur peut créer des faux négatifs (et par la suite un plantage).
+Certaines APIs d'Apple renvoient des valeurs de données poubeille pour un paramètre erreur (si non-NULL), donc continuer l'exécution du programme sur l'erreur peut créer des faux négatifs (et par la suite un plantage).
 
 ## Méthodes
 
-Pour la signature d'une méthode, il doit y avoir un espace après le scope (symbole -/+). Et il doit y avoir un espace entre les différent segments (paramètres) de la méthode.
+Pour la signature d'une méthode, il doit y avoir un espace après le scope (symbole -/+). Et il doit y avoir un espace entre les différents segments (paramètres) de la méthode.
 
 **Par exemple**:
 ```objc
@@ -143,7 +143,7 @@ Les variables doivent être nommées de la façon la plus descriptive possible. 
 
 Les astérisques qui indiquent le pointeur sont plaçés avant le nom de la variable, par ex., `NSString *text` et non `NSString* text` ou `NSString * text`, sauf dans le cas de constantes.
 
-La définition des propriétés doivent être utilisées à la place des variables d'instance quand c'est possible. L'accès direct aux variables d'instance doit être évité sauf pour les méthodes d'initialisation (`init`, `initWithCoder:`, etc…), la méthode `dealloc` et les setters et getters. Pour plus d'information sur l'utilisation de méthodes d'accès, les méthodes d'initialisation et dealloc, consultez [cet article](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
+La définition des propriétés doivent être utilisées à la place des variables d'instance quand c'est possible. L'accès direct aux variables d'instance doit être évité sauf pour les méthodes d'initialisation (`init`, `initWithCoder:`, etc…), la méthode `dealloc` et les accesseurs et mutateurs. Pour plus d'information sur l'utilisation de méthodes d'accès, les méthodes d'initialisation et dealloc, consultez [cet article](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
 
 **Par exemple:**
 
@@ -169,7 +169,7 @@ En ce qui concerne les qualifiers de variables [introduits avec ARC](https://dev
 
 ## Nommage
 
-La convention de nommage Apple devrait être suivi quand possible, surtout en ce qui concerne les [règles de management de mémoire](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html) ([NARC](http://stackoverflow.com/a/2865194/340508)).
+La convention de nommage Apple devrait être suivie quand possible, surtout en ce qui concerne les [règles de management de mémoire](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html) ([NARC](http://stackoverflow.com/a/2865194/340508)).
 
 Il est mieux d'utiliser des noms descriptifs, et longs si nécessaire, pour les méthodes et variables.
 
@@ -185,7 +185,7 @@ UIButton *settingsButton;
 UIButton *setBut;
 ```
 
-Un préfixe de trois lettres (par ex. `NYT`) doit toujours être utilisé pour le nom des classes et constantes, mais peut être omit pour le nom des entités dans Core Data. Les constantes doivent adopter la convention camelCase avec tous les mots qui commençent avec une lettre capitale, précédés du nom de la classe dans laquelle ils sont déclarés pour clarité.
+Un préfixe de trois lettres (par ex. `NYT`) doit toujours être utilisé pour le nom des classes et constantes, mais peut être omis pour le nom des entités dans Core Data. Les constantes doivent adopter la convention camelCase avec tous les mots qui commencent avec une lettre capitale, précédées du nom de la classe dans laquelle ils sont déclarés pour la clarté.
 
 **Par exemple:**
 
@@ -199,9 +199,9 @@ static const NSTimeInterval NYTArticleViewControllerNavigationFadeAnimationDurat
 static const NSTimeInterval fadetime = 1.7;
 ```
 
-Les properties et local variables doivent adopter la convention camelCase avec le premier mot en miniscules.
+Les properties et variables locales doivent adopter la convention camelCase avec le premier mot en minuscules.
 
-Les variables d'instance doivent adopter la convention camelCase avec le premier mot en miniscules, précédé par le préfixe "_". Ceci est cohérent avec les variables d'instance synthetisé automatiquement par LLVM. **Si LLVM peut synthetiser la variable automatiquement, laissez-le faire.**
+Les variables d'instance doivent adopter la convention camelCase avec le premier mot en miniscules, précédé par le préfixe "_". Ceci est cohérent avec les variables d'instance synthetisées automatiquement par LLVM. **Si LLVM peut synthetiser la variable automatiquement, laissez-le faire.**
 
 **Par exemple:**
 
@@ -217,13 +217,13 @@ id nmvar;
 
 ## Commentaires
 
-Si nécessaire, les commentaires peuvent être utilisés pour expliquer **pourquoi** un bloc de code fait quelque chose. Les commentaires doivrent être à jour ou éliminés.
+Si nécessaire, les commentaires peuvent être utilisés pour expliquer **pourquoi** un bloc de code fait quelque chose. Les commentaires doivent être à jour ou éliminés.
 
-Les paragraphes de commentaires devraient généralement être évités, le code devrait être suffisament descriptif, avec seulement un besoin intermittent de commentaire et juste quelques lignes d'explanation. Ceci ne s'applique pas aux commentaires utilisés pour la documentation.
+Les paragraphes de commentaires devraient généralement être évités, le code devrait être suffisament descriptif, avec seulement un besoin intermittent de commentaire et juste quelques lignes d'explications. Ceci ne s'applique pas aux commentaires utilisés pour la documentation.
 
 ## init et dealloc
 
-La méthode `dealloc` doit être plaçée au début de l'implementation, directement après les expressions `@synthesize` et `@dynamic`. La méthode `init` doit être plaçée directement après la méthode `dealloc`.
+La méthode `dealloc` doit être placée au début de l'implémentation, directement après les expressions `@synthesize` et `@dynamic`. La méthode `init` doit être placée directement après la méthode `dealloc`.
 
 La méthode `init` doit être structurée comme ceci:
 
@@ -240,7 +240,7 @@ return self;
 
 ## Literals
 
-`NSString`, `NSDictionary`, `NSArray`, et `NSNumber` literals doivent être utilisés quand des instances immutables sont crées pour ces objects. Faites bien attention que la value `nil` ne soit pas passée aux literals `NSArray` et `NSDictionary`, parce que ça causerait un plantage.
+`NSString`, `NSDictionary`, `NSArray`, et `NSNumber` literals doivent être utilisés quand des instances immutables sont créées pour ces objets. Faites bien attention que la valeur `nil` ne soit pas passée aux literals `NSArray` et `NSDictionary`, parce que ça causerait un plantage.
 
 **Par exemple:**
 
@@ -262,9 +262,9 @@ NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 
 ## Fonctions CGRect
 
-Quand accéder au `x`, `y`, `width`, ou `height` d'un `CGRect`, utiliser toujours les [fonctions `CGGeometry`](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) au lieu de l'accès directe au membre struct. Extrait de la référence Apple pour `CGGeometry`:
+En accédant à `x`, `y`, `width`, ou `height` d'un `CGRect`, utilisez toujours les [fonctions `CGGeometry`](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) au lieu de l'accès direct au membre struct. Extrait de la référence Apple pour `CGGeometry`:
 
-> Toutes les fonctions décrites dans cette référence qui prendre les structures de data CGRect comme donnée standardise implicitement ces rectangles avant de calculer leurs résultats. Pour cette raison, votre application devrait éviter de lire et écrire directement la donnée sauvegardée dans la structure de data CGRect. A la place, utiliser les fonctions décrites ici pour manipuler les rectangles et pour recupérer leurs charactériques.
+> Toutes les fonctions décrites dans cette référence qui prendre les structures de data CGRect comme donnée standardise implicitement ces rectangles avant de calculer leurs résultats. Pour cette raison, votre application devrait éviter de lire et écrire directement la donnée sauvegardée dans la structure de données CGRect. À la place, utilisez les fonctions décrites ici pour manipuler les rectangles et pour recupérer leurs caractériques.
 
 **Par exemple:**
 
@@ -338,7 +338,7 @@ NYTAdCategoryTechnology = 1 << 3
 
 ## Propriétés Privées
 
-Les propriétés privées doivent être déclarées dans l'extension de la classe dans le fichier d'implementation. Des catégories appelées (telles que `NYTPrivate` ou `private`) ne doivent jamais être utilisées à moins qu'elle soit extendues d'une autre classe.
+Les propriétés privées doivent être déclarées dans l'extension de la classe dans le fichier d'implémentation. Des catégories appelées (telles que `NYTPrivate` ou `private`) ne doivent jamais être utilisées à moins qu'elle soit extendues d'une autre classe.
 
 **Par exemple:**
 
@@ -354,20 +354,20 @@ Les propriétés privées doivent être déclarées dans l'extension de la class
 
 ## Nommage d'Image
 
-Les noms des images doit être cohérent pour préserver une bonne organisation. Elles doivent être nommées en utilisant la convention camelCase avec la description de leur utilisation, suivi du suffixe de la classe ou propriété qu'elles customisent (si elle existe), suivie de la description de la couleur et/ou emplacement, et finalement leur état.
+Les noms des images doit être cohérents pour préserver une bonne organisation. Elles doivent être nommées en utilisant la convention camelCase avec la description de leur utilisation, suivi du suffixe de la classe ou propriété qu'elles customisent (si elle existe), suivie de la description de la couleur et/ou emplacement, et finalement leur état.
 **Par exemple:**
 
 * `RefreshBarButtonItem` / `RefreshBarButtonItem@2x` and `RefreshBarButtonItemSelected` / `RefreshBarButtonItemSelected@2x`
 * `ArticleNavigationBarBlanc` / `ArticleNavigationBarBlanc@2x` and `ArticleNavigationBarNoirSelected` / `ArticleNavigationBarNoirSelected@2x`.
 
-Les images qui sont utilisées pour un même goal doivent être groupées dans leur groupe respectif à l'intérieur d'un dossier Images.
+Les images qui sont utilisées à des fins similaires doivent être regroupées dans leurs groupes respectifs à l'intérieur d'un dossier Images.
 
 
 ## Booléens
 
 Puisque `nil` est retourné comme `NO` il n'est pas nécessaire de le comparer dans une condition. Ne comparez jamais quelque chose avec `YES`, parce que `YES` est défini comme 1 et un `BOOL` peut aller jusqu'à 8 bits.
 
-Ce style permet une plus grande cohérence entre les différent fichiers et une meilleure clarité visuelle.
+Ce style permet une plus grande cohérence entre les différents fichiers et une meilleure clarté visuelle.
 
 **Par exemple:**
 
@@ -401,12 +401,12 @@ if ([unObject boolValue] == NO)
 
 -----
 
-Si le nom d'une propriété `BOOL` est exprimée comme un adjectif, la propriété peut omettre le prefix “is” mais doit specifier un nom conventional pour l'accesseur get, par exemple:
+Si le nom d'une propriété `BOOL` est exprimée comme un adjectif, la propriété peut omettre le prefixe “is” mais doit specifier un nom conventionel pour l'accesseur get, par exemple:
 
 ```objc
 @property (assign, getter=isEditable) BOOL editable;
 ```
-Voyez le document et exemple pris de [Conseils Générals de Nommage Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE).
+Voyez le document et exemple pris de [Conseils Généraux de Nommage Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE).
 
 ## Singletons
 
@@ -424,17 +424,17 @@ sharedInstance = [[self alloc] init];
 return sharedInstance;
 }
 ```
-Celui permet d'éviter des [plantages possibles, et parfois fréquentes](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
+Celui permet d'éviter des [plantages possibles, et parfois fréquents](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
 
 ## Project Xcode
 
-Les fichiers physiques doivent être maintenus en accordance avec le project Xcode pour éviter d'avoir des fichiers éparpillés. Les groupes crées dans Xcode doivent avoir un dossier équivalent dans le système de fichiers. Le code doit être groupé non seulement par type, mais aussi par charactéristique pour une plus grande clarité.
+Les fichiers physiques doivent être maintenus en accordance avec le projet Xcode pour éviter d'avoir des fichiers éparpillés. Les groupes crées dans Xcode doivent avoir un dossier équivalent dans le système de fichiers. Le code doit être groupé non seulement par type, mais aussi par caractéristique pour une plus grande clarté.
 
 Si possible, choisissez toujours "Treat Warnings as Errors" dans le Build Settings du target et exposer autant d'[avertissements supplémentaires](http://boredzo.org/blog/archives/2009-11-07/warnings) que possible. Si vous avez besoin d'ignorer un avertissement specifique, utiliser [Clang's pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
 
 # Autres guides de style Objective-C
 
-Si le notre n'est pas à votre goût, consultez ces autres guides:
+Si le nôtre n'est pas à votre goût, consultez ces autres guides:
 
 * [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
 * [GitHub](https://github.com/github/objective-c-conventions)
