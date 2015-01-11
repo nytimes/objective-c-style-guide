@@ -1,12 +1,12 @@
 # NYTimes - Guide de Style Objective-C
 
-Ce guide présente les conventions de codage de l'équique iOS au New York Times. Nous vous remercions de vos commentaires pour les [problèmes](https://github.com/NYTimes/objetive-c-style-guide/issues), [pull requests](https://github.com/NYTimes/objetive-c-style-guide/pulls) et [tweets](https://twitter.com/nytimesmobile). Aussi, [Nous recrutons](http://jobs.nytco.com/job/New-York-iOS-Developer-Job-NY-10001/73366300/).
+Ce guide décrit les conventions de codage de l'équipe iOS du New York Times. Nous vous remercions pour vos commentaires dans les [tickets](https://github.com/NYTimes/objetive-c-style-guide/issues), [pull requests](https://github.com/NYTimes/objetive-c-style-guide/pulls) et [tweets](https://twitter.com/nytimesmobile). Aussi, [nous recrutons](http://jobs.nytco.com/job/New-York-iOS-Developer-Job-NY-10001/73366300/).
 
-Merci à tous [nos collaborateurs (trices)](https://github.com/NYTimes/objective-c-style-guide/contributors).
+Merci à tous [nos contributeurs et contributrices](https://github.com/NYTimes/objective-c-style-guide/contributors).
 
 ## Introduction
 
-Voici une partie de la documentation Apple qui nous a aidée à écrire ce guide. Si quelque chose n'est pas mentionné ici, c'est parce que c'est certainement couvert en détail dans:
+Voici quelques-uns des documents d'Apple qui nous ont servi à écrire ce guide. Si quelque chose n'est pas mentionné ici, il est probablement couvert en détail dans&#8239;:
 
 * [Le langage de Programmation Objective-C](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html)
 * [Les Bases Fondamentales de Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
