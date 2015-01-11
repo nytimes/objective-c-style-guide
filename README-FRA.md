@@ -38,7 +38,7 @@ Voici quelques-uns des documents d'Apple qui nous ont servi à écrire ce guide.
 
 ## La notation pointée
 
-La notation pointée doit **toujours** être utilisée pour accéder aux ou changer les propriétés. La notation crochée est préférable dans tous les autres cas.
+La notation pointée doit **toujours** être utilisée pour lire ou modifier les propriétés. La notation crochée est préférable dans tous les autres cas.
 
 **Par exemple:**
 ```objc
