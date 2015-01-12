@@ -54,8 +54,8 @@ UIApplication.sharedApplication.delegate;
 
 ## Espacement
 
-* L'indentation est de 4 espaces. N'utilisez jamais la touche de tabulation pour l'indentation. Assurez-vous de choisir cette préférence dans Xcode.
-* Les accolades des méthodes et autres accolades (`if`/`else`/`switch`/`while` etc.) d'ouverture sont toujours sur la même ligne que l'instruction mais les accolades de fermeture sont sur une autre ligne.
+* L'indentation est de 4 espaces. N'indentez jamais avec des tabulations. Assurez-vous de régler cette préférence dans Xcode.
+* L'accolade ouvrante des méthodes et structures de contrôle (`if`/`else`/`switch`/`while` etc.) est toujours sur la même ligne que la déclaration et l'accolade fermante sur sa propre ligne. 
 
 **Par exemple:**
 ```objc
@@ -66,8 +66,8 @@ else {
 //Faire quelque chose d'autre
 }
 ```
-* It doit y avoir exactement une ligne vide entre les méthodes pour la clarté visuelle et une meilleure organisation. Une ligne vide à l'intérieur d'une méthode indique une séparation de fonction, qui devrait souvent être mise dans une nouvelle méthode.
-* `@synthesize` et `@dynamic` doivent chacun être déclarés sur une nouvelle ligne dans l'implémentation.
+* Les méthodes devraient être séparées par une ligne blanche pour améliorer la lisibilité et l'organisation. À l'intérieur des méthodes, des sauts de lignes devraient séparer les sections logiques, mais souvent ces dernières devraient être placées dans de nouvelles méthodes.
+* `@synthesize` et `@dynamic` devraient chacun être déclarés sur de nouvelles lignes dans l'implémentation.
 
 ## Conditions
 
