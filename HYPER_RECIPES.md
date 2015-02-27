@@ -14,4 +14,4 @@ When you are ready to ship, [send us](mailto:ios@hyper.no) the link to your Hype
 
 Thanks, we hope you'll enjoy making some recipes!
 
-PS: This might be useful https://github.com/hyperoslo/objective-c-style-guide
+PS: You'll get 1000000 additional points if you use our [style guidelines](https://github.com/hyperoslo/iOS-playbook/blob/master/STYLE_GUIDELINES.md)
