@@ -10,7 +10,7 @@ We tend to enjoy some popcorn while reviewing your app, reading the code as if i
 
 The API documentation for the backend that will store your delicious recipes can be found [here](https://github.com/hyperoslo/playbook/iOS/RECIPES_API.md).
 
-When you are ready to ship, send us the link to your Hyper Recipes repository, and please remember to write concise and understandable commits.
+When you are ready to ship, [send us](mailto:ios@hyper.no) the link to your Hyper Recipes repository, and please remember to write concise and understandable commits.
 
 Thanks, we hope you'll enjoy making some recipes!
 
