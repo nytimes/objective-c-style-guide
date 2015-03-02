@@ -8,7 +8,7 @@ In Hyper Recipes, you'll build an application that will display recipes in eithe
 
 We tend to enjoy some popcorn while reviewing your app, reading the code as if it was a fantasy book filled with dragons and unicorns. Please make it shine.
 
-The API documentation for the backend that will store your delicious recipes can be found [here](https://github.com/hyperoslo/playbook/iOS/RECIPES_API.md).
+The API documentation for the backend that will store your delicious recipes can be found [here](https://github.com/hyperoslo/iOS-playbook/blob/master/RECIPES_API.md).
 
 When you are ready to ship, [send us](mailto:ios@hyper.no) the link to your Hyper Recipes repository, and please remember to write concise and understandable commits.
 
