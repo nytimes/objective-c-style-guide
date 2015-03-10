@@ -78,10 +78,12 @@ if (!error) {
 }
 ```
 
-or if it's one line
+even if it's one line
 
 ```objc
-if (!error) return success;
+if (!error) {
+    return success;
+}
 ```
 
 **Not:**
