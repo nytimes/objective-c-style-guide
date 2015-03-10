@@ -185,6 +185,8 @@ Asterisks indicating pointers belong with the variable, e.g., `NSString *text` n
 
 Property definitions should be used in place of naked instance variables whenever possible. Direct instance variable access should be avoided except in initializer methods (`init`, `initWithCoder:`, etc…), `dealloc` methods and within custom setters and getters. For more information on using Accessor Methods in Initializer Methods and dealloc, see [here](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
 
+When declaring a `strong` property, you can leave out the `strong` keyword as this is default.
+
 **For example:**
 
 ```objc
@@ -369,9 +371,9 @@ Private properties should be declared in class extensions (anonymous categories)
 ```objc
 @interface HYPAdvertisement ()
 
-@property (nonatomic, strong) GADBannerView *googleAdView;
-@property (nonatomic, strong) ADBannerView *iAdView;
-@property (nonatomic, strong) UIWebView *adXWebView;
+@property (nonatomic) GADBannerView *googleAdView;
+@property (nonatomic) ADBannerView *iAdView;
+@property (nonatomic) UIWebView *adXWebView;
 
 @end
 ```
