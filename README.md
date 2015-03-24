@@ -397,7 +397,7 @@ if (![someObject boolValue])
 
 ```objc
 if (isAwesome == YES) // Never do this.
-if ([someObject boolValue] == NO)
+if ([someObject boolValue] == NO) // This is allowed if you have trouble seeing "!" in front of text.
 ```
 
 -----
