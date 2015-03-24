@@ -366,38 +366,32 @@ Images that are used for a similar purpose should be grouped in respective group
 
 ## Booleans
 
-Since `nil` resolves to `NO` it is unnecessary to compare it in conditions. Never compare something directly to `YES`, because `YES` is defined to 1 and a `BOOL` can be up to 8 bits.
+Since `nil` resolves to `NO` it is unnecessary to compare it in conditions. However, some people find the bang symbol easy to miss and/or find that it reads "backwards" and instead choose to compare to `NO`. 
+However, never compare something directly to `YES`, because `YES` is defined to 1, and a `BOOL` in Objective-C is a `CHAR` type that is 8 bits long (so a value of 11111110 will return NO if compared to `YES`)
 
-This allows for more consistency across files and greater visual clarity.
-
-**For example:**
+**For an object pointer:**
 
 ```objc
 if (!someObject) {
 }
-```
-
-**Not:**
-
-```objc
 if (someObject == nil) {
 }
 ```
 
 -----
 
-**For a `BOOL`, here are two examples:**
+**For a `BOOL` value**
 
 ```objc
 if (isAwesome)
 if (![someObject boolValue])
+if ([someObject boolValue] == NO)
 ```
 
 **Not:**
 
 ```objc
 if (isAwesome == YES) // Never do this.
-if ([someObject boolValue] == NO) // This is allowed if you have trouble seeing "!" in front of text.
 ```
 
 -----
