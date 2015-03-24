@@ -41,6 +41,7 @@
 * [图片命名](#图片命名)
 * [布尔](#布尔)
 * [单例](#单例)
+* [导入](#导入)
 * [Xcode 工程](#Xcode-工程)
 
 ## 点语法
@@ -457,6 +458,26 @@ if (isAwesome == YES) // 永远别这么做
 
 [Singletons_1]:http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html
 
+## 导入   
+
+如果有一个以上的 import 语句，就对这些语句进行[分组][Import_1]。每个分组的注释是可选的。   
+注：对于模块使用 [@import][Import_2] 语法。   
+
+```objc   
+// Frameworks
+@import QuartzCore;
+
+// Models
+#import "NYTUser.h"
+
+// Views
+#import "NYTButton.h"
+#import "NYTUserView.h"
+```   
+
+
+[Import_1]: http://ashfurrow.com/blog/structuring-modern-objective-c
+[Import_2]: http://clang.llvm.org/docs/Modules.html#using-modules
 
 ## Xcode 工程
 
