@@ -261,6 +261,38 @@ NSNumber *shouldUseLiterals = [NSNumber numberWithBool:YES];
 NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 ```
 
+When writing a multiline literal or enumeration, leave a trailing comma on the last item. When entries are added or removed, this eliminates the need to touch unrelated lines. This in turn makes for cleaner diffs: only the truly relevant lines of code must be changed, and the resulting pull request is easier to review.
+
+**For example:**
+
+```objc
+NSArray *names = @[
+    @"Brian",
+    @"Matt",
+    @"Chris",
+]
+
+typedef NS_ENUM(NSUInteger, NYTColors){
+    NYTColorBlack,
+    NYTColorGrey,
+};
+```
+
+**Not:**
+
+```objc
+NSArray *names = @[
+    @"Brian",
+    @"Matt",
+    @"Chris"
+]
+
+typedef NS_ENUM(NSUInteger, NYTColors){
+    NYTColorBlack,
+    NYTColorGrey
+};
+```
+
 ## CGRect Functions
 
 When accessing the `x`, `y`, `width`, or `height` of a `CGRect`, always use the [`CGGeometry` functions](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) instead of direct struct member access. From Apple's `CGGeometry` reference:
