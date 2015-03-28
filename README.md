@@ -140,7 +140,7 @@ In method signatures, there should be a space after the scope (`-` or `+` symbol
 ```
 ## Variables
 
-Variables should be named as descriptively as possible. Single letter variable names should be avoided except as simple counter variables in  in `for` loops.
+Variables should be named as descriptively as possible. Single letter variable names should be avoided except as simple counter variables in `for` loops.
 
 Asterisks indicating pointers belong with the variable, e.g., `NSString *text` not `NSString* text` or `NSString * text`, except in the case of constants (`NSString * const NYTConstantString`).
 
