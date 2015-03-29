@@ -1,45 +1,45 @@
 # NYTimes - Guide de Style Objective-C
 
-Ce guide présente les conventions de codage de l'équique iOS au New York Times. Nous vous remercions de vos commentaires pour les [problèmes](https://github.com/NYTimes/objetive-c-style-guide/issues), [pull requests](https://github.com/NYTimes/objetive-c-style-guide/pulls) et [tweets](https://twitter.com/nytimesmobile). Aussi, [Nous recrutons](http://jobs.nytco.com/job/New-York-iOS-Developer-Job-NY-10001/73366300/).
+Ce guide décrit les conventions de codage de l'équipe iOS du New York Times. Nous vous remercions pour vos commentaires dans les [tickets](https://github.com/NYTimes/objetive-c-style-guide/issues), [pull requests](https://github.com/NYTimes/objetive-c-style-guide/pulls) et [tweets](https://twitter.com/nytimesmobile). Aussi, [nous recrutons](http://jobs.nytco.com/job/New-York-iOS-Developer-Job-NY-10001/73366300/).
 
-Merci à tous [nos collaborateurs (trices)](https://github.com/NYTimes/objective-c-style-guide/contributors).
+Merci à tous [nos contributeurs et contributrices](https://github.com/NYTimes/objective-c-style-guide/contributors).
 
 ## Introduction
 
-Voici une partie de la documentation Apple qui nous a aidée à écrire ce guide. Si quelque chose n'est pas mentionné ici, c'est parce que c'est certainement couvert en détail dans:
+Voici quelques-uns des documents d'Apple qui nous ont servi à écrire ce guide. Si quelque chose n'est pas mentionné ici, il est probablement couvert en détail dans&#8239;:
 
 * [Le langage de Programmation Objective-C](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html)
 * [Les Bases Fondamentales de Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
 * [Conseils Généraux de Codage pour Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
 * [Guide de Programmation pour App iOS](http://developer.apple.com/library/ios/#documentation/iphone/conceptual/iphoneosprogrammingguide/Introduction/Introduction.html)
 
-## Table des Matières
+## Table des matières
 
-* [La Notation Pointée](#notation-pointée)
+* [La notation pointée](#notation-pointée)
 * [Espacement](#espacement)
 * [Conditions](#conditions)
-* [Opérateur Ternaire](#operateur-ternaire)
-* [Gestion d'Erreurs](#gestion-d'erreurs)
+* [Opérateur ternaire](#operateur-ternaire)
+* [Gestion des erreurs](#gestion-d'erreurs)
 * [Méthodes](#méthodes)
 * [Variables](#variables)
 * [Nommage](#nommage)
 * [Commentaires](#commentaires)
 * [Init & Dealloc](#init-et-dealloc)
-* [Literals](#literals)
+* [Libellés](#literals)
 * [Fonctions CGRect](#fonctions-cgrect)
 * [Constantes](#constantes)
-* [Type Enumération](#type-enumeration)
-* [Bitmasks](#bitmasks) // Masque Binaire
-* [Propriétés Privées](#propriétés-privées)
-* [Nommage d'Image](#nommage-image)
+* [Types énumérés](#type-enumeration)
+* [Masques de bits](#bitmasks)
+* [Propriétés privées](#propriétés-privées)
+* [Nommage d'image](#nommage-image)
 * [Booléens](#booléens)
 * [Singletons](#singletons)
 * [Imports](#imports)
-* [Project Xcode](#project-xcode)
+* [Projet Xcode](#projet-xcode)
 
-## La Notation Pointée
+## La notation pointée
 
-La notation pointée doit **toujours** être utilisée pour accéder aux ou changer les propriétés. La notation crochée est préférable dans tous les autres cas.
+La notation pointée doit **toujours** être utilisée pour lire ou modifier les propriétés. La notation crochée est préférable dans tous les autres cas.
 
 **Par exemple:**
 ```objc
@@ -55,8 +55,8 @@ UIApplication.sharedApplication.delegate;
 
 ## Espacement
 
-* L'indentation est de 4 espaces. N'utilisez jamais la touche de tabulation pour l'indentation. Assurez-vous de choisir cette préférence dans Xcode.
-* Les accolades des méthodes et autres accolades (`if`/`else`/`switch`/`while` etc.) d'ouverture sont toujours sur la même ligne que l'instruction mais les accolades de fermeture sont sur une autre ligne.
+* L'indentation est de 4 espaces. N'indentez jamais avec des tabulations. Assurez-vous de régler cette préférence dans Xcode.
+* L'accolade ouvrante des méthodes et structures de contrôle (`if`/`else`/`switch`/`while` etc.) est toujours sur la même ligne que la déclaration et l'accolade fermante sur sa propre ligne. 
 
 **Par exemple:**
 ```objc
@@ -67,12 +67,12 @@ else {
 //Faire quelque chose d'autre
 }
 ```
-* It doit y avoir exactement une ligne vide entre les méthodes pour la clarté visuelle et une meilleure organisation. Une ligne vide à l'intérieur d'une méthode indique une séparation de fonction, qui devrait souvent être mise dans une nouvelle méthode.
-* `@synthesize` et `@dynamic` doivent chacun être déclarés sur une nouvelle ligne dans l'implémentation.
+* Les méthodes devraient être séparées par une ligne blanche pour améliorer la lisibilité et l'organisation. À l'intérieur des méthodes, des sauts de lignes devraient séparer les sections logiques, mais souvent ces dernières devraient être placées dans de nouvelles méthodes.
+* `@synthesize` et `@dynamic` devraient chacun être déclarés sur de nouvelles lignes dans l'implémentation.
 
 ## Conditions
 
-Les instructions de condition doivent toujours utiliser des accolades même quand la condition pourrait être écrite sans (par ex. sur une seule ligne) pour éviter des [erreurs](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256). Une de ces erreurs serait d'ajouter une deuxième ligne et de penser qu'elle fait partie de la condition. Une autre, [plus dangereuse](http://programmers.stackexchange.com/a/16530) peut arriver quand la ligne "intérieure" de la condition est commentée, et la prochaine ligne devient involontairement une partie de la condition. De plus, ce style est plus cohérent avec d'autres conditions et donc plus facile à détecter.
+Les instructions de condition doivent toujours utiliser des accolades même quand la condition pourrait être écrite sans (par ex. sur une seule ligne) pour éviter des [erreurs](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256). Une de ces erreurs serait d'ajouter une deuxième ligne et de penser qu'elle fait partie de la condition. Une autre, [plus dangereuse](http://programmers.stackexchange.com/a/16530) peut arriver quand la ligne «&#8239;intérieure&#8239;» de la condition est commentée, et la prochaine ligne devient involontairement une partie de la condition. De plus, ce style est plus cohérent avec d'autres conditions et donc plus facile à détecter.
 
 **Par exemple:**
 ```objc
@@ -93,7 +93,7 @@ ou
 if (!error) return success;
 ```
 
-### Opérateur Ternaire
+### Opérateur ternaire
 
 L'opérateur ternaire, ? , doit seulement être utilisé s'il rend le code plus lisible ou propre. Il doit seulement évaluer une condition simple. Évaluer plusieurs conditions est généralement plus facile à comprendre avec une condition de type if, ou refactorisé avec des variables d'instance.
 
@@ -107,7 +107,7 @@ result = a > b ? x : y;
 result = a > b ? x = c > d ? c : d : y;
 ```
 
-## Gestion d'Erreurs
+## Gestion des erreurs
 
 Quand une méthode renvoie un paramètre d'erreur par référence, continuez l'exécution du programme sur la valeur returnée, et non sur la variable erreur.
 
@@ -164,9 +164,9 @@ NSString *headline;s
 }
 ```
 
-#### Qualifiers de Variables
+#### Qualification des variables
 
-En ce qui concerne les qualifiers de variables [introduits avec ARC](https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4), le qualifier (`__strong`, `__weak`, `__unsafe_unretained`, `__autoreleasing`) doit être placé entre l'astérisque et le nom de la variable, par ex., `NSString * __weak text`.
+En ce qui concerne les qualificateurs de variables [introduits avec ARC](https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4), le qualificateur (`__strong`, `__weak`, `__unsafe_unretained`, `__autoreleasing`) doit être placé entre l'astérisque et le nom de la variable, par ex., `NSString * __weak text`.
 
 ## Nommage
 
@@ -202,7 +202,7 @@ static const NSTimeInterval fadetime = 1.7;
 
 Les properties et variables locales doivent adopter la convention camelCase avec le premier mot en minuscules.
 
-Les variables d'instance doivent adopter la convention camelCase avec le premier mot en miniscules, précédé par le préfixe "_". Ceci est cohérent avec les variables d'instance synthetisées automatiquement par LLVM. **Si LLVM peut synthetiser la variable automatiquement, laissez-le faire.**
+Les variables d'instance doivent adopter la convention camelCase avec le premier mot en miniscules, précédé par le préfixe  «&#8239;_&#8239;». Ceci est cohérent avec les variables d'instance synthetisées automatiquement par LLVM. **Si LLVM peut synthetiser la variable automatiquement, laissez-le faire.**
 
 **Par exemple:**
 
@@ -239,7 +239,7 @@ return self;
 }
 ```
 
-## Literals
+## Libellés
 
 `NSString`, `NSDictionary`, `NSArray`, et `NSNumber` literals doivent être utilisés quand des instances immutables sont créées pour ces objets. Faites bien attention que la valeur `nil` ne soit pas passée aux literals `NSArray` et `NSDictionary`, parce que ça causerait un plantage.
 
@@ -309,9 +309,9 @@ static const CGFloat NYTImageThumbnailHeight = 50.0;
 #define thumbnailHeight 2
 ```
 
-## Type Enumération
+## Types énumérés
 
-Pour l'utilisation d' `enum`, il est recommendé de choisir le type fixe spécifié avec un "_" parce qu'il est de type fort et pour bénéficier de la complétion de code. Le SDK inclus maintenant un macro pour faciliter et encourager l'utilisation de type fixe et souligné — `NS_ENUM()`
+Pour l'utilisation d' `enum`, il est recommendé de choisir le type fixe spécifié avec un «&#8239;_&#8239;» parce qu'il est de type fort et pour bénéficier de la complétion de code. Le SDK inclus maintenant un macro pour faciliter et encourager l'utilisation de type fixe et souligné — `NS_ENUM()`
 
 **Exemple:**
 
@@ -322,9 +322,9 @@ NYTAdRequestStateLoading
 };
 ```
 
-## Bitmasks
+## Masques de bits
 
-Quand vous travaillez avec des bitmasks, utilisez le macro `NS_OPTIONS`.
+Quand vous travaillez avec des masques de bits, utilisez le macro `NS_OPTIONS`.
 
 **Exemple:**
 
@@ -337,7 +337,7 @@ NYTAdCategoryTechnology = 1 << 3
 };
 ```
 
-## Propriétés Privées
+## Propriétés privées
 
 Les propriétés privées doivent être déclarées dans l'extension de la classe dans le fichier d'implémentation. Des catégories appelées (telles que `NYTPrivate` ou `private`) ne doivent jamais être utilisées à moins qu'elle soit extendues d'une autre classe.
 
@@ -353,7 +353,7 @@ Les propriétés privées doivent être déclarées dans l'extension de la class
 @end
 ```
 
-## Nommage d'Image
+## Nommage d'image
 
 Les noms des images doit être cohérents pour préserver une bonne organisation. Elles doivent être nommées en utilisant la convention camelCase avec la description de leur utilisation, suivi du suffixe de la classe ou propriété qu'elles customisent (si elle existe), suivie de la description de la couleur et/ou emplacement, et finalement leur état.
 **Par exemple:**
@@ -402,7 +402,7 @@ if ([unObject boolValue] == NO)
 
 -----
 
-Si le nom d'une propriété `BOOL` est exprimée comme un adjectif, la propriété peut omettre le prefixe “is” mais doit specifier un nom conventionel pour l'accesseur get, par exemple:
+Si le nom d'une propriété `BOOL` est exprimée comme un adjectif, la propriété peut omettre le prefixe «&#8239;is&#8239;» mais doit specifier un nom conventionel pour l'accesseur get, par exemple:
 
 ```objc
 @property (assign, getter=isEditable) BOOL editable;
@@ -446,11 +446,11 @@ Note&#8239;: pour les modules utilisez la syntaxe [@import](http://clang.llvm.or
 #import "NYTUserView.h"
 ```
 
-## Project Xcode
+## Projet Xcode
 
 Les fichiers physiques doivent être maintenus en accordance avec le projet Xcode pour éviter d'avoir des fichiers éparpillés. Les groupes crées dans Xcode doivent avoir un dossier équivalent dans le système de fichiers. Le code doit être groupé non seulement par type, mais aussi par caractéristique pour une plus grande clarté.
 
-Si possible, choisissez toujours "Treat Warnings as Errors" dans le Build Settings du target et exposer autant d'[avertissements supplémentaires](http://boredzo.org/blog/archives/2009-11-07/warnings) que possible. Si vous avez besoin d'ignorer un avertissement specifique, utiliser [Clang's pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
+Si possible, choisissez toujours «&#8239;Treat Warnings as Errors&#8239;» dans le Build Settings du target et exposer autant d'[avertissements supplémentaires](http://boredzo.org/blog/archives/2009-11-07/warnings) que possible. Si vous avez besoin d'ignorer un avertissement specifique, utiliser [Clang's pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
 
 # Autres guides de style Objective-C
 
