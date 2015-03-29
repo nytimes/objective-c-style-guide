@@ -34,7 +34,8 @@ Voici quelques-uns des documents d'Apple qui nous ont servi à écrire ce guide.
 * [Nommage d'image](#nommage-image)
 * [Booléens](#booléens)
 * [Singletons](#singletons)
-* [Projet Xcode](#project-xcode)
+* [Imports](#imports)
+* [Projet Xcode](#projet-xcode)
 
 ## La notation pointée
 
@@ -425,6 +426,25 @@ return sharedInstance;
 }
 ```
 Celui permet d'éviter des [plantages possibles, et parfois fréquents](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
+
+## Imports
+
+S'il y a plusieurs directives d'importation, divisez-les en [groupes](http://ashfurrow.com/blog/structuring-modern-objective-c).
+Commenter chaque groupe est facultatif.
+
+Note&#8239;: pour les modules utilisez la syntaxe [@import](http://clang.llvm.org/docs/Modules.html#using-modules).
+
+```objc
+// Frameworks
+@import QuartzCore;
+
+// Models
+#import "NYTUser.h"
+
+// Views
+#import "NYTButton.h"
+#import "NYTUserView.h"
+```
 
 ## Projet Xcode
 
