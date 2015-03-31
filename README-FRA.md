@@ -15,29 +15,29 @@ Voici quelques-uns des documents d'Apple qui nous ont servi à écrire ce guide.
 
 ## Table des matières
 
-* [La notation pointée](#notation-pointée)
+* [Notation pointée](#notation-pointée)
 * [Espacement](#espacement)
 * [Conditions](#conditions)
-* [Opérateur ternaire](#operateur-ternaire)
-* [Gestion des erreurs](#gestion-d'erreurs)
+  * [Opérateur ternaire](#opérateur-ternaire)
+* [Gestion des erreurs](#gestion-des-erreurs)
 * [Méthodes](#méthodes)
 * [Variables](#variables)
 * [Nommage](#nommage)
 * [Commentaires](#commentaires)
 * [Init & Dealloc](#init-et-dealloc)
-* [Libellés](#literals)
+* [Libellés](#libellés)
 * [Fonctions CGRect](#fonctions-cgrect)
 * [Constantes](#constantes)
-* [Types énumérés](#type-enumeration)
-* [Masques de bits](#bitmasks)
+* [Types énumérés](#types-énumérés)
+* [Masques de bits](#masques-de-bits)
 * [Propriétés privées](#propriétés-privées)
-* [Nommage d'image](#nommage-image)
+* [Nommage d'image](#nommage-dimage)
 * [Booléens](#booléens)
 * [Singletons](#singletons)
 * [Imports](#imports)
 * [Projet Xcode](#projet-xcode)
 
-## La notation pointée
+## Notation pointée
 
 La notation pointée doit **toujours** être utilisée pour lire ou modifier les propriétés. La notation crochée est préférable dans tous les autres cas.
 
