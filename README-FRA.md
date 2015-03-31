@@ -1,6 +1,6 @@
 # NYTimes - Guide de Style Objective-C
 
-Ce guide décrit les conventions de codage de l'équipe iOS du New York Times. Nous vous remercions pour vos commentaires dans les [tickets](https://github.com/NYTimes/objetive-c-style-guide/issues), [pull requests](https://github.com/NYTimes/objetive-c-style-guide/pulls) et [tweets](https://twitter.com/nytimesmobile). Aussi, [nous recrutons](http://jobs.nytco.com/job/New-York-iOS-Developer-Job-NY-10001/73366300/).
+Ce guide décrit les conventions de codage des équipes iOS du New York Times. Nous vous remercions pour vos commentaires dans les [tickets](https://github.com/NYTimes/objetive-c-style-guide/issues), [pull requests](https://github.com/NYTimes/objetive-c-style-guide/pulls) et [tweets](https://twitter.com/nytimesmobile). Aussi, [nous recrutons](http://jobs.nytco.com/job/New-York-iOS-Developer-Job-NY-10001/73366300/).
 
 Merci à tous [nos contributeurs et contributrices](https://github.com/NYTimes/objective-c-style-guide/contributors).
 
@@ -15,29 +15,29 @@ Voici quelques-uns des documents d'Apple qui nous ont servi à écrire ce guide.
 
 ## Table des matières
 
-* [La notation pointée](#notation-pointée)
+* [Notation pointée](#notation-pointée)
 * [Espacement](#espacement)
 * [Conditions](#conditions)
-* [Opérateur ternaire](#operateur-ternaire)
-* [Gestion des erreurs](#gestion-d'erreurs)
+  * [Opérateur ternaire](#opérateur-ternaire)
+* [Gestion des erreurs](#gestion-des-erreurs)
 * [Méthodes](#méthodes)
 * [Variables](#variables)
 * [Nommage](#nommage)
 * [Commentaires](#commentaires)
 * [Init & Dealloc](#init-et-dealloc)
-* [Libellés](#literals)
+* [Libellés](#libellés)
 * [Fonctions CGRect](#fonctions-cgrect)
 * [Constantes](#constantes)
-* [Types énumérés](#type-enumeration)
-* [Masques de bits](#bitmasks)
+* [Types énumérés](#types-énumérés)
+* [Masques de bits](#masques-de-bits)
 * [Propriétés privées](#propriétés-privées)
-* [Nommage d'image](#nommage-image)
+* [Nommage d'image](#nommage-dimage)
 * [Booléens](#booléens)
 * [Singletons](#singletons)
 * [Imports](#imports)
 * [Projet Xcode](#projet-xcode)
 
-## La notation pointée
+## Notation pointée
 
 La notation pointée doit **toujours** être utilisée pour lire ou modifier les propriétés. La notation crochée est préférable dans tous les autres cas.
 
@@ -61,10 +61,10 @@ UIApplication.sharedApplication.delegate;
 **Par exemple:**
 ```objc
 if (utilisateur.estHeureux) {
-//Faire quelque chose
+    //Faire quelque chose
 }
 else {
-//Faire quelque chose d'autre
+    //Faire quelque chose d'autre
 }
 ```
 * Les méthodes devraient être séparées par une ligne blanche pour améliorer la lisibilité et l'organisation. À l'intérieur des méthodes, des sauts de lignes devraient séparer les sections logiques, mais souvent ces dernières devraient être placées dans de nouvelles méthodes.
@@ -95,7 +95,7 @@ if (!error) return success;
 
 ### Opérateur ternaire
 
-L'opérateur ternaire, ? , doit seulement être utilisé s'il rend le code plus lisible ou propre. Il doit seulement évaluer une condition simple. Évaluer plusieurs conditions est généralement plus facile à comprendre avec une condition de type if, ou refactorisé avec des variables d'instance.
+L'opérateur ternaire, `?` , doit seulement être utilisé s'il rend le code plus lisible ou propre. Il doit seulement évaluer une condition simple. Évaluer plusieurs conditions est généralement plus facile à comprendre avec une condition de type if, ou refactorisé avec des variables nommées.
 
 **Par exemple:**
 ```objc
@@ -132,7 +132,7 @@ Certaines APIs d'Apple renvoient des valeurs de données poubeille pour un param
 
 ## Méthodes
 
-Pour la signature d'une méthode, il doit y avoir un espace après le scope (symbole -/+). Et il doit y avoir un espace entre les différents segments (paramètres) de la méthode.
+Pour la signature d'une méthode, il doit y avoir un espace après le scope (symbole `-` ou `+`). Et il doit y avoir un espace entre les différents segments (paramètres) de la méthode.
 
 **Par exemple**:
 ```objc
@@ -140,9 +140,9 @@ Pour la signature d'une méthode, il doit y avoir un espace après le scope (sym
 ```
 ## Variables
 
-Les variables doivent être nommées de la façon la plus descriptive possible. Une variable d'une seule lettre doit être évitée sauf pour une boucle `for()`.
+Les variables doivent être nommées de la façon la plus descriptive possible. Une variable d'une seule lettre doit être évitée sauf pour une boucle `for`.
 
-Les astérisques qui indiquent le pointeur sont plaçés avant le nom de la variable, par ex., `NSString *text` et non `NSString* text` ou `NSString * text`, sauf dans le cas de constantes.
+Les astérisques qui indiquent le pointeur sont plaçés avant le nom de la variable, par ex., `NSString *text` et non `NSString* text` ou `NSString * text`, sauf dans le cas de constantes (`NSString * const NYTConstantString`).
 
 La définition des propriétés doivent être utilisées à la place des variables d'instance quand c'est possible. L'accès direct aux variables d'instance doit être évité sauf pour les méthodes d'initialisation (`init`, `initWithCoder:`, etc…), la méthode `dealloc` et les accesseurs et mutateurs. Pour plus d'information sur l'utilisation de méthodes d'accès, les méthodes d'initialisation et dealloc, consultez [cet article](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
 
@@ -261,7 +261,7 @@ NSNumber *shouldUseLiterals = [NSNumber numberWithBool:YES];
 NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 ```
 
-## Fonctions CGRect
+## Fonctions `CGRect`
 
 En accédant à `x`, `y`, `width`, ou `height` d'un `CGRect`, utilisez toujours les [fonctions `CGGeometry`](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) au lieu de l'accès direct au membre struct. Extrait de la référence Apple pour `CGGeometry`:
 
@@ -361,7 +361,7 @@ Les noms des images doit être cohérents pour préserver une bonne organisation
 * `RefreshBarButtonItem` / `RefreshBarButtonItem@2x` and `RefreshBarButtonItemSelected` / `RefreshBarButtonItemSelected@2x`
 * `ArticleNavigationBarBlanc` / `ArticleNavigationBarBlanc@2x` and `ArticleNavigationBarNoirSelected` / `ArticleNavigationBarNoirSelected@2x`.
 
-Les images qui sont utilisées à des fins similaires doivent être regroupées dans leurs groupes respectifs à l'intérieur d'un dossier Images.
+Les images qui sont utilisées à des fins similaires doivent être regroupées dans leurs groupes respectifs à l'intérieur d'un dossier Images ou d'un «&#8239;Asset Catalog&#8239;».
 
 
 ## Booléens
@@ -390,14 +390,14 @@ if (unObject == nil) {
 
 ```objc
 if (estSuper)
-if (![unObject boolValue])
+if (!unObject.boolValue)
 ```
 
 **Non pas:**
 
 ```objc
 if (estSuper == YES) // Ne faites pas ça
-if ([unObject boolValue] == NO)
+if (unObject.boolValue == NO)
 ```
 
 -----
@@ -419,7 +419,7 @@ static id sharedInstance = nil;
 
 static dispatch_once_t onceToken;
 dispatch_once(&onceToken, ^{
-sharedInstance = [[self alloc] init];
+sharedInstance = [[[self class] alloc] init];
 });
 
 return sharedInstance;
@@ -461,5 +461,5 @@ Si le nôtre n'est pas à votre goût, consultez ces autres guides:
 * [Adium](https://trac.adium.im/wiki/CodingStyle)
 * [Sam Soffes](https://gist.github.com/soffes/812796)
 * [CocoaDevCentral](http://cocoadevcentral.com/articles/000082.php)
-* [Luke Redpath](http://lukeredpath.co.uk/blog/my-objective-c-style-guide.html)
+* [Luke Redpath](http://lukeredpath.co.uk/blog/2011/06/28/my-objective-c-style-guide/)
 * [Marcus Zarra](http://www.cimgf.com/zds-code-style-guide/)
