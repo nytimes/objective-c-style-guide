@@ -261,7 +261,7 @@ NSNumber *shouldUseLiterals = [NSNumber numberWithBool:YES];
 NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 ```
 
-When writing a multiline literal or enumeration, leave a trailing comma on the last item. When entries are added or removed, this eliminates the need to touch unrelated lines. This eliminates irrelevant git history from the unrelated lines of code, and it makes for cleaner diffs; only the truly relevant lines of code must be changed.
+When writing a multiline literal or enumeration, leave a trailing comma on the last item. This convention eliminates the need to touch unrelated lines when entries are added or removed. This eliminates irrelevant git history from the unrelated lines of code, and it makes for cleaner diffs; only the truly relevant lines of code must be changed and reviewed.
 
 **For example:**
 
