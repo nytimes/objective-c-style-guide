@@ -350,13 +350,15 @@ When using `enum`s, it is recommended to use the new fixed underlying type speci
 ```objc
 typedef NS_ENUM(NSInteger, NYTAdRequestState) {
     NYTAdRequestStateInactive,
-    NYTAdRequestStateLoading
+    NYTAdRequestStateLoading,
 };
 ```
 
+End every line, including the last one, with a trailing commas; see [Literals](#literals) for discussion and justification.
+
 ## Bitmasks
 
-When working with bitmasks, use the `NS_OPTIONS` macro.
+When working with bitmasks, use the `NS_OPTIONS()` macro.
 
 **Example:**
 
@@ -365,9 +367,11 @@ typedef NS_OPTIONS(NSUInteger, NYTAdCategory) {
   NYTAdCategoryAutos      = 1 << 0,
   NYTAdCategoryJobs       = 1 << 1,
   NYTAdCategoryRealState  = 1 << 2,
-  NYTAdCategoryTechnology = 1 << 3
+  NYTAdCategoryTechnology = 1 << 3,
 };
 ```
+
+End every line, including the last one, with a trailing commas; see [Literals](#literals) for discussion and justification.
 
 ## Private Properties
 
