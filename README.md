@@ -23,6 +23,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Methods](#methods)
 * [Variables](#variables)
 * [Naming](#naming)
+  * [Categories](#categories)
 * [Comments](#comments)
 * [Init & Dealloc](#init-and-dealloc)
 * [Literals](#literals)
@@ -214,6 +215,24 @@ Instance variables should be camel-case with the leading word being lowercase, a
 
 ```objc
 id varnm;
+```
+
+### Categories
+
+Categories may be used to concisely segment functionality and should be named to describe that functionality.
+
+**For example:**
+
+```objc
+@interface UIViewController (NYTMediaPlaying)
+@interface NSString (NSStringEncodingDetection)
+```
+
+**Not:**
+
+```objc
+@interface NYTAdvertisement (private)
+@interface NSString (NYTAdditions)
 ```
 
 ## Comments
