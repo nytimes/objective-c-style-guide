@@ -339,7 +339,7 @@ typedef NS_OPTIONS(NSUInteger, NYTAdCategory) {
 
 ## Private Properties
 
-Private properties should be declared in class extensions (anonymous categories) in the implementation file of a class. Named categories (such as `NYTPrivate` or `private`) should never be used unless extending another class.
+Private properties should be declared in class extensions (anonymous categories) in the implementation file of a class.
 
 **For example:**
 

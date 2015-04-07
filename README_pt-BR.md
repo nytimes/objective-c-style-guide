@@ -324,7 +324,7 @@ typedef NS_ENUM(NSInteger, NYTAdRequestState) {
 
 ## Propriedades privadas
 
-Propriedades privadas devem ser decladas em extensões da classe (categorias anônimas) no arquivo de implementação. Categorias nomeadas (como `NYTPrivate` ou `private`) jamais devem ser utilizadas, a menos que sejam extensões de outra classe.
+Propriedades privadas devem ser decladas em extensões da classe (categorias anônimas) no arquivo de implementação.
 
 **Exemplo correto:**
 
