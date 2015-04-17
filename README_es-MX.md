@@ -72,8 +72,8 @@ else {
 
 ## Condicionales
 
-Los condicionales deben de tener siempre corchetes, incluso cuando no sean necesarios se deben de utilizar (por ejemplo, sólo hay una linea de código), esto para prevenir [errores](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256). Estos errores pueden ser, agregar una segunda linea de código dentro del ìf` esperando que sea parte del mismo bloque. Otro ([error más peligroso](http://programmers.stackexchange.com/a/16530) 
-sería comentar la única linea de código del ìf`, lo que convertiría la siguiente linea parte del primer bloque. Además, este estilo es más consistente con los otros condicionales, por lo tanto es mucho más fácil interpretarlo.
+Los condicionales deben de tener siempre corchetes, incluso cuando no sean necesarios se deben de utilizar (por ejemplo, sólo hay una linea de código), esto para prevenir [errores](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256). Estos errores pueden ser, agregar una segunda linea de código dentro del `if` esperando que sea parte del mismo bloque. Otro ([error más peligroso](http://programmers.stackexchange.com/a/16530) 
+sería comentar la única linea de código del `if`, lo que convertiría la siguiente linea parte del primer bloque. Además, este estilo es más consistente con los otros condicionales, por lo tanto es mucho más fácil interpretarlo.
 
 **Por ejemplo:**
 ```objc
