@@ -20,7 +20,7 @@ Aquí puedes encontrar algunos de los documentos de Apple sobre las guías de es
 * [Condicionales](#condicionales)
   * [Operador ternario](#operador-ternario)
 * [Manejo de errores](#manejo-de-errores)
-* [Metodos](#metodos)
+* [Métodos](#metodos)
 * [Variables](#variables)
 * [Nombres](#naming)
 * [Comentarios](#comments)
@@ -131,7 +131,7 @@ if (error) {
 
 Algunas APIs de Apple guardar valores basura en el parámetro de error aunque no exista el error, por lo que manejar una variable de error puede causar falsos negativos en la aplicación (que podría terminar en un fallo).
 
-## Metodos
+## Métodos
 
 En la declaración de métodos, debe de existir un espacio después del símbolo `-` o `+`. Deben de existir espacios, igualmente, entre los segmentos del método.
 
