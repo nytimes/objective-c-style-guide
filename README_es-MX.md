@@ -19,8 +19,8 @@ Aquí puedes encontrar algunos de los documentos de Apple sobre las guías de es
 * [Espaciado](#espaciado)
 * [Condicionales](#condicionales)
   * [Operador ternario](#operador-ternario)
-* [Manejo de errores](#error-handling)
-* [Metodos](#methods)
+* [Manejo de errores](#manejo-de-errores)
+* [Metodos](#metodos)
 * [Variables](#variables)
 * [Nombres](#naming)
 * [Comentarios](#comments)
@@ -106,4 +106,36 @@ result = a > b ? x : y;
 **Incorrecto:**
 ```objc
 result = a > b ? x = c > d ? c : d : y;
+```
+
+## Manejo de Errores
+
+Cuando los métodos regresen un parámetro error, debe de tratarse el valor regresado y no una variable de error.
+
+**Por ejemplo:**
+```objc
+NSError *error;
+if (![self trySomethingWithError:&error]) {
+    // Manejar error
+}
+```
+
+**Incorrecto:**
+```objc
+NSError *error;
+[self trySomethingWithError:&error];
+if (error) {
+    // Manejar error
+}
+```
+
+Algunas APIs de Apple guardar valores basura en el parámetro de error aunque no exista el error, por lo que manejar una variable de error puede causar falsos negativos en la aplicación (que podría terminar en un fallo).
+
+## Metodos
+
+En la declaración de métodos, debe de existir un espacio después del símbolo `-` o `+`. Deben de existir espacios, igualmente, entre los segmentos del método.
+
+**Por ejemplo:**
+```objc
+- (void)setExampleText:(NSString *)text image:(UIImage *)image;
 ```
