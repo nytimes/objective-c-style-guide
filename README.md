@@ -449,7 +449,7 @@ Note: For modules use the [@import](http://clang.llvm.org/docs/Modules.html#usin
 
 In a [delegate or data source protocol](https://developer.apple.com/library/ios/documentation/General/Conceptual/CocoaEncyclopedia/DelegatesandDataSources/DelegatesandDataSources.html), the first parameter to each method should be the object sending the message.
 
-This aids in disambiguating in case an object is the delegate for multiple similarly-typed objects, and it helps clarify intent to readers of a class implementing these delegate methods.
+This helps disambiguate in cases when an object is the delegate for multiple similarly-typed objects, and it helps clarify intent to readers of a class implementing these delegate methods.
 
 **For example:**
 
