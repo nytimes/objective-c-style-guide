@@ -35,6 +35,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Booleans](#booleans)
 * [Singletons](#singletons)
 * [Imports](#imports)
+* [Protocols](#protocols)
 * [Xcode Project](#xcode-project)
 
 ## Dot Notation Syntax
@@ -442,6 +443,24 @@ Note: For modules use the [@import](http://clang.llvm.org/docs/Modules.html#usin
 // Views
 #import "NYTButton.h"
 #import "NYTUserView.h"
+```
+
+## Protocols
+
+In a delegate protocol, the first parameter to each method should be the object sending the message.
+
+This aids in disambiguating in case an object is the delegate for multiple similarly-typed objects, and it helps clarify intent to readers of a class implementing these delegate methods.
+
+**For example:**
+
+```objc
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+```
+
+**Not:**
+
+```objc
+- (void)didSelectTableRowAtIndexPath:(NSIndexPath *)indexPath;
 ```
 
 ## Xcode project
