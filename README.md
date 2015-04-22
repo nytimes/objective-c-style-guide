@@ -325,7 +325,7 @@ typedef NS_ENUM(NSInteger, NYTAdRequestState) {
 
 ## Boxing Enumerated Types
 
-Althought `enum`s are integral values, they cannot be directly used as boxed literals. So when creating a dictionary using `enum`s, they should be written as boxed literals instead of their corresponding `NSNumber` expression. 
+Althought `enum`s are integral values, they cannot be directly used as [boxed literals](http://clang.llvm.org/docs/ObjectiveCLiterals.html#boxed-enums). So when creating a dictionary using `enum`s, they should be written as boxed literals instead of their corresponding `NSNumber` expression. 
 
 **For example:**
 ```objc
