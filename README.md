@@ -325,11 +325,13 @@ typedef NS_ENUM(NSInteger, NYTAdRequestState) {
 
 ## Boxing Enumerated Types
 
-Althought `enum`s are integral values, they cannot be directly used as [boxed literals](http://clang.llvm.org/docs/ObjectiveCLiterals.html#boxed-enums). So when creating a dictionary using `enum`s, they should be written as boxed literals instead of their corresponding `NSNumber` expression. 
+Although `enum`s are integral values, they cannot be directly used as [boxed literals](http://clang.llvm.org/docs/ObjectiveCLiterals.html#boxed-enums). When boxing `enum`s (for example when using them in a Cocoa collection) they should be boxed as `NSNumber`s using the shorthand `@()` literal expression, not as the [NSNumber numberWith...:]` methods.
+
+This eliminates the need to look up the underlying type of the enum in order to box it correctly.
 
 **For example:**
 ```objc
-typedef NS_ENUM(NSInteger, NYTDaysOfTheWeek){
+typedef NS_ENUM(NSInteger, NYTDaysOfTheWeek) {
      NYTMonday = 0, 
      NYTTuesday
 }; 
