@@ -366,7 +366,7 @@ Images that are used for a similar purpose should be grouped in respective group
 
 ## Booleans
 
-Never compare something directly to `YES`, because `YES` is defined as 1, and a `BOOL` in Objective-C is a `CHAR` type that is 8 bits long (so a value of `11111110` will return `NO` if compared to `YES`).
+Never compare something directly to `YES`, because `YES` is defined as `1`, and a `BOOL` in Objective-C is a `CHAR` type that is 8 bits long (so a value of `11111110` will return `NO` if compared to `YES`).
 
 **For an object pointer:**
 
