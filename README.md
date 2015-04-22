@@ -29,6 +29,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [CGRect Functions](#cgrect-functions)
 * [Constants](#constants)
 * [Enumerated Types](#enumerated-types)
+  * [Boxing Enumerated Types](#boxing-enumerated-types)
 * [Bitmasks](#bitmasks)
 * [Private Properties](#private-properties)
 * [Image Naming](#image-naming)
