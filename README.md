@@ -23,6 +23,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Methods](#methods)
 * [Variables](#variables)
 * [Naming](#naming)
+  * [Categories](#categories)
 * [Comments](#comments)
 * [Init & Dealloc](#init-and-dealloc)
 * [Literals](#literals)
@@ -230,6 +231,24 @@ Instance variables should be camel-case with the leading word being lowercase, a
 id varnm;
 ```
 
+### Categories
+
+Categories may be used to concisely segment functionality and should be named to describe that functionality.
+
+**For example:**
+
+```objc
+@interface UIViewController (NYTMediaPlaying)
+@interface NSString (NSStringEncodingDetection)
+```
+
+**Not:**
+
+```objc
+@interface NYTAdvertisement (private)
+@interface NSString (NYTAdditions)
+```
+
 ## Comments
 
 When they are needed, comments should be used to explain **why** a particular piece of code does something. Any comments that are used must be kept up-to-date or deleted.
@@ -353,7 +372,7 @@ typedef NS_OPTIONS(NSUInteger, NYTAdCategory) {
 
 ## Private Properties
 
-Private properties should be declared in class extensions (anonymous categories) in the implementation file of a class. Named categories (such as `NYTPrivate` or `private`) should never be used unless extending another class.
+Private properties should be declared in class extensions (anonymous categories) in the implementation file of a class.
 
 **For example:**
 

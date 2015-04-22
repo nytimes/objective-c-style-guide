@@ -339,7 +339,7 @@ NYTAdCategoryTechnology = 1 << 3
 
 ## Propriétés privées
 
-Les propriétés privées doivent être déclarées dans l'extension de la classe dans le fichier d'implémentation. Des catégories appelées (telles que `NYTPrivate` ou `private`) ne doivent jamais être utilisées à moins qu'elle soit extendues d'une autre classe.
+Les propriétés privées doivent être déclarées dans l'extension de la classe dans le fichier d'implémentation.
 
 **Par exemple:**
 
