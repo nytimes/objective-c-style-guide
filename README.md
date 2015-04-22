@@ -380,7 +380,7 @@ if (someObject == nil) {
 
 -----
 
-**For a `BOOL` value**
+**For a `BOOL` value:**
 
 ```objc
 if (isAwesome)
