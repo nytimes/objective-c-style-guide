@@ -366,48 +366,41 @@ Images that are used for a similar purpose should be grouped in respective group
 
 ## Booleans
 
-Since `nil` resolves to `NO` it is unnecessary to compare it in conditions. Never compare something directly to `YES`, because `YES` is defined to 1 and a `BOOL` can be up to 8 bits.
+Never compare something directly to `YES`, because `YES` is defined as `1`, and a `BOOL` in Objective-C is a `CHAR` type that is 8 bits long (so a value of `11111110` will return `NO` if compared to `YES`).
 
-This allows for more consistency across files and greater visual clarity.
-
-**For example:**
+**For an object pointer:**
 
 ```objc
 if (!someObject) {
 }
-```
 
-**Not:**
-
-```objc
 if (someObject == nil) {
 }
 ```
 
------
-
-**For a `BOOL`, here are two examples:**
+**For a `BOOL` value:**
 
 ```objc
 if (isAwesome)
 if (!someNumber.boolValue)
+if (someNumber.boolValue == NO)
 ```
 
 **Not:**
 
 ```objc
 if (isAwesome == YES) // Never do this.
-if (someNumber.boolValue == NO)
 ```
 
------
+If the name of a `BOOL` property is expressed as an adjective, the property’s name can omit the `is` prefix but should specify the conventional name for the getter.
 
-If the name of a `BOOL` property is expressed as an adjective, the property can omit the “is” prefix but specifies the conventional name for the get accessor, for example:
+**For example:**
 
 ```objc
 @property (assign, getter=isEditable) BOOL editable;
 ```
-Text and example taken from the [Cocoa Naming Guidelines](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE).
+
+_Text and example taken from the [Cocoa Naming Guidelines](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE)._
 
 ## Singletons
 
