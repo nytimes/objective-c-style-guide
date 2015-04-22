@@ -261,7 +261,7 @@ NSNumber *shouldUseLiterals = [NSNumber numberWithBool:YES];
 NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 ```
 
-When writing a multiline literal or enumeration, leave a trailing comma on the last item. This convention eliminates the need to touch unrelated lines when entries are added or removed. This eliminates irrelevant git history from the unrelated lines of code, and it makes for cleaner diffs; only the truly relevant lines of code must be changed and reviewed.
+When writing a multiline literal, leave a trailing comma on the last item. This convention eliminates the need to touch unrelated lines when entries are added or removed. This eliminates irrelevant git history from the unrelated lines of code, and it makes for cleaner diffs; only the truly relevant lines of code must be changed and reviewed.
 
 **For example:**
 
@@ -354,7 +354,7 @@ typedef NS_ENUM(NSInteger, NYTAdRequestState) {
 };
 ```
 
-End every line, including the last one, with a trailing commas; see [Literals](#literals) for discussion and justification.
+End every line, including the last one, with a trailing comma, unless the last line is a `Count`, `LastItem`, or some other sentinel value which will always be the last item in the enum. _(See [Literals](#literals) for discussion and justification.)_
 
 ## Bitmasks
 
