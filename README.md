@@ -325,22 +325,21 @@ typedef NS_ENUM(NSInteger, NYTAdRequestState) {
 
 ## Boxing Enumerated Types
 
-Althought `enum`s are integral values, they cannot be directly used as boxed literals. So when creating a dictionary using `enum`s to define keys or values, they should be written as boxed literals instead of their corresponding `NSNumber` expression. 
+Althought `enum`s are integral values, they cannot be directly used as boxed literals. So when creating a dictionary using `enum`s, they should be written as boxed literals instead of their corresponding `NSNumber` expression. 
 
 **For example:**
 ```objc
 typedef NS_ENUM(NSInteger, NYTDaysOfTheWeek){
      NYTMonday = 0, 
-     NYTTuesday,
-     NYTWednesday
+     NYTTuesday
 }; 
 
-NSDictionary * daysOfTheWeek = @{ @"monday" : @(NYTMonday), @"tuesday" : @(NYTTuesday) };
+NSDictionary *daysOfTheWeek = @{@"monday" : @(NYTMonday), @"tuesday" : @(NYTTuesday)};
 ```
 
 **Not:**
 ```objc
-NSDictionary * daysOfTheWeek = @{ @"monday" : [NSNumber numberWithInteger:NYTMonday], @"tuesday" : [NSNumber numberWithInteger:NYTTuesday] };
+NSDictionary *daysOfTheWeek = @{@"monday" : [NSNumber numberWithInteger:NYTMonday], @"tuesday" : [NSNumber numberWithInteger:NYTTuesday]};
 ```
 
 ## Bitmasks
