@@ -387,9 +387,9 @@ Private properties should be declared in class extensions (anonymous categories)
 
 ## Method Ordering
 
-Method implementations are grouped and ordered with lifecycle methods first, then by class inheritance. A `pragma mark -` is used to separate each group.
+Method implementations are grouped and ordered with object lifecycle methods first, then by class inheritance. A `pragma mark -` is used to separate each group.
 
-For the purpose of ordering, “lifecycle methods” are those methods dealing with the creation or destruction of instances: initializers, `+alloc`, `-dealloc`, `+initialize`, `+load`, [factory methods](https://developer.apple.com/library/ios/documentation/General/Conceptual/CocoaEncyclopedia/ClassFactoryMethods/ClassFactoryMethods.html), `NSCoding` method implementations, and the like.
+For the purpose of ordering, “object lifecycle methods” are those methods dealing with the creation or destruction of a class or instance: initializers, `+alloc`, `-dealloc`, `+initialize`, `+load`, [factory methods](https://developer.apple.com/library/ios/documentation/General/Conceptual/CocoaEncyclopedia/ClassFactoryMethods/ClassFactoryMethods.html), `NSCoding` method implementations, and the like.
 
 Under the `pragma mark -` for a given class, class methods are ordered before instance methods.
 
