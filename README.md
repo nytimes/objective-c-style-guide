@@ -249,6 +249,24 @@ Categories may be used to concisely segment functionality and should be named to
 @interface NSString (NYTAdditions)
 ```
 
+Methods and properties added in categories should be named with an app- or organization-specific prefix. This avoids unintentionally overriding an existing method, and it reduces the chance of two categories from different libraries adding a method of the same name. (The Objective-C runtime doesn’t specify which method will be called in the latter case, which can lead to “interesting” effects.)
+
+**For example:**
+
+```objc
+@interface NSArray (NYTAccessors)
+- (id)nyt_objectOrNilAtIndex:(NSUInteger)index;
+@end
+```
+
+**Not:**
+
+```objc
+@interface NSArray (NYTAccessors)
+- (id)objectOrNilAtIndex:(NSUInteger)index;
+@end
+```
+
 ## Comments
 
 When they are needed, comments should be used to explain **why** a particular piece of code does something. Any comments that are used must be kept up-to-date or deleted.
