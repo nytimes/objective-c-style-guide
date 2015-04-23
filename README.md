@@ -25,13 +25,14 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Naming](#naming)
   * [Categories](#categories)
 * [Comments](#comments)
-* [Init & Dealloc](#init-and-dealloc)
+* [Initializers](#initializers)
 * [Literals](#literals)
 * [CGRect Functions](#cgrect-functions)
 * [Constants](#constants)
 * [Enumerated Types](#enumerated-types)
 * [Bitmasks](#bitmasks)
 * [Private Properties](#private-properties)
+* [Method Ordering](#method-ordering)
 * [Image Naming](#image-naming)
 * [Booleans](#booleans)
 * [Singletons](#singletons)
@@ -255,11 +256,9 @@ When they are needed, comments should be used to explain **why** a particular pi
 
 Block comments should generally be avoided, as code should be as self-documenting as possible, with only the need for intermittent, few-line explanations. This does not apply to those comments used to generate documentation.
 
-## init and dealloc
+## Initializers
 
-`dealloc` methods should be placed at the top of the implementation, directly after the `@synthesize` and `@dynamic` statements. `init` should be placed directly below the `dealloc` methods of any class.
-
-`init` methods should be structured like this:
+Initializer methods should be structured as follows:
 
 ```objc
 - (instancetype)init {
@@ -382,6 +381,54 @@ Private properties should be declared in class extensions (anonymous categories)
 @property (nonatomic, strong) GADBannerView *googleAdView;
 @property (nonatomic, strong) ADBannerView *iAdView;
 @property (nonatomic, strong) UIWebView *adXWebView;
+
+@end
+```
+
+## Method Ordering
+
+Method implementations are grouped and ordered with lifecycle methods first, then by class inheritance. A `pragma mark -` is used to separate each group.
+
+“Lifecycle methods” are roughly defined, for the purpose of ordering, as those methods dealing with the creation or destruction of instances: initializers, `+alloc`, `-dealloc`, `-initialize`, `-load`, factory methods, `NSCoding` methods, and the like.
+
+Under the `pragma mark -` for a given class, class methods are ordered before instance methods.
+
+Protocol method implementations are grouped under the `pragma mark -` for the class that declares conformance to the protocol. Those protocol methods should be further set apart with their own `pragma mark`.
+
+In general within a group, try to organize by chronology (e.g., `viewWillAppear` before `viewDidAppear`).
+
+```objc
+@implementation NYTSectionTableViewController
+
+- (instancetype)init { }
+
+#pragma mark - NSObject
+
++ (NSString *)description { }
+
+- (NSString *)debugDescription { }
+
+#pragma mark - UIViewController
+
+- (void)viewDidLoad { }
+
+- (void)viewWillAppear { }
+
+#pragma mark - UITableViewController
+
+- (BOOL)clearsSelectionOnViewWillAppear { }
+
+#pragma mark UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath { }
+
+#pragma mark - NYTSectionTableViewController
+
+- (void)setSection:(NYTSection *) { }
+
+#pragma mark NYTSectionLoaderDelegate
+
+- (void)sectionLoader:(NYTSectionLoader *) didLoadSection:(NYTSection *)section { }
 
 @end
 ```
