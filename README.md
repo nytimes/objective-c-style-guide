@@ -331,9 +331,9 @@ This eliminates the need to look up the underlying type of the enum in order to 
 
 **For example:**
 ```objc
-typedef NS_ENUM(NSInteger, NYTDaysOfTheWeek) {
-     NYTMonday = 0, 
-     NYTTuesday
+typedef NS_ENUM(NSInteger, NYTWeekday) {
+     NYTWeekdayMonday = 0, 
+     NYTWeekdayTuesday
 }; 
 
 NSDictionary *daysOfTheWeek = @{@"monday" : @(NYTMonday), @"tuesday" : @(NYTTuesday)};
