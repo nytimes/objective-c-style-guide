@@ -325,7 +325,7 @@ typedef NS_ENUM(NSInteger, NYTAdRequestState) {
 
 ## Boxing Enumerated Types
 
-Although `enum`s are integral values, they cannot be directly used as [boxed literals](http://clang.llvm.org/docs/ObjectiveCLiterals.html#boxed-enums). When boxing `enum`s (for example when using them in a Cocoa collection) they should be boxed as `NSNumber`s using the shorthand `@()` literal expression, not as the [NSNumber numberWith...:]` methods.
+Although `enum`s are integral values, they cannot be directly used as [boxed literals](http://clang.llvm.org/docs/ObjectiveCLiterals.html#boxed-enums). When boxing `enum`s (for example when using them in a Cocoa collection) they should be boxed as `NSNumber`s using the shorthand `@()` literal expression, not as the `[NSNumber numberWith...:]` methods.
 
 This eliminates the need to look up the underlying type of the enum in order to box it correctly.
 
