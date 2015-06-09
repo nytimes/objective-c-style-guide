@@ -1,8 +1,6 @@
-# NYTimes Objective-C Style Guide
+# Follow Up Boss' Objective-C Style Guide
 
-This style guide outlines the coding conventions of the iOS teams at The New York Times. We welcome your feedback in [issues](https://github.com/NYTimes/objetive-c-style-guide/issues), [pull requests](https://github.com/NYTimes/objetive-c-style-guide/pulls) and [tweets](https://twitter.com/nytimesmobile). Also, [we’re hiring](http://jobs.nytco.com/job/New-York-iOS-Developer-Job-NY-10001/73366300/).
-
-Thanks to all of [our contributors](https://github.com/NYTimes/objective-c-style-guide/contributors).
+This style guide outlines the coding conventions Follow Up Boss. It is meant to be a subjective view of how we think Objective-C should be styled. Its source is, obviously, The New York Times' style guide.
 
 ## Introduction
 
@@ -18,12 +16,12 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Dot Notation Syntax](#dot-notation-syntax)
 * [Spacing](#spacing)
 * [Conditionals](#conditionals)
-  * [Ternary Operator](#ternary-operator)
+* [Ternary Operator](#ternary-operator)
 * [Error handling](#error-handling)
 * [Methods](#methods)
 * [Variables](#variables)
 * [Naming](#naming)
-  * [Categories](#categories)
+* [Categories](#categories)
 * [Comments](#comments)
 * [Init & Dealloc](#init-and-dealloc)
 * [Literals](#literals)
@@ -31,7 +29,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Constants](#constants)
 * [Enumerated Types](#enumerated-types)
 * [Bitmasks](#bitmasks)
-* [Private Properties](#private-properties)
+* [Properties](#properties)
 * [Image Naming](#image-naming)
 * [Booleans](#booleans)
 * [Singletons](#singletons)
@@ -57,19 +55,26 @@ UIApplication.sharedApplication.delegate;
 ## Spacing
 
 * Indent using 4 spaces. Never indent with tabs. Be sure to set this preference in Xcode.
-* Method braces and other braces (`if`/`else`/`switch`/`while` etc.) always open on the same line as the statement but close on a new line.
+* Method braces and other braces (`if`/`else`/`switch`/`while` etc.) always open on the next line following the statement and close on a new line. The only exception to this are braces belonging to blocks.
 
 **For example:**
 ```objc
-if (user.isHappy) {
-    // Do something
+if (user.isHappy) 
+{
+//Do something
 }
-else {
-    // Do something else
+else 
+{
+//Do something else
 }
+
+[array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//code
+}];
+
 ```
 * There should be exactly one blank line between methods to aid in visual clarity and organization.
-* Whitespace within methods should be used to separate functionality (though often this can indicate an opportunity to split the method into several, smaller methods). In methods with long or verbose names, a single line of whitespace may be used to provide visual separation before the method’s body.
+* Whitespace within methods should be used to separate functionality (though often this can indicate an opportunity to split the method into several, smaller methods iff that code is used in two different places). In methods with long or verbose names, a single line of whitespace may be used to provide visual separation before the method’s body.
 * `@synthesize` and `@dynamic` should each be declared on new lines in the implementation.
 
 ## Conditionals
@@ -78,30 +83,49 @@ Conditional bodies should always use braces even when a conditional body could b
 
 **For example:**
 ```objc
-if (!error) {
-    return success;
+if (conditional) 
+{
+//One line of code.
 }
 ```
 
 **Not:**
 ```objc
-if (!error)
-    return success;
+if (conditional)
+//One line of code.
 ```
 
 or
 
 ```objc
-if (!error) return success;
+if (conditional) //One line of code.
 ```
+### Conditional Logic
+Conditionals will always add complexity to your code (as they are inherently bisecting it or worse). In this case, Occam's Razor should be applied so that the leftmost part of the code is always the most common. This is also known as returning early and often.
+
+**For example:**
+```objc
+if (error) 
+{
+//Handle an error, which is not the most common scenario.
+return error;
+}
+
+//Handle success, which is the most common scenario.
+```
+
+The reason for this is so that a new programmer only needs to follow the leftmost path to understand the basic functionality of the code. As they get progressively more familiar with the code, they can go inside each conditional to understand edge cases.
 
 ### Ternary Operator
 
-The ternary operator, `?` , should only be used when it increases clarity or code neatness. A single condition is usually all that should be evaluated. Evaluating multiple conditions is usually more understandable as an if statement, or refactored into named variables.
+The ternary operator, `?` , should only be used when it increases clarity or code neatness. A single condition is usually all that should be evaluated. Evaluating multiple conditions is usually more understandable as an if statement, or refactored into named variables. Using a shortened ternary operator is encouraged if assigning an object or nil, as necessary.
 
 **For example:**
 ```objc
 result = a > b ? x : y;
+
+result = a ?: nil
+
 ```
 
 **Not:**
@@ -116,8 +140,9 @@ When methods return an error parameter by reference, switch on the returned valu
 **For example:**
 ```objc
 NSError *error;
-if (![self trySomethingWithError:&error]) {
-    // Handle Error
+if (![self trySomethingWithError:&error]) 
+{
+//Handle Error
 }
 ```
 
@@ -125,8 +150,9 @@ if (![self trySomethingWithError:&error]) {
 ```objc
 NSError *error;
 [self trySomethingWithError:&error];
-if (error) {
-    // Handle Error
+if (error) 
+{
+//Handle Error
 }
 ```
 
@@ -134,11 +160,39 @@ Some of Apple’s APIs write garbage values to the error parameter (if non-NULL)
 
 ## Methods
 
-In method signatures, there should be a space after the scope (`-` or `+` symbol). There should be a space between the method segments.
+In method signatures, there should be a space after the scope (`-` or `+` symbol). There should be a space between the method segments. Separating a method into different lines is encouraged, unless the colons will not be aligned.
 
 **For example:**
 ```objc
 - (void)setExampleText:(NSString *)text image:(UIImage *)image;
+
+- (void)setExampleText:(NSString *)text
+image:(UIImage *)image;
+```
+
+**Not:**
+```objc
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+```
+
+### Method Implementation
+Method implementations should always end with a semicolon. This allows for copying and pasting between .h and.m files to be quick, easy and less error-prone.
+
+**For example, in class.m:**
+```objc
+- (void)setExampleText:(NSString *)text image:(UIImage *)image;
+{
+//Code
+}
+```
+
+**Not:**
+```objc
+- (void)setExampleText:(NSString *)text image:(UIImage *)image
+{
+//Code
+}
 ```
 
 ## Variables
@@ -155,7 +209,7 @@ Variables should be named descriptively, with the variable’s name clearly comm
 * `NSURL *URL` vs. `NSString *URLString`: In situations when a value can reasonably be represented by different classes, it is often useful to disambiguate in the variable’s name.
 * `NSString *releaseDateString`: Another example where a value could be represented by another class, and the name can help disambiguate.
 
-Single letter variable names should be avoided except as simple counter variables in loops.
+Single letter variable names should be avoided especially as simple counter variables in loops. In that case, a more verbose variable name such as itemCounter is expected.
 
 Asterisks indicating a type is a pointer should be “attached to” the variable name. **For example,** `NSString *text` **not** `NSString* text` or `NSString * text`, except in the case of constants (`NSString * const NYTConstantString`).
 
@@ -175,13 +229,15 @@ Property definitions should be used in place of naked instance variables wheneve
 
 ```objc
 @interface NYTSection : NSObject {
-    NSString *headline;
+NSString *headline;
 }
 ```
 
 #### Variable Qualifiers
 
 When it comes to the variable qualifiers [introduced with ARC](https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4), the qualifier (`__strong`, `__weak`, `__unsafe_unretained`, `__autoreleasing`) should be placed between the asterisks and the variable name, e.g., `NSString * __weak text`. 
+
+The need for `__unsafe_unretained` is very, very, very low. In general, avoid it at all costs. It is inherently unsaf/e.
 
 ## Naming
 
@@ -201,7 +257,7 @@ UIButton *settingsButton;
 UIButton *setBut;
 ```
 
-A three letter prefix (e.g., `NYT`) should always be used for class names and constants, however may be omitted for Core Data entity names. Constants should be camel-case with all words capitalized and prefixed by the related class name for clarity. A two letter prefix (e.g., `NS`) is [reserved for use by Apple](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/DefiningClasses/DefiningClasses.html#//apple_ref/doc/uid/TP40011210-CH3-SW12).
+A three letter prefix (e.g., `NYT`) should optionally be used for class names and always for constants and category methods, it, however may be omitted for Core Data entity names. Constants should be camel-case with all words capitalized and prefixed by the related class name for clarity. A two letter prefix (e.g., `NS`) is [reserved for use by Apple](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/DefiningClasses/DefiningClasses.html#//apple_ref/doc/uid/TP40011210-CH3-SW12).
 
 **For example:**
 
@@ -255,20 +311,33 @@ When they are needed, comments should be used to explain **why** a particular pi
 
 Block comments should generally be avoided, as code should be as self-documenting as possible, with only the need for intermittent, few-line explanations. This does not apply to those comments used to generate documentation.
 
+Comments should not start with a space between the slashes and the comment itself. If the comment is very long, do not start new lines. Let the compiler do the wrapping for you.
+
+**For example:**
+
+```objc
+//My length comment that wraps around because my compiler helps me.
+```
+
+**Not:**
+```objc
+// My comment.
+```
+
 ## init and dealloc
 
-`dealloc` methods should be placed at the top of the implementation, directly after the `@synthesize` and `@dynamic` statements. `init` should be placed directly below the `dealloc` methods of any class.
+`dealloc` methods should be placed right after the designated initializer. `init` should be placed directly after the `@synthesize` and `@dynamic` statements.
 
 `init` methods should be structured like this:
 
 ```objc
-- (instancetype)init {
-    self = [super init]; // or call the designated initializer
-    if (self) {
-        // Custom initialization
-    }
+- (instancetype)init 
+{
+if (self != [super init];) {
+return nil;
+}
 
-    return self;
+return self;
 }
 ```
 
@@ -350,8 +419,8 @@ When using `enum`s, use the new fixed underlying type specification, which provi
 
 ```objc
 typedef NS_ENUM(NSInteger, NYTAdRequestState) {
-    NYTAdRequestStateInactive,
-    NYTAdRequestStateLoading
+NYTAdRequestStateInactive,
+NYTAdRequestStateLoading
 };
 ```
 
@@ -363,25 +432,26 @@ When working with bitmasks, use the `NS_OPTIONS` macro.
 
 ```objc
 typedef NS_OPTIONS(NSUInteger, NYTAdCategory) {
-  NYTAdCategoryAutos      = 1 << 0,
-  NYTAdCategoryJobs       = 1 << 1,
-  NYTAdCategoryRealState  = 1 << 2,
-  NYTAdCategoryTechnology = 1 << 3
+NYTAdCategoryAutos      = 1 << 0,
+NYTAdCategoryJobs       = 1 << 1,
+NYTAdCategoryRealState  = 1 << 2,
+NYTAdCategoryTechnology = 1 << 3
 };
 ```
 
-## Private Properties
+## Properties
 
-Private properties should be declared in class extensions (anonymous categories) in the implementation file of a class.
+Public properties should be readonly unless absolutely necessary. Private properties, then, should be declared in class extensions (anonymous categories) in the implementation file of a class and should use readwrite as a modifier. NSStrings, NSArrays and NSDictionaries should always use copy instead of strong, due to issues with mutability.
 
-**For example:**
+**For example, in NYTAdvertisement.m:**
 
 ```objc
 @interface NYTAdvertisement ()
 
-@property (nonatomic, strong) GADBannerView *googleAdView;
-@property (nonatomic, strong) ADBannerView *iAdView;
-@property (nonatomic, strong) UIWebView *adXWebView;
+@property (nonatomic, copy, readwrite) NSString *advertisementID;
+@property (nonatomic, strong, readwrite) GADBannerView *googleAdView;
+@property (nonatomic, strong, readwrite) ADBannerView *iAdView;
+@property (nonatomic, strong, readwrite) UIWebView *adXWebView;
 
 @end
 ```
@@ -404,25 +474,20 @@ Never compare something directly to `YES`, because `YES` is defined as `1`, and 
 **For an object pointer:**
 
 ```objc
-if (!someObject) {
+if (!someObject) 
+{
 }
 
-if (someObject == nil) {
+if (aBoolean)
+{
 }
-```
 
-**For a `BOOL` value:**
-
-```objc
-if (isAwesome)
-if (!someNumber.boolValue)
-if (someNumber.boolValue == NO)
 ```
 
 **Not:**
 
 ```objc
-if (isAwesome == YES) // Never do this.
+if (aBoolean == YES) //Never do this.
 ```
 
 If the name of a `BOOL` property is expressed as an adjective, the property’s name can omit the `is` prefix but should specify the conventional name for the getter.
@@ -437,35 +502,36 @@ _Text and example taken from the [Cocoa Naming Guidelines](https://developer.app
 
 ## Singletons
 
-Singleton objects should use a thread-safe pattern for creating their shared instance.
+Singleton objects should be avoided at all costs. However, if they are to be used, then use a thread-safe pattern for creating their shared instance.
 ```objc
-+ (instancetype)sharedInstance {
-   static id sharedInstance = nil;
++ (instancetype)sharedInstance 
+{
+static id sharedInstance = nil;
 
-   static dispatch_once_t onceToken;
-   dispatch_once(&onceToken, ^{
-      sharedInstance = [[[self class] alloc] init];
-   });
+static dispatch_once_t onceToken;
+dispatch_once(&onceToken, ^{
+sharedInstance = [[[self class] alloc] init];
+});
 
-   return sharedInstance;
+return sharedInstance;
 }
 ```
 This will prevent [possible and sometimes frequent crashes](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
 
 ## Imports
 
-If there is more than one import statement, group the statements [together](http://ashfurrow.com/blog/structuring-modern-objective-c). Commenting each group is optional.
+If there is more than one import statement, group the statements [together](http://ashfurrow.com/blog/structuring-modern-objective-c). Commenting each group is optional. Common group names include: Model, Categories, Views, ViewControllers.
 
 Note: For modules use the [@import](http://clang.llvm.org/docs/Modules.html#using-modules) syntax.
 
 ```objc
-// Frameworks
+//Frameworks
 @import QuartzCore;
 
-// Models
+//Models
 #import "NYTUser.h"
 
-// Views
+//Views
 #import "NYTButton.h"
 #import "NYTUserView.h"
 ```
