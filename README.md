@@ -25,6 +25,7 @@ This style guide conforms to IETF's [RFC 2119](http://tools.ietf.org/html/rfc211
 * [Methods](#methods)
 * [Variables](#variables)
 * [Naming](#naming)
+  * [Categories](#categories)
 * [Comments](#comments)
 * [Init & Dealloc](#init-and-dealloc)
 * [Literals](#literals)
@@ -70,7 +71,8 @@ else {
 }
 ```
 
-* There SHOULD be exactly one blank line between methods to aid in visual clarity and organization. Whitespace within methods MAY separate functionality, but consider writing new methods.  
+* There SHOULD be exactly one blank line between methods to aid in visual clarity and organization.
+* Whitespace within methods MAY separate functionality, though this inclination often indicates an opportunity to split the method into several, smaller methods. In methods with long or verbose names, a single line of whitespace MAY be used to provide visual separation before the method’s body.
 * `@synthesize` and `@dynamic` MUST each be declared on new lines in the implementation.
 
 ## Conditionals
@@ -90,7 +92,8 @@ if (!error)
     return success;
 ```
 
-**Not:**
+or
+
 ```objc
 if (!error) return success;
 ```
@@ -136,17 +139,30 @@ Some of Apple’s APIs write garbage values to the error parameter (if non-NULL)
 
 In method signatures, there SHOULD be a space after the scope (`-` or `+` symbol). There SHOULD be a space between the method segments.
 
-**For Example**:
+**For example:**
 ```objc
 - (void)setExampleText:(NSString *)text image:(UIImage *)image;
 ```
+
 ## Variables
 
-Variables SHOULD be named as descriptively as possible. Single letter variable names are NOT RECOMMENDED, except as simple counter variables in `for` loops.
+Variables should be named descriptively, with the variable’s name clearly communicating what the variable _is_ and pertinent information a programmer needs to use that value properly.
 
-Asterisks indicating pointers MUST be attached to the variable, e.g., `NSString *text` not `NSString* text` nor `NSString * text`, except in the case of constants (`NSString * const NYTConstantString`).
+**For example:**
 
-Property definitions SHOULD be used in place of naked instance variables whenever possible. Direct instance variable access SHOULD be avoided except in initializer methods (`init`, `initWithCoder:`, etc…), `dealloc` methods and within custom setters and getters. For more information on using Accessor Methods in Initializer Methods and dealloc, see [here](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
+* `NSString *title`: It is reasonable to assume a “title” is a string.
+* `NSString *titleHTML`: This indicates a title that may contain HTML which needs parsing for display. _“HTML” is needed for a programmer to use this variable effectively._
+* `NSAttributedString *titleAttributedString`: A title, already formatted for display. _`AttributedString` hints that this value is not just a vanilla title, and adding it could be a reasonable choice depending on context._
+* `NSDate *now`: _No further clarification is needed._
+* `NSDate *lastModifiedDate`: Simply `lastModified` can be ambiguous; depending on context, one could reasonably assume it is one of a few different types.
+* `NSURL *URL` vs. `NSString *URLString`: In situations when a value can reasonably be represented by different classes, it is often useful to disambiguate in the variable’s name.
+* `NSString *releaseDateString`: Another example where a value could be represented by another class, and the name can help disambiguate.
+
+Single letter variable names are NOT RECOMMENDED, except as simple counter variables in loops.
+
+Asterisks indicating a type is a pointer MUST be “attached to” the variable name. **For example,** `NSString *text` **not** `NSString* text` or `NSString * text`, except in the case of constants (`NSString * const NYTConstantString`).
+
+Property definitions SHOULD be used in place of naked instance variables whenever possible. Direct instance variable access SHOULD be avoided except in initializer methods (`init`, `initWithCoder:`, etc…), `dealloc` methods and within custom setters and getters. For more information, see [Apple’s docs on using accessor methods in initializer methods and `dealloc`](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
 
 **For example:**
 
@@ -216,6 +232,24 @@ Instance variables MUST be camel-case with the leading word being lowercase, and
 
 ```objc
 id varnm;
+```
+
+### Categories
+
+Categories may be used to concisely segment functionality and should be named to describe that functionality.
+
+**For example:**
+
+```objc
+@interface UIViewController (NYTMediaPlaying)
+@interface NSString (NSStringEncodingDetection)
+```
+
+**Not:**
+
+```objc
+@interface NYTAdvertisement (private)
+@interface NSString (NYTAdditions)
 ```
 
 ## Comments
@@ -341,7 +375,7 @@ typedef NS_OPTIONS(NSUInteger, NYTAdCategory) {
 
 ## Private Properties
 
-Private properties SHALL be declared in class extensions (anonymous categories) in the implementation file of a class. Named categories (such as `NYTPrivate` or `private`) SHALL NOT be used unless extending another class.
+Private properties SHALL be declared in class extensions (anonymous categories) in the implementation file of a class.
 
 **For example:**
 
@@ -368,48 +402,41 @@ Images that are used for a similar purpose SHOULD be grouped in respective group
 
 ## Booleans
 
-Since `nil` resolves to `NO` it is unnecessary to compare it in conditions. Booleans MUST be used alone or with a single `!`. Booleans MUST NOT be compared directly to `YES`, because `YES` is defined to 1 and a `BOOL` can be up to 8 bits. When testing for the existence of an object, pointers also MUST be used alone or with a single `!`. Pointers MUST NOT be compared directly to `nil`.
+Values MUST NOT be compared directly to `YES`, because `YES` is defined as `1`, and a `BOOL` in Objective-C is a `CHAR` type that is 8 bits long (so a value of `11111110` will return `NO` if compared to `YES`).
 
-This allows for more consistency across files and greater visual clarity.
-
-**For example:**
+**For an object pointer:**
 
 ```objc
 if (!someObject) {
 }
-```
 
-**Not:**
-
-```objc
 if (someObject == nil) {
 }
 ```
 
------
-
-**For a `BOOL`, here are two examples:**
+**For a `BOOL` value:**
 
 ```objc
 if (isAwesome)
 if (!someNumber.boolValue)
+if (someNumber.boolValue == NO)
 ```
 
 **Not:**
 
 ```objc
 if (isAwesome == YES) // Never do this.
-if (someNumber.boolValue == NO)
 ```
 
------
+If the name of a `BOOL` property is expressed as an adjective, the property’s name MAY omit the `is` prefix but should specify the conventional name for the getter.
 
-If the name of a `BOOL` property is expressed as an adjective, the property MAY omit the “is” prefix but specifies the conventional name for the get accessor, for example:
+**For example:**
 
 ```objc
 @property (assign, getter=isEditable) BOOL editable;
 ```
-Text and example taken from the [Cocoa Naming Guidelines](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE).
+
+_Text and example taken from the [Cocoa Naming Guidelines](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE)._
 
 ## Singletons
 

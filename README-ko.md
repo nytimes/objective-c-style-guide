@@ -345,7 +345,7 @@ typedef NS_OPTIONS(NSUInteger, NYTAdCategory) {
 
 ## <a name='private-properties'>Private Properties</a> [원문](https://github.com/NYTimes/objective-c-style-guide#private-properties)
 
-비공개 프로퍼티는 클래스의 implementation 파일안에 클래스 익스텐션(익명 카테고리)에 선언합니다. 명시된 카테고리(`NYTPrivate` 또는 `private` 같은)는 다른 클래스를 확장 하지 않는 한 절대로 사용하지 마세요.
+비공개 프로퍼티는 클래스의 implementation 파일안에 클래스 익스텐션(익명 카테고리)에 선언합니다.
 
 **For example:**
 

@@ -26,6 +26,7 @@ Caso algo não seja mencionado aqui, as seguintes referências podem ajudar:
 * [Métodos](#métodos)
 * [Variáveis](#variáveis)
 * [Nomenclaturas](#nomenclaturas)
+  * [Categorias](#categorias)
   * [Underscores](#underscores)
 * [Comentários](#comentários)
 * [Init e Dealloc](#init-e-dealloc)
@@ -212,6 +213,24 @@ Propriedades devem ser nomeadas utilizando o padrão camel-case com a primeira p
 id varnm;
 ```
 
+### Categorias
+
+Categorias podem ser usadas para segmentar funcionalidade concisamente e devem ser nomeadas de modo a descrever essa funcionalidade.
+
+**Exemplo correto:**
+
+```objc
+@interface UIViewController (NYTMediaPlaying)
+@interface NSString (NSStringEncodingDetection)
+```
+
+**Inadequado:**
+
+```objc
+@interface NYTAdvertisement (private)
+@interface NSString (NYTAdditions)
+```
+
 ### Underscores
 
 Quando uma propriedade for utilizada, as variáveis de instância devem ser acessadas ou alteradas com o `self.`, isso significa distinguir as propriedades visualmente. Variáveis locais não devem conter underscores.
@@ -324,7 +343,7 @@ typedef NS_ENUM(NSInteger, NYTAdRequestState) {
 
 ## Propriedades privadas
 
-Propriedades privadas devem ser decladas em extensões da classe (categorias anônimas) no arquivo de implementação. Categorias nomeadas (como `NYTPrivate` ou `private`) jamais devem ser utilizadas, a menos que sejam extensões de outra classe.
+Propriedades privadas devem ser decladas em extensões da classe (categorias anônimas) no arquivo de implementação.
 
 **Exemplo correto:**
 
