@@ -146,7 +146,7 @@ In method signatures, there SHOULD be a space after the scope (`-` or `+` symbol
 
 ## Variables
 
-Variables should be named descriptively, with the variable’s name clearly communicating what the variable _is_ and pertinent information a programmer needs to use that value properly.
+Variables SHALL be named descriptively, with the variable’s name clearly communicating what the variable _is_ and pertinent information a programmer needs to use that value properly.
 
 **For example:**
 
@@ -236,7 +236,7 @@ id varnm;
 
 ### Categories
 
-Categories may be used to concisely segment functionality and should be named to describe that functionality.
+Categories MAY be used to concisely segment functionality and should be named to describe that functionality.
 
 **For example:**
 
