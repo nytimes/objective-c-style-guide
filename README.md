@@ -42,7 +42,7 @@ This style guide conforms to IETF's [RFC 2119](http://tools.ietf.org/html/rfc211
 
 ## Dot Notation Syntax
 
-Dot notation SHOULD be used for getting and setting properties. Bracket notation SHOULD be used in all other instances.
+Dot notation is RECOMMENDED over bracket notation for getting and setting properties.
 
 **For example:**
 ```objc
