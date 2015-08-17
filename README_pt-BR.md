@@ -143,11 +143,23 @@ Na assinatura de um método, deve haver um espaço após o escopo (símbolo de -
 ```
 ## Variáveis
 
-As variáveis devem ser nomeadas de forma mais descritiva possível. Nomes de variáveis com uma única letra devem ser evitados, exceto em estruturas de repetição do tipo `for()`.
+As variáveis devem ser nomeadas de forma descritiva, com o nome da variável comunicando claramente o que a variável _é_ e também informações pertinentes que um programador precise para usar o valor corretamente.
 
-Os asteriscos, que indicam ponteiros, pertencem à variável, por exemplo: `NSString *text`, não `NSString* text` ou `NSString * text`, exceto em caso onde sejam aplicados a constantes.
+**Por exemplo:**
 
-As definições de propriedade vem ser utilizadas sempre que possível. O acesso direto a variáveis de instância deve ser evitado, com excessão de métodos inicializadores (`init`, `initWithCoder:`...), métodos `dealloc` e métodos acessores (`set` e `get`). Para mais informações sobre o uso de métodos acessores em métodos inicializadores e `dealloc`, consulte [esta página](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
+* `NSString *title`: É sensato assumir que "title" é uma string.
+* `NSString *titleHTML`: Indica que o título pode conter HTML que precisa ser tratado para ser exibido. _"HTML" é necessário para que o programador utilize essa variável efetivamente._
+* `NSAttributedString *titleAttributedString`: Um título, já formatado para ser exibido. _`AttributedString` dá uma dica que esse valor não é somente um título puro, e adicioná-lo pode ser uma escolha razoável dependendo do contexto._
+* `NSDate *now`: _Não é necessário especificar melhor._
+* `NSDate *lastModifiedDate`: `lastModified` somente pode ser ambíguo; dependendo do contexto, uma pessoa pode assumir diferentes tipos.
+* `NSURL *URL` vs. `NSString *URLString`: Em situações onde um valor pode ser representada por diferentes classes, é normalmente útil remover essa ambiguidade no nome da variável.
+* `NSString *releaseDateString`: Outro exemplo onde um valor pode ser representado por outra classe, e o nome pode ajudar a remover a ambiguidade.
+
+Variáveis com somente uma letra deve ser evitados, exceto para simples contadores em loops.
+
+Os asteriscos, que indicam que um tipo de uma variável é um ponteiro, deve estar "anexado" ao nome da variável, **por exemplo:** `NSString *text`, **não** `NSString* text` ou `NSString * text`, exceto em caso onde sejam aplicados a constantes (`NSString * const NYTConstantString`).
+
+As definições de propriedade devem ser utilizadas sempre que possível. O acesso direto a variáveis de instância deve ser evitado, com excessão de métodos inicializadores (`init`, `initWithCoder:`...), métodos `dealloc` e métodos acessores (`set` e `get`). Para mais informações, [veja a documentação da Apple sobre o uso de métodos acessores em métodos inicializadores e `dealloc`](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
 
 **Exemplo correto:**
 
