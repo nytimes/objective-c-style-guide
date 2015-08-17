@@ -70,7 +70,8 @@ else {
 // falso
 }
 ```
-* Deve haver exatamente uma linha em branco entre os métodos para auxiliar na organização visual. Espaços em branco dentro dos métodos devem separar funcionalidades, mas sua principal função é separar métodos.
+* Deve haver exatamente uma linha em branco entre os métodos para auxiliar na organização visual.
+* Espaços em branco dentro dos métodos devem separar funcionalidades (embora muitas das vezes isso indique uma oportunidade para dividir o método em outros métodos menores). Em métodos com nomes longos ou verbosos, uma única linha em branco pode ser utilizada para prover separação visual antes do corpo do método.
 * `@synthesize` e `@dynamic` devem ser declarados em novas linhas.
 
 ## Condicionais
