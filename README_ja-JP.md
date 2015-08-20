@@ -195,7 +195,7 @@ AppleのAPIのいくつかは、成功時にエラー変数へゴミ値を入れ
 UIButton *settingsButton;
 ```
 
-**良い例：**
+**悪い例：**
 
 ```objc
 UIButton *setBut;
