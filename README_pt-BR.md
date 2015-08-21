@@ -39,6 +39,7 @@ Caso algo não seja mencionado aqui, as seguintes referências podem ajudar:
 * [Booleanos](#booleanos)
 * [Singletons](#singletons)
 * [Imports](#imports)
+* [Protocols](#protocols)
 * [Projeto no Xcode](#projeto-no-Xcode)
 
 ## Quando utilizar ponto
@@ -249,6 +250,24 @@ Categorias podem ser usadas para segmentar funcionalidade concisamente e devem s
 ```objc
 @interface NYTAdvertisement (private)
 @interface NSString (NYTAdditions)
+```
+
+Métodos e propriedades adicionadas em categorias devem ser nomeadas com o prefixo da aplicação ou específico da organização. Isso evita sobrescrever involuntariamente um método existente, e reduz a change de duas categorias de diferentes bibliotecas adicionarem métodos com o mesmo nome. (A runtime do Objective-C não especifica qual método será chamado no último caso, o que pode levar a efeitos indesejados.)
+
+**Exemplo correto:**
+
+```objc
+@interface NSArray (NYTAccessors)
+- (id)nyt_objectOrNilAtIndex:(NSUInteger)index;
+@end
+```
+
+**Inadequado:**
+
+```objc
+@interface NSArray (NYTAccessors)
+- (id)objectOrNilAtIndex:(NSUInteger)index;
+@end
 ```
 
 ## Comentários
@@ -470,6 +489,24 @@ Nota: Para módulos use a syntax [@import](http://clang.llvm.org/docs/Modules.ht
 // Views
 #import "NYTButton.h"
 #import "NYTUserView.h"
+```
+
+## Protocols
+
+Em um [protocolo de delegate ou data source](https://developer.apple.com/library/ios/documentation/General/Conceptual/CocoaEncyclopedia/DelegatesandDataSources/DelegatesandDataSources.html), o primeiro parâmetro do método deve ser o objeto que envia a mensagem.
+
+Isso ajuda a desambiguar casos onde um objeto é o delegate de múltiplos objetos de tipos similares, e isso ajuda a clarificar a intenção para os leitores de uma classe implementando esses métodos delegate.
+
+**Exemplo correto:**
+
+```objc
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+```
+
+**Inadequado:**
+
+```objc
+- (void)didSelectTableRowAtIndexPath:(NSIndexPath *)indexPath;
 ```
 
 ## Projeto no Xcode
