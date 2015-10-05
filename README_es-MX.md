@@ -20,7 +20,7 @@ Aquí puedes encontrar algunos de los documentos de Apple sobre las guías de es
 * [Condicionales](#condicionales)
   * [Operador ternario](#operador-ternario)
 * [Manejo de errores](#manejo-de-errores)
-* [Métodos](#metodos)
+* [Métodos](#métodos)
 * [Variables](#variables)
 * [Nombres](#naming)
 * [Comentarios](#comments)
