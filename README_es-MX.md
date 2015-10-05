@@ -22,7 +22,7 @@ Aquí puedes encontrar algunos de los documentos de Apple sobre las guías de es
 * [Manejo de errores](#manejo-de-errores)
 * [Métodos](#métodos)
 * [Variables](#variables)
-* [Nombres](#naming)
+* [Nombres](#nombres)
 * [Comentarios](#comments)
 * [Init y Dealloc](#init-and-dealloc)
 * [Literales](#literals)
@@ -164,4 +164,55 @@ La definición de propiedades debe de ser usada siempre que sea posible, en luga
 @interface NYTSection : NSObject {
     NSString *headline;
 }
+```
+### Clasificación de variables
+
+Cuando se trate de la clasificación de variables [agregadas con ARC](https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4), el clasificador (`__strong`, `__weak`, `__unsafe_unretained`, `__autoreleasing`) debe de ser puesto entre el asterisco y el nombre de la variable, por ejemplo: `NSString * _wak text`.
+
+## Nombres
+
+Se deben de seguir las convenciones de nombramiento de Apple siempre que sea posible, especialmente las que están relacionadas con las [reglas de manejo de memoria] (https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html) ([NARC](http://stackoverflow.com/a/2865194/340508)).
+
+Los nombres largos y descriptivos de variables son buenos.
+
+**Por ejemplo:**
+
+```objc
+UIButton *settingsButton;
+```
+
+**Incorrecto:**
+
+```objc
+UIButton *setBut;
+```
+
+Un prefijo de tres letras (por ejemplo, `NYT`) siempre se debe de usar para nombres de clases y constantes, pero debe de ser omitido en los nombres de las entidades de Core Data. Las constantes deben de ser camel-case con todas las palabras en mayúsculas y un prefijo relacionado con el nombre de la clase. Usar un prefijo de sólo dos letras (por ejemplo, `NS`) está [reservado para el uso de Apple](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/DefiningClasses/DefiningClasses.html#//apple_ref/doc/uid/TP40011210-CH3-SW12).
+
+**Por ejemplo:**
+
+```objc
+static const NSTimeInterval NYTArticleViewControllerNavigationFadeAnimationDuration = 0.3;
+```
+
+**Incorrecto:**
+
+```objc
+static const NSTimeInterval fadetime = 1.7;
+```
+
+Las propiedades y variables locales deben de ser camel-case con la primera palabra en minúsculas.
+
+Las variables de instancia deben de ser camel-case con la primera palabra en minúsculas y debe de tener el prefijo con un guión bajo. Esto es consistente con la sintetización automática de variables de instancia del LLVM. **Si el LLVM puede sintetizar la palabra automáticamente, hay que dejar que lo haga.**
+
+**Por ejemplo:**
+
+```objc
+@synthesize descriptiveVariableName = _descriptiveVariableName;
+```
+
+**Incorrecto:**
+
+```objc
+id varnm;
 ```
