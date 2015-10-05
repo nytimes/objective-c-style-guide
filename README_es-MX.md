@@ -139,3 +139,29 @@ En la declaración de métodos, debe de existir un espacio después del símbolo
 ```objc
 - (void)setExampleText:(NSString *)text image:(UIImage *)image;
 ```
+
+## Variables
+
+Las variables deben de ser nombradas de la manera más descriptiva posible. Variables con una sola letra como nombre se deben de evitar excepto en los contadores de los ciclos `for`.
+
+Los asteriscos que indican apuntadores pretenecen a la variable, por ejemplo, `NSString *text` no `NSString* text` o `NSString * text`, excepto en los casos de las constantes (`NSString * const NYTConstantString`).
+
+La definición de propiedades debe de ser usada siempre que sea posible, en lugar de la definición de variables de instancia. Las variables directas de instancia deben de ser evitadas, excepto en los metodos de iniciralización (`init`, `initWithCoder:`, etc…), los metodos `dealloc` y los metodos de acceso (`set`y `get`). Para más información de el uso de metodos de acceso en incializadores y `deallo`consulte esta página](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
+
+**Por ejemplo:**
+
+```objc
+@interface NYTSection: NSObject
+
+@property (nonatomic) NSString *headline;
+
+@end
+```
+
+**Incorrecto:**
+
+```objc
+@interface NYTSection : NSObject {
+    NSString *headline;
+}
+```
