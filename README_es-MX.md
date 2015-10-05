@@ -24,8 +24,8 @@ Aquí puedes encontrar algunos de los documentos de Apple sobre las guías de es
 * [Variables](#variables)
 * [Nombres](#nombres)
 * [Comentarios](#comentarios)
-* [Init y Dealloc](#init-and-dealloc)
-* [Literales](#literals)
+* [Init y Dealloc](#init-y-dealloc)
+* [Literales](#literales)
 * [Funciones CGRect](#cgrect-functions)
 * [Constantes](#constants)
 * [Tipos enumerados](#enumerated-types)
@@ -237,4 +237,26 @@ if (self) {
 
 return self;
 }
+```
+
+## Literales
+
+Las literales `NSString`, `NSArray`y `NSNumber`deben de ser usadas cuando se creen instancias inmutables de esos objetos. Hay que prestar mayor atención a que los valores `nil` no sean pasados a las literales `NSArray` y `NSDictionary`, porque esto ocasionará que la aplicación deje de funcionar.
+
+**Por ejemplo:**
+
+```objc
+NSArray *names = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
+NSDictionary *productManagers = @{@"iPhone" : @"Kate", @"iPad" : @"Kamal", @"Mobile Web" : @"Bill"};
+NSNumber *shouldUseLiterals = @YES;
+NSNumber *buildingZIPCode = @10018;
+```
+
+**Incorrecto:**
+
+```objc
+NSArray *names = [NSArray arrayWithObjects:@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul", nil];
+NSDictionary *productManagers = [NSDictionary dictionaryWithObjectsAndKeys: @"Kate", @"iPhone", @"Kamal", @"iPad", @"Bill", @"Mobile Web", nil];
+NSNumber *shouldUseLiterals = [NSNumber numberWithBool:YES];
+NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 ```
