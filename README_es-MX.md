@@ -23,7 +23,7 @@ Aquí puedes encontrar algunos de los documentos de Apple sobre las guías de es
 * [Métodos](#métodos)
 * [Variables](#variables)
 * [Nombres](#nombres)
-* [Comentarios](#comments)
+* [Comentarios](#comentarios)
 * [Init y Dealloc](#init-and-dealloc)
 * [Literales](#literals)
 * [Funciones CGRect](#cgrect-functions)
@@ -215,4 +215,26 @@ Las variables de instancia deben de ser camel-case con la primera palabra en min
 
 ```objc
 id varnm;
+```
+## Comentarios
+
+Cuando sean necesarios, los comentarios deben de ser usados para explicar el **porque** de una sección del código hace algo. Los comentarios deben de ser actualizados o eliminados.
+
+Los bloques de comentarios deben de ser evitados, el código debe de ser lo más entendible posible, con la necesidad de pequeñas explicaciones intermitentes en el mismo. Esto no aplica con los comentarios usados para generar documentación.
+
+## init y dealloc
+
+Los métodos `dealloc`deben de ser incluidos al principio de la implementación, justo después de las líneas `@synthesize`y `@dynamic`. El `init`debe de ser puesto debajo de los métodos `dealloc`de cualquier clase.
+
+Los métodos de `init`deben de ser estructurados de la siguiente manera:
+
+```objc
+- (instancetype)init {
+self = [super init]; // o llamar el inicializador designado
+if (self) {
+// Inicialización propia
+}
+
+return self;
+}
 ```
