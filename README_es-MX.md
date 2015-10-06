@@ -69,7 +69,7 @@ else {
 }
 ```
 * Debe de haber exactamente una línea en blanco entre métodos para mejorar la claridad y organización visual. 
-* Los espacios en blanco dentro de los métodos deben de separar funcionalidad (aunque en algunaso ocasiones esto significa que el método puede ser dividido en métodos más pequeños). En métodos con nombres largos que incluyan muchos verbos, una sola línea en blanco puede ser usada para proporcionar una separación visual antes del cuerpo del método.
+* Los espacios en blanco dentro de los métodos deben de separar funcionalidad (aunque en algunas ocasiones esto significa que el método puede ser dividido en métodos más pequeños). En métodos con nombres largos que incluyan muchos verbos, una sola línea en blanco puede ser usada para proporcionar una separación visual antes del cuerpo del método.
 * `@synthesize` y `@dynamic` deben declararse en nuevas líneas de código.
 
 ## Condicionales
@@ -90,7 +90,6 @@ if (!error)
     return success;
 ```
 
-o
 
 ```objc
 if (!error) return success;
@@ -98,7 +97,7 @@ if (!error) return success;
 
 ### Operador ternario
 
-El operador ternario `?` debe de ser utilizado únicamente cuando ayuda a mejorar la claridad o limpieza del código. Esto es, cuando sólo una condición será evaluada. Evaluar multiples condiciones es mucho más entendible si se hace con un `if`.
+El operador ternario `?` debe de ser utilizado únicamente cuando ayuda a mejorar la claridad o limpieza del código. Esto es, cuando sólo una condición será evaluada. Evaluar múltiples condiciones es mucho más entendible si se hace con un `if`.
 
 **Por ejemplo:**
 ```objc
@@ -144,7 +143,7 @@ En la declaración de métodos, debe de existir un espacio después del símbolo
 
 ## Variables
 
-Las variables deben de ser nombradas de la manera más descriptiva posible, con el nombre comunicando de la manera más explicita que _es_ la variable y la información perminente para que un programador pueda usarla apropiadamente.
+Las variables deben de ser nombradas de la manera más descriptiva posible, con el nombre comunicando de la manera más explicita que _es_ la variable y la información pertinente para que un programador pueda usarla apropiadamente.
 
 * `NSString *title`: Es algo razonable asumir que "title" es un string.
 * `NSString *titleHTML`: Esto indica que el título puede incluir HTML por lo que necesita que se parsee para ser mostrado. _El prefijo "HTML" es necesario para que un programador use la variable correctamente._
@@ -274,7 +273,7 @@ Los bloques de comentarios deben de ser evitados, el código debe de ser lo más
 
 Los métodos `dealloc`deben de ser incluidos al principio de la implementación, justo después de las líneas `@synthesize`y `@dynamic`. El `init`debe de ser puesto debajo de los métodos `dealloc`de cualquier clase.
 
-Los métodos de `init`deben de ser estructurados de la siguiente manera:
+Los métodos de `init` deben de ser estructurados de la siguiente manera:
 
 ```objc
 - (instancetype)init {
@@ -311,9 +310,9 @@ NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 
 ## Funciones `CGRect`
 
-Cuando se accesen las propiedades `x`, `y`, `width` o `height`de un `CGRect`, siempre se debe de utilizar las funciones de [`CGGeometry` functions](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) en lugar de accederlas directaente. De la referencia de Apple sobre `CGGeometry`:
+Cuando se accede a las propiedades `x`, `y`, `width` o `height`de un `CGRect`, siempre se debe de utilizar las funciones de [`CGGeometry` functions](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) en lugar de accederlas directamente. De la referencia de Apple sobre `CGGeometry`:
 
-> Todas las funciones descritas en esta referencia que toman las estructuras de datos de CGRect como entradas implicitamente estandárizan los rectangulos antes de caluclar los resultados. Por esta razón, sus aplicaciones deben de evitar leer y escribir directamente la información guardada en la estructura de datos de CGRect. En lugar de eso, se deben de utilizar las funciones descritas aquí para manipular rectangulos y obtener sus características.
+> Todas las funciones descritas en esta referencia que toman las estructuras de datos de CGRect como entradas implícitamente estandarizan los rectángulos antes de calcular los resultados. Por esta razón, sus aplicaciones deben de evitar leer y escribir directamente la información guardada en la estructura de datos de CGRect. En lugar de eso, se deben de utilizar las funciones descritas aquí para manipular rectángulos y obtener sus características.
 
 **Por ejemplo:**
 
