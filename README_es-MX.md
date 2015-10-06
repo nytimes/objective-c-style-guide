@@ -27,7 +27,7 @@ Aquí puedes encontrar algunos de los documentos de Apple sobre las guías de es
 * [Comentarios](#comentarios)
 * [Init y Dealloc](#init-y-dealloc)
 * [Literales](#literales)
-* [Funciones CGRect](#cgrect-functions)
+* [Funciones CGRect](#funciones-cgrect)
 * [Constantes](#constants)
 * [Tipos enumerados](#enumerated-types)
 * [Máscara de bits](#bitmasks)
@@ -289,7 +289,7 @@ return self;
 
 ## Literales
 
-Las literales `NSString`, `NSArray`y `NSNumber`deben de ser usadas cuando se creen instancias inmutables de esos objetos. Hay que prestar mayor atención a que los valores `nil` no sean pasados a las literales `NSArray` y `NSDictionary`, porque esto ocasionará que la aplicación deje de funcionar.
+Las literales de `NSString`, `NSArray`y `NSNumber`deben de ser usadas cuando se creen instancias inmutables de esos objetos. Hay que prestar mayor atención a que los valores `nil` no sean pasados a las literales `NSArray` y `NSDictionary`, porque esto ocasionará que la aplicación deje de funcionar.
 
 **Por ejemplo:**
 
@@ -307,4 +307,32 @@ NSArray *names = [NSArray arrayWithObjects:@"Brian", @"Matt", @"Chris", @"Alex",
 NSDictionary *productManagers = [NSDictionary dictionaryWithObjectsAndKeys: @"Kate", @"iPhone", @"Kamal", @"iPad", @"Bill", @"Mobile Web", nil];
 NSNumber *shouldUseLiterals = [NSNumber numberWithBool:YES];
 NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
+```
+
+## Funciones `CGRect`
+
+Cuando se accesen las propiedades `x`, `y`, `width` o `height`de un `CGRect`, siempre se debe de utilizar las funciones de [`CGGeometry` functions](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) en lugar de accederlas directaente. De la referencia de Apple sobre `CGGeometry`:
+
+> Todas las funciones descritas en esta referencia que toman las estructuras de datos de CGRect como entradas implicitamente estandárizan los rectangulos antes de caluclar los resultados. Por esta razón, sus aplicaciones deben de evitar leer y escribir directamente la información guardada en la estructura de datos de CGRect. En lugar de eso, se deben de utilizar las funciones descritas aquí para manipular rectangulos y obtener sus características.
+
+**Por ejemplo:**
+
+```objc
+CGRect frame = self.view.frame;
+
+CGFloat x = CGRectGetMinX(frame);
+CGFloat y = CGRectGetMinY(frame);
+CGFloat width = CGRectGetWidth(frame);
+CGFloat height = CGRectGetHeight(frame);
+```
+
+**Incorrecto:**
+
+```objc
+CGRect frame = self.view.frame;
+
+CGFloat x = frame.origin.x;
+CGFloat y = frame.origin.y;
+CGFloat width = frame.size.width;
+CGFloat height = frame.size.height;
 ```
