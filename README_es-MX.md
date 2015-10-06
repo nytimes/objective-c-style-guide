@@ -338,7 +338,7 @@ CGFloat height = frame.size.height;
 
 ## Constantes
 
-Las constantes tienen proferencia sobre literales o números directo en la línea de código, porque facilitan la reproducción de variables usadas en la aplicación y pueden ser cambiadas fácilmente sin la necedidad de buscar y reemplazar. Las constantes deben de ser declaradas como `static` y no `#define` excepto cuando se esté usando explicitamente como macro.
+Las constantes tienen preferencia sobre literales o números directo en la línea de código, porque facilitan la reproducción de variables usadas en la aplicación y pueden ser cambiadas fácilmente sin la necesidad de buscar y reemplazar. Las constantes deben de ser declaradas como `static` y no `#define` excepto cuando se esté usando explícitamente como macro.
 
 **Por ejemplo:**
 
@@ -358,7 +358,7 @@ static const CGFloat NYTImageThumbnailHeight = 50.0;
 
 ## Tipos enumerados
 
-Cuando se estén utilizando `enum` se recomienda utilizar la nueva especifación de tipo fijo subyacente, ya que tiene una for más fuerte de verificación de código. El SDK incluye una macro que facilita el uso de tipos fijos subyacentes: `NS_ENUM()`.
+Cuando se estén utilizando `enum` se recomienda utilizar la nueva especificación de tipo fijo subyacente, ya que tiene una forma más fuerte de verificación de código. El SDK incluye una macro que facilita el uso de tipos fijos subyacentes: `NS_ENUM()`.
 
 **Ejemplo:**
 
