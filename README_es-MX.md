@@ -37,7 +37,7 @@ Aquí puedes encontrar algunos de los documentos de Apple sobre las guías de es
 * [Singletons](#singletons)
 * [Imports](#imports)
 * [Protocolos](#protocolos)
-* [Proyecto de Xcode](#xcode-project)
+* [Proyecto de Xcode](#proyecto-de-xcode)
 
 ## Sintaxis Dot Notation
 
@@ -508,3 +508,4 @@ Esto ayuda a evitar ambigüedades en los casos en que un objeto es delegado de m
 ```objc
 - (void)didSelectTableRowAtIndexPath:(NSIndexPath *)indexPath;
 ```
+
