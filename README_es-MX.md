@@ -183,7 +183,7 @@ Cuando se trate de la clasificación de variables [agregadas con ARC](https://de
 
 ## Nombres
 
-Se deben de seguir las convenciones de nombramiento de Apple siempre que sea posible, especialmente las que están relacionadas con las [reglas de manejo de memoria] (https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html) ([NARC](http://stackoverflow.com/a/2865194/340508)).
+Se deben de seguir las convenciones de nombramiento de Apple siempre que sea posible, especialmente las que están relacionadas con las [reglas de manejo de memoria](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html) ([NARC](http://stackoverflow.com/a/2865194/340508)).
 
 Los nombres largos y descriptivos de variables son buenos.
 
@@ -489,4 +489,22 @@ Nota: Para los modulos usar la sintaxis [@import](http://clang.llvm.org/docs/Mod
 // Vistas
 #import "NYTButton.h"
 #import "NYTUserView.h"
+```
+
+## Protocolos
+
+En un [protocolo de delegado o 'data source'](https://developer.apple.com/library/ios/documentation/General/Conceptual/CocoaEncyclopedia/DelegatesandDataSources/DelegatesandDataSources.html), el primer parametro de cada método debe de ser el objeto que envía el mensaje.
+
+Esto ayuda a evitar ambigüedades en los casos en que un objeto es delegado de multiples objetos, además ayuda a clarificar la lectura de la clase que implementa los métodos del delegado.
+
+**Por ejemplo:**
+
+```objc
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+```
+
+**Incorrecto:**
+
+```objc
+- (void)didSelectTableRowAtIndexPath:(NSIndexPath *)indexPath;
 ```
