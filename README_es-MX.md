@@ -36,6 +36,7 @@ Aquí puedes encontrar algunos de los documentos de Apple sobre las guías de es
 * [Booleanos](#booleano)
 * [Singletons](#singletons)
 * [Imports](#imports)
+* [Protocolos](#protocolos)
 * [Proyecto de Xcode](#xcode-project)
 
 ## Sintaxis Dot Notation
@@ -414,7 +415,7 @@ Las imágenes que se utilicen para propositos similares deben de estar agrupadas
 
 ## Booleanos
 
-Nunca se debe de comparar algo directamente con `YES`, porque `YES` está definido como un `1`, y un `BOOL`en Objective-C es de tipo `CHAR` de 8 bits (por lo que el valor de `1111110` regresaría un `NO` si es comparado con `YES`).
+Nunca se debe de comparar algo directamente con `YES`, porque `YES` está definido como un `1`, y un `BOOL` en Objective-C es de tipo `CHAR` de 8 bits (por lo que el valor de `1111110` regresaría un `NO` si es comparado con `YES`).
 
 **Para el apuntador de un objeto:**
 
@@ -471,3 +472,21 @@ Los objetos Singletons deben de usar un patrón 'thread-safe' para la creación 
 ```
 
 Esto ayudará a prevenir [que la aplicación deje de funcionar de manera ocasional o frecuente](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
+
+## Imports
+
+Si hay más de una declaración de 'import', se deben de agrupar las declaraciones [juntas](http://ashfurrow.com/blog/structuring-modern-objective-c). Comentar cada grupo es opcional.
+
+Nota: Para los modulos usar la sintaxis [@import](http://clang.llvm.org/docs/Modules.html#using-modules).
+
+```objc
+// Frameworks
+@import QuartzCore;
+
+// Modelos
+#import "NYTUser.h"
+
+// Vistas
+#import "NYTButton.h"
+#import "NYTUserView.h"
+```
