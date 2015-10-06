@@ -23,6 +23,7 @@ Aquí puedes encontrar algunos de los documentos de Apple sobre las guías de es
 * [Métodos](#métodos)
 * [Variables](#variables)
 * [Nombres](#nombres)
+  * [Categorías](#categorías)
 * [Comentarios](#comentarios)
 * [Init y Dealloc](#init-y-dealloc)
 * [Literales](#literales)
@@ -67,7 +68,8 @@ else {
     // Hacer otra cosa
 }
 ```
-* Debe de haber exactamente una línea en blanco entre métodos para mejorar la claridad y organización visual. Los espacios en blanco dentro de los métodos deben de separar funcionalidad, pero deben de ser usados en su mayoría para separar métodos.
+* Debe de haber exactamente una línea en blanco entre métodos para mejorar la claridad y organización visual. 
+* Los espacios en blanco dentro de los métodos deben de separar funcionalidad (aunque en algunaso ocasiones esto significa que el método puede ser dividido en métodos más pequeños). En métodos con nombres largos que incluyan muchos verbos, una sola línea en blanco puede ser usada para proporcionar una separación visual antes del cuerpo del método.
 * `@synthesize` y `@dynamic` deben declararse en nuevas líneas de código.
 
 ## Condicionales
@@ -142,7 +144,17 @@ En la declaración de métodos, debe de existir un espacio después del símbolo
 
 ## Variables
 
-Las variables deben de ser nombradas de la manera más descriptiva posible. Variables con una sola letra como nombre se deben de evitar excepto en los contadores de los ciclos `for`.
+Las variables deben de ser nombradas de la manera más descriptiva posible, con el nombre comunicando de la manera más explicita que _es_ la variable y la información perminente para que un programador pueda usarla apropiadamente.
+
+* `NSString *title`: Es algo razonable asumir que "title" es un string.
+* `NSString *titleHTML`: Esto indica que el título puede incluir HTML por lo que necesita que se parsee para ser mostrado. _El prefijo "HTML" es necesario para que un programador use la variable correctamente._
+* `NSAttributedString *titleAttributedString`: Un titulo que ya tiene formato para ser mostrado._En este caso, _`AttributedString` ayuda al programador a tomar una buena decisión dependiendo del contexto._
+* `NSDate *now`: _No se necesita más información en el nombre._
+* `NSDate *lastModifiedDate`: Sólo usar `lastModified` podría generar ambigüedad; dependiendo del contexto, uno podría asumir distintos tipos con el nombre.
+* `NSURL *URL` vs. `NSString *URLString`: En el caso en que un mismo valor pueda ser presentado en diferences clases, es recomendado distinguirlos en el nombre para evitar la confusión que se pueda generar.
+* `NSString *releaseDateString`: Otro ejemplo de como una variable puede ser representada por otra clase, por lo que el nombre ayuda a evitar ambigüedades.
+
+Variables con una sola letra como nombre se deben de evitar excepto en los contadores de los ciclos.
 
 Los asteriscos que indican apuntadores pertenecen a la variable, por ejemplo, `NSString *text` no `NSString* text` o `NSString * text`, excepto en los casos de las constantes (`NSString * const NYTConstantString`).
 
@@ -216,6 +228,42 @@ Las variables de instancia deben de ser camel-case con la primera palabra en min
 ```objc
 id varnm;
 ```
+
+### Categorías
+
+Las categorías deben de ser usadas para segmentar funcionalidad de manera concisa y deben de ser nombradas para describir esa funcionalidad.
+
+**Por ejemplo:**
+
+```objc
+@interface UIViewController (NYTMediaPlaying)
+@interface NSString (NSStringEncodingDetection)
+```
+
+**Incorrecto:**
+
+```objc
+@interface NYTAdvertisement (private)
+@interface NSString (NYTAdditions)
+```
+Los métodos y las propiedades agregadas a una categoría deben ser nombrados con el prefijo de la aplicación u organización. Esto evita que por error se genere un override de algún método existente y además reduce la posibilidad de que dos categorías de diferentes librerías tengan un método con el mismo nombre (en este caso, no se sabe cual de los dos métodos será llamado por lo que puede prestarse a efectos no deseados).
+
+**Por ejemplo:**
+
+```objc
+@interface NSArray (NYTAccessors)
+- (id)nyt_objectOrNilAtIndex:(NSUInteger)index;
+@end
+```
+
+**Incorrecto:**
+
+```objc
+@interface NSArray (NYTAccessors)
+- (id)objectOrNilAtIndex:(NSUInteger)index;
+@end
+```
+
 ## Comentarios
 
 Cuando sean necesarios, los comentarios deben de ser usados para explicar el **porque** de una sección del código hace algo. Los comentarios deben de ser actualizados o eliminados.
