@@ -441,7 +441,7 @@ if (someNumber.boolValue == NO)
 **Not:**
 
 ```objc
-if (isAwesome == YES) // Never do this.
+if (isAwesome == YES) // Nunca hacer esto.
 ```
 
 Si el nombre de una propiedad `BOOL` está expresado como un adjetivo la propiedad puede omitir el prefijo `is` pero debe de especificar el nombre convencional para el acceso ('getter').
@@ -453,3 +453,21 @@ Si el nombre de una propiedad `BOOL` está expresado como un adjetivo la propied
 ```
 
 _Texto y ejemplo obtenido de [Cocoa Naming Guidelines](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE)._
+
+## Singletons
+
+Los objetos Singletons deben de usar un patrón 'thread-safe' para la creación de una instancia compartida.
+```objc
++ (instancetype)sharedInstance {
+    static id sharedInstance = nil;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[[self class] alloc] init];
+    });
+
+    return sharedInstance;
+}
+```
+
+Esto ayudará a prevenir [que la aplicación deje de funcionar de manera ocasional o frecuente](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
