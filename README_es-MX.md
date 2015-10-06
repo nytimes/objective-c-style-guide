@@ -28,8 +28,8 @@ Aquí puedes encontrar algunos de los documentos de Apple sobre las guías de es
 * [Init y Dealloc](#init-y-dealloc)
 * [Literales](#literales)
 * [Funciones CGRect](#funciones-cgrect)
-* [Constantes](#constants)
-* [Tipos enumerados](#enumerated-types)
+* [Constantes](#constantes)
+* [Tipos enumerados](#tipos-enumerados)
 * [Máscara de bits](#bitmasks)
 * [Propiedades privadas](#private-properties)
 * [Nombres de imágenes](#image-naming)
@@ -334,4 +334,24 @@ CGFloat x = frame.origin.x;
 CGFloat y = frame.origin.y;
 CGFloat width = frame.size.width;
 CGFloat height = frame.size.height;
+```
+
+## Constantes
+
+Las constantes tienen proferencia sobre literales o números directo en la línea de código, porque facilitan la reproducción de variables usadas en la aplicación y pueden ser cambiadas fácilmente sin la necedidad de buscar y reemplazar. Las constantes deben de ser declaradas como `static` y no `#define` excepto cuando se esté usando explicitamente como macro.
+
+**Por ejemplo:**
+
+```objc
+static NSString * const NYTAboutViewControllerCompanyName = @"The New York Times Company";
+
+static const CGFloat NYTImageThumbnailHeight = 50.0;
+```
+
+**Incorrecto:**
+
+```objc
+#define CompanyName @"The New York Times Company"
+
+#define thumbnailHeight 2
 ```
