@@ -493,9 +493,9 @@ Nota: Para los modulos usar la sintaxis [@import](http://clang.llvm.org/docs/Mod
 
 ## Protocolos
 
-En un [protocolo de delegado o 'data source'](https://developer.apple.com/library/ios/documentation/General/Conceptual/CocoaEncyclopedia/DelegatesandDataSources/DelegatesandDataSources.html), el primer parametro de cada método debe de ser el objeto que envía el mensaje.
+En un [protocolo de delegado o 'data source'](https://developer.apple.com/library/ios/documentation/General/Conceptual/CocoaEncyclopedia/DelegatesandDataSources/DelegatesandDataSources.html), el primer parámetro de cada método debe de ser el objeto que envía el mensaje.
 
-Esto ayuda a evitar ambigüedades en los casos en que un objeto es delegado de multiples objetos, además ayuda a clarificar la lectura de la clase que implementa los métodos del delegado.
+Esto ayuda a evitar ambigüedades en los casos en que un objeto es delegado de múltiples objetos, además ayuda a clarificar la lectura de la clase que implementa los métodos del delegado.
 
 **Por ejemplo:**
 
@@ -509,3 +509,21 @@ Esto ayuda a evitar ambigüedades en los casos en que un objeto es delegado de m
 - (void)didSelectTableRowAtIndexPath:(NSIndexPath *)indexPath;
 ```
 
+## Proyecto de Xcode
+
+Los archivos físicos deben de asemejar al proyecto de Xcode para evitar el desorden de los archivos. Cualquier grupo que se haga en Xcode debe de ser reflejado en las carpetas del proyecto. El código debe de ser agrupado no sólo por su tipo, si no además por su funcionalidad para mayor claridad.
+
+Cuando sea posible, siempre hay que activar el "Treat Warnings as Errors" (tratar alertas como errores) en los 'Build Settings' del objetivo y activar la mayor cantidad de [alertas adicionales](http://boredzo.org/blog/archives/2009-11-07/warnings) como sea posible. Si es necesario ignorar ciertas alertas, se puede utilizar la [funcionalidad Clang’s pragma](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
+
+## Otras guías de estilo de Objective-C
+
+Si nuestra guía de estilo no es lo que estás buscando, puedes encontrar otras guías de estilo aquí:
+
+* [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
+* [GitHub](https://github.com/github/objective-c-conventions)
+* [Adium](https://trac.adium.im/wiki/CodingStyle)
+* [Sam Soffes](https://gist.github.com/soffes/812796)
+* [CocoaDevCentral](http://cocoadevcentral.com/articles/000082.php)
+* [Luke Redpath](http://lukeredpath.co.uk/blog/2011/06/28/my-objective-c-style-guide/)
+* [Marcus Zarra](http://www.cimgf.com/zds-code-style-guide/)
+* [Wikimedia](https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/iOS/ObjectiveCStyleGuide
