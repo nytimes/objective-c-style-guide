@@ -355,3 +355,16 @@ static const CGFloat NYTImageThumbnailHeight = 50.0;
 
 #define thumbnailHeight 2
 ```
+
+## Tipos enumerados
+
+Cuando se estén utilizando `enum` se recomienda utilizar la nueva especifación de tipo fijo subyacente, ya que tiene una for más fuerte de verificación de código. El SDK incluye una macro que facilita el uso de tipos fijos subyacentes: `NS_ENUM()`.
+
+**Por ejemplo:**
+
+```objc
+typedef NS_ENUM(NSInteger, NYTAdRequestState) {
+    NYTAdRequestStateInactive,
+    NYTAdRequestStateLoading
+};
+```
