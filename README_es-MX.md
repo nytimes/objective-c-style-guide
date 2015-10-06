@@ -30,7 +30,7 @@ Aquí puedes encontrar algunos de los documentos de Apple sobre las guías de es
 * [Funciones CGRect](#funciones-cgrect)
 * [Constantes](#constantes)
 * [Tipos enumerados](#tipos-enumerados)
-* [Máscara de bits](#bitmasks)
+* [Máscara de bits](#máscara-de-bits)
 * [Propiedades privadas](#private-properties)
 * [Nombres de imágenes](#image-naming)
 * [Booleanos](#booleans)
@@ -360,11 +360,27 @@ static const CGFloat NYTImageThumbnailHeight = 50.0;
 
 Cuando se estén utilizando `enum` se recomienda utilizar la nueva especifación de tipo fijo subyacente, ya que tiene una for más fuerte de verificación de código. El SDK incluye una macro que facilita el uso de tipos fijos subyacentes: `NS_ENUM()`.
 
-**Por ejemplo:**
+**Ejemplo:**
 
 ```objc
 typedef NS_ENUM(NSInteger, NYTAdRequestState) {
     NYTAdRequestStateInactive,
     NYTAdRequestStateLoading
+};
+```
+
+## Máscara de bits
+
+Cuando se trabaje con máscara de bits, se debe de usar el macro `NS_OPTIONS`.
+
+**Ejemplo:**
+
+
+```objc
+typedef NS_OPTIONS(NSUInteger, NYTAdCategory) {
+    NYTAdCategoryAutos      = 1 << 0,
+    NYTAdCategoryJobs       = 1 << 1,
+    NYTAdCategoryRealState  = 1 << 2,
+    NYTAdCategoryTechnology = 1 << 3
 };
 ```
