@@ -31,7 +31,7 @@ Aquí puedes encontrar algunos de los documentos de Apple sobre las guías de es
 * [Constantes](#constantes)
 * [Tipos enumerados](#tipos-enumerados)
 * [Máscara de bits](#máscara-de-bits)
-* [Propiedades privadas](#private-properties)
+* [Propiedades privadas](#propiedades-privadas)
 * [Nombres de imágenes](#image-naming)
 * [Booleanos](#booleans)
 * [Singletons](#singletons)
@@ -383,4 +383,20 @@ typedef NS_OPTIONS(NSUInteger, NYTAdCategory) {
     NYTAdCategoryRealState  = 1 << 2,
     NYTAdCategoryTechnology = 1 << 3
 };
+```
+
+## Propiedades privadas
+
+Las propiedades privadas deben de ser declaradas en las extensiones de las clases (categorías anónimas) en el archivo de implementación de una clase.
+
+**Ejemplo:**
+
+```objc
+@interface NYTAdvertisement ()
+
+@property (nonatomic, strong) GADBannerView *googleAdView;
+@property (nonatomic, strong) ADBannerView *iAdView;
+@property (nonatomic, strong) UIWebView *adXWebView;
+
+@end
 ```
