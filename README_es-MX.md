@@ -32,7 +32,7 @@ Aquí puedes encontrar algunos de los documentos de Apple sobre las guías de es
 * [Tipos enumerados](#tipos-enumerados)
 * [Máscara de bits](#máscara-de-bits)
 * [Propiedades privadas](#propiedades-privadas)
-* [Nombres de imágenes](#image-naming)
+* [Nombres de imágenes](#nombres-de-imágenes)
 * [Booleanos](#booleans)
 * [Singletons](#singletons)
 * [Imports](#imports)
@@ -198,7 +198,7 @@ UIButton *settingsButton;
 UIButton *setBut;
 ```
 
-Un prefijo de tres letras (por ejemplo, `NYT`) siempre se debe de usar para nombres de clases y constantes, pero debe de ser omitido en los nombres de las entidades de Core Data. Las constantes deben de ser camel-case con todas las palabras en mayúsculas y un prefijo relacionado con el nombre de la clase. Usar un prefijo de sólo dos letras (por ejemplo, `NS`) está [reservado para el uso de Apple](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/DefiningClasses/DefiningClasses.html#//apple_ref/doc/uid/TP40011210-CH3-SW12).
+Un prefijo de tres letras (por ejemplo, `NYT`) siempre se debe de usar para nombres de clases y constantes, pero debe de ser omitido en los nombres de las entidades de Core Data. Las constantes deben de ser 'camel-case' con todas las palabras en mayúsculas y un prefijo relacionado con el nombre de la clase. Usar un prefijo de sólo dos letras (por ejemplo, `NS`) está [reservado para el uso de Apple](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/DefiningClasses/DefiningClasses.html#//apple_ref/doc/uid/TP40011210-CH3-SW12).
 
 **Por ejemplo:**
 
@@ -212,9 +212,9 @@ static const NSTimeInterval NYTArticleViewControllerNavigationFadeAnimationDurat
 static const NSTimeInterval fadetime = 1.7;
 ```
 
-Las propiedades y variables locales deben de ser camel-case con la primera palabra en minúsculas.
+Las propiedades y variables locales deben de ser 'camel-case' con la primera palabra en minúsculas.
 
-Las variables de instancia deben de ser camel-case con la primera palabra en minúsculas y debe de tener el prefijo con un guión bajo. Esto es consistente con la sintetización automática de variables de instancia del LLVM. **Si el LLVM puede sintetizar la palabra automáticamente, hay que dejar que lo haga.**
+Las variables de instancia deben de ser 'camel-case' con la primera palabra en minúsculas y debe de tener el prefijo con un guión bajo. Esto es consistente con la sintetización automática de variables de instancia del LLVM. **Si el LLVM puede sintetizar la palabra automáticamente, hay que dejar que lo haga.**
 
 **Por ejemplo:**
 
@@ -400,3 +400,14 @@ Las propiedades privadas deben de ser declaradas en las extensiones de las clase
 
 @end
 ```
+
+## Nombres de imágenes
+
+Los nombres de imágenes deben de preservar la organización de manera consistente y ayudar al desarrollador. Los nombres deben de utilizar 'camel-case' y describir de manera explicita su proposito, seguido por el nombre de la clase o propiedad a la que serán asignados sin prefijo (en caso de que exista una), seguido de una descripción de color y/o colocación, y por último el estado al que corresponde.
+
+**Ejemplo:**
+
+* `RefreshBarButtonItem` / `RefreshBarButtonItem@2x` and `RefreshBarButtonItemSelected` / `RefreshBarButtonItemSelected@2x`
+* `ArticleNavigationBarWhite` / `ArticleNavigationBarWhite@2x` and `ArticleNavigationBarBlackSelected` / `ArticleNavigationBarBlackSelected@2x`.
+
+Las imágenes que se utilicen para propositos similares deben de estar agrupadas respectivamente en la carpeta de Imágenes o el catálogo de 'Assets'.
