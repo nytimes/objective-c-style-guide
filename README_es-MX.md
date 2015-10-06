@@ -33,7 +33,7 @@ Aquí puedes encontrar algunos de los documentos de Apple sobre las guías de es
 * [Máscara de bits](#máscara-de-bits)
 * [Propiedades privadas](#propiedades-privadas)
 * [Nombres de imágenes](#nombres-de-imágenes)
-* [Booleanos](#booleans)
+* [Booleanos](#booleano)
 * [Singletons](#singletons)
 * [Imports](#imports)
 * [Proyecto de Xcode](#xcode-project)
@@ -411,3 +411,45 @@ Los nombres de imágenes deben de preservar la organización de manera consisten
 * `ArticleNavigationBarWhite` / `ArticleNavigationBarWhite@2x` and `ArticleNavigationBarBlackSelected` / `ArticleNavigationBarBlackSelected@2x`.
 
 Las imágenes que se utilicen para propositos similares deben de estar agrupadas respectivamente en la carpeta de Imágenes o el catálogo de 'Assets'.
+
+## Booleanos
+
+Nunca se debe de comparar algo directamente con `YES`, porque `YES` está definido como un `1`, y un `BOOL`en Objective-C es de tipo `CHAR` de 8 bits (por lo que el valor de `1111110` regresaría un `NO` si es comparado con `YES`).
+
+**Para el apuntador de un objeto:**
+
+```objc
+if (!someObject) {
+}
+
+if (someObject == nil) {
+}
+```
+
+**Para un valor `BOOL`:**
+
+**For a `BOOL` value:**
+
+```objc
+if (isAwesome)
+if (!someNumber.boolValue)
+if (someNumber.boolValue == NO)
+```
+
+**Incorrecto:**
+
+**Not:**
+
+```objc
+if (isAwesome == YES) // Never do this.
+```
+
+Si el nombre de una propiedad `BOOL` está expresado como un adjetivo la propiedad puede omitir el prefijo `is` pero debe de especificar el nombre convencional para el acceso ('getter').
+
+**Por ejemplo:**
+
+```objc
+@property (assign, getter=isEditable) BOOL editable;
+```
+
+_Texto y ejemplo obtenido de [Cocoa Naming Guidelines](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE)._
