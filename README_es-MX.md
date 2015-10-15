@@ -44,12 +44,14 @@ Aquí puedes encontrar algunos de los documentos de Apple sobre las guías de es
 Hay que utilizar punto **siempre** que se acceda o altere alguna propiedad. En todos los otros casos se recomienda el uso de corchetes.
 
 **Por ejemplo:**
+
 ```objc
 view.backgroundColor = [UIColor orangeColor];
 [UIApplication sharedApplication].delegate;
 ```
 
 **Incorrecto:**
+
 ```objc
 [view setBackgroundColor:[UIColor orangeColor]];
 UIApplication.sharedApplication.delegate;
@@ -61,6 +63,7 @@ UIApplication.sharedApplication.delegate;
 * Los métodos o cualquier otro bloque de código que utilice llaves (`if`/`else`/`switch`/`while` etc.) deben de abrirse siempre en la misma línea, pero cerrarse en una línea diferente.
 
 **Por ejemplo:**
+
 ```objc
 if (user.isHappy) {
     // Hacer algo
@@ -69,6 +72,7 @@ else {
     // Hacer otra cosa
 }
 ```
+
 * Debe de haber exactamente una línea en blanco entre métodos para mejorar la claridad y organización visual. 
 * Los espacios en blanco dentro de los métodos deben de separar funcionalidad (aunque en algunas ocasiones esto significa que el método puede ser dividido en métodos más pequeños). En métodos con nombres largos que incluyan muchos verbos, una sola línea en blanco puede ser usada para proporcionar una separación visual antes del cuerpo del método.
 * `@synthesize` y `@dynamic` deben declararse en nuevas líneas de código.
@@ -79,6 +83,7 @@ Los condicionales deben de tener siempre llaves, incluso cuando no sean necesari
 sería comentar la única línea de código del `if`, lo que convertiría la siguiente línea parte del primer bloque. Además, este estilo es más consistente con los otros condicionales, por lo tanto es mucho más fácil interpretarlo.
 
 **Por ejemplo:**
+
 ```objc
 if (!error) {
     return success;
@@ -86,11 +91,11 @@ if (!error) {
 ```
 
 **Incorrecto:**
+
 ```objc
 if (!error)
     return success;
 ```
-
 
 ```objc
 if (!error) return success;
@@ -158,7 +163,7 @@ Variables con una sola letra como nombre se deben de evitar excepto en los conta
 
 Los asteriscos que indican apuntadores pertenecen a la variable, por ejemplo, `NSString *text` no `NSString* text` o `NSString * text`, excepto en los casos de las constantes (`NSString * const NYTConstantString`).
 
-La definición de propiedades debe de ser usada siempre que sea posible, en lugar de la definición de variables de instancia. Las variables directas de instancia deben de ser evitadas, excepto en los métodos de inicialización (`init`, `initWithCoder:`, etc…), los métodos `dealloc` y los métodos de acceso (`set`y `get`). Para más información de el uso de métodos de acceso en inicializadores  y `dealloc` [consulte esta página](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
+La definición de propiedades debe de ser usada siempre que sea posible, en lugar de la definición de variables de instancia. Las variables directas de instancia deben de ser evitadas, excepto en los métodos de inicialización (`init`, `initWithCoder:`, etc…), los métodos `dealloc` y los métodos de acceso (`set` y `get`). Para más información de el uso de métodos de acceso en inicializadores  y `dealloc` [consulte esta página](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
 
 **Por ejemplo:**
 
@@ -177,9 +182,10 @@ La definición de propiedades debe de ser usada siempre que sea posible, en luga
     NSString *headline;
 }
 ```
+
 ### Clasificación de variables
 
-Cuando se trate de la clasificación de variables [agregadas con ARC](https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4), el clasificador (`__strong`, `__weak`, `__unsafe_unretained`, `__autoreleasing`) debe de ser puesto entre el asterisco y el nombre de la variable, por ejemplo: `NSString * _wak text`.
+Cuando se trate de la clasificación de variables [agregadas con ARC](https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4), el clasificador (`__strong`, `__weak`, `__unsafe_unretained`, `__autoreleasing`) debe de ser puesto entre el asterisco y el nombre de la variable, por ejemplo: `NSString * _weak text`.
 
 ## Nombres
 
@@ -246,6 +252,7 @@ Las categorías deben de ser usadas para segmentar funcionalidad de manera conci
 @interface NYTAdvertisement (private)
 @interface NSString (NYTAdditions)
 ```
+
 Los métodos y las propiedades agregadas a una categoría deben ser nombrados con el prefijo de la aplicación u organización. Esto evita que por error se genere un override de algún método existente y además reduce la posibilidad de que dos categorías de diferentes librerías tengan un método con el mismo nombre (en este caso, no se sabe cual de los dos métodos será llamado por lo que puede prestarse a efectos no deseados).
 
 **Por ejemplo:**
@@ -272,7 +279,7 @@ Los bloques de comentarios deben de ser evitados, el código debe de ser lo más
 
 ## init y dealloc
 
-Los métodos `dealloc`deben de ser incluidos al principio de la implementación, justo después de las líneas `@synthesize`y `@dynamic`. El `init`debe de ser puesto debajo de los métodos `dealloc`de cualquier clase.
+Los métodos `dealloc`deben de ser incluidos al principio de la implementación, justo después de las líneas `@synthesize` y `@dynamic`. El `init` debe de ser puesto debajo de los métodos `dealloc` de cualquier clase.
 
 Los métodos de `init` deben de ser estructurados de la siguiente manera:
 
@@ -289,7 +296,7 @@ return self;
 
 ## Literales
 
-Las literales de `NSString`, `NSArray`y `NSNumber`deben de ser usadas cuando se creen instancias inmutables de esos objetos. Hay que prestar mayor atención a que los valores `nil` no sean pasados a las literales `NSArray` y `NSDictionary`, porque esto ocasionará que la aplicación deje de funcionar.
+Las literales de `NSString`, `NSArray` y `NSNumber` deben de ser usadas cuando se creen instancias inmutables de esos objetos. Hay que prestar mayor atención a que los valores `nil` no sean pasados a las literales `NSArray` y `NSDictionary`, porque esto ocasionará que la aplicación deje de funcionar.
 
 **Por ejemplo:**
 
@@ -311,7 +318,7 @@ NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 
 ## Funciones `CGRect`
 
-Cuando se accede a las propiedades `x`, `y`, `width` o `height`de un `CGRect`, siempre se debe de utilizar las funciones de [`CGGeometry` functions](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) en lugar de accederlas directamente. De la referencia de Apple sobre `CGGeometry`:
+Cuando se accede a las propiedades `x`, `y`, `width` o `height` de un `CGRect`, siempre se debe de utilizar las funciones de [`CGGeometry` functions](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) en lugar de accederlas directamente. De la referencia de Apple sobre `CGGeometry`:
 
 > Todas las funciones descritas en esta referencia que toman las estructuras de datos de CGRect como entradas implícitamente estandarizan los rectángulos antes de calcular los resultados. Por esta razón, sus aplicaciones deben de evitar leer y escribir directamente la información guardada en la estructura de datos de CGRect. En lugar de eso, se deben de utilizar las funciones descritas aquí para manipular rectángulos y obtener sus características.
 
@@ -376,7 +383,6 @@ Cuando se trabaje con máscara de bits, se debe de usar el macro `NS_OPTIONS`.
 
 **Ejemplo:**
 
-
 ```objc
 typedef NS_OPTIONS(NSUInteger, NYTAdCategory) {
     NYTAdCategoryAutos      = 1 << 0,
@@ -429,8 +435,6 @@ if (someObject == nil) {
 
 **Para un valor `BOOL`:**
 
-**For a `BOOL` value:**
-
 ```objc
 if (isAwesome)
 if (!someNumber.boolValue)
@@ -439,13 +443,11 @@ if (someNumber.boolValue == NO)
 
 **Incorrecto:**
 
-**Not:**
-
 ```objc
 if (isAwesome == YES) // Nunca hacer esto.
 ```
 
-Si el nombre de una propiedad `BOOL` está expresado como un adjetivo la propiedad puede omitir el prefijo `is` pero debe de especificar el nombre convencional para el acceso ('getter').
+Si el nombre de una propiedad `BOOL` está expresado como un adjetivo la propiedad puede omitir el prefijo `is` pero debe de especificar el nombre convencional para el acceso (‘getter’).
 
 **Por ejemplo:**
 
@@ -458,6 +460,7 @@ _Texto y ejemplo obtenido de [Cocoa Naming Guidelines](https://developer.apple.c
 ## Singletons
 
 Los objetos Singletons deben de usar un patrón 'thread-safe' para la creación de una instancia compartida.
+
 ```objc
 + (instancetype)sharedInstance {
     static id sharedInstance = nil;
@@ -478,6 +481,8 @@ Esto ayudará a prevenir [que la aplicación deje de funcionar de manera ocasion
 Si hay más de una declaración de 'import', se deben de agrupar las declaraciones [juntas](http://ashfurrow.com/blog/structuring-modern-objective-c). Comentar cada grupo es opcional.
 
 Nota: Para los modulos usar la sintaxis [@import](http://clang.llvm.org/docs/Modules.html#using-modules).
+
+**Por ejemplo:**
 
 ```objc
 // Frameworks
