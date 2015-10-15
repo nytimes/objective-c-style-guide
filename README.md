@@ -37,6 +37,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Singletons](#singletons)
 * [Imports](#imports)
 * [Protocols](#protocols)
+* [Nullability and Generics Annotations](#nullability-and-generics-annotations)
 * [Xcode Project](#xcode-project)
 
 ## Dot Notation Syntax
@@ -506,6 +507,12 @@ This helps disambiguate in cases when an object is the delegate for multiple sim
 ```objc
 - (void)didSelectTableRowAtIndexPath:(NSIndexPath *)indexPath;
 ```
+
+## Nullability and Generics Annotations
+
+Public Objective-C APIs must be annotated for [nullability](https://developer.apple.com/swift/blog/?id=25) and [lightweight generics](https://developer.apple.com/library/watchos/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html#//apple_ref/doc/uid/TP40014216-CH4-ID35). This allows easier interoperation with Swift code and provides documentation even for Objective-C API consumers.
+
+Nullability and lightweight generic annotations _should_ be added to internal and private APIs as well.
 
 ## Xcode project
 
