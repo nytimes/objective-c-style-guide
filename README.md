@@ -22,6 +22,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Error handling](#error-handling)
 * [Methods](#methods)
 * [Variables](#variables)
+* [Instancetype](#instancetype)
 * [Naming](#naming)
   * [Categories](#categories)
 * [Comments](#comments)
@@ -183,6 +184,12 @@ Property definitions should be used in place of naked instance variables wheneve
 #### Variable Qualifiers
 
 When it comes to the variable qualifiers [introduced with ARC](https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4), the qualifier (`__strong`, `__weak`, `__unsafe_unretained`, `__autoreleasing`) should be placed between the asterisks and the variable name, e.g., `NSString * __weak text`. 
+
+## Instancetype
+
+`init` methods should be declared as returning `instancetype`. Methods returning singletons must be declared as returning a concrete class and must return an object that is an instance of the declared class or any of its subclasses.
+
+Class methods that are declared as returning `instancetype` must return an instance of the class they are called on. Instance methods that are declared as returning `instancetype` must return an instance of the class of the object they are called on.
 
 ## Naming
 
@@ -458,12 +465,12 @@ _Text and example taken from the [Cocoa Naming Guidelines](https://developer.app
 
 Singleton objects should use a thread-safe pattern for creating their shared instance.
 ```objc
-+ (instancetype)sharedInstance {
-    static id sharedInstance = nil;
++ (SingletonClass *)sharedInstance {
+    static SingletonClass *sharedInstance = nil;
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[[self class] alloc] init];
+        sharedInstance = [[SingletonClass alloc] init];
     });
 
     return sharedInstance;
