@@ -1,8 +1,8 @@
 # NYTimes Objective-C Style Guide
 
-This style guide outlines the coding conventions of the iOS teams at The New York Times. We welcome your feedback in [issues](https://github.com/NYTimes/objetive-c-style-guide/issues), [pull requests](https://github.com/NYTimes/objetive-c-style-guide/pulls) and [tweets](https://twitter.com/nytimesmobile). Also, [we’re hiring](http://jobs.nytco.com/job/New-York-iOS-Developer-Job-NY-10001/73366300/).
+This style guide outlines the coding conventions of the iOS teams at The New York Times. We welcome your feedback in [issues](https://github.com/NYTimes/objective-c-style-guide/issues), [pull requests](https://github.com/NYTimes/objective-c-style-guide/pulls) and [tweets](https://twitter.com/nytimesmobile). Also, [we’re hiring](http://www.nytco.com/careers/).
 
-Thanks to all of [our contributors](https://github.com/NYTimes/objective-c-style-guide/contributors).
+Thanks to all of [our contributors](https://github.com/NYTimes/objective-c-style-guide/graphs/contributors).
 
 ## Introduction
 
@@ -473,7 +473,7 @@ This will prevent [possible and sometimes frequent crashes](http://cocoasamurai.
 
 ## Imports
 
-If there is more than one import statement, group the statements [together](http://ashfurrow.com/blog/structuring-modern-objective-c). Commenting each group is optional.
+If there is more than one import statement, group the statements [together](http://ashfurrow.com/blog/structuring-modern-objective-c/). Commenting each group is optional.
 
 Note: For modules use the [@import](http://clang.llvm.org/docs/Modules.html#using-modules) syntax.
 
@@ -518,7 +518,7 @@ When possible, always turn on “Treat Warnings as Errors” in the target’s B
 If ours doesn’t fit your tastes, have a look at some other style guides:
 
 * [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
-* [GitHub](https://github.com/github/objective-c-conventions)
+* [GitHub](https://github.com/github/objective-c-style-guide)
 * [Adium](https://trac.adium.im/wiki/CodingStyle)
 * [Sam Soffes](https://gist.github.com/soffes/812796)
 * [CocoaDevCentral](http://cocoadevcentral.com/articles/000082.php)
