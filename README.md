@@ -147,7 +147,7 @@ In method signatures, there SHOULD be a space after the scope (`-` or `+` symbol
 
 ## Variables
 
-Variables SHALL be named descriptively, with the variable’s name clearly communicating what the variable _is_ and pertinent information a programmer needs to use that value properly.
+Variables SHOULD be named descriptively, with the variable’s name clearly communicating what the variable _is_ and pertinent information a programmer needs to use that value properly.
 
 **For example:**
 
@@ -237,7 +237,7 @@ id varnm;
 
 ### Categories
 
-Categories MAY be used to concisely segment functionality and should be named to describe that functionality.
+Categories are RECOMMENDED to concisely segment functionality and should be named to describe that functionality.
 
 **For example:**
 
@@ -253,7 +253,7 @@ Categories MAY be used to concisely segment functionality and should be named to
 @interface NSString (NYTAdditions)
 ```
 
-Methods and properties added in categories should be named with an app- or organization-specific prefix. This avoids unintentionally overriding an existing method, and it reduces the chance of two categories from different libraries adding a method of the same name. (The Objective-C runtime doesn’t specify which method will be called in the latter case, which can lead to unintended effects.)
+Methods and properties added in categories MUST be named with an app- or organization-specific prefix. This avoids unintentionally overriding an existing method, and it reduces the chance of two categories from different libraries adding a method of the same name. (The Objective-C runtime doesn’t specify which method will be called in the latter case, which can lead to unintended effects.)
 
 **For example:**
 
@@ -494,7 +494,7 @@ Note: For modules use the [@import](http://clang.llvm.org/docs/Modules.html#usin
 
 ## Protocols
 
-In a [delegate or data source protocol](https://developer.apple.com/library/ios/documentation/General/Conceptual/CocoaEncyclopedia/DelegatesandDataSources/DelegatesandDataSources.html), the first parameter to each method should be the object sending the message.
+In a [delegate or data source protocol](https://developer.apple.com/library/ios/documentation/General/Conceptual/CocoaEncyclopedia/DelegatesandDataSources/DelegatesandDataSources.html), the first parameter to each method SHOULD be the object sending the message.
 
 This helps disambiguate in cases when an object is the delegate for multiple similarly-typed objects, and it helps clarify intent to readers of a class implementing these delegate methods.
 
