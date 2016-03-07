@@ -25,7 +25,7 @@
 * [点语法](#点语法)
 * [间距](#间距)
 * [条件判断](#条件判断)
-	* [三目运算符](#三目运算符)
+* [三目运算符](#三目运算符)
 * [错误处理](#错误处理)
 * [方法](#方法)
 * [变量](#变量)
@@ -68,10 +68,10 @@ UIApplication.sharedApplication.delegate;
 **推荐：**
 ```objc
 if (user.isHappy) {
-// Do something
+    // Do something
 }
 else {
-// Do something else
+    // Do something else
 }
 ```
 * 方法之间应该正好空一行，这有助于视觉清晰度和代码组织性。在方法中的功能块之间应该使用空白分开，但往往可能应该创建一个新的方法。
@@ -353,10 +353,10 @@ typedef NS_ENUM(NSInteger, NYTAdRequestState) {
 
 ```objc
 typedef NS_OPTIONS(NSUInteger, NYTAdCategory) {
-NYTAdCategoryAutos      = 1 << 0,
-NYTAdCategoryJobs       = 1 << 1,
-NYTAdCategoryRealState  = 1 << 2,
-NYTAdCategoryTechnology = 1 << 3
+    NYTAdCategoryAutos      = 1 << 0,
+    NYTAdCategoryJobs       = 1 << 1,
+    NYTAdCategoryRealState  = 1 << 2,
+    NYTAdCategoryTechnology = 1 << 3
 };
 ```
 
@@ -444,14 +444,14 @@ if (isAwesome == YES) // 永远别这么做
 
 ```objc
 + (instancetype)sharedInstance {
-   static id sharedInstance = nil;
+    static id sharedInstance = nil;
 
-   static dispatch_once_t onceToken;
-   dispatch_once(&onceToken, ^{
-      sharedInstance = [[self alloc] init];
-   });
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[self alloc] init];
+    });
 
-   return sharedInstance;
+    return sharedInstance;
 }
 ```
 这将会预防[有时可能产生的许多崩溃][Singletons_1]。
