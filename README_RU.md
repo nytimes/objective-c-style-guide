@@ -135,8 +135,7 @@ if (error) {
 
 Некоторые API от Apple записывают мусорные значения в параметр ошибки (if non-NULL) в случае успешного выполнения, поэтому переключение по переменной ошибки может вызывать ошибочный негативный результат (и, возможно, краш).
 
-## Methods
-## Методы
+## Методы (Methods)
 
 В подписи метода ДОЛЖЕН быть пробел после символа сферы применения метода (`-` или `+`). ДОЛЖЕН быть пробел между сегментами метода.
 
@@ -187,8 +186,7 @@ if (error) {
 
 Когда мы говорит про спецификаторы переменных, [представленные вместе с ARC](https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4), спецификатор (`__strong`, `__weak`, `__unsafe_unretained`, `__autoreleasing`) ДОЛЖЕН быть расположен между звездочкой и именем переменной: `NSString * __weak text`. 
 
-## Naming
-## Именование
+## Именование (Naming)
 
 Правила именования Apple ДОЛЖНЫ соблюдаться везде, где это возможно, особенно когда мы говорим про [правила управления памятью](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html) ([NARC](http://stackoverflow.com/a/2865194/340508)).
 
@@ -476,8 +474,7 @@ _Текст и пример позаимстован у [Cocoa Naming Guidelines
 ```
 Это позволит избежать [возможных и иногда частых крашей](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
 
-## Imports
-## Импорты
+## Импорты (Imports)
 Если в файле больше одного выражения import, то они ДОЛЖНЫ быть сгруппированны [вместе](http://ashfurrow.com/blog/structuring-modern-objective-c). Группы МОГУТ быть прокомментированы.
 
 Заметка: Для модулей используйте [@import](http://clang.llvm.org/docs/Modules.html#using-modules) синтакс.
