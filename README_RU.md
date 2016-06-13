@@ -167,9 +167,9 @@ if (error) {
 
 Переменные с одной буквой в названии НЕ РЕКОМЕНДУЮТСЯ, за исключением счетчиков в циклах.
 
-Asterisks indicating a type is a pointer MUST be “attached to” the variable name. **For example,** `NSString *text` **not** `NSString* text` or `NSString * text`, except in the case of constants (`NSString * const NYTConstantString`).
+Звездочка, показывающая тип ссылки, ДОЛЖНА быть “прикреплена” к имени переменной. **Например,** `NSString *text` **, а не** `NSString* text` или `NSString * text`, за исключением констант (`NSString * const NYTConstantString`).
 
-Property definitions SHOULD be used in place of naked instance variables whenever possible. Direct instance variable access SHOULD be avoided except in initializer methods (`init`, `initWithCoder:`, etc…), `dealloc` methods and within custom setters and getters. For more information, see [Apple’s docs on using accessor methods in initializer methods and `dealloc`](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
+Определения свойств ДОЛЖНЫ использоваться вместо "голых" переменных объекта везде, где это возможно. Напрямую использование переменных объекта НУЖНО избегать везде, кроме методов инициализации (`init`, `initWithCoder:`, etc…), `dealloc` методов и внутри собственных setter'ов и getter'ов. Больше подробностей можно найти в [Apple’s docs on using accessor methods in initializer methods and `dealloc`](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
 
 **Например:**
 
@@ -190,15 +190,16 @@ Property definitions SHOULD be used in place of naked instance variables wheneve
 ```
 
 #### Variable Qualifiers
+#### Спецификаторы переменных
 
-When it comes to the variable qualifiers [introduced with ARC](https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4), the qualifier (`__strong`, `__weak`, `__unsafe_unretained`, `__autoreleasing`) SHOULD be placed between the asterisks and the variable name, e.g., `NSString * __weak text`. 
+Когда мы говорит про спецификаторы переменных, [представленные вместе с ARC](https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4), спецификатор (`__strong`, `__weak`, `__unsafe_unretained`, `__autoreleasing`) ДОЛЖЕН быть расположен между звездочкой и именем переменной: `NSString * __weak text`. 
 
 ## Naming
 ## Именование
 
-Apple naming conventions SHOULD be adhered to wherever possible, especially those related to [memory management rules](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html) ([NARC](http://stackoverflow.com/a/2865194/340508)).
+Правила именования Apple ДОЛЖНЫ соблюдаться везде, где это возможно, особенно когда мы говорим про [правила управления памятью](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html) ([NARC](http://stackoverflow.com/a/2865194/340508)).
 
-Long, descriptive method and variable names are good.
+Длинные и подробные названия методов и переменных – хорошие. 
 
 **Например:**
 
@@ -206,13 +207,13 @@ Long, descriptive method and variable names are good.
 UIButton *settingsButton;
 ```
 
-**Not**
+**Так делать не надо:**
 
 ```objc
 UIButton *setBut;
 ```
 
-A three letter prefix (e.g., `NYT`) MUST be used for class names and constants, however MAY be omitted for Core Data entity names. Constants MUST be camel-case with all words capitalized and prefixed by the related class name for clarity. A two letter prefix (e.g., `NS`) is [reserved for use by Apple](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/DefiningClasses/DefiningClasses.html#//apple_ref/doc/uid/TP40011210-CH3-SW12).
+Трехбуквенный префикс (например, `NYT`) ДОЛЖЕН быть использовать для имён классов и констант, но МОГУТ быть опущены для имён сущностей Core Data. Константы ДОЛЖНЫ использовать верблюжью нотацию, где все слова идут с большой буквы и имеют префикс равный имени связанного класса для большей понятность. Двухбуквенный префикс (например, `NS`) [зарезервирован Apple](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/DefiningClasses/DefiningClasses.html#//apple_ref/doc/uid/TP40011210-CH3-SW12).
 
 **Например:**
 
@@ -226,9 +227,9 @@ static const NSTimeInterval NYTArticleViewControllerNavigationFadeAnimationDurat
 static const NSTimeInterval fadetime = 1.7;
 ```
 
-Properties and local variables MUST be camel-case with the leading word being lowercase.
+Свойства и локальный переменные ДОЛЖНЫ использовать верблюжью нотацию, где первое слово с маленькой буквы.
 
-Instance variables MUST be camel-case with the leading word being lowercase, and MUST be prefixed with an underscore. This is consistent with instance variables synthesized automatically by LLVM. **If LLVM can synthesize the variable automatically, then let it.**
+Переменные экземпляра ДОЛЖНЫ быть в верблюжей нотации, где первое слово с маленькой буквы и ИМЕЕТ префикс подчеркивание. Это согласуется с переменными экземпляра, синтезированными автоматически LLVM. **Если LLVM может синтезировать переменную автоматически, дайте ему это сделать.**
 
 **Например:**
 
@@ -245,7 +246,7 @@ id varnm;
 ### Categories
 ### Категории
 
-Categories are RECOMMENDED to concisely segment functionality and should be named to describe that functionality.
+Категории РЕКОМЕНДОВАНЫ для краткой части функциональности и должны называться так, чтобы была понятна эта функциональность.
 
 **Например:**
 
@@ -261,7 +262,7 @@ Categories are RECOMMENDED to concisely segment functionality and should be name
 @interface NSString (NYTAdditions)
 ```
 
-Methods and properties added in categories MUST be named with an app- or organization-specific prefix. This avoids unintentionally overriding an existing method, and it reduces the chance of two categories from different libraries adding a method of the same name. (The Objective-C runtime doesn’t specify which method will be called in the latter case, which can lead to unintended effects.)
+Методы и свойства, добавленные в категориях, ДОЛЖНЫ называться с префиксом приложения или организации. Это позволит избежать случайного переопределения существующих методов и снизит вероятность появления двух категорий из разных библиотек, добавляющих метод с одинаковым именем. (The Objective-C runtime не декларирует, какой метод будет использован в такой ситуации, что может привести к неприятным ситуациям.)
 
 **Например:**
 
@@ -281,16 +282,16 @@ Methods and properties added in categories MUST be named with an app- or organiz
 
 ## Комментарии
 
-When they are needed, comments SHOULD be used to explain **why** a particular piece of code does something. Any comments that are used MUST be kept up-to-date or deleted.
+Когда они нужны, комментарии ДОЛЖНЫ использоваться, чтобы объяснить **ЗАЧЕМ** в конкретном кусочке кода делается что-то. Любой комментарий, который используется, ДОЛЖЕН поддерживаться актуальным или быть удалён.
 
-Block comments are NOT RECOMMENDED, as code should be as self-documenting as possible, with only the need for intermittent, few-line explanations. This does not apply to those comments used to generate documentation.
+Блоки комментариев НЕ РЕКОМЕНДУЮТСЯ, так как код должен быть само-документируемым настолько, насколько это возможно. Должна быть потребность только в коротких объяснениях нескольких строчек. Это не относится к комментариям, используемым для создания документации.
 
 ## init and dealloc
 ## init и dealloc
 
-`dealloc` methods SHOULD be placed at the top of the implementation, directly after the `@synthesize` and `@dynamic` statements. `init` methods SHOULD be placed directly below the `dealloc` methods of any class.
+`dealloc` метод ДОЛЖЕН быть расположен в верхней части реализации (`.m` файл), сразу после `@synthesize` и `@dynamic`. `init` метод ДОЛЖЕН быть расположен сразу после `dealloc` метода в любом классе.
 
-`init` methods should be structured like this:
+`init` методы должны иметь подобную структуру:
 
 ```objc
 - (instancetype)init {
@@ -306,7 +307,7 @@ Block comments are NOT RECOMMENDED, as code should be as self-documenting as pos
 ## Literals
 ## Литералы
 
-`NSString`, `NSDictionary`, `NSArray`, and `NSNumber` literals SHOULD be used whenever creating immutable instances of those objects. Pay special care that `nil` values not be passed into `NSArray` and `NSDictionary` literals, as this will cause a crash.
+`NSString`, `NSDictionary`, `NSArray`, и `NSNumber` литералы ДОЛЖНЫ быть использованы при создании нередактируемых (immutable) объектов. Уделите особое внимание тому, что `nil` значения не принимаются `NSArray` и `NSDictionary` литералами, так как это вызовет краш.
 
 **Например:**
 
@@ -329,9 +330,8 @@ NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 ## `CGRect` Functions
 ## `CGRect` функции
 
-When accessing the `x`, `y`, `width`, or `height` of a `CGRect`, code MUST use the [`CGGeometry` functions](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) instead of direct struct member access. From Apple's `CGGeometry` reference:
-
-> All functions described in this reference that take CGRect data structures as inputs implicitly standardize those rectangles before calculating their results. For this reason, your applications should avoid directly reading and writing the data stored in the CGRect data structure. Instead, use the functions described here to manipulate rectangles and to retrieve their characteristics.
+Когда используется `x`, `y`, `width`, или `height` сущности `CGRect`, код ДОЛЖЕН использовать [`CGGeometry` функции](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) вместо прямого доступа к части структуры. Из описания `CGGeometry` от Apple:
+> Все функции, описанные в этом документе, которые получают данные из структур CGRect, неявно стандартизируют эти прямоугольники перед подсчетом их результатов. По этой причине, ваши приложения должны избегать непосредственно чтения и записи данных, хранящихся в структуре `CGRect`. Вместо этого следует использовать функции, описанные здесь, чтобы манипулировать прямоугольниками и получать их характеристики.
 
 **Например:**
 
