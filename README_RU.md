@@ -16,29 +16,29 @@
 
 ## Содержание
 
-* [Dot Notation Syntax](#dot-notation-syntax)
-* [Spacing](#spacing)
-* [Conditionals](#conditionals)
-  * [Ternary Operator](#ternary-operator)
-* [Error handling](#error-handling)
-* [Methods](#methods)
-* [Variables](#variables)
-* [Naming](#naming)
-  * [Categories](#categories)
-* [Comments](#comments)
+* [Точечная нотация (Dot Notation Syntax)](#dot-notation-syntax)
+* [Отступы](#spacing)
+* [Условия](#conditionals)
+  * [Тернарные операторы](#ternary-operator)
+* [Обработка ошибок](#error-handling)
+* [Методы](#methods)
+* [Переменные](#variables)
+* [Именование (Naming)](#naming)
+  * [Категории](#categories)
+* [Комментарии](#comments)
 * [Init & Dealloc](#init-and-dealloc)
-* [Literals](#literals)
-* [CGRect Functions](#cgrect-functions)
-* [Constants](#constants)
+* [Литералы (Literals)](#literals)
+* [Функции CGRect](#cgrect-functions)
+* [Константы](#constants)
 * [Enumerated Types](#enumerated-types)
 * [Bitmasks](#bitmasks)
-* [Private Properties](#private-properties)
-* [Image Naming](#image-naming)
-* [Booleans](#booleans)
-* [Singletons](#singletons)
-* [Imports](#imports)
-* [Protocols](#protocols)
-* [Xcode Project](#xcode-project)
+* [Приватные свойства (Private Properties)](#private-properties)
+* [Наименование изображений](#image-naming)
+* [Булевы значения](#booleans)
+* [Синглтоны](#singletons)
+* [Импорты (Imports)](#imports)
+* [Протоколы](#protocols)
+* [Xcode проект (Project)](#xcode-project)
 
 ## Dot Notation Syntax
 
@@ -515,10 +515,9 @@ The physical files SHOULD be kept in sync with the Xcode project files in order 
 
 Target Build Setting “Treat Warnings as Errors” SHOULD be enabled. Enable as many [additional warnings](http://boredzo.org/blog/archives/2009-11-07/warnings) as possible. If you need to ignore a specific warning, use [Clang’s pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
 
-# Other Objective-C Style Guides
+# Другие Objective-C стайл гайды
 
-If ours doesn’t fit your tastes, have a look at some other style guides:
-
+Если наш не соответствует вашим вкусам, то можете посмотреть другие гайды:
 * [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
 * [GitHub](https://github.com/github/objective-c-style-guide)
 * [Adium](https://trac.adium.im/wiki/CodingStyle)
