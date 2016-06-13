@@ -80,7 +80,7 @@ else {
 ## Conditionals
 ## Условия
 
-Conditional bodies MUST use braces even when a conditional body could be written without braces (e.g., it is one line only) to prevent [errors](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256). These errors include adding a second line and expecting it to be part of the if-statement. Another, [even more dangerous defect](http://programmers.stackexchange.com/a/16530) can happen where the line “inside” the if-statement is commented out, and the next line unwittingly becomes part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.
+Тело условия ДОЛЖНО использовать фигурные скобки всегда, даже в ситуации, когда тело может записано в одну строку, чтобы избежать [ошибок](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256). Эти ошибки включают добавление второй строки и ожидание того, что оно будет частью этого if-выражения. Другой, [гораздо более опасный дефект](http://programmers.stackexchange.com/a/16530) может проявиться, если строка “внутри” if-выражения будет закомментирована, а следующая строка неожиданно станет частью этого if-выражения. В дополнение, этот стиль гораздо проще сочетается с другими условиями, а следовательно – его легче понимать.
 
 **Например:**
 ```objc
@@ -104,7 +104,7 @@ if (!error) return success;
 ### Ternary Operator
 ### Тернарные операторы
 
-The intent of the ternary operator, `?` , is to increase clarity or code neatness. The ternary SHOULD only evaluate a single condition per expression. Evaluating multiple conditions is usually more understandable as an if statement or refactored into named variables.
+Назначение тернарного оператора, `?` , повысить ясность или опрятность кода. Тернарный оператор ДОЛЖЕН использоваться только для одного условия в выражении. Использование для нескольких условий обычно более понимаемо, если используется несколько if-выражений или именованных переменных с условиями.
 
 **Например:**
 ```objc
@@ -119,7 +119,7 @@ result = a > b ? x = c > d ? c : d : y;
 ## Error Handling
 ## Обработка ошибок
 
-When methods return an error parameter by reference, code MUST switch on the returned value and MUST NOT switch on the error variable.
+Когда метод возвращает параметр с ошибкой по ссылке, код ДОЛЖЕН переключаться на основе возвращенного значения и НЕ ДОЛЖЕН переключаться на основе переменной ошибки.
 
 **Например:**
 ```objc
@@ -138,12 +138,12 @@ if (error) {
 }
 ```
 
-Some of Apple’s APIs write garbage values to the error parameter (if non-NULL) in successful cases, so switching on the error can cause false negatives (and subsequently crash).
+Некоторые API от Apple записывают мусорные значения в параметр ошибки (if non-NULL) в случае успешного выполнения, поэтому переключение по переменной ошибки может вызывать ошибочный негативный результат (и, возможно, краш).
 
 ## Methods
 ## Методы
 
-In method signatures, there SHOULD be a space after the scope (`-` or `+` symbol). There SHOULD be a space between the method segments.
+В подписи метода ДОЛЖЕН быть пробел после символа сферы применения метода (`-` или `+`). ДОЛЖЕН быть пробел между сегментами метода.
 
 **Например:**
 ```objc
@@ -151,20 +151,21 @@ In method signatures, there SHOULD be a space after the scope (`-` or `+` symbol
 ```
 
 ## Variables
+## Переменные 
 
-Variables SHOULD be named descriptively, with the variable’s name clearly communicating what the variable _is_ and pertinent information a programmer needs to use that value properly.
+Переменные ДОЛЖНЫ называться понятно. Имя переменной ДОЛЖНО показывать, чем _является_ эта переменная, и содержать уместную информацию, чтобы программист мог использовать её правильно. 
 
 **Например:**
 
-* `NSString *title`: It is reasonable to assume a “title” is a string.
-* `NSString *titleHTML`: This indicates a title that may contain HTML which needs parsing for display. _“HTML” is needed for a programmer to use this variable effectively._
-* `NSAttributedString *titleAttributedString`: A title, already formatted for display. _`AttributedString` hints that this value is not just a vanilla title, and adding it could be a reasonable choice depending on context._
-* `NSDate *now`: _No further clarification is needed._
-* `NSDate *lastModifiedDate`: Simply `lastModified` can be ambiguous; depending on context, one could reasonably assume it is one of a few different types.
-* `NSURL *URL` vs. `NSString *URLString`: In situations when a value can reasonably be represented by different classes, it is often useful to disambiguate in the variable’s name.
-* `NSString *releaseDateString`: Another example where a value could be represented by another class, and the name can help disambiguate.
+* `NSString *title`: Разумно предположить, что title является строкой
+* `NSString *titleHTML`: Эта переменная показывает, что содержит HTML, который необходимо обработать, прежде чем выводить. _“HTML” необходимо программисту, чтобы использовать переменную и её значение эффективно._
+* `NSAttributedString *titleAttributedString`: title, который уже отформатирован для отображения. _`AttributedString` подсказывает, что это значение не просто заголовок. Добавление такой подсказки – это разумный выбор на основе контекста._
+* `NSDate *now`: _Не требуется дополнительных объяснений._
+* `NSDate *lastModifiedDate`: Просто `lastModified` может быть двусмысленным; на основе контекста можно предположить, что эта переменная относится к разным типам.
+* `NSURL *URL` vs. `NSString *URLString`: В ситуациях, когда значение может быть представленно разными классами, стоит указать класс в имени переменной.
+* `NSString *releaseDateString`: Другой пример, где значение может быть представленно другим классом, а имя переменной помогает разобраться.
 
-Single letter variable names are NOT RECOMMENDED, except as simple counter variables in loops.
+Переменные с одной буквой в названии НЕ РЕКОМЕНДУЮТСЯ, за исключением счетчиков в циклах.
 
 Asterisks indicating a type is a pointer MUST be “attached to” the variable name. **For example,** `NSString *text` **not** `NSString* text` or `NSString * text`, except in the case of constants (`NSString * const NYTConstantString`).
 
@@ -470,7 +471,7 @@ if (isAwesome == YES) // НИКОГДА ТАК НЕ ДЕЛАЙТЕ!
 @property (assign, getter=isEditable) BOOL editable;
 ```
 
-_Text and example taken from the [Cocoa Naming Guidelines](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE)._
+_Текст и пример позаимстован у [Cocoa Naming Guidelines](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE)._
 
 ## Singletons
 ## Синглтоны
