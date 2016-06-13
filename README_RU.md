@@ -358,7 +358,7 @@ CGFloat height = frame.size.height;
 ## Constants
 ## Константы
 
-Constants are RECOMMENDED over in-line string literals or numbers, as they allow for easy reproduction of commonly used variables and can be quickly changed without the need for find and replace. Constants MUST be declared as `static` constants. Constants MAY be declared as `#define` when explicitly being used as a macro.
+Константы РЕКОМЕНДУЮТСЯ вместо применения литералов или чисел внутри кода, так как они позволяют обеспечить легкий доступ к популярным переменным и могут быть быстро изменены без необходимости поиска и замены. Константы должны быть объявлены как `static`. Константы МОГУТ быть объявлены как `#define`, если они явно используются в качестве макроса.
 
 **Например:**
 
@@ -377,10 +377,11 @@ static const CGFloat NYTImageThumbnailHeight = 50.0;
 ```
 
 ## Enumerated Types
+## Enum-типы
 
-When using `enum`s, the new fixed underlying type specification MUST be used; it provides stronger type checking and code completion. The SDK includes a macro to facilitate and encourage use of fixed underlying types: `NS_ENUM()`.
+Когда используете `enum`ы, новая фиксированная спецификация ДОЛЖНА использоваться; она предоставляет более четкую проверку типа и автодополнение. SDK включает макрос, чтобы использовать этот фиксированный базовый тип: `NS_ENUM()`.
 
-**Example:**
+**Пример:**
 
 ```objc
 typedef NS_ENUM(NSInteger, NYTAdRequestState) {
@@ -390,10 +391,11 @@ typedef NS_ENUM(NSInteger, NYTAdRequestState) {
 ```
 
 ## Bitmasks
+## Битовые маски
 
-When working with bitmasks, the `NS_OPTIONS` macro MUST be used.
+Когда работаете с битовыми масками, макрос `NS_OPTIONS` ДОЛЖЕН использоваться. 
 
-**Example:**
+**Например:**
 
 ```objc
 typedef NS_OPTIONS(NSUInteger, NYTAdCategory) {
