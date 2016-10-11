@@ -246,7 +246,7 @@ return self;
 
 ```objc
 NSArray *names = @[@"Brian", @"Craig", @"Véronique"];
-NSDictionary *productManagers = @{@"iOS" : @"Andrew", @"Android" : @"Kate"};
+NSDictionary *productManagers = @{@"iOS": @"Andrew", @"Android": @"Kate"};
 NSNumber *shouldUseLiterals = @YES;
 NSNumber *buildingZIPCode = @10018;
 ```
