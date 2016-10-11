@@ -238,7 +238,6 @@ id varnm;
     if (self) {
         // Custom initialization
     }
-
     return self;
 }
 ```

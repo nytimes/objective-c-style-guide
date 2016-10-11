@@ -289,7 +289,6 @@ self = [super init]; // o llamar el inicializador designado
 if (self) {
 // Inicialización propia
 }
-
 return self;
 }
 ```

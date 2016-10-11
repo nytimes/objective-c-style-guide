@@ -234,7 +234,6 @@ self = [super init]; // ou appeler l'initialisateur désigné
 if (self) {
 // Initialisation particulière à cet object
 }
-
 return self;
 }
 ```

@@ -289,7 +289,6 @@ Block comments are NOT RECOMMENDED, as code should be as self-documenting as pos
     if (self) {
         // Custom initialization
     }
-
     return self;
 }
 ```

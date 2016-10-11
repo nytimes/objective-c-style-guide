@@ -288,7 +288,6 @@ Métodos `init` devem ser estruturados da seguinte forma:
     if (self) {
         // Inicialização customizada
     }
-
     return self;
 }
 ```

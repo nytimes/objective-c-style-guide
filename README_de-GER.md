@@ -238,7 +238,6 @@ Blockkommentare sollten generell vermieden werden, da Code (abgesehen von ein pa
     if (self) {
         // Custom initialization
     }
-
     return self;
 }
 ```

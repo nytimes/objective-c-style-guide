@@ -267,7 +267,6 @@ id varnm;
     if (self) {
         // カスタマイズ初期化処理
     }
-
     return self;
 }
 ```
