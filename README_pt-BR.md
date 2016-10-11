@@ -167,7 +167,7 @@ As definições de propriedade devem ser utilizadas sempre que possível. O aces
 **Exemplo correto:**
 
 ```objc
-@interface NYTSection: NSObject
+@interface NYTSection : NSObject
 
 @property (nonatomic) NSString *headline;
 

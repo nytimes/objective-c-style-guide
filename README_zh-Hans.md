@@ -160,7 +160,7 @@ if (error) {
 **推荐：**
 
 ```objc
-@interface NYTSection: NSObject
+@interface NYTSection : NSObject
 
 @property (nonatomic) NSString *headline;
 

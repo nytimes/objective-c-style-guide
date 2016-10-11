@@ -168,7 +168,7 @@ La definición de propiedades debe de ser usada siempre que sea posible, en luga
 **Por ejemplo:**
 
 ```objc
-@interface NYTSection: NSObject
+@interface NYTSection : NSObject
 
 @property (nonatomic) NSString *headline;
 

@@ -157,7 +157,7 @@ Apple API 일부는 성공인 경우 에러 파라미터(NULL이 아니라면)�
 **For example:**
 
 ```objc
-@interface NYTSection: NSObject
+@interface NYTSection : NSObject
 
 @property (nonatomic) NSString *headline;
 

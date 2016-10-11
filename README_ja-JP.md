@@ -164,7 +164,7 @@ AppleのAPIのいくつかは、成功時にエラー変数へゴミ値を入れ
 **良い例：**
 
 ```objc
-@interface NYTSection: NSObject
+@interface NYTSection : NSObject
 
 @property (nonatomic) NSString *headline;
 

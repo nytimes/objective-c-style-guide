@@ -153,7 +153,7 @@ Property Eigenschaften sollten, wenn immer es möglich ist, an Stelle von einfac
 **Beispiel:**
 
 ```objc
-@interface NYTSection: NSObject
+@interface NYTSection : NSObject
 
 @property (nonatomic) NSString *headline;
 

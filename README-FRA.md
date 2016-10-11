@@ -149,7 +149,7 @@ La définition des propriétés doivent être utilisées à la place des variabl
 **Par exemple:**
 
 ```objc
-@interface NYTSection: NSObject
+@interface NYTSection : NSObject
 
 @property (nonatomic) NSString *headline;
 
