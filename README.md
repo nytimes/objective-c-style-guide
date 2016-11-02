@@ -145,6 +145,16 @@ In method signatures, there SHOULD be a space after the scope (`-` or `+` symbol
 - (void)setExampleText:(NSString *)text image:(UIImage *)image;
 ```
 
+Methods exceeding 80 characters SHOULD be represented like a form with a new line after each argument
+
+**For example:**
+```objc
+- (void)setExampleText:(NSString *)text 
+                 image:(UIImage *)image 
+                 color:(UIColor *)color 
+       alternativeText: (NSString *)altText;
+```
+
 ## Variables
 
 Variables SHOULD be named descriptively, with the variable’s name clearly communicating what the variable _is_ and pertinent information a programmer needs to use that value properly.
