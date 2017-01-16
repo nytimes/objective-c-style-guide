@@ -1,8 +1,6 @@
-# NYTimes Objective-C Style Guide
+# Tile Objective-C Style Guide
 
-This style guide outlines the coding conventions of the iOS teams at The New York Times. We welcome your feedback in [issues](https://github.com/NYTimes/objective-c-style-guide/issues) and [pull requests](https://github.com/NYTimes/objective-c-style-guide/pulls). Also, [we’re hiring](http://www.nytco.com/careers/).
-
-Thanks to all of [our contributors](https://github.com/NYTimes/objective-c-style-guide/graphs/contributors).
+This style guide outlines the coding conventions of the iOS teams at Tile. This guide was highly based off of the [New York Times Objective-C Style Guide](https://github.com/NYTimes/objective-c-style-guide/).
 
 ## Introduction
 
@@ -40,6 +38,8 @@ This style guide conforms to IETF's [RFC 2119](http://tools.ietf.org/html/rfc211
 * [Imports](#imports)
 * [Protocols](#protocols)
 * [Xcode Project](#xcode-project)
+* [Generics](#generics)
+* [Nullability Annotations](#nullability-annotations)
 
 ## Dot Notation Syntax
 
@@ -516,15 +516,29 @@ The physical files SHOULD be kept in sync with the Xcode project files in order 
 
 Target Build Setting “Treat Warnings as Errors” SHOULD be enabled. Enable as many [additional warnings](http://boredzo.org/blog/archives/2009-11-07/warnings) as possible. If you need to ignore a specific warning, use [Clang’s pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
 
-# Other Objective-C Style Guides
+## Generics
 
-If ours doesn’t fit your tastes, have a look at some other style guides:
+All collection (NSArray, NSDictionary, NSSet, etc.) type objects SHOULD use generics. 
 
-* [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
-* [GitHub](https://github.com/github/objective-c-style-guide)
-* [Adium](https://trac.adium.im/wiki/CodingStyle)
-* [Sam Soffes](https://gist.github.com/soffes/812796)
-* [CocoaDevCentral](http://cocoadevcentral.com/articles/000082.php)
-* [Luke Redpath](http://lukeredpath.co.uk/blog/2011/06/28/my-objective-c-style-guide/)
-* [Marcus Zarra](http://www.cimgf.com/zds-code-style-guide/)
-* [Wikimedia](https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/iOS/ObjectiveCStyleGuide)
+**For example:**
+
+```objc
+NSArray<NSDate *> *dueDates;
+NSDictionary<NSNumber *, NSString *> *dataDictionary;
+```
+## Nullability Annotations
+
+Nonnull SHALL be the default nullability annotion. Any nullable references need to be made explicitly.
+
+**For example:**
+
+```objc
+NS_ASSUME_NONNULL_BEGIN
+@interface Robot : NSObject
+@property (copy,readonly) NSString *name;
+- (nullable instancetype)initWithName:(NSString *)name;
+- (nullable NSString *)tellMeSomething;
+@end
+NS_ASSUME_NONNULL_END
+```
+
