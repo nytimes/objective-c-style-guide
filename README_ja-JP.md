@@ -480,7 +480,7 @@ Xcodeのグループとプロジェクトのフォルダが同じようにして
 
 もし我々のスタイルガイドが合わない場合、他のスタイルガイドをチェックしてみてください。
 
-* [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
+* [Google](https://google.github.io/styleguide/objcguide.xml)
 * [GitHub](https://github.com/github/objective-c-conventions)
 * [Adium](https://trac.adium.im/wiki/CodingStyle)
 * [Sam Soffes](https://gist.github.com/soffes/812796)

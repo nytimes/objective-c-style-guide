@@ -520,7 +520,7 @@ Target Build Setting “Treat Warnings as Errors” SHOULD be enabled. Enable as
 
 If ours doesn’t fit your tastes, have a look at some other style guides:
 
-* [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
+* [Google](https://google.github.io/styleguide/objcguide.xml)
 * [GitHub](https://github.com/github/objective-c-style-guide)
 * [Adium](https://trac.adium.im/wiki/CodingStyle)
 * [Sam Soffes](https://gist.github.com/soffes/812796)
