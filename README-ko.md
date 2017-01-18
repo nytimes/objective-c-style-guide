@@ -447,7 +447,7 @@ if (isAwesome == YES) // Never do this.
 
 이 스타일 가이드가 당신 입맛에 맞지 않다면, 다른 스타일 가이드를 보세요.
 
-* [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
+* [Google](https://google.github.io/styleguide/objcguide.xml)
 * [GitHub](https://github.com/github/objective-c-conventions)
 * [Adium](https://trac.adium.im/wiki/CodingStyle)
 * [Sam Soffes](https://gist.github.com/soffes/812796)

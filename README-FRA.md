@@ -456,7 +456,7 @@ Si possible, choisissez toujours «&#8239;Treat Warnings as Errors&#8239;» dans
 
 Si le nôtre n'est pas à votre goût, consultez ces autres guides:
 
-* [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
+* [Google](https://google.github.io/styleguide/objcguide.xml)
 * [GitHub](https://github.com/github/objective-c-conventions)
 * [Adium](https://trac.adium.im/wiki/CodingStyle)
 * [Sam Soffes](https://gist.github.com/soffes/812796)
