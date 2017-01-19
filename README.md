@@ -32,6 +32,7 @@ This style guide conforms to IETF's [RFC 2119](http://tools.ietf.org/html/rfc211
 * [CGRect Functions](#cgrect-functions)
 * [Constants](#constants)
 * [Enumerated Types](#enumerated-types)
+  * [Boxing Enumerated Types](#boxing-enumerated-types)
 * [Bitmasks](#bitmasks)
 * [Private Properties](#private-properties)
 * [Image Naming](#image-naming)
@@ -375,6 +376,27 @@ typedef NS_ENUM(NSInteger, NYTAdRequestState) {
     NYTAdRequestStateInactive,
     NYTAdRequestStateLoading
 };
+```
+
+## Boxing Enumerated Types
+
+Although `enum`s are integral values, they cannot be directly used as [boxed literals](http://clang.llvm.org/docs/ObjectiveCLiterals.html#boxed-enums). When boxing `enum`s (for example when using them in a Cocoa collection) they should be boxed as `NSNumber`s using the shorthand `@()` literal expression, not as the `[NSNumber numberWith...:]` methods.
+
+This eliminates the need to look up the underlying type of the enum in order to box it correctly.
+
+**For example:**
+```objc
+typedef NS_ENUM(NSInteger, NYTWeekday) {
+     NYTWeekdayMonday = 0, 
+     NYTWeekdayTuesday
+}; 
+
+NSDictionary *daysOfTheWeek = @{@"monday" : @(NYTMonday), @"tuesday" : @(NYTTuesday)};
+```
+
+**Not:**
+```objc
+NSDictionary *daysOfTheWeek = @{@"monday" : [NSNumber numberWithInteger:NYTMonday], @"tuesday" : [NSNumber numberWithInteger:NYTTuesday]};
 ```
 
 ## Bitmasks
