@@ -277,7 +277,8 @@ When they are needed, comments SHOULD be used to explain **why** a particular pi
 
 Block comments are NOT RECOMMENDED, as code should be as self-documenting as possible, with only the need for intermittent, few-line explanations. This does not apply to those comments used to generate documentation.
 
-## init and dealloc
+## init and dealloc 
+(NOTE: dealloc is not used any longer with the updates to iOS 8, it actually won't let you use dealloc in your code. It will throw an error.)
 
 `dealloc` methods SHOULD be placed at the top of the implementation, directly after the `@synthesize` and `@dynamic` statements. `init` methods SHOULD be placed directly below the `dealloc` methods of any class.
 
