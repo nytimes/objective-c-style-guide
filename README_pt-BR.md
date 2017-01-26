@@ -11,7 +11,7 @@ Agradecemos a todos os [nossos contribuidores](https://github.com/NYTimes/object
 Seguem alguns dos documentos oficiais da Apple que informam a convenção padrão da linguagem.
 Caso algo não seja mencionado aqui, as seguintes referências podem ajudar:
 
-* [A linguagem de programação Objective-C](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html)
+* [A linguagem de programação Objective-C](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html)
 * [Guia de fundamentos Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
 * [Convenções de código Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
 * [Guia de programação de aplicativos iOS](http://developer.apple.com/library/ios/#documentation/iphone/conceptual/iphoneosprogrammingguide/Introduction/Introduction.html)

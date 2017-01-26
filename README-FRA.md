@@ -8,7 +8,7 @@ Merci à tous [nos contributeurs et contributrices](https://github.com/NYTimes/o
 
 Voici quelques-uns des documents d'Apple qui nous ont servi à écrire ce guide. Si quelque chose n'est pas mentionné ici, il est probablement couvert en détail dans&#8239;:
 
-* [Le langage de Programmation Objective-C](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html)
+* [Le langage de Programmation Objective-C](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html)
 * [Les Bases Fondamentales de Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
 * [Conseils Généraux de Codage pour Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
 * [Guide de Programmation pour App iOS](http://developer.apple.com/library/ios/#documentation/iphone/conceptual/iphoneosprogrammingguide/Introduction/Introduction.html)
