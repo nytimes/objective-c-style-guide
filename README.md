@@ -457,6 +457,44 @@ If the name of a `BOOL` property is expressed as an adjective, the property’s 
 
 _Text and example taken from the [Cocoa Naming Guidelines](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE)._
 
+-----
+
+If a method returns a `BOOL` and the condition to evaluate is simple enough, return its result on a single line instead of storing it in a local variable first.
+
+This:
+```objc
+if (aBool) {
+return true
+}
+return false
+```
+
+is the same as this:
+```objc
+return aBool
+```
+
+**For example:**
+
+```objc
+- (BOOL)isAutomaticUpdate {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:NYTDefaultsUpdateAutomatically];
+}
+```
+
+**Not:**
+
+```objc
+- (BOOL)isAutomaticUpdate {
+    BOOL isAutomaticUpdate = [[NSUserDefaults standardUserDefaults] boolForKey:NYTDefaultsUpdateAutomatically];
+    if (isAutomaticUpdate) {
+        return YES;
+    }
+
+    return NO;
+}
+```
+
 ## Singletons
 
 Singleton objects SHOULD use a thread-safe pattern for creating their shared instance.
