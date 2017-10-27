@@ -364,9 +364,9 @@ static const CGFloat NYTImageThumbnailHeight = 50.0;
 #define thumbnailHeight 2
 ```
 
-## Enumerated Types
+## Tipe Enumerated
 
-Ketika menggunakan `enum`s, HARUS digunakan spesifikasi tipe fixed underlying yang baru ; hal ini menyajikan pengecekan tipe yang dan pelengkapan kode lebih baik. SDK mengandung macro untuk memfasilitasi penggunaan tipe fixed underlying: `NS_ENUM()`.
+Ketika menggunakan `enum`, HARUS digunakan spesifikasi tipe fixed underlying yang baru ; hal ini menyajikan pengecekan tipe yang dan pelengkapan kode lebih baik. SDK mengandung macro untuk memfasilitasi penggunaan tipe fixed underlying: `NS_ENUM()`.
 
 **Contohnya:**
 
@@ -408,7 +408,7 @@ Private properties BOLEH dideklarasikan pada ekstensi kelas (kategori anonim) pa
 @end
 ```
 
-## Image Naming
+## Pemberian nama gambar
 
 Nama gambar harus diberikan secara konsisten untuk menjaga keteraturan dan kesehatan jiwa developer. Gambar HARUS diberi nama menggunakan _camel-case_ yang mendiskripsikan kegunaannya, diikuti dengan nama tanpa prefix dari kelas atau properti yang mengaturnya (jika ada), diikuti dengan deskripsi yang lebih detail mengenai waran dan/atau penempatan dan terakhir kodisinya
 
