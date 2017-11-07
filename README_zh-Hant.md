@@ -36,12 +36,12 @@
 * [CGRect 函數](#CGRect-函數)
 * [常數](#常數)
 * [列舉型別](#列舉型別)
-* [位掩码](#位掩码)
+* [位元碼](#位元碼)
 * [私有屬性](#私有屬性)
 * [圖片命名](#圖片命名)
 * [布林值](#布林值)
 * [單例](#單例)
-* [導入](#導入)
+* [引入](#引入)
 * [Xcode 工程](#Xcode-工程)
 
 ## 點語法
@@ -216,7 +216,6 @@ static const NSTimeInterval fadetime = 1.7;
 
 屬性和局部變量應該使用駝峰命名法並且首字母小寫。
 
-为了保持一致，实例变量应该使用驼峰命名法命名，并且首字母小写，以下划线为前缀。这与 LLVM 自动合成的实例变量相一致。
 為了保持一致，實體變數應該使用駝峰命名法命名，並且首字母小寫，以下畫底線為前綴。這與LLVM自動合成的實體變數一致。
 **如果 LLVM 可以自動合成變數，那就讓它自動合成。**
 
@@ -238,7 +237,6 @@ id varnm;
 
 ## 註解
 
-当需要的时候，注释应该被用来解释 **为什么** 特定代码做了某些事情。所使用的任何注释必须保持最新否则就删除掉。
 當需要的時候，註解應該被用來解釋 **為什麼** 特定程式碼做了某些事情。所使用的任何註解必須保持最新否則就刪除掉。
 
 通常應該避免一大塊註解，程式碼應該盡量作為描述自身的文檔，只需要隔幾行寫幾句說明。這並不適用那些用來生成文檔的註解。
@@ -380,31 +378,28 @@ typedef NS_OPTIONS(NSUInteger, NYTAdCategory) {
 
 ## 圖片命名
 
-图片名称应该被统一命名以保持组织的完整。它们应该被命名为一个说明它们用途的驼峰式字符串，其次是自定义类或属性的无前缀名字（如果有的话），然后进一步说明颜色 和/或 展示位置，最后是它们的状态。
-圖片
+圖片名稱應該被統一命名以保持組織的完整性。它們應該被命名為一個說明它們用途的駝峰式字串，其次是自定義類別或屬性的無前綴名字（如果有的話），然後進一步說明顏色和/或展示位置，最後是它們的狀態。
 
-**推荐：**
+**推薦：**
 
 * `RefreshBarButtonItem` / `RefreshBarButtonItem@2x` 和 `RefreshBarButtonItemSelected` / `RefreshBarButtonItemSelected@2x`
 * `ArticleNavigationBarWhite` / `ArticleNavigationBarWhite@2x` 和 `ArticleNavigationBarBlackSelected` / `ArticleNavigationBarBlackSelected@2x`.
 
-图片目录中被用于类似目的的图片应归入各自的组中。
+圖片目錄中被用於類似目的的圖片應被放入各自類別的資料夾中。
 
 
-## 布尔
+## 布林值
 
-因为 `nil` 解析为 `NO`，所以没有必要在条件中与它进行比较。永远不要直接和 `YES` 进行比较，因为 `YES` 被定义为 1，而 `BOOL` 可以多达 8 位。
+因為 `nil` 解析為 `NO`，所以沒有必要在條件中與它進行比較。永遠不要直接和 `YES` 進行比較，因為 `YES` 被定義為1，而在Objective-C裡 `BOOL` 是一個 `CHAR` 的類別並达 8 位元。（所以數值 `11111110` 跟 `YES` 比較時，會回傳 `NO`）
 
-这使得整个文件有更多的一致性和更大的视觉清晰度。
-
-**推荐：**
+**推薦：**
 
 ```objc
 if (!someObject) {
 }
 ```
 
-**反对：**
+**不推薦：**
 
 ```objc
 if (someObject == nil) {
@@ -413,23 +408,23 @@ if (someObject == nil) {
 
 -----
 
-**对于 `BOOL` 来说, 这有两种用法:**
+**對於 `BOOL` 來說, 有兩種用法:**
 
 ```objc
 if (isAwesome)
 if (![someObject boolValue])
 ```
 
-**反对：**
+**不推薦：**
 
 ```objc
 if ([someObject boolValue] == NO)
-if (isAwesome == YES) // 永远别这么做
+if (isAwesome == YES) // 永遠別這樣做
 ```
 
 -----
 
-如果一个 `BOOL` 属性名称是一个形容词，属性可以省略 “is” 前缀，但为 get 访问器指定一个惯用的名字，例如：
+如果一個 `BOOL` 屬性名稱是一個形容詞，屬性可以省略 `is` 前綴，但為 get 訪問器指定一個慣用名字，例如：
 
 ```objc
 @property (assign, getter=isEditable) BOOL editable;
@@ -440,9 +435,9 @@ if (isAwesome == YES) // 永远别这么做
 [Booleans_1]:https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE
 
 
-## 单例
+## 單例
 
-单例对象应该使用线程安全的模式创建共享的实例。
+單例對象應該使用線程安全的模式建立共同的實體。
 
 ```objc
 + (instancetype)sharedInstance {
@@ -456,14 +451,14 @@ if (isAwesome == YES) // 永远别这么做
     return sharedInstance;
 }
 ```
-这将会预防[有时可能产生的许多崩溃][Singletons_1]。
+這將會預防[有時可能產生的許多Crash][Singletons_1]。
 
 [Singletons_1]:http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html
 
-## 导入   
+## 引入
 
-如果有一个以上的 import 语句，就对这些语句进行[分组][Import_1]。每个分组的注释是可选的。   
-注：对于模块使用 [@import][Import_2] 语法。   
+如果有一個以上的import語法，就對這些語法進行[分組][Import_1]。可在每組上加上註解。
+注：對於模組使用 [@import][Import_2] 語法。
 
 ```objc   
 // Frameworks
@@ -483,10 +478,10 @@ if (isAwesome == YES) // 永远别这么做
 
 ## Xcode 工程
 
-为了避免文件杂乱，物理文件应该保持和 Xcode 项目文件同步。Xcode 创建的任何组（group）都必须在文件系统有相应的映射。为了更清晰，代码不仅应该按照类型进行分组，也可以根据功能进行分组。
+為了避免文件雜亂，物理文件應該保持和Xcode項目文件同步。Xcode 建立的任何群組（group）都必須在文件系統上有著相對應的資料夾。為了更清晰，程式碼不僅應該按照類型進行分組，也可以根據功能進行分組。
 
 
-如果可以的话，尽可能一直打开 target Build Settings 中 "Treat Warnings as Errors" 以及一些[额外的警告][Xcode-project_1]。如果你需要忽略指定的警告,使用 [Clang 的编译特性][Xcode-project_2] 。
+如果可以的話，盡可能一直打開 target Build Settings 中 "Treat Warnings as Errors" 以及一些[額外的警告][Xcode-project_1]。如果你需要忽略指定的警告,使用 [Clang 的編譯特性][Xcode-project_2] 。
 
 
 [Xcode-project_1]:http://boredzo.org/blog/archives/2009-11-07/warnings
@@ -494,9 +489,9 @@ if (isAwesome == YES) // 永远别这么做
 [Xcode-project_2]:http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas
 
 
-# 其他 Objective-C 风格指南
+# 其他 Objective-C 風格指南
 
-如果感觉我们的不太符合你的口味，可以看看下面的风格指南：
+如果感覺我們不太符合你的口味，可以看看下面的風格指南：
 
 * [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
 * [GitHub](https://github.com/github/objective-c-conventions)
