@@ -33,7 +33,7 @@
 * [註解](#註解)
 * [Init 和 Dealloc](#init-和-dealloc)
 * [字面量](#字面量)
-* [CGRect-函數](#CGRect-函數)
+* [CGRect函數](#CGRect函數)
 * [常數](#常數)
 * [列舉型別](#列舉型別)
 * [位元碼](#位元碼)
@@ -42,7 +42,7 @@
 * [布林值](#布林值)
 * [單例](#單例)
 * [引入](#引入)
-* [Xcode-工程](#Xcode-工程)
+* [Xcode工程](#Xcode工程)
 
 ## 點語法
 
@@ -281,7 +281,7 @@ NSNumber *shouldUseLiterals = [NSNumber numberWithBool:YES];
 NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 ```
 
-## CGRect-函數
+## CGRect函數
 
 當訪問一個 `CGRect` 的 `x`， `y`， `width`， `height` 時，應該使用[`CGGeometry` 函數][CGRect-Functions_1]代替直接訪問結構體成員。Apple的 `CGGeometry` 參考說道：
 
@@ -476,7 +476,7 @@ if (isAwesome == YES) // 永遠別這樣做
 [Import_1]: http://ashfurrow.com/blog/structuring-modern-objective-c
 [Import_2]: http://clang.llvm.org/docs/Modules.html#using-modules
 
-## Xcode-工程
+## Xcode工程
 
 為了避免文件雜亂，物理文件應該保持和Xcode項目文件同步。Xcode 建立的任何群組（group）都必須在文件系統上有著相對應的資料夾。為了更清晰，程式碼不僅應該按照類型進行分組，也可以根據功能進行分組。
 
