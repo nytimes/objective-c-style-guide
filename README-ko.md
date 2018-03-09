@@ -1,9 +1,8 @@
 # NYTimes Objective-C Style Guide [원문](https://github.com/NYTimes/objective-c-style-guide)
 
-이 스타일 가이드는 New York Times의 iOS팀 코딩 규칙을 설명합니다. [issues](https://github.com/NYTimes/objetive-c-style-guide/issues), [pull requests](https://github.com/NYTimes/objetive-c-style-guide/pulls)와 [tweets](https://twitter.com/nytimesmobile)에 당신의 의견을 환영합니다. 또한, [구인 중입니다](http://jobs.nytco.com/job/New-York-iOS-Developer-Job-NY/2572221/).
+이 스타일 가이드는 New York Times 의 iOS 팀 코딩 규칙을 설명합니다. [issues](https://github.com/NYTimes/objetive-c-style-guide/issues), [pull requests](https://github.com/NYTimes/objetive-c-style-guide/pulls)와 [tweets](https://twitter.com/nytimesmobile)에 당신의 의견을 환영합니다. 또한, [구인 중입니다](http://jobs.nytco.com/job/New-York-iOS-Developer-Job-NY/2572221/).
 
 [공헌자](https://github.com/NYTimes/objective-c-style-guide/contributors) 모두에게 감사드립니다.
-
 
 ## <a name='Introduction'>소개</a>
 
@@ -13,7 +12,6 @@
 * [Cocoa Fundamentals Guide](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
 * [Coding Guidelines for Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
 * [iOS App Programming Guide](http://developer.apple.com/library/ios/#documentation/iphone/conceptual/iphoneosprogrammingguide/Introduction/Introduction.html)
-
 
 ## <a name='TOC'>목차</a>
 
@@ -38,18 +36,19 @@
 * [Singletons](#singletons)
 * [Xcode Project](#xcode-project)
 
-
 ## <a name='dot-notation-syntax'>Dot-Notation Syntax</a> [원문](https://github.com/NYTimes/objective-c-style-guide#dot-notation-syntax)
 
 점 표기법은 **항상** 프로퍼티를 접근하거나 변경할 때 사용합니다. 대괄호 표기법은 그밖에 다른 모든 경우에 바람직합니다.
 
 **For example:**
+
 ```objc
 view.backgroundColor = [UIColor orangeColor];
 [UIApplication sharedApplication].delegate;
 ```
 
 **Not:**
+
 ```objc
 [view setBackgroundColor:[UIColor orangeColor]];
 UIApplication.sharedApplication.delegate;
@@ -57,10 +56,11 @@ UIApplication.sharedApplication.delegate;
 
 ## <a name='spacing'>Spacing</a> [원문](https://github.com/NYTimes/objective-c-style-guide#spacing)
 
-* 들여쓰기는 공백 4개를 사용합니다. 절대로 탭으로 들여쓰기를 하지 않습니다. Xcode에서 preference를 설정해야 합니다.
+* 들여쓰기는 공백 4 개를 사용합니다. 절대로 탭으로 들여쓰기를 하지 않습니다. Xcode 에서 preference 를 설정해야 합니다.
 * 메소드 중괄호와 다른 중괄호 (`if`/`else`/`switch`/`while` etc.)는 항상 같은 줄에서 문을 열고 새로운 줄에서 닫습니다.
 
 **For example:**
+
 ```objc
 if (user.isHappy) {
 //Do something
@@ -71,14 +71,14 @@ else {
 ```
 
 * 시각적 선명도와 조직을 도와주기 위해 메소드 사이에 빈 줄이 있어야 합니다. 메소드 내에서 공백은 기능을 분리할 수 있지만, 종종 새로운 메소드가 될 수도 있습니다.
-* `@synthesize`와 `@dynamic`는 implementation에 새로운 줄로 각각 선언해야 합니다.
-
+* `@synthesize`와 `@dynamic`는 implementation 에 새로운 줄로 각각 선언해야 합니다.
 
 ## <a name='conditionals'>Conditionals</a> [원문](https://github.com/NYTimes/objective-c-style-guide#conditionals)
 
 조건문 본체는 중괄호가 없이 작성할 때(한 줄인 경우) [에러](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256)를 방지하기 위해 항상 중괄호를 사용해야 합니다. 이러한 오류는 추가된 두 번째 줄이 if-문의 한 부분으로 예상하여 발생합니다. 또한, 줄 내부 if-문을 주석처리하고 다음 줄이 if-문의 한 부분으로 무심코 되는 곳에서 [더 심각한 문제](http://programmers.stackexchange.com/a/16530)가 발생할 수 있습니다. 게다가 이러한 스타일은 그 밖에 모든 조건문과 더욱 일치하기 때문에 더욱 쉽게 찾을 수 있습니다.
 
 **For example:**
+
 ```objc
 if (!error) {
     return success;
@@ -86,6 +86,7 @@ if (!error) {
 ```
 
 **Not:**
+
 ```objc
 if (!error)
     return success;
@@ -97,27 +98,28 @@ or
 if (!error) return success;
 ```
 
-
 ### <a name='ternary-operator'>Ternary Operator</a> [원문](https://github.com/NYTimes/objective-c-style-guide#conditionals)
 
-3항 연산자 ?는 명료함과 코드 간결함을 높일 때 사용해야 합니다. 보통 단일 조건은 모든 것을 비교해야 합니다. 일반적으로 다중 조건 비교는 if 문 또는 인스턴스 변수로 리펙토링을 통해 더 쉽게 이해할 수 있습니다.
+3 항 연산자 ?는 명료함과 코드 간결함을 높일 때 사용해야 합니다. 보통 단일 조건은 모든 것을 비교해야 합니다. 일반적으로 다중 조건 비교는 if 문 또는 인스턴스 변수로 리펙토링을 통해 더 쉽게 이해할 수 있습니다.
 
 **For example:**
+
 ```objc
 result = a > b ? x : y;
 ```
 
 **Not:**
+
 ```objc
 result = a > b ? x = c > d ? c : d : y;
 ```
-
 
 ## <a name='error-handling'>Error handling</a> [원문](https://github.com/NYTimes/objective-c-style-guide#error-handling)
 
 메소드가 참조로 에러 파라미터를 반환을 때, 에러 변수로 전환하는 것이 아니라 반환된 값으로 변경합니다.
 
 **For example:**
+
 ```objc
 NSError *error;
 if (![self trySomethingWithError:&error]) {
@@ -126,6 +128,7 @@ if (![self trySomethingWithError:&error]) {
 ```
 
 **Not:**
+
 ```objc
 NSError *error;
 [self trySomethingWithError:&error];
@@ -134,14 +137,14 @@ if (error) {
 }
 ```
 
-Apple API 일부는 성공인 경우 에러 파라미터(NULL이 아니라면)에 쓰래기 값을 기록합니다. 그래서 에러로 바꾸는 것은 오류 (그리고 이후 충돌)를 야기할 수 있습니다.
-
+Apple API 일부는 성공인 경우 에러 파라미터(NULL 이 아니라면)에 쓰래기 값을 기록합니다. 그래서 에러로 바꾸는 것은 오류 (그리고 이후 충돌)를 야기할 수 있습니다.
 
 ## <a name='methods'>Methods</a> [원문](https://github.com/NYTimes/objective-c-style-guide#methods)
 
 메소드 서명에 범위(-/+ 기호)뒤에 공백이 있어야 합니다. 메소드 마디 사이에 공백이 있어야 합니다.
 
 **For Example**:
+
 ```objc
 - (void)setExampleText:(NSString *)text image:(UIImage *)image;
 ```
@@ -150,9 +153,9 @@ Apple API 일부는 성공인 경우 에러 파라미터(NULL이 아니라면)�
 
 변수는 서술이 가능하도록 명명되어야 합니다. 단일 문자 변수 이름은 `for()` 문을 제외하곤 피해야 합니다.
 
-예를 들어 상수의 경우를 제외하고 포인터를 나타내는 별표와 함께 있는 변수는 `NSString *text` 이며  `NSString* text` 또는 `NSString * text`는 아닙니다.
+예를 들어 상수의 경우를 제외하고 포인터를 나타내는 별표와 함께 있는 변수는 `NSString *text` 이며 `NSString* text` 또는 `NSString * text`는 아닙니다.
 
-프로퍼티 정의는 노출된 인스턴스 변수에 위치하여 언제든지 사용 가능합니다. 직접 인스턴스 변수는 초기화 메소드(`init`, `initWithCoder:`, etc…), `dealloc` 메소드와 내부 커스텀 setter와 getter를 제외하고 피해야 합니다. 초기화 메소드와 dealloc에 접근자 메소드를 사용하려면 [여기](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6)에서 더 많은 정보를 볼 수 있습니다.
+프로퍼티 정의는 노출된 인스턴스 변수에 위치하여 언제든지 사용 가능합니다. 직접 인스턴스 변수는 초기화 메소드(`init`, `initWithCoder:`, etc…), `dealloc` 메소드와 내부 커스텀 setter 와 getter 를 제외하고 피해야 합니다. 초기화 메소드와 dealloc 에 접근자 메소드를 사용하려면 [여기](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6)에서 더 많은 정보를 볼 수 있습니다.
 
 **For example:**
 
@@ -206,7 +209,7 @@ static const NSTimeInterval fadetime = 1.7;
 
 프로퍼티와 로컬 변수는 앞에 단어가 소문자로 하는 낙타 표기법으로 해야 합니다.
 
-인스턴스 변수는 첫 단어는 소문자로 낙타 표기법이며 밑줄로 시작합니다. LLVM에 의해 자동으로 합성된 인스턴스 변수와 일치합니다. **만약 LLVM이 자동으로 변수를 합성할 수 있다면 다음을 봅시다.**
+인스턴스 변수는 첫 단어는 소문자로 낙타 표기법이며 밑줄로 시작합니다. LLVM 에 의해 자동으로 합성된 인스턴스 변수와 일치합니다. **만약 LLVM 이 자동으로 변수를 합성할 수 있다면 다음을 봅시다.**
 
 **For example:**
 
@@ -245,7 +248,7 @@ id varnm;
 
 ## <a name='literals'>Literals</a> [원문](https://github.com/NYTimes/objective-c-style-guide#literals)
 
-`NSString`, `NSDictionary`, `NSArray`, `NSNumber` 리터럴은 불변 인스턴스 객체를 생성하는데 사용합니다. Pay는 `nil` 값이 `NSArray` 와 `NSDictionary` 리터럴에 통과되지 않도록 특히 신중해야 합니다. 이는 충돌이 발생할 수 있기 때문입니다.
+`NSString`, `NSDictionary`, `NSArray`, `NSNumber` 리터럴은 불변 인스턴스 객체를 생성하는데 사용합니다. Pay 는 `nil` 값이 `NSArray` 와 `NSDictionary` 리터럴에 통과되지 않도록 특히 신중해야 합니다. 이는 충돌이 발생할 수 있기 때문입니다.
 
 **For example:**
 
@@ -267,9 +270,7 @@ NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 
 ## <a name='cgrect-functions'>CGRect Functions</a> [원문](https://github.com/NYTimes/objective-c-style-guide#cgrect-functions)
 
-
-`CGRect`의 `x`, `y`, `width` 또는 `height`를 접근하는 경우, 직접 struct 멤버에 접근하지말고 [`CGGeometry` functions](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html)를 항상 사용하세요. 애플의 `CGGeometry` 참조 : 
-
+`CGRect`의 `x`, `y`, `width` 또는 `height`를 접근하는 경우, 직접 struct 멤버에 접근하지말고 [`CGGeometry` functions](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html)를 항상 사용하세요. 애플의 `CGGeometry` 참조 :
 
 > 결과를 계산하기 전에 표준화된 사각형에 내제되어 입력된 CGRect 데이타 구조를 가지는 참조에서 모든 함수가 설명됩니다. 이러한 이유로 어플리케이션은 CGRect 데이타 구조에 저장된 데이타를 직접 읽고 쓰는 것을 피해야 합니다. 대신 사각형을 다루고 그 특성을 검색하도록 여기에 기술된 함수를 사용합니다.
 
@@ -317,7 +318,7 @@ static const CGFloat NYTImageThumbnailHeight = 50.0;
 
 ## <a name='enumerated-types'>Enumerated Types</a> [원문](https://github.com/NYTimes/objective-c-style-guide#enumerated-types)
 
-`enum`을 사용하는 경우, 새롭게 수정된 기본 형식 명세서를 사용하는 것을 추천합니다. 타입 확인과 코드 완성을 더욱 강력하게 해줍니다. SDK는 수정된 기본 형식 - `NS_ENUM()`을 수월하게 사용할 수 있는 매크로를 포함하고 있습니다.
+`enum`을 사용하는 경우, 새롭게 수정된 기본 형식 명세서를 사용하는 것을 추천합니다. 타입 확인과 코드 완성을 더욱 강력하게 해줍니다. SDK 는 수정된 기본 형식 - `NS_ENUM()`을 수월하게 사용할 수 있는 매크로를 포함하고 있습니다.
 
 **Example:**
 
@@ -330,7 +331,7 @@ typedef NS_ENUM(NSInteger, NYTAdRequestState) {
 
 ## <a name='bitmasks'>Bitmasks</a> [원문](https://github.com/NYTimes/objective-c-style-guide#bitmasks)
 
-bitmask로 작업하는 경우 `NS_OPTIONS` 매크로를 사용합니다.
+bitmask 로 작업하는 경우 `NS_OPTIONS` 매크로를 사용합니다.
 
 **Example:**
 
@@ -374,7 +375,7 @@ typedef NS_OPTIONS(NSUInteger, NYTAdCategory) {
 
 This allows for more consistency across files and greater visual clarity.
 
-`nil`은 `NO`로 해석하기 때문에 조건문에서 비교할 필요가 없습니다. 무언가를 직접적으로 `YES`로 비교하지 마세요. `YES`는 1로 정의되며 `BOOL`은 최대 8비트가 될 수 있습니다.
+`nil`은 `NO`로 해석하기 때문에 조건문에서 비교할 필요가 없습니다. 무언가를 직접적으로 `YES`로 비교하지 마세요. `YES`는 1 로 정의되며 `BOOL`은 최대 8 비트가 될 수 있습니다.
 
 파일에서 더 많은 일관성과 더 큰 시각적 명확성이 있도록 합니다.
 
@@ -392,7 +393,7 @@ if (someObject == nil) {
 }
 ```
 
------
+---
 
 **For a `BOOL`, here are two examples:**
 
@@ -408,7 +409,7 @@ if ([someObject boolValue] == NO)
 if (isAwesome == YES) // Never do this.
 ```
 
------
+---
 
 예를 들어 `BOOL` 프로퍼티 이름이 형용사로 나타내면, 프로퍼티는 “is” 접두사는 생략할 수 있지만 get 접근자는 기존 이름을 지정합니다:
 

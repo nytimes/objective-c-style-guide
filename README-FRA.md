@@ -42,12 +42,14 @@ Voici quelques-uns des documents d'Apple qui nous ont servi à écrire ce guide.
 La notation pointée doit **toujours** être utilisée pour lire ou modifier les propriétés. La notation crochée est préférable dans tous les autres cas.
 
 **Par exemple:**
+
 ```objc
 view.backgroundColor = [UIColor orangeColor];
 [UIApplication sharedApplication].delegate;
 ```
 
 **Non pas:**
+
 ```objc
 [view setBackgroundColor:[UIColor orangeColor]];
 UIApplication.sharedApplication.delegate;
@@ -56,9 +58,10 @@ UIApplication.sharedApplication.delegate;
 ## Espacement
 
 * L'indentation est de 4 espaces. N'indentez jamais avec des tabulations. Assurez-vous de régler cette préférence dans Xcode.
-* L'accolade ouvrante des méthodes et structures de contrôle (`if`/`else`/`switch`/`while` etc.) est toujours sur la même ligne que la déclaration et l'accolade fermante sur sa propre ligne. 
+* L'accolade ouvrante des méthodes et structures de contrôle (`if`/`else`/`switch`/`while` etc.) est toujours sur la même ligne que la déclaration et l'accolade fermante sur sa propre ligne.
 
 **Par exemple:**
+
 ```objc
 if (utilisateur.estHeureux) {
     //Faire quelque chose
@@ -67,6 +70,7 @@ else {
     //Faire quelque chose d'autre
 }
 ```
+
 * Les méthodes devraient être séparées par une ligne blanche pour améliorer la lisibilité et l'organisation. À l'intérieur des méthodes, des sauts de lignes devraient séparer les sections logiques, mais souvent ces dernières devraient être placées dans de nouvelles méthodes.
 * `@synthesize` et `@dynamic` devraient chacun être déclarés sur de nouvelles lignes dans l'implémentation.
 
@@ -75,6 +79,7 @@ else {
 Les instructions de condition doivent toujours utiliser des accolades même quand la condition pourrait être écrite sans (par ex. sur une seule ligne) pour éviter des [erreurs](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256). Une de ces erreurs serait d'ajouter une deuxième ligne et de penser qu'elle fait partie de la condition. Une autre, [plus dangereuse](http://programmers.stackexchange.com/a/16530) peut arriver quand la ligne «&#8239;intérieure&#8239;» de la condition est commentée, et la prochaine ligne devient involontairement une partie de la condition. De plus, ce style est plus cohérent avec d'autres conditions et donc plus facile à détecter.
 
 **Par exemple:**
+
 ```objc
 if (!error) {
 return success;
@@ -82,6 +87,7 @@ return success;
 ```
 
 **Non pas:**
+
 ```objc
 if (!error)
 return success;
@@ -98,11 +104,13 @@ if (!error) return success;
 L'opérateur ternaire, `?` , doit seulement être utilisé s'il rend le code plus lisible ou propre. Il doit seulement évaluer une condition simple. Évaluer plusieurs conditions est généralement plus facile à comprendre avec une condition de type if, ou refactorisé avec des variables nommées.
 
 **Par exemple:**
+
 ```objc
 result = a > b ? x : y;
 ```
 
 **Non pas:**
+
 ```objc
 result = a > b ? x = c > d ? c : d : y;
 ```
@@ -112,6 +120,7 @@ result = a > b ? x = c > d ? c : d : y;
 Quand une méthode renvoie un paramètre d'erreur par référence, continuez l'exécution du programme sur la valeur returnée, et non sur la variable erreur.
 
 **Par exemple:**
+
 ```objc
 NSError *error;
 if (![self FaireQuelqueChoseAvecErreur:&error]) {
@@ -120,6 +129,7 @@ if (![self FaireQuelqueChoseAvecErreur:&error]) {
 ```
 
 **Non pas:**
+
 ```objc
 NSError *error;
 [self FaireQuelqueChoseAvecErreur:&error];
@@ -135,9 +145,11 @@ Certaines APIs d'Apple renvoient des valeurs de données poubeille pour un param
 Pour la signature d'une méthode, il doit y avoir un espace après le scope (symbole `-` ou `+`). Et il doit y avoir un espace entre les différents segments (paramètres) de la méthode.
 
 **Par exemple**:
+
 ```objc
 - (void)setTextePourExemple:(NSString *)texte image:(UIImage *)image;
 ```
+
 ## Variables
 
 Les variables doivent être nommées de la façon la plus descriptive possible. Une variable d'une seule lettre doit être évitée sauf pour une boucle `for`.
@@ -202,7 +214,7 @@ static const NSTimeInterval fadetime = 1.7;
 
 Les properties et variables locales doivent adopter la convention camelCase avec le premier mot en minuscules.
 
-Les variables d'instance doivent adopter la convention camelCase avec le premier mot en miniscules, précédé par le préfixe  «&#8239;_&#8239;». Ceci est cohérent avec les variables d'instance synthetisées automatiquement par LLVM. **Si LLVM peut synthetiser la variable automatiquement, laissez-le faire.**
+Les variables d'instance doivent adopter la convention camelCase avec le premier mot en miniscules, précédé par le préfixe «&#8239;\_&#8239;». Ceci est cohérent avec les variables d'instance synthetisées automatiquement par LLVM. **Si LLVM peut synthetiser la variable automatiquement, laissez-le faire.**
 
 **Par exemple:**
 
@@ -311,7 +323,7 @@ static const CGFloat NYTImageThumbnailHeight = 50.0;
 
 ## Types énumérés
 
-Pour l'utilisation d' `enum`, il est recommendé de choisir le type fixe spécifié avec un «&#8239;_&#8239;» parce qu'il est de type fort et pour bénéficier de la complétion de code. Le SDK inclus maintenant un macro pour faciliter et encourager l'utilisation de type fixe et souligné — `NS_ENUM()`
+Pour l'utilisation d' `enum`, il est recommendé de choisir le type fixe spécifié avec un «&#8239;\_&#8239;» parce qu'il est de type fort et pour bénéficier de la complétion de code. Le SDK inclus maintenant un macro pour faciliter et encourager l'utilisation de type fixe et souligné — `NS_ENUM()`
 
 **Exemple:**
 
@@ -363,7 +375,6 @@ Les noms des images doit être cohérents pour préserver une bonne organisation
 
 Les images qui sont utilisées à des fins similaires doivent être regroupées dans leurs groupes respectifs à l'intérieur d'un dossier Images ou d'un «&#8239;Asset Catalog&#8239;».
 
-
 ## Booléens
 
 Puisque `nil` est retourné comme `NO` il n'est pas nécessaire de le comparer dans une condition. Ne comparez jamais quelque chose avec `YES`, parce que `YES` est défini comme 1 et un `BOOL` peut aller jusqu'à 8 bits.
@@ -384,7 +395,7 @@ if (unObject == nil) {
 }
 ```
 
------
+---
 
 **Pour un `BOOL`, voici deux exemples:**
 
@@ -400,13 +411,14 @@ if (estSuper == YES) // Ne faites pas ça
 if (unObject.boolValue == NO)
 ```
 
------
+---
 
 Si le nom d'une propriété `BOOL` est exprimée comme un adjectif, la propriété peut omettre le prefixe «&#8239;is&#8239;» mais doit specifier un nom conventionel pour l'accesseur get, par exemple:
 
 ```objc
 @property (assign, getter=isEditable) BOOL editable;
 ```
+
 Voyez le document et exemple pris de [Conseils Généraux de Nommage Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE).
 
 ## Singletons
@@ -425,6 +437,7 @@ sharedInstance = [[[self class] alloc] init];
 return sharedInstance;
 }
 ```
+
 Celui permet d'éviter des [plantages possibles, et parfois fréquents](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
 
 ## Imports

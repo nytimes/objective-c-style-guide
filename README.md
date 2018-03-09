@@ -46,12 +46,14 @@ This style guide conforms to IETF's [RFC 2119](http://tools.ietf.org/html/rfc211
 Dot notation is RECOMMENDED over bracket notation for getting and setting properties.
 
 **For example:**
+
 ```objc
 view.backgroundColor = [UIColor orangeColor];
 [UIApplication sharedApplication].delegate;
 ```
 
 **Not:**
+
 ```objc
 [view setBackgroundColor:[UIColor orangeColor]];
 UIApplication.sharedApplication.delegate;
@@ -63,6 +65,7 @@ UIApplication.sharedApplication.delegate;
 * Method braces and other braces (`if`/`else`/`switch`/`while` etc.) MUST open on the same line as the statement. Braces MUST close on a new line.
 
 **For example:**
+
 ```objc
 if (user.isHappy) {
     // Do something
@@ -81,6 +84,7 @@ else {
 Conditional bodies MUST use braces even when a conditional body could be written without braces (e.g., it is one line only) to prevent [errors](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256). These errors include adding a second line and expecting it to be part of the if-statement. Another, [even more dangerous defect](http://programmers.stackexchange.com/a/16530) can happen where the line “inside” the if-statement is commented out, and the next line unwittingly becomes part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.
 
 **For example:**
+
 ```objc
 if (!error) {
     return success;
@@ -88,6 +92,7 @@ if (!error) {
 ```
 
 **Not:**
+
 ```objc
 if (!error)
     return success;
@@ -104,11 +109,13 @@ if (!error) return success;
 The intent of the ternary operator, `?` , is to increase clarity or code neatness. The ternary SHOULD only evaluate a single condition per expression. Evaluating multiple conditions is usually more understandable as an if statement or refactored into named variables.
 
 **For example:**
+
 ```objc
 result = a > b ? x : y;
 ```
 
 **Not:**
+
 ```objc
 result = a > b ? x = c > d ? c : d : y;
 ```
@@ -118,6 +125,7 @@ result = a > b ? x = c > d ? c : d : y;
 When methods return an error parameter by reference, code MUST switch on the returned value and MUST NOT switch on the error variable.
 
 **For example:**
+
 ```objc
 NSError *error;
 if (![self trySomethingWithError:&error]) {
@@ -126,6 +134,7 @@ if (![self trySomethingWithError:&error]) {
 ```
 
 **Not:**
+
 ```objc
 NSError *error;
 [self trySomethingWithError:&error];
@@ -141,6 +150,7 @@ Some of Apple’s APIs write garbage values to the error parameter (if non-NULL)
 In method signatures, there SHOULD be a space after the scope (`-` or `+` symbol). There SHOULD be a space between the method segments.
 
 **For example:**
+
 ```objc
 - (void)setExampleText:(NSString *)text image:(UIImage *)image;
 ```
@@ -185,7 +195,7 @@ Property definitions SHOULD be used in place of naked instance variables wheneve
 
 #### Variable Qualifiers
 
-When it comes to the variable qualifiers [introduced with ARC](https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4), the qualifier (`__strong`, `__weak`, `__unsafe_unretained`, `__autoreleasing`) SHOULD be placed between the asterisks and the variable name, e.g., `NSString * __weak text`. 
+When it comes to the variable qualifiers [introduced with ARC](https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4), the qualifier (`__strong`, `__weak`, `__unsafe_unretained`, `__autoreleasing`) SHOULD be placed between the asterisks and the variable name, e.g., `NSString * __weak text`.
 
 ## Naming
 
@@ -460,6 +470,7 @@ _Text and example taken from the [Cocoa Naming Guidelines](https://developer.app
 ## Singletons
 
 Singleton objects SHOULD use a thread-safe pattern for creating their shared instance.
+
 ```objc
 + (instancetype)sharedInstance {
     static id sharedInstance = nil;
@@ -472,6 +483,7 @@ Singleton objects SHOULD use a thread-safe pattern for creating their shared ins
     return sharedInstance;
 }
 ```
+
 This will prevent [possible and sometimes frequent crashes](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
 
 ## Imports

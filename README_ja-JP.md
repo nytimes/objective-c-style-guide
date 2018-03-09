@@ -6,7 +6,7 @@
 
 ## はじめに
 
-Appleからいくつかのスタイルガイド情報が提供されています。ここで述べられていないことは、それらを参考にしてください:
+Apple からいくつかのスタイルガイド情報が提供されています。ここで述べられていないことは、それらを参考にしてください:
 
 * [The Objective-C Programming Language](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html)
 * [Cocoa Fundamentals Guide](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
@@ -43,12 +43,14 @@ Appleからいくつかのスタイルガイド情報が提供されています
 プロパティのアクセスや変更する際に**必ず**ドット表記を使うこと。それ以外の場合は大括弧表記を使うこと。
 
 **良い例：**
+
 ```objc
 view.backgroundColor = [UIColor orangeColor];
 [UIApplication sharedApplication].delegate;
 ```
 
 **悪い例：**
+
 ```objc
 [view setBackgroundColor:[UIColor orangeColor]];
 UIApplication.sharedApplication.delegate;
@@ -56,10 +58,11 @@ UIApplication.sharedApplication.delegate;
 
 ## スペーシング
 
-* スペース4つでインデントすること。タブキーでインデントしない。Xcodeで設定するように。
+* スペース 4 つでインデントすること。タブキーでインデントしない。Xcode で設定するように。
 * メソッドの中括弧とその他の中括弧(`if`/`else`/`switch`/`while`など)は始め中括弧を同じ行で書き、終わり中括弧を改行で書くこと。
 
 **良い例：**
+
 ```objc
 if (user.isHappy) {
     // 何かをする
@@ -68,15 +71,17 @@ else {
     // 他の何かをする
 }
 ```
+
 * 見た目を分かりやすくするために、メソッド間は一行開けること。
 * メソッド内の機能を分けるために一行開けること(ただ、これはメソッドをより小さく分割すべきという兆候でもある)。長く詳細な名前のメソッドでは、見た目を分けるためにメソッド名と中身の間を一行開けること。
 * `@synthesize`と`@dynamic`は一行ずつ宣言すること。
 
 ## 条件文
 
-条件文は常に中括弧を使うこと。たとえそれが中括弧なしで書ける場合(例えば、一行文)であってもである。それによって、[間違い](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256)を防ぐことができる。ありがちな間違いとして、行を追記する際に直前のif文に追加されたものとする勘違いがある。他にも、if文内の1行がコメントアウトされると、次の1行がうっかりif文の一部となってしまうという[より危険な問題](http://programmers.stackexchange.com/a/16530)もある。このスタイルの良い点として、他の全ての条件文と見た目が一貫するため、読み取りやすくなる。
+条件文は常に中括弧を使うこと。たとえそれが中括弧なしで書ける場合(例えば、一行文)であってもである。それによって、[間違い](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256)を防ぐことができる。ありがちな間違いとして、行を追記する際に直前の if 文に追加されたものとする勘違いがある。他にも、if 文内の 1 行がコメントアウトされると、次の 1 行がうっかり if 文の一部となってしまうという[より危険な問題](http://programmers.stackexchange.com/a/16530)もある。このスタイルの良い点として、他の全ての条件文と見た目が一貫するため、読み取りやすくなる。
 
 **良い例：**
+
 ```objc
 if (!error) {
     return success;
@@ -84,6 +89,7 @@ if (!error) {
 ```
 
 **悪い例：**
+
 ```objc
 if (!error)
     return success;
@@ -100,11 +106,13 @@ if (!error) return success;
 三項演算子 `?` は分かりやすくなる場合のみ使うこと。
 
 **良い例：**
+
 ```objc
 result = a > b ? x : y;
 ```
 
 **悪い例：**
+
 ```objc
 result = a > b ? x = c > d ? c : d : y;
 ```
@@ -114,6 +122,7 @@ result = a > b ? x = c > d ? c : d : y;
 メソッドがエラーの返戻値の参照を返す場合、条件はエラー変数を使わずに、返戻値を使うこと。
 
 **良い例：**
+
 ```objc
 NSError *error;
 if (![self trySomethingWithError:&error]) {
@@ -122,6 +131,7 @@ if (![self trySomethingWithError:&error]) {
 ```
 
 **悪い例：**
+
 ```objc
 NSError *error;
 [self trySomethingWithError:&error];
@@ -130,13 +140,14 @@ if (error) {
 }
 ```
 
-AppleのAPIのいくつかは、成功時にエラー変数へゴミ値を入れる。そのためエラー変数を条件に使う場合、エラー発生したと誤判定される(そしてクラッシュする)。
+Apple の API のいくつかは、成功時にエラー変数へゴミ値を入れる。そのためエラー変数を条件に使う場合、エラー発生したと誤判定される(そしてクラッシュする)。
 
 ## メソッド
 
 メソッドシグネチャでは、メソッドのスコープ(`-`や`+`シンボル)の後にスペースを開けること。メソッドのセグメント間にスペースを開けること。
 
 **良い例：**
+
 ```objc
 - (void)setExampleText:(NSString *)text image:(UIImage *)image;
 ```
@@ -148,7 +159,7 @@ AppleのAPIのいくつかは、成功時にエラー変数へゴミ値を入れ
 **良い例：**
 
 * `NSString *title`: “title”を文字列とするのは妥当です。
-* `NSString *titleHTML`: 表示用にパースする必要のあるHTMLを含んだタイトルのこと。_プログラマーがこの変数を効果的に利用するために“HTML”が付加されています。_
+* `NSString *titleHTML`: 表示用にパースする必要のある HTML を含んだタイトルのこと。_プログラマーがこの変数を効果的に利用するために“HTML”が付加されています。_
 * `NSAttributedString *titleAttributedString`: 表示用に整形済みのタイトル。 _`AttributedString`から、この値がただのありきたりなタイトルではないことがわかります。これを加えることは文脈に則していて妥当であるといえます。_
 * `NSDate *now`: _これ以上の分かりやすさはないでしょう。_
 * `NSDate *lastModifiedDate`: 単純に`lastModified` だけだと曖昧です。しかし文脈に応じて明確になります。
@@ -159,7 +170,7 @@ AppleのAPIのいくつかは、成功時にエラー変数へゴミ値を入れ
 
 ポインタ型で使うアスタリスクは、変数名側に付けること。**良い例**は、`NSString *text`です。**悪い例**は、`NSString* text`や`NSString * text`です。ただし定数は除く(`NSString * const NYTConstantString`)。
 
-できれば素のインスタンス変数を使わずにプロパティで宣言すること。インスタンス変数への直接アクセスは避けること。ただし初期化メソッド(`init`、`initWithCoder:`、その他…)、`dealloc`メソッド、setterとgetterを除く。詳細は[初期化メソッドと`dealloc`内のアクセサメソッド利用に関するAppleの文書](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6)を参照すること。
+できれば素のインスタンス変数を使わずにプロパティで宣言すること。インスタンス変数への直接アクセスは避けること。ただし初期化メソッド(`init`、`initWithCoder:`、その他…)、`dealloc`メソッド、setter と getter を除く。詳細は[初期化メソッドと`dealloc`内のアクセサメソッド利用に関する Apple の文書](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6)を参照すること。
 
 **良い例：**
 
@@ -181,11 +192,11 @@ AppleのAPIのいくつかは、成功時にエラー変数へゴミ値を入れ
 
 #### 変数修飾子
 
-[ARCにより導入された](https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4)変数修飾子は、(`__strong`、`__weak`、`__unsafe_unretained`、`__autoreleasing`)アスタリスクと変数名の間におくこと。例えば`NSString * __weak text`。
+[ARC により導入された](https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4)変数修飾子は、(`__strong`、`__weak`、`__unsafe_unretained`、`__autoreleasing`)アスタリスクと変数名の間におくこと。例えば`NSString * __weak text`。
 
 ## 命名
 
-できればAppleの命名規約に従うこと。特にこれは[メモリ管理ルール](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html) ([NARC](http://stackoverflow.com/a/2865194/340508))に関連があります。
+できれば Apple の命名規約に従うこと。特にこれは[メモリ管理ルール](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html) ([NARC](http://stackoverflow.com/a/2865194/340508))に関連があります。
 
 メソッド名や変数名は、長くてわかりやすいのが良い。
 
@@ -201,7 +212,7 @@ UIButton *settingsButton;
 UIButton *setBut;
 ```
 
-三文字接頭辞(例えば`NYT`)をクラス名や定数名にいつも使うこと。ただし、Core Dataエンティティ名は除く。定数名はキャメルケースで全ての先頭文字を大文字にし、関連クラス名を接頭辞にすること。二文字接頭辞(例えば`NS`)は[Appleに予約されています](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/DefiningClasses/DefiningClasses.html#//apple_ref/doc/uid/TP40011210-CH3-SW12)。
+三文字接頭辞(例えば`NYT`)をクラス名や定数名にいつも使うこと。ただし、Core Data エンティティ名は除く。定数名はキャメルケースで全ての先頭文字を大文字にし、関連クラス名を接頭辞にすること。二文字接頭辞(例えば`NS`)は[Apple に予約されています](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/DefiningClasses/DefiningClasses.html#//apple_ref/doc/uid/TP40011210-CH3-SW12)。
 
 **良い例：**
 
@@ -217,7 +228,7 @@ static const NSTimeInterval fadetime = 1.7;
 
 プロパティ名とローカル変数名は、キャメルケースで最初の文字を小文字にすること。
 
-インスタンス変数はキャメルケースで最初の文字を小文字にし、アンダースコアを接頭辞にすること。これにより、LLVMが自動的にsynthesizeしたインスタンス変数と一貫性を保つことができます。**LLVMの自動`synthesize`はそのままにしておくこと。**
+インスタンス変数はキャメルケースで最初の文字を小文字にし、アンダースコアを接頭辞にすること。これにより、LLVM が自動的に synthesize したインスタンス変数と一貫性を保つことができます。**LLVM の自動`synthesize`はそのままにしておくこと。**
 
 **良い例：**
 
@@ -296,9 +307,9 @@ NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 
 ## `CGRect` 関数
 
-`CGRect`の`x`,`y`,`width`,`height`にアクセスする際、構造体メンバーに直接アクセスせずに**必ず** [`CGGeometry`関数](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html)を使うこと。Appleの`CGGeometry` レファレンスより：
+`CGRect`の`x`,`y`,`width`,`height`にアクセスする際、構造体メンバーに直接アクセスせずに**必ず** [`CGGeometry`関数](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html)を使うこと。Apple の`CGGeometry` レファレンスより：
 
-> このレファレンス中の関数でCGRectデータ構造を入力とするものは、矩形を暗黙的に標準化してから結果を計算する。そのため、アプリケーションはCGRectデータ構造内のデータを直接読み書きすべきではない。かわりに、ここに記載されている関数を使って矩形計算し、値を取得すること。
+> このレファレンス中の関数で CGRect データ構造を入力とするものは、矩形を暗黙的に標準化してから結果を計算する。そのため、アプリケーションは CGRect データ構造内のデータを直接読み書きすべきではない。かわりに、ここに記載されている関数を使って矩形計算し、値を取得すること。
 
 **良い例：**
 
@@ -395,11 +406,11 @@ typedef NS_OPTIONS(NSUInteger, NYTAdCategory) {
 * `RefreshBarButtonItem` / `RefreshBarButtonItem@2x` と `RefreshBarButtonItemSelected` / `RefreshBarButtonItemSelected@2x`
 * `ArticleNavigationBarWhite` / `ArticleNavigationBarWhite@2x` と `ArticleNavigationBarBlackSelected` / `ArticleNavigationBarBlackSelected@2x`.
 
-ImagesフォルダやAsset Catalogに同じ目的の画像をグループで分ける。
+Images フォルダや Asset Catalog に同じ目的の画像をグループで分ける。
 
 ## ブーリアン
 
-`YES`と直接比較しないこと。なぜなら`YES`は`1`と定義されていて、Objective-Cの`BOOL`は8ビット長の`CHAR`型のため(そのため`11111110`は`YES`と比較したら`NO`が返る)。
+`YES`と直接比較しないこと。なぜなら`YES`は`1`と定義されていて、Objective-C の`BOOL`は 8 ビット長の`CHAR`型のため(そのため`11111110`は`YES`と比較したら`NO`が返る)。
 
 **オブジェクトポインタの良い例：**
 
@@ -433,11 +444,12 @@ if (isAwesome == YES) // 決してしないこと。
 @property (assign, getter=isEditable) BOOL editable;
 ```
 
-_テキストと例は[Cocoa命名ガイドライン](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE)より引用。_
+_テキストと例は[Cocoa 命名ガイドライン](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE)より引用。_
 
 ## シングルトン
 
 スレッドセーフパターンでシングルトンを作成するように。
+
 ```objc
 + (instancetype)sharedInstance {
    static id sharedInstance = nil;
@@ -450,6 +462,7 @@ _テキストと例は[Cocoa命名ガイドライン](https://developer.apple.co
    return sharedInstance;
 }
 ```
+
 これにより、[クラッシュの可能性](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html)を避けることができます。
 
 ## インポート
@@ -472,11 +485,11 @@ _テキストと例は[Cocoa命名ガイドライン](https://developer.apple.co
 
 ## Xcode プロジェクト
 
-Xcodeのグループとプロジェクトのフォルダが同じようにして分かりやすくすること。型でグループするだけではなく、機能ごとにグループするように。
+Xcode のグループとプロジェクトのフォルダが同じようにして分かりやすくすること。型でグループするだけではなく、機能ごとにグループするように。
 
-できれば、targetのBuild Settingsの“Treat Warnings as Errors“をオンにし、多めに[アディショナルワーニング](http://boredzo.org/blog/archives/2009-11-07/warnings) をオンにする。特定のワーニングをオフしたい場合、[Clang's pragma機能](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas)を使うように。
+できれば、target の Build Settings の“Treat Warnings as Errors“をオンにし、多めに[アディショナルワーニング](http://boredzo.org/blog/archives/2009-11-07/warnings) をオンにする。特定のワーニングをオフしたい場合、[Clang's pragma 機能](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas)を使うように。
 
-# 他のObjective-Cスタイルガイド
+# 他の Objective-C スタイルガイド
 
 もし我々のスタイルガイドが合わない場合、他のスタイルガイドをチェックしてみてください。
 

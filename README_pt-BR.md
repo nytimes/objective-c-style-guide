@@ -47,12 +47,14 @@ Caso algo não seja mencionado aqui, as seguintes referências podem ajudar:
 Utilize o ponto **sempre** quando for acessar e alterar uma propriedade. Em todos os outros casos é recomendada a utilização dos colchetes.
 
 **Exemplo correto:**
+
 ```objc
 view.backgroundColor = [UIColor orangeColor];
 [UIApplication sharedApplication].delegate;
 ```
 
 **Inadequado:**
+
 ```objc
 [view setBackgroundColor:[UIColor orangeColor]];
 UIApplication.sharedApplication.delegate;
@@ -64,6 +66,7 @@ UIApplication.sharedApplication.delegate;
 * Métodos e qualquer bloco de códico que utilize chaves (`if`/`else`/`switch`/`while` etc.) devem sempre ser declarados na mesma linha. Feche o bloco em um nova linha.
 
 **Exemplo correto:**
+
 ```objc
 if (user.isHappy) {
 // verdadeiro
@@ -72,6 +75,7 @@ else {
 // falso
 }
 ```
+
 * Deve haver exatamente uma linha em branco entre os métodos para auxiliar na organização visual.
 * Espaços em branco dentro dos métodos devem separar funcionalidades (embora muitas das vezes isso indique uma oportunidade para dividir o método em outros métodos menores). Em métodos com nomes longos ou verbosos, uma única linha em branco pode ser utilizada para prover separação visual antes do corpo do método.
 * `@synthesize` e `@dynamic` devem ser declarados em novas linhas.
@@ -81,6 +85,7 @@ else {
 Condicionais, como por exemplo `if`, devem sempre utilizar chaves (mesmo em casos onde o corpo da condicional necessite apenas de uma linha) evitando assim esse tipo de [erro](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256). Esses erros incluem a adição de uma segunda linha e esperam que a mesma faça parte do bloco. Outra [falha ainda maior](http://programmers.stackexchange.com/a/16530) pode ocorrer quando a linha que faz parte da condicional é comentada fazendo com que a próxima linha, involuntariamente, se torne parte da condicional. Além disso, esse estilo é mais consistente com todas as outras condicionais e, portanto, mais facilmente interpretado.
 
 **Exemplo correto:**
+
 ```objc
 if (!error) {
     return success;
@@ -88,6 +93,7 @@ if (!error) {
 ```
 
 **Inadequado:**
+
 ```objc
 if (!error)
     return success;
@@ -104,11 +110,13 @@ if (!error) return success;
 O operador ternário, `?`, deve ser utilizado apenas em caso onde sua aplicação facilita a interpretação e clareza visual do código. Ele deve ser aplicado quando somente uma condição é avaliada. A avaliação de várias condições é normalmente mais compreensível com uma instrução `if`, ou refatorada em variáveis nomeadas.
 
 **Exemplo correto:**
+
 ```objc
 result = a > b ? x : y;
 ```
 
 **Inadequado:**
+
 ```objc
 result = a > b ? x = c > d ? c : d : y;
 ```
@@ -118,6 +126,7 @@ result = a > b ? x = c > d ? c : d : y;
 Quando os métodos retornarem um parâmetro de erro referenciado, deve-se tratar o valor retornado e não a variável de erro.
 
 **Exemplo correto:**
+
 ```objc
 NSError *error;
 if (![self trySomethingWithError:&error]) {
@@ -126,6 +135,7 @@ if (![self trySomethingWithError:&error]) {
 ```
 
 **Inadequado:**
+
 ```objc
 NSError *error;
 [self trySomethingWithError:&error];
@@ -141,9 +151,11 @@ Algumas APIs da Apple armazenam valores ao parâmetro de erro sem existir um err
 Na assinatura de um método, deve haver um espaço após o escopo (símbolo `-` ou `+`). Também deve existir um espaço entre os parâmetros dos métodos.
 
 **Examplo correto:**
+
 ```objc
 - (void)setExampleText:(NSString *)text image:(UIImage *)image;
 ```
+
 ## Variáveis
 
 As variáveis devem ser nomeadas de forma descritiva, com o nome da variável comunicando claramente o que a variável _é_ e também informações pertinentes que um programador precise para usar o valor corretamente.
@@ -459,6 +471,7 @@ _Textos e exemplos tirados do [Cocoa Naming Guidelines](https://developer.apple.
 ## Singletons
 
 Objetos Singleton devem utilizar o padrão thread-safe para criação de uma instância compartilhada.
+
 ```objc
 + (instancetype)sharedInstance {
    static id sharedInstance = nil;
@@ -471,6 +484,7 @@ Objetos Singleton devem utilizar o padrão thread-safe para criação de uma ins
    return sharedInstance;
 }
 ```
+
 Isso evita [possíveis falhas](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
 
 ## Imports

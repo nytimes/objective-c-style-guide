@@ -1,6 +1,6 @@
 # NYTimes • Objective-C Stilanleitung
 
-Diese Anleitung fasst die Coding Standards des iOS Teams der New York Times zusammen. Wir freuen uns über Feedback unter [issues] (https://github.com/NYTimes/objetive-c-style-guide/issues), [pull requests](https://github.com/NYTimes/objetive-c-style-guide/pulls) und [tweets](https://twitter.com/nytimesmobile). [Wir suchen aktuell noch Verstärkung](http://jobs.nytco.com/job/New-York-iOS-Developer-Job-NY/2572221/).
+Diese Anleitung fasst die Coding Standards des iOS Teams der New York Times zusammen. Wir freuen uns über Feedback unter [issues](https://github.com/NYTimes/objetive-c-style-guide/issues), [pull requests](https://github.com/NYTimes/objetive-c-style-guide/pulls) und [tweets](https://twitter.com/nytimesmobile). [Wir suchen aktuell noch Verstärkung](http://jobs.nytco.com/job/New-York-iOS-Developer-Job-NY/2572221/).
 
 Danke an alle [Beitragenden](https://github.com/NYTimes/objective-c-style-guide/contributors).
 
@@ -42,11 +42,14 @@ Hier sind einige Dokumente von Apple, durch die die Anleitung geprägt wurde. We
 Die Punktnotation sollte **immer** verwendet werden, um auf Properties zuzugreifen oder sie zu verändern. Die Notation mit eckigen Klammern wird in allen anderen Fällen bevorzugt.
 
 **Beispiel:**
+
 ```objc
 view.backgroundColor = [UIColor orangeColor];
 [UIApplication sharedApplication].delegate;
 ```
+
 **Nicht:**
+
 ```objc
 [view setBackgroundColor:[UIColor orangeColor]];
 UIApplication.sharedApplication.delegate;
@@ -58,6 +61,7 @@ UIApplication.sharedApplication.delegate;
 * Bei Methoden und in anderen Fällen (`if`/`else`/`switch`/`while` etc.), wird die öffnende Klammer immer in die gleiche Zeile entsprechend der tatsächlichen Anweisung - die schließende Klammer jedoch in eine neue Zeile, gesetzt.
 
 **Beispiel:**
+
 ```objc
 if (user.isHappy) {
 //Do something
@@ -67,17 +71,18 @@ else {
 }
 ```
 
-* Es soll genau eine leere Zeile zwischen den Methoden eingefügt werden, um Übersicht und Organisation zu fördern. Leerzeichen innerhalb von Methoden, sollte funktional unterteilt  sein, wobei in vielen Fällen neue Methoden verwendet werden sollten.
+* Es soll genau eine leere Zeile zwischen den Methoden eingefügt werden, um Übersicht und Organisation zu fördern. Leerzeichen innerhalb von Methoden, sollte funktional unterteilt sein, wobei in vielen Fällen neue Methoden verwendet werden sollten.
 * `@synthesize` und `@dynamic` sollten in der Implementation jeweils in neuen Zeilen deklariert werden.
 
 ## Bedingungen
 
 Der Rumpf einer Bedingung sollte immer Klammern verwenden, auch wenn es ohne Klammern stehen könnte (es ist nur eine Zeile), damit [Fehler](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256) vermieden werden.
 
-Diese Fehler entstehen beim Einfügen einer zweiten Zeile, von der man erwartet, dass sie Teil der  if-Anweisung wird.
+Diese Fehler entstehen beim Einfügen einer zweiten Zeile, von der man erwartet, dass sie Teil der if-Anweisung wird.
 Ein weiterer, [sogar viel gefährlicherer Fehler](http://programmers.stackexchange.com/a/16530) könnte passieren, wenn die Zeile "innerhalb" der if-Anweisung auskommentiert wird und die nächste Zeile unwillentlich Teil dieser if-Anweisung wird. Davon abgesehen, ist diese Form viel konsistenter, verglichen mit den anderen Bedingungsanweisungen und deshalb auch einfacher zu lesen.
 
 **Beispiel:**
+
 ```objc
 if (!error) {
     return success;
@@ -85,6 +90,7 @@ if (!error) {
 ```
 
 **Nicht:**
+
 ```objc
 if (!error)
     return success;
@@ -101,11 +107,13 @@ if (!error) return success;
 Der ternäre Operator, ? , sollte nur verwendet werden, wenn es der Klarheit dient und den Code sauber aussehen lässt. Eine einzelne Bedingung ist normalerweise alles, was ausgewertet werden sollte. Mehrere Bedingungen sollten besser in einer if-Anweisung ausgewertet werden oder in Instanzvariablen übertragen werden.
 
 **For example:**
+
 ```objc
 result = a > b ? x : y;
 ```
 
 **Not:**
+
 ```objc
 result = a > b ? x = c > d ? c : d : y;
 ```
@@ -115,6 +123,7 @@ result = a > b ? x = c > d ? c : d : y;
 Wenn Methoden einen Fehler als Parameter in Form einer Referenz zurückgeben, sollte der Rückgabewert der Methode überprüft werden, nicht die Fehler-Variable.
 
 **Beispiel:**
+
 ```objc
 NSError *error;
 if (![self trySomethingWithError:&error]) {
@@ -123,6 +132,7 @@ if (![self trySomethingWithError:&error]) {
 ```
 
 **Nicht:**
+
 ```objc
 NSError *error;
 [self trySomethingWithError:&error];
@@ -138,6 +148,7 @@ Einige der Apple API's schreiben im erfolgreichen Fall Müll in die Parameter (w
 In Methoden Signaturen sollte Abstand hinter dem +/- Zeichen sein. Es sollte ein Leerzeichen zwischen den einzelnen Teilen der Methodensegmente eingefügt werden.
 
 **Beispiel**:
+
 ```objc
 - (void)setExampleText:(NSString *)text image:(UIImage *)image;
 ```
@@ -146,9 +157,9 @@ In Methoden Signaturen sollte Abstand hinter dem +/- Zeichen sein. Es sollte ein
 
 Variablen sollten so deskriptiv wie möglich sein. Variablen mit einzelnen Buchstaben sollten vermieden werden, wenn sie nicht in `for` Schleifen verwendet werden.
 
-Asterisks, die auf Zeiger hinweisen, gehören zur Variable - z.B. 	`NSString *text` nicht `NSString* text	` oder `NSString * text`. Ausnahmen bilden die Konstanten (`NSString * const NYTConstantString`).
+Asterisks, die auf Zeiger hinweisen, gehören zur Variable - z.B. `NSString *text` nicht `NSString* text` oder `NSString * text`. Ausnahmen bilden die Konstanten (`NSString * const NYTConstantString`).
 
-Property Eigenschaften sollten, wenn immer es möglich ist, an Stelle von einfachen Instanzvariablen verwendet werden. Direkter Zugriff auf Instanzvariablen sollte vermieden werden, Ausnahmen bilden Methoden zur Initialisierung (`init	`, `initWithCoder:`, etc...), `dealloc` Methoden und innerhalb von eigenen Zugriffsmethoden (Setter/Getter). Weitere Informationen zur Verwendung von Zugriffsmethoden und Methoden zur Initialisierung und dealloc, finden sich [hier](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6)
+Property Eigenschaften sollten, wenn immer es möglich ist, an Stelle von einfachen Instanzvariablen verwendet werden. Direkter Zugriff auf Instanzvariablen sollte vermieden werden, Ausnahmen bilden Methoden zur Initialisierung (`init`, `initWithCoder:`, etc...), `dealloc` Methoden und innerhalb von eigenen Zugriffsmethoden (Setter/Getter). Weitere Informationen zur Verwendung von Zugriffsmethoden und Methoden zur Initialisierung und dealloc, finden sich [hier](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6)
 
 **Beispiel:**
 
@@ -326,7 +337,7 @@ typedef NS_ENUM(NSInteger, NYTAdRequestState) {
 };
 ```
 
-## Bitfelder ##
+## Bitfelder
 
 Wenn mit Bitfeldern gearbeitet wird, sollte das `NS_OPTION` Makro verwendet werden.
 
@@ -340,7 +351,6 @@ typedef NS_OPTIONS(NSUInteger, NYTAdCategory) {
   NYTAdCategoryTechnology = 1 << 3
 };
 ```
-
 
 ## Private Eigenschaften
 
@@ -389,7 +399,7 @@ if (someObject == nil) {
 }
 ```
 
------
+---
 
 **Für ein `BOOL`, hier ein weiteres Beispiel:**
 
@@ -405,13 +415,14 @@ if (isAwesome == YES) // Niemals so.
 if ([someObject boolValue] == NO)
 ```
 
------
+---
 
 Wenn der Name eines `BOOL` Property als Adjektiv formuliert wurde, kann die Vorsilbbe "is" weggelassen werden. Allerdings sollte der konventionelle Name für den Getter Zugriff spezifiert werden, z.B.:
 
 ```objc
 @property (assign, getter=isEditable) BOOL editable;
 ```
+
 Text und Beispiel stammen von [Cocoa Naming Guidelines](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE).
 
 ## Singletons
@@ -455,7 +466,7 @@ Notiz: Für Module soll die [@import](http://clang.llvm.org/docs/Modules.html#us
 
 Die real vorhanden Dateien sollten mit den Dateien in Xcode synchronisiert werden, um ein Durcheinander zu vermeiden. Alle Gruppen, die in Xcode erstellt wurden, sollten sich im Dateisystem widerspiegeln. Code sollte nicht nur nach seinem Typ, sondern auch nach den entsprechenden Features gruppiert werden, um eine bessere Übersicht zu gewährleisten.
 
-Wenn möglich, sollte die Option "Treat Warnings as Errors" in den Target Build Einstellungen angepasst werden und soviel [zusätzliche Warnungen] wie möglich ausgeben (http://boredzo.org/blog/archives/2009-11-07/warnings). Verwende [Clangs pragma feature] (http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas), wenn eine bestimmte Warnung ignoriert werden soll.
+Wenn möglich, sollte die Option "Treat Warnings as Errors" in den Target Build Einstellungen angepasst werden und soviel [zusätzliche Warnungen] wie möglich ausgeben (http://boredzo.org/blog/archives/2009-11-07/warnings). Verwende [Clangs pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas), wenn eine bestimmte Warnung ignoriert werden soll.
 
 # Weitere Objective-C Styleguides
 

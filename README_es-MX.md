@@ -73,13 +73,13 @@ else {
 }
 ```
 
-* Debe de haber exactamente una línea en blanco entre métodos para mejorar la claridad y organización visual. 
+* Debe de haber exactamente una línea en blanco entre métodos para mejorar la claridad y organización visual.
 * Los espacios en blanco dentro de los métodos deben de separar funcionalidad (aunque en algunas ocasiones esto significa que el método puede ser dividido en métodos más pequeños). En métodos con nombres largos que incluyan muchos verbos, una sola línea en blanco puede ser usada para proporcionar una separación visual antes del cuerpo del método.
 * `@synthesize` y `@dynamic` deben declararse en nuevas líneas de código.
 
 ## Condicionales
 
-Los condicionales deben de tener siempre llaves, incluso cuando no sean necesarias se deben de utilizar (por ejemplo, cuando sólo hay una línea de código), esto para prevenir [errores](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256). Estos errores pueden ser, agregar una segunda línea de código dentro del `if` esperando que sea parte del mismo bloque. Otro [error más peligroso](http://programmers.stackexchange.com/a/16530) 
+Los condicionales deben de tener siempre llaves, incluso cuando no sean necesarias se deben de utilizar (por ejemplo, cuando sólo hay una línea de código), esto para prevenir [errores](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256). Estos errores pueden ser, agregar una segunda línea de código dentro del `if` esperando que sea parte del mismo bloque. Otro [error más peligroso](http://programmers.stackexchange.com/a/16530)
 sería comentar la única línea de código del `if`, lo que convertiría la siguiente línea parte del primer bloque. Además, este estilo es más consistente con los otros condicionales, por lo tanto es mucho más fácil interpretarlo.
 
 **Por ejemplo:**
@@ -106,11 +106,13 @@ if (!error) return success;
 El operador ternario `?` debe de ser utilizado únicamente cuando ayuda a mejorar la claridad o limpieza del código. Esto es, cuando sólo una condición será evaluada. Evaluar múltiples condiciones es mucho más entendible si se hace con un `if`.
 
 **Por ejemplo:**
+
 ```objc
 result = a > b ? x : y;
 ```
 
 **Incorrecto:**
+
 ```objc
 result = a > b ? x = c > d ? c : d : y;
 ```
@@ -120,6 +122,7 @@ result = a > b ? x = c > d ? c : d : y;
 Cuando los métodos regresen un parámetro error, debe de tratarse el valor regresado y no una variable de error.
 
 **Por ejemplo:**
+
 ```objc
 NSError *error;
 if (![self trySomethingWithError:&error]) {
@@ -128,6 +131,7 @@ if (![self trySomethingWithError:&error]) {
 ```
 
 **Incorrecto:**
+
 ```objc
 NSError *error;
 [self trySomethingWithError:&error];
@@ -143,6 +147,7 @@ Algunas APIs de Apple guardar valores basura en el parámetro de error aunque no
 En la declaración de métodos, debe de existir un espacio después del símbolo `-` o `+`. Deben de existir espacios, igualmente, entre los segmentos del método.
 
 **Por ejemplo:**
+
 ```objc
 - (void)setExampleText:(NSString *)text image:(UIImage *)image;
 ```
@@ -153,7 +158,7 @@ Las variables deben de ser nombradas de la manera más descriptiva posible, con 
 
 * `NSString *title`: Es algo razonable asumir que "title" es un string.
 * `NSString *titleHTML`: Esto indica que el título puede incluir HTML por lo que necesita que se parsee para ser mostrado. _El prefijo "HTML" es necesario para que un programador use la variable correctamente._
-* `NSAttributedString *titleAttributedString`: Un titulo que ya tiene formato para ser mostrado._En este caso, _`AttributedString` ayuda al programador a tomar una buena decisión dependiendo del contexto._
+* `NSAttributedString *titleAttributedString`: Un titulo que ya tiene formato para ser mostrado._En este caso, _`AttributedString` ayuda al programador a tomar una buena decisión dependiendo del contexto.\_
 * `NSDate *now`: _No se necesita más información en el nombre._
 * `NSDate *lastModifiedDate`: Sólo usar `lastModified` podría generar ambigüedad; dependiendo del contexto, uno podría asumir distintos tipos con el nombre.
 * `NSURL *URL` vs. `NSString *URLString`: En el caso en que un mismo valor pueda ser presentado en diferences clases, es recomendado distinguirlos en el nombre para evitar la confusión que se pueda generar.
@@ -163,7 +168,7 @@ Variables con una sola letra como nombre se deben de evitar excepto en los conta
 
 Los asteriscos que indican apuntadores pertenecen a la variable, por ejemplo, `NSString *text` no `NSString* text` o `NSString * text`, excepto en los casos de las constantes (`NSString * const NYTConstantString`).
 
-La definición de propiedades debe de ser usada siempre que sea posible, en lugar de la definición de variables de instancia. Las variables directas de instancia deben de ser evitadas, excepto en los métodos de inicialización (`init`, `initWithCoder:`, etc…), los métodos `dealloc` y los métodos de acceso (`set` y `get`). Para más información de el uso de métodos de acceso en inicializadores  y `dealloc` [consulte esta página](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
+La definición de propiedades debe de ser usada siempre que sea posible, en lugar de la definición de variables de instancia. Las variables directas de instancia deben de ser evitadas, excepto en los métodos de inicialización (`init`, `initWithCoder:`, etc…), los métodos `dealloc` y los métodos de acceso (`set` y `get`). Para más información de el uso de métodos de acceso en inicializadores y `dealloc` [consulte esta página](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
 
 **Por ejemplo:**
 
