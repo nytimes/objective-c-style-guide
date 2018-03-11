@@ -100,12 +100,12 @@ if (!error) return success;
 
 Der ternäre Operator, ? , sollte nur verwendet werden, wenn es der Klarheit dient und den Code sauber aussehen lässt. Eine einzelne Bedingung ist normalerweise alles, was ausgewertet werden sollte. Mehrere Bedingungen sollten besser in einer if-Anweisung ausgewertet werden oder in Instanzvariablen übertragen werden.
 
-**For example:**
+**Beispiel:**
 ```objc
 result = a > b ? x : y;
 ```
 
-**Not:**
+**Nicht:**
 ```objc
 result = a > b ? x = c > d ? c : d : y;
 ```
@@ -214,7 +214,7 @@ Instanzvariablen sollten "Camel-Case" sein, wobei das erste Wort klein geschrieb
 @synthesize descriptiveVariableName = _descriptiveVariableName;
 ```
 
-**Not:**
+**Nicht:**
 
 ```objc
 id varnm;
@@ -382,7 +382,7 @@ if (!someObject) {
 }
 ```
 
-**Not:**
+**Nicht:**
 
 ```objc
 if (someObject == nil) {
@@ -398,7 +398,7 @@ if (isAwesome)
 if (![someObject boolValue])
 ```
 
-**Not:**
+**Nicht:**
 
 ```objc
 if (isAwesome == YES) // Niemals so.
