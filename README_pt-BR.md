@@ -167,7 +167,7 @@ As definições de propriedade devem ser utilizadas sempre que possível. O aces
 **Exemplo correto:**
 
 ```objc
-@interface NYTSection: NSObject
+@interface NYTSection : NSObject
 
 @property (nonatomic) NSString *headline;
 
@@ -288,7 +288,6 @@ Métodos `init` devem ser estruturados da seguinte forma:
     if (self) {
         // Inicialização customizada
     }
-
     return self;
 }
 ```
@@ -301,7 +300,7 @@ Métodos `init` devem ser estruturados da seguinte forma:
 
 ```objc
 NSArray *names = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
-NSDictionary *productManagers = @{@"iPhone" : @"Kate", @"iPad" : @"Kamal", @"Mobile Web" : @"Bill"};
+NSDictionary *productManagers = @{@"iPhone": @"Kate", @"iPad": @"Kamal", @"Mobile Web": @"Bill"};
 NSNumber *shouldUseLiterals = @YES;
 NSNumber *buildingZIPCode = @10018;
 ```

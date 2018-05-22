@@ -153,7 +153,7 @@ Property Eigenschaften sollten, wenn immer es möglich ist, an Stelle von einfac
 **Beispiel:**
 
 ```objc
-@interface NYTSection: NSObject
+@interface NYTSection : NSObject
 
 @property (nonatomic) NSString *headline;
 
@@ -238,7 +238,6 @@ Blockkommentare sollten generell vermieden werden, da Code (abgesehen von ein pa
     if (self) {
         // Custom initialization
     }
-
     return self;
 }
 ```
@@ -251,7 +250,7 @@ Blockkommentare sollten generell vermieden werden, da Code (abgesehen von ein pa
 
 ```objc
 NSArray *names = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
-NSDictionary *productManagers = @{@"iPhone" : @"Kate", @"iPad" : @"Kamal", @"Mobile Web" : @"Bill"};
+NSDictionary *productManagers = @{@"iPhone": @"Kate", @"iPad": @"Kamal", @"Mobile Web": @"Bill"};
 NSNumber *shouldUseLiterals = @YES;
 NSNumber *buildingZIPCode = @10018;
 ```

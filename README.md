@@ -168,7 +168,7 @@ Property definitions SHOULD be used in place of naked instance variables wheneve
 **For example:**
 
 ```objc
-@interface NYTSection: NSObject
+@interface NYTSection : NSObject
 
 @property (nonatomic) NSString *headline;
 
@@ -289,7 +289,6 @@ Block comments are NOT RECOMMENDED, as code should be as self-documenting as pos
     if (self) {
         // Custom initialization
     }
-
     return self;
 }
 ```
@@ -302,7 +301,7 @@ Block comments are NOT RECOMMENDED, as code should be as self-documenting as pos
 
 ```objc
 NSArray *names = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
-NSDictionary *productManagers = @{@"iPhone" : @"Kate", @"iPad" : @"Kamal", @"Mobile Web" : @"Bill"};
+NSDictionary *productManagers = @{@"iPhone": @"Kate", @"iPad": @"Kamal", @"Mobile Web": @"Bill"};
 NSNumber *shouldUseLiterals = @YES;
 NSNumber *buildingZIPCode = @10018;
 ```
