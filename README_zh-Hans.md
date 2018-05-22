@@ -310,7 +310,7 @@ CGFloat width = frame.size.width;
 CGFloat height = frame.size.height;
 ```
 
-[CGRect-Functions_1]:http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html
+[CGRect-Functions_1]:https://developer.apple.com/documentation/coregraphics/cggeometry
 
 ## 常量
 

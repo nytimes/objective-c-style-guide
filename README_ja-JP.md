@@ -296,7 +296,7 @@ NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 
 ## `CGRect` 関数
 
-`CGRect`の`x`,`y`,`width`,`height`にアクセスする際、構造体メンバーに直接アクセスせずに**必ず** [`CGGeometry`関数](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html)を使うこと。Appleの`CGGeometry` レファレンスより：
+`CGRect`の`x`,`y`,`width`,`height`にアクセスする際、構造体メンバーに直接アクセスせずに**必ず** [`CGGeometry`関数](https://developer.apple.com/documentation/coregraphics/cggeometry)を使うこと。Appleの`CGGeometry` レファレンスより：
 
 > このレファレンス中の関数でCGRectデータ構造を入力とするものは、矩形を暗黙的に標準化してから結果を計算する。そのため、アプリケーションはCGRectデータ構造内のデータを直接読み書きすべきではない。かわりに、ここに記載されている関数を使って矩形計算し、値を取得すること。
 

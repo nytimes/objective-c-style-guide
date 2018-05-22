@@ -318,7 +318,7 @@ NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 
 ## Funciones `CGRect`
 
-Cuando se accede a las propiedades `x`, `y`, `width` o `height` de un `CGRect`, siempre se debe de utilizar las funciones de [`CGGeometry` functions](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) en lugar de accederlas directamente. De la referencia de Apple sobre `CGGeometry`:
+Cuando se accede a las propiedades `x`, `y`, `width` o `height` de un `CGRect`, siempre se debe de utilizar las funciones de [`CGGeometry` functions](https://developer.apple.com/documentation/coregraphics/cggeometry) en lugar de accederlas directamente. De la referencia de Apple sobre `CGGeometry`:
 
 > Todas las funciones descritas en esta referencia que toman las estructuras de datos de CGRect como entradas implícitamente estandarizan los rectángulos antes de calcular los resultados. Por esta razón, sus aplicaciones deben de evitar leer y escribir directamente la información guardada en la estructura de datos de CGRect. En lugar de eso, se deben de utilizar las funciones descritas aquí para manipular rectángulos y obtener sus características.
 

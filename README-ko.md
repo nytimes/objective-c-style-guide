@@ -268,7 +268,7 @@ NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 ## <a name='cgrect-functions'>CGRect Functions</a> [원문](https://github.com/NYTimes/objective-c-style-guide#cgrect-functions)
 
 
-`CGRect`의 `x`, `y`, `width` 또는 `height`를 접근하는 경우, 직접 struct 멤버에 접근하지말고 [`CGGeometry` functions](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html)를 항상 사용하세요. 애플의 `CGGeometry` 참조 : 
+`CGRect`의 `x`, `y`, `width` 또는 `height`를 접근하는 경우, 직접 struct 멤버에 접근하지말고 [`CGGeometry` functions](https://developer.apple.com/documentation/coregraphics/cggeometry)를 항상 사용하세요. 애플의 `CGGeometry` 참조 : 
 
 
 > 결과를 계산하기 전에 표준화된 사각형에 내제되어 입력된 CGRect 데이타 구조를 가지는 참조에서 모든 함수가 설명됩니다. 이러한 이유로 어플리케이션은 CGRect 데이타 구조에 저장된 데이타를 직접 읽고 쓰는 것을 피해야 합니다. 대신 사각형을 다루고 그 특성을 검색하도록 여기에 기술된 함수를 사용합니다.
