@@ -458,7 +458,7 @@ Wenn möglich, sollte die Option "Treat Warnings as Errors" in den Target Build 
 
 # Weitere Objective-C Styleguides
 
-Wenn unsere Version nicht euren Geschmack trifft, schaut euch ein paar andere Styleguides an:
+Wenn unsere Version nicht deinen Geschmack trifft, schau dir ein paar andere Styleguides an:
 
 * [Google](https://google.github.io/styleguide/objcguide.xml)
 * [GitHub](https://github.com/github/objective-c-conventions)
