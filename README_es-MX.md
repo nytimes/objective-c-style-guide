@@ -168,7 +168,7 @@ La definición de propiedades debe de ser usada siempre que sea posible, en luga
 **Por ejemplo:**
 
 ```objc
-@interface NYTSection : NSObject
+@interface NYTSection: NSObject
 
 @property (nonatomic) NSString *headline;
 
@@ -289,6 +289,7 @@ self = [super init]; // o llamar el inicializador designado
 if (self) {
 // Inicialización propia
 }
+
 return self;
 }
 ```
@@ -301,7 +302,7 @@ Las literales de `NSString`, `NSArray` y `NSNumber` deben de ser usadas cuando s
 
 ```objc
 NSArray *names = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
-NSDictionary *productManagers = @{@"iPhone": @"Kate", @"iPad": @"Kamal", @"Mobile Web": @"Bill"};
+NSDictionary *productManagers = @{@"iPhone" : @"Kate", @"iPad" : @"Kamal", @"Mobile Web" : @"Bill"};
 NSNumber *shouldUseLiterals = @YES;
 NSNumber *buildingZIPCode = @10018;
 ```
