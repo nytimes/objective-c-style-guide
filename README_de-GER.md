@@ -170,7 +170,7 @@ Property Eigenschaften sollten, wenn immer es möglich ist, an Stelle von einfac
 
 #### Variablen Qualifikationen
 
-Wenn es um die Qualifikationen von Variablen, [die mit ARC eingeführt wurden, geht](https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4), sollte die entsprechende Qualifikation zwischen dem Asterisk und dem Variablennamen plaziert werden. Z.B.: `NSString *__weak text`.
+Wenn es um die Qualifikationen von Variablen, [die mit ARC eingeführt wurden](https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4), geht, sollte die entsprechende Qualifikation zwischen dem Asterisk und dem Variablennamen platziert werden. Z.B.: `NSString *__weak text`.
 
 ## Benennung
 
