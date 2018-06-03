@@ -149,7 +149,7 @@ La définition des propriétés doivent être utilisées à la place des variabl
 **Par exemple:**
 
 ```objc
-@interface NYTSection : NSObject
+@interface NYTSection: NSObject
 
 @property (nonatomic) NSString *headline;
 
@@ -234,6 +234,7 @@ self = [super init]; // ou appeler l'initialisateur désigné
 if (self) {
 // Initialisation particulière à cet object
 }
+
 return self;
 }
 ```
@@ -246,7 +247,7 @@ return self;
 
 ```objc
 NSArray *names = @[@"Brian", @"Craig", @"Véronique"];
-NSDictionary *productManagers = @{@"iOS": @"Andrew", @"Android": @"Kate"};
+NSDictionary *productManagers = @{@"iOS" : @"Andrew", @"Android" : @"Kate"};
 NSNumber *shouldUseLiterals = @YES;
 NSNumber *buildingZIPCode = @10018;
 ```
