@@ -6,7 +6,7 @@ Danke an alle [Beitragenden](https://github.com/NYTimes/objective-c-style-guide/
 
 ## Einleitung
 
-Hier sind einige Dokumente von Apple, durch die die Anleitung geprägt wurde. Wenn hier etwas fehlen sollte, wird es wahrscheinlich in einer der folgenden Quellen detailliert betrachtet:
+Hier sind einige Dokumente von Apple, durch die diese Anleitung geprägt wurde. Wenn hier etwas fehlen sollte, wird es wahrscheinlich in einer der folgenden Quellen detailliert betrachtet:
 
 * [The Objective-C Programming Language](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html)
 * [Cocoa Fundamentals Guide](https://developer.apple.com/legacy/library/documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
@@ -67,12 +67,12 @@ else {
 }
 ```
 
-* Es soll genau eine leere Zeile zwischen den Methoden eingefügt werden, um Übersicht und Organisation zu fördern. Leerzeichen innerhalb von Methoden, sollte funktional unterteilt  sein, wobei in vielen Fällen neue Methoden verwendet werden sollten.
+* Es soll genau eine leere Zeile zwischen den Methoden eingefügt werden, um Übersicht und Organisation zu fördern. Leerzeichen innerhalb von Methoden, sollte funktional unterteilt sein, wobei in vielen Fällen neue Methoden verwendet werden sollten.
 * `@synthesize` und `@dynamic` sollten in der Implementation jeweils in neuen Zeilen deklariert werden.
 
 ## Bedingungen
 
-Der Rumpf einer Bedingung sollte immer Klammern verwenden, auch wenn es ohne Klammern stehen könnte (es ist nur eine Zeile), damit [Fehler](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256) vermieden werden.
+Der Rumpf einer Bedingung sollte immer Klammern verwenden, auch wenn er ohne Klammern stehen könnte (es ist nur eine Zeile), damit [Fehler](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256) vermieden werden.
 
 Diese Fehler entstehen beim Einfügen einer zweiten Zeile, von der man erwartet, dass sie Teil der  if-Anweisung wird.
 Ein weiterer, [sogar viel gefährlicherer Fehler](http://programmers.stackexchange.com/a/16530) könnte passieren, wenn die Zeile "innerhalb" der if-Anweisung auskommentiert wird und die nächste Zeile unwillentlich Teil dieser if-Anweisung wird. Davon abgesehen, ist diese Form viel konsistenter, verglichen mit den anderen Bedingungsanweisungen und deshalb auch einfacher zu lesen.
@@ -244,7 +244,7 @@ Blockkommentare sollten generell vermieden werden, da Code (abgesehen von ein pa
 
 ## Literale
 
-`NSString`, `NSDictionary`, `NSArray` und `NSNumber` Literale sollten immer verwendet werden, wenn nicht veränderbare (immutable) Instanzen dieser Klassen erstellt werden. Besonders sollte darauf geachtet werden keine `nil` Werte in die `NSArray` und `NSDictionary` Literale geschrieben werden, da diese einen Absturz verursachen werden.
+`NSString`, `NSDictionary`, `NSArray` und `NSNumber` Literale sollten immer verwendet werden, wenn nicht veränderbare (immutable) Instanzen dieser Klassen erstellt werden. Besonders sollte darauf geachtet werden, dass keine `nil` Werte in die `NSArray` und `NSDictionary` Literale geschrieben werden, da diese einen Absturz verursachen werden.
 
 **Beispiel:**
 
@@ -266,7 +266,7 @@ NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 
 ## CGRect Funktionen
 
-Beim Zugriff auf `x`, `y`, `width` oder `height` eines CGRect sollten statt des direkt Zugriffs auf die `struct` Werte, immer die [`CGGeometry` Funktionen](https://developer.apple.com/documentation/coregraphics/cggeometry) verwendet werden.
+Beim Zugriff auf `x`, `y`, `width` oder `height` eines CGRect sollten statt des direkten Zugriffs auf die `struct` Werte, immer die [`CGGeometry` Funktionen](https://developer.apple.com/documentation/coregraphics/cggeometry) verwendet werden.
 
 > All functions described in this reference that take CGRect data structures as inputs implicitly standardize those rectangles before calculating their results. For this reason, your applications should avoid directly reading and writing the data stored in the CGRect data structure. Instead, use the functions described here to manipulate rectangles and to retrieve their characteristics.
 
@@ -294,7 +294,7 @@ CGFloat height = frame.size.height;
 
 ## Konstanten
 
-Konstanten werden gegenüber in-line Zeichenketten oder Zahlen bevorzugt, da sie eine einfache Wiederverwendung von gemeinsam verwendeten Variablen erlauben. Zudem können sie einfach ersetzt werden, ohne sie zuvor mit "Finde und Ersetze" ausfindig gemacht zu haben. Konstanten sollten als `static` Konstanten und nicht mit #define deklariert werden, so fern sie nicht explizit in Makros verwendet werden.
+Konstanten werden gegenüber in-line Zeichenketten oder Zahlen bevorzugt, da sie eine einfachere Wiederverwendung von gemeinsam verwendeten Variablen erlauben. Zudem können sie einfach ersetzt werden, ohne sie zuvor mit "Finde und Ersetze" ausfindig gemacht zu haben. Konstanten sollten als `static` Konstanten und nicht mit #define deklariert werden, so fern sie nicht explizit in Makros verwendet werden.
 
 **Beispiel:**
 
@@ -406,7 +406,7 @@ if ([someObject boolValue] == NO)
 
 -----
 
-Wenn der Name eines `BOOL` Property als Adjektiv formuliert wurde, kann die Vorsilbbe "is" weggelassen werden. Allerdings sollte der konventionelle Name für den Getter Zugriff spezifiert werden, z.B.:
+Wenn der Name eines `BOOL` Property als Adjektiv formuliert wurde, kann die Vorsilbe "is" weggelassen werden. Allerdings sollte der konventionelle Name für den Getter Zugriff spezifiert werden, z.B.:
 
 ```objc
 @property (assign, getter=isEditable) BOOL editable;
@@ -436,7 +436,7 @@ Dies wird [einigen möglichen Abstürzen] vorbeugen (http://cocoasamurai.blogspo
 
 Wenn es mehr als eine Importierungsanweisung gibt, sollten diese [zusammen gruppiert werden](http://ashfurrow.com/blog/structuring-modern-objective-c). Das Kommentieren der Gruppen ist optional.
 
-Notiz: Für Module soll die [@import](http://clang.llvm.org/docs/Modules.html#using-modules) syntax verwendet werden.
+Notiz: Für Module soll die [@import](http://clang.llvm.org/docs/Modules.html#using-modules) Syntax verwendet werden.
 
 ```objc
 // Frameworks
@@ -458,7 +458,7 @@ Wenn möglich, sollte die Option "Treat Warnings as Errors" in den Target Build 
 
 # Weitere Objective-C Styleguides
 
-Wenn unsere Version nicht Euren Geschmack trifft, schaut euch ein paar andere Styleguides an:
+Wenn unsere Version nicht euren Geschmack trifft, schaut euch ein paar andere Styleguides an:
 
 * [Google](https://google.github.io/styleguide/objcguide.xml)
 * [GitHub](https://github.com/github/objective-c-conventions)
