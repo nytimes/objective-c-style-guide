@@ -11,8 +11,8 @@ Agradecemos a todos os [nossos contribuidores](https://github.com/NYTimes/object
 Seguem alguns dos documentos oficiais da Apple que informam a convenção padrão da linguagem.
 Caso algo não seja mencionado aqui, as seguintes referências podem ajudar:
 
-* [A linguagem de programação Objective-C](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html)
-* [Guia de fundamentos Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
+* [A linguagem de programação Objective-C](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html)
+* [Guia de fundamentos Cocoa](https://developer.apple.com/legacy/library/documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
 * [Convenções de código Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
 * [Guia de programação de aplicativos iOS](http://developer.apple.com/library/ios/#documentation/iphone/conceptual/iphoneosprogrammingguide/Introduction/Introduction.html)
 
@@ -167,7 +167,7 @@ As definições de propriedade devem ser utilizadas sempre que possível. O aces
 **Exemplo correto:**
 
 ```objc
-@interface NYTSection: NSObject
+@interface NYTSection : NSObject
 
 @property (nonatomic) NSString *headline;
 
@@ -288,7 +288,6 @@ Métodos `init` devem ser estruturados da seguinte forma:
     if (self) {
         // Inicialização customizada
     }
-
     return self;
 }
 ```
@@ -301,7 +300,7 @@ Métodos `init` devem ser estruturados da seguinte forma:
 
 ```objc
 NSArray *names = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
-NSDictionary *productManagers = @{@"iPhone" : @"Kate", @"iPad" : @"Kamal", @"Mobile Web" : @"Bill"};
+NSDictionary *productManagers = @{@"iPhone": @"Kate", @"iPad": @"Kamal", @"Mobile Web": @"Bill"};
 NSNumber *shouldUseLiterals = @YES;
 NSNumber *buildingZIPCode = @10018;
 ```
@@ -317,7 +316,7 @@ NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 
 ## Funções CGRect
 
-Ao acessar `x`, `y`, `width` ou `height` de um `CGRect`, sempre use as [funções `CGGeometry`](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) ao invés de acessar os membros diretamente. Referência da Apple sobre as funções `CGGeometry`:
+Ao acessar `x`, `y`, `width` ou `height` de um `CGRect`, sempre use as [funções `CGGeometry`](https://developer.apple.com/documentation/coregraphics/cggeometry) ao invés de acessar os membros diretamente. Referência da Apple sobre as funções `CGGeometry`:
 
 > All functions described in this reference that take CGRect data structures as inputs implicitly standardize those rectangles before calculating their results. For this reason, your applications should avoid directly reading and writing the data stored in the CGRect data structure. Instead, use the functions described here to manipulate rectangles and to retrieve their characteristics.
 
@@ -519,7 +518,7 @@ Quando possível, sempre habilite `Treat Warning as Errors` no `Build Settings` 
 
 Caso não goste de nossa convenção, segue abaixo outros padrões:
 
-* [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
+* [Google](https://google.github.io/styleguide/objcguide.xml)
 * [GitHub](https://github.com/github/objective-c-conventions)
 * [Adium](https://trac.adium.im/wiki/CodingStyle)
 * [Sam Soffes](https://gist.github.com/soffes/812796)

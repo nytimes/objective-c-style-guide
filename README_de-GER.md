@@ -8,8 +8,8 @@ Danke an alle [Beitragenden](https://github.com/NYTimes/objective-c-style-guide/
 
 Hier sind einige Dokumente von Apple, durch die die Anleitung geprägt wurde. Wenn hier etwas fehlen sollte, wird es wahrscheinlich in einer der folgenden Quellen detailliert betrachtet:
 
-* [The Objective-C Programming Language](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html)
-* [Cocoa Fundamentals Guide](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
+* [The Objective-C Programming Language](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html)
+* [Cocoa Fundamentals Guide](https://developer.apple.com/legacy/library/documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
 * [Coding Guidelines for Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
 * [iOS App Programming Guide](http://developer.apple.com/library/ios/#documentation/iphone/conceptual/iphoneosprogrammingguide/Introduction/Introduction.html)
 
@@ -100,12 +100,12 @@ if (!error) return success;
 
 Der ternäre Operator, ? , sollte nur verwendet werden, wenn es der Klarheit dient und den Code sauber aussehen lässt. Eine einzelne Bedingung ist normalerweise alles, was ausgewertet werden sollte. Mehrere Bedingungen sollten besser in einer if-Anweisung ausgewertet werden oder in Instanzvariablen übertragen werden.
 
-**For example:**
+**Beispiel:**
 ```objc
 result = a > b ? x : y;
 ```
 
-**Not:**
+**Nicht:**
 ```objc
 result = a > b ? x = c > d ? c : d : y;
 ```
@@ -153,7 +153,7 @@ Property Eigenschaften sollten, wenn immer es möglich ist, an Stelle von einfac
 **Beispiel:**
 
 ```objc
-@interface NYTSection: NSObject
+@interface NYTSection : NSObject
 
 @property (nonatomic) NSString *headline;
 
@@ -214,7 +214,7 @@ Instanzvariablen sollten "Camel-Case" sein, wobei das erste Wort klein geschrieb
 @synthesize descriptiveVariableName = _descriptiveVariableName;
 ```
 
-**Not:**
+**Nicht:**
 
 ```objc
 id varnm;
@@ -238,7 +238,6 @@ Blockkommentare sollten generell vermieden werden, da Code (abgesehen von ein pa
     if (self) {
         // Custom initialization
     }
-
     return self;
 }
 ```
@@ -251,7 +250,7 @@ Blockkommentare sollten generell vermieden werden, da Code (abgesehen von ein pa
 
 ```objc
 NSArray *names = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
-NSDictionary *productManagers = @{@"iPhone" : @"Kate", @"iPad" : @"Kamal", @"Mobile Web" : @"Bill"};
+NSDictionary *productManagers = @{@"iPhone": @"Kate", @"iPad": @"Kamal", @"Mobile Web": @"Bill"};
 NSNumber *shouldUseLiterals = @YES;
 NSNumber *buildingZIPCode = @10018;
 ```
@@ -267,7 +266,7 @@ NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 
 ## CGRect Funktionen
 
-Beim Zugriff auf `x`, `y`, `width` oder `height` eines CGRect sollten statt des direkt Zugriffs auf die `struct` Werte, immer die [`CGGeometry` Funktionen](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) verwendet werden.
+Beim Zugriff auf `x`, `y`, `width` oder `height` eines CGRect sollten statt des direkt Zugriffs auf die `struct` Werte, immer die [`CGGeometry` Funktionen](https://developer.apple.com/documentation/coregraphics/cggeometry) verwendet werden.
 
 > All functions described in this reference that take CGRect data structures as inputs implicitly standardize those rectangles before calculating their results. For this reason, your applications should avoid directly reading and writing the data stored in the CGRect data structure. Instead, use the functions described here to manipulate rectangles and to retrieve their characteristics.
 
@@ -382,7 +381,7 @@ if (!someObject) {
 }
 ```
 
-**Not:**
+**Nicht:**
 
 ```objc
 if (someObject == nil) {
@@ -398,7 +397,7 @@ if (isAwesome)
 if (![someObject boolValue])
 ```
 
-**Not:**
+**Nicht:**
 
 ```objc
 if (isAwesome == YES) // Niemals so.
@@ -461,7 +460,7 @@ Wenn möglich, sollte die Option "Treat Warnings as Errors" in den Target Build 
 
 Wenn unsere Version nicht Euren Geschmack trifft, schaut euch ein paar andere Styleguides an:
 
-* [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
+* [Google](https://google.github.io/styleguide/objcguide.xml)
 * [GitHub](https://github.com/github/objective-c-conventions)
 * [Adium](https://trac.adium.im/wiki/CodingStyle)
 * [Sam Soffes](https://gist.github.com/soffes/812796)

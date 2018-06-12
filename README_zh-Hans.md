@@ -11,9 +11,9 @@
 * [Cocoa 编码指南][Introduction_3]
 * [iOS 应用编程指南][Introduction_4]
 
-[Introduction_1]:http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html
+[Introduction_1]:https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html
 
-[Introduction_2]:https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html
+[Introduction_2]:https://developer.apple.com/legacy/library/documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html
 
 [Introduction_3]:https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html
 
@@ -160,7 +160,7 @@ if (error) {
 **推荐：**
 
 ```objc
-@interface NYTSection: NSObject
+@interface NYTSection : NSObject
 
 @property (nonatomic) NSString *headline;
 
@@ -255,7 +255,6 @@ id varnm;
     if (self) {
         // Custom initialization
     }
-
     return self;
 }
 ```
@@ -268,7 +267,7 @@ id varnm;
 
 ```objc
 NSArray *names = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
-NSDictionary *productManagers = @{@"iPhone" : @"Kate", @"iPad" : @"Kamal", @"Mobile Web" : @"Bill"};
+NSDictionary *productManagers = @{@"iPhone": @"Kate", @"iPad": @"Kamal", @"Mobile Web": @"Bill"};
 NSNumber *shouldUseLiterals = @YES;
 NSNumber *buildingZIPCode = @10018;
 ```
@@ -310,7 +309,7 @@ CGFloat width = frame.size.width;
 CGFloat height = frame.size.height;
 ```
 
-[CGRect-Functions_1]:http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html
+[CGRect-Functions_1]:https://developer.apple.com/documentation/coregraphics/cggeometry
 
 ## 常量
 
@@ -496,7 +495,7 @@ if (isAwesome == YES) // 永远别这么做
 
 如果感觉我们的不太符合你的口味，可以看看下面的风格指南：
 
-* [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
+* [Google](https://google.github.io/styleguide/objcguide.xml)
 * [GitHub](https://github.com/github/objective-c-conventions)
 * [Adium](https://trac.adium.im/wiki/CodingStyle)
 * [Sam Soffes](https://gist.github.com/soffes/812796)

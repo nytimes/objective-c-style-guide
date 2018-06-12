@@ -8,8 +8,8 @@ Gracias a todos [nuestros contribuyentes](https://github.com/NYTimes/objective-c
 
 Aquí puedes encontrar algunos de los documentos de Apple sobre las guías de estudio. Si algo no se menciona aquí, probablemente estará cubierto con gran detalle en alguno de éstos:
 
-* [El lenguaje de programación Objective -C](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html)
-* [Guía de fundamentos de Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
+* [El lenguaje de programación Objective -C](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html)
+* [Guía de fundamentos de Cocoa](https://developer.apple.com/legacy/library/documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
 * [líneamientos de desarrollo para Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
 * [Guía de desarrollo de aplicaciones iOS](http://developer.apple.com/library/ios/#documentation/iphone/conceptual/iphoneosprogrammingguide/Introduction/Introduction.html)
 
@@ -168,7 +168,7 @@ La definición de propiedades debe de ser usada siempre que sea posible, en luga
 **Por ejemplo:**
 
 ```objc
-@interface NYTSection: NSObject
+@interface NYTSection : NSObject
 
 @property (nonatomic) NSString *headline;
 
@@ -289,7 +289,6 @@ self = [super init]; // o llamar el inicializador designado
 if (self) {
 // Inicialización propia
 }
-
 return self;
 }
 ```
@@ -302,7 +301,7 @@ Las literales de `NSString`, `NSArray` y `NSNumber` deben de ser usadas cuando s
 
 ```objc
 NSArray *names = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
-NSDictionary *productManagers = @{@"iPhone" : @"Kate", @"iPad" : @"Kamal", @"Mobile Web" : @"Bill"};
+NSDictionary *productManagers = @{@"iPhone": @"Kate", @"iPad": @"Kamal", @"Mobile Web": @"Bill"};
 NSNumber *shouldUseLiterals = @YES;
 NSNumber *buildingZIPCode = @10018;
 ```
@@ -318,7 +317,7 @@ NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 
 ## Funciones `CGRect`
 
-Cuando se accede a las propiedades `x`, `y`, `width` o `height` de un `CGRect`, siempre se debe de utilizar las funciones de [`CGGeometry` functions](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) en lugar de accederlas directamente. De la referencia de Apple sobre `CGGeometry`:
+Cuando se accede a las propiedades `x`, `y`, `width` o `height` de un `CGRect`, siempre se debe de utilizar las funciones de [`CGGeometry` functions](https://developer.apple.com/documentation/coregraphics/cggeometry) en lugar de accederlas directamente. De la referencia de Apple sobre `CGGeometry`:
 
 > Todas las funciones descritas en esta referencia que toman las estructuras de datos de CGRect como entradas implícitamente estandarizan los rectángulos antes de calcular los resultados. Por esta razón, sus aplicaciones deben de evitar leer y escribir directamente la información guardada en la estructura de datos de CGRect. En lugar de eso, se deben de utilizar las funciones descritas aquí para manipular rectángulos y obtener sus características.
 
@@ -524,7 +523,7 @@ Cuando sea posible, siempre hay que activar el "Treat Warnings as Errors" (trata
 
 Si nuestra guía de estilo no es lo que estás buscando, puedes encontrar otras guías de estilo aquí:
 
-* [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
+* [Google](https://google.github.io/styleguide/objcguide.xml)
 * [GitHub](https://github.com/github/objective-c-conventions)
 * [Adium](https://trac.adium.im/wiki/CodingStyle)
 * [Sam Soffes](https://gist.github.com/soffes/812796)

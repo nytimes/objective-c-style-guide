@@ -8,8 +8,8 @@
 
 Appleからいくつかのスタイルガイド情報が提供されています。ここで述べられていないことは、それらを参考にしてください:
 
-* [The Objective-C Programming Language](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html)
-* [Cocoa Fundamentals Guide](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
+* [The Objective-C Programming Language](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html)
+* [Cocoa Fundamentals Guide](https://developer.apple.com/legacy/library/documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
 * [Coding Guidelines for Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
 * [iOS App Programming Guide](http://developer.apple.com/library/ios/#documentation/iphone/conceptual/iphoneosprogrammingguide/Introduction/Introduction.html)
 
@@ -164,7 +164,7 @@ AppleのAPIのいくつかは、成功時にエラー変数へゴミ値を入れ
 **良い例：**
 
 ```objc
-@interface NYTSection: NSObject
+@interface NYTSection : NSObject
 
 @property (nonatomic) NSString *headline;
 
@@ -267,7 +267,6 @@ id varnm;
     if (self) {
         // カスタマイズ初期化処理
     }
-
     return self;
 }
 ```
@@ -280,7 +279,7 @@ id varnm;
 
 ```objc
 NSArray *names = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
-NSDictionary *productManagers = @{@"iPhone" : @"Kate", @"iPad" : @"Kamal", @"Mobile Web" : @"Bill"};
+NSDictionary *productManagers = @{@"iPhone": @"Kate", @"iPad": @"Kamal", @"Mobile Web": @"Bill"};
 NSNumber *shouldUseLiterals = @YES;
 NSNumber *buildingZIPCode = @10018;
 ```
@@ -296,7 +295,7 @@ NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 
 ## `CGRect` 関数
 
-`CGRect`の`x`,`y`,`width`,`height`にアクセスする際、構造体メンバーに直接アクセスせずに**必ず** [`CGGeometry`関数](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html)を使うこと。Appleの`CGGeometry` レファレンスより：
+`CGRect`の`x`,`y`,`width`,`height`にアクセスする際、構造体メンバーに直接アクセスせずに**必ず** [`CGGeometry`関数](https://developer.apple.com/documentation/coregraphics/cggeometry)を使うこと。Appleの`CGGeometry` レファレンスより：
 
 > このレファレンス中の関数でCGRectデータ構造を入力とするものは、矩形を暗黙的に標準化してから結果を計算する。そのため、アプリケーションはCGRectデータ構造内のデータを直接読み書きすべきではない。かわりに、ここに記載されている関数を使って矩形計算し、値を取得すること。
 
@@ -480,7 +479,7 @@ Xcodeのグループとプロジェクトのフォルダが同じようにして
 
 もし我々のスタイルガイドが合わない場合、他のスタイルガイドをチェックしてみてください。
 
-* [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
+* [Google](https://google.github.io/styleguide/objcguide.xml)
 * [GitHub](https://github.com/github/objective-c-conventions)
 * [Adium](https://trac.adium.im/wiki/CodingStyle)
 * [Sam Soffes](https://gist.github.com/soffes/812796)

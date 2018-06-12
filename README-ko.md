@@ -9,8 +9,8 @@
 
 세련된 애플 스타일 가이드 문서 일부가 여기에 있습니다. 여기에 언급된 것이 없다면, 다음 중 하나에서 매우 자세히 다뤘을 겁니다:
 
-* [The Objective-C Programming Language](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html)
-* [Cocoa Fundamentals Guide](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
+* [The Objective-C Programming Language](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html)
+* [Cocoa Fundamentals Guide](https://developer.apple.com/legacy/library/documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
 * [Coding Guidelines for Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
 * [iOS App Programming Guide](http://developer.apple.com/library/ios/#documentation/iphone/conceptual/iphoneosprogrammingguide/Introduction/Introduction.html)
 
@@ -157,7 +157,7 @@ Apple API 일부는 성공인 경우 에러 파라미터(NULL이 아니라면)�
 **For example:**
 
 ```objc
-@interface NYTSection: NSObject
+@interface NYTSection : NSObject
 
 @property (nonatomic) NSString *headline;
 
@@ -238,7 +238,6 @@ id varnm;
     if (self) {
         // Custom initialization
     }
-
     return self;
 }
 ```
@@ -251,7 +250,7 @@ id varnm;
 
 ```objc
 NSArray *names = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
-NSDictionary *productManagers = @{@"iPhone" : @"Kate", @"iPad" : @"Kamal", @"Mobile Web" : @"Bill"};
+NSDictionary *productManagers = @{@"iPhone": @"Kate", @"iPad": @"Kamal", @"Mobile Web": @"Bill"};
 NSNumber *shouldUseLiterals = @YES;
 NSNumber *buildingZIPCode = @10018;
 ```
@@ -268,7 +267,7 @@ NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 ## <a name='cgrect-functions'>CGRect Functions</a> [원문](https://github.com/NYTimes/objective-c-style-guide#cgrect-functions)
 
 
-`CGRect`의 `x`, `y`, `width` 또는 `height`를 접근하는 경우, 직접 struct 멤버에 접근하지말고 [`CGGeometry` functions](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html)를 항상 사용하세요. 애플의 `CGGeometry` 참조 : 
+`CGRect`의 `x`, `y`, `width` 또는 `height`를 접근하는 경우, 직접 struct 멤버에 접근하지말고 [`CGGeometry` functions](https://developer.apple.com/documentation/coregraphics/cggeometry)를 항상 사용하세요. 애플의 `CGGeometry` 참조 : 
 
 
 > 결과를 계산하기 전에 표준화된 사각형에 내제되어 입력된 CGRect 데이타 구조를 가지는 참조에서 모든 함수가 설명됩니다. 이러한 이유로 어플리케이션은 CGRect 데이타 구조에 저장된 데이타를 직접 읽고 쓰는 것을 피해야 합니다. 대신 사각형을 다루고 그 특성을 검색하도록 여기에 기술된 함수를 사용합니다.
@@ -447,7 +446,7 @@ if (isAwesome == YES) // Never do this.
 
 이 스타일 가이드가 당신 입맛에 맞지 않다면, 다른 스타일 가이드를 보세요.
 
-* [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
+* [Google](https://google.github.io/styleguide/objcguide.xml)
 * [GitHub](https://github.com/github/objective-c-conventions)
 * [Adium](https://trac.adium.im/wiki/CodingStyle)
 * [Sam Soffes](https://gist.github.com/soffes/812796)

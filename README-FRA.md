@@ -8,8 +8,8 @@ Merci à tous [nos contributeurs et contributrices](https://github.com/NYTimes/o
 
 Voici quelques-uns des documents d'Apple qui nous ont servi à écrire ce guide. Si quelque chose n'est pas mentionné ici, il est probablement couvert en détail dans&#8239;:
 
-* [Le langage de Programmation Objective-C](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html)
-* [Les Bases Fondamentales de Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
+* [Le langage de Programmation Objective-C](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html)
+* [Les Bases Fondamentales de Cocoa](https://developer.apple.com/legacy/library/documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
 * [Conseils Généraux de Codage pour Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
 * [Guide de Programmation pour App iOS](http://developer.apple.com/library/ios/#documentation/iphone/conceptual/iphoneosprogrammingguide/Introduction/Introduction.html)
 
@@ -149,7 +149,7 @@ La définition des propriétés doivent être utilisées à la place des variabl
 **Par exemple:**
 
 ```objc
-@interface NYTSection: NSObject
+@interface NYTSection : NSObject
 
 @property (nonatomic) NSString *headline;
 
@@ -234,7 +234,6 @@ self = [super init]; // ou appeler l'initialisateur désigné
 if (self) {
 // Initialisation particulière à cet object
 }
-
 return self;
 }
 ```
@@ -247,7 +246,7 @@ return self;
 
 ```objc
 NSArray *names = @[@"Brian", @"Craig", @"Véronique"];
-NSDictionary *productManagers = @{@"iOS" : @"Andrew", @"Android" : @"Kate"};
+NSDictionary *productManagers = @{@"iOS": @"Andrew", @"Android": @"Kate"};
 NSNumber *shouldUseLiterals = @YES;
 NSNumber *buildingZIPCode = @10018;
 ```
@@ -263,7 +262,7 @@ NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];
 
 ## Fonctions `CGRect`
 
-En accédant à `x`, `y`, `width`, ou `height` d'un `CGRect`, utilisez toujours les [fonctions `CGGeometry`](http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html) au lieu de l'accès direct au membre struct. Extrait de la référence Apple pour `CGGeometry`:
+En accédant à `x`, `y`, `width`, ou `height` d'un `CGRect`, utilisez toujours les [fonctions `CGGeometry`](https://developer.apple.com/documentation/coregraphics/cggeometry) au lieu de l'accès direct au membre struct. Extrait de la référence Apple pour `CGGeometry`:
 
 > Toutes les fonctions décrites dans cette référence qui prendre les structures de data CGRect comme donnée standardise implicitement ces rectangles avant de calculer leurs résultats. Pour cette raison, votre application devrait éviter de lire et écrire directement la donnée sauvegardée dans la structure de données CGRect. À la place, utilisez les fonctions décrites ici pour manipuler les rectangles et pour recupérer leurs caractériques.
 
@@ -456,7 +455,7 @@ Si possible, choisissez toujours «&#8239;Treat Warnings as Errors&#8239;» dans
 
 Si le nôtre n'est pas à votre goût, consultez ces autres guides:
 
-* [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
+* [Google](https://google.github.io/styleguide/objcguide.xml)
 * [GitHub](https://github.com/github/objective-c-conventions)
 * [Adium](https://trac.adium.im/wiki/CodingStyle)
 * [Sam Soffes](https://gist.github.com/soffes/812796)
