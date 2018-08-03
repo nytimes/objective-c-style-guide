@@ -47,14 +47,14 @@ Dot notation is RECOMMENDED over bracket notation for getting and setting proper
 
 **For example:**
 ```objc
-view.backgroundColor = [UIColor orangeColor];
-[UIApplication sharedApplication].delegate;
+view.backgroundColor = UIColor.orangeColor;
+UIApplication.sharedApplication.delegate;
 ```
 
 **Not:**
 ```objc
 [view setBackgroundColor:[UIColor orangeColor]];
-UIApplication.sharedApplication.delegate;
+[UIApplication sharedApplication].delegate;
 ```
 
 ## Spacing

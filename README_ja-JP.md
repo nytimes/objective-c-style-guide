@@ -44,14 +44,14 @@ Appleからいくつかのスタイルガイド情報が提供されています
 
 **良い例：**
 ```objc
-view.backgroundColor = [UIColor orangeColor];
-[UIApplication sharedApplication].delegate;
+view.backgroundColor = UIColor.orangeColor;
+UIApplication.sharedApplication.delegate;
 ```
 
 **悪い例：**
 ```objc
 [view setBackgroundColor:[UIColor orangeColor]];
-UIApplication.sharedApplication.delegate;
+[UIApplication sharedApplication].delegate;
 ```
 
 ## スペーシング

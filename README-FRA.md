@@ -43,14 +43,14 @@ La notation pointée doit **toujours** être utilisée pour lire ou modifier les
 
 **Par exemple:**
 ```objc
-view.backgroundColor = [UIColor orangeColor];
-[UIApplication sharedApplication].delegate;
+view.backgroundColor = UIColor.orangeColor;
+UIApplication.sharedApplication.delegate;
 ```
 
 **Non pas:**
 ```objc
 [view setBackgroundColor:[UIColor orangeColor]];
-UIApplication.sharedApplication.delegate;
+[UIApplication sharedApplication].delegate;
 ```
 
 ## Espacement
