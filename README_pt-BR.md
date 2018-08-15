@@ -48,14 +48,14 @@ Utilize o ponto **sempre** quando for acessar e alterar uma propriedade. Em todo
 
 **Exemplo correto:**
 ```objc
-view.backgroundColor = [UIColor orangeColor];
-[UIApplication sharedApplication].delegate;
+view.backgroundColor = UIColor.orangeColor;
+UIApplication.sharedApplication.delegate;
 ```
 
 **Inadequado:**
 ```objc
 [view setBackgroundColor:[UIColor orangeColor]];
-UIApplication.sharedApplication.delegate;
+[UIApplication sharedApplication].delegate;
 ```
 
 ## Espaçamento

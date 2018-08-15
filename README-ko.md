@@ -45,14 +45,14 @@
 
 **For example:**
 ```objc
-view.backgroundColor = [UIColor orangeColor];
-[UIApplication sharedApplication].delegate;
+view.backgroundColor = UIColor.orangeColor;
+UIApplication.sharedApplication.delegate;
 ```
 
 **Not:**
 ```objc
 [view setBackgroundColor:[UIColor orangeColor]];
-UIApplication.sharedApplication.delegate;
+[UIApplication sharedApplication].delegate;
 ```
 
 ## <a name='spacing'>Spacing</a> [원문](https://github.com/NYTimes/objective-c-style-guide#spacing)

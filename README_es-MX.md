@@ -46,15 +46,15 @@ Hay que utilizar punto **siempre** que se acceda o altere alguna propiedad. En t
 **Por ejemplo:**
 
 ```objc
-view.backgroundColor = [UIColor orangeColor];
-[UIApplication sharedApplication].delegate;
+view.backgroundColor = UIColor.orangeColor;
+UIApplication.sharedApplication.delegate;
 ```
 
 **Incorrecto:**
 
 ```objc
 [view setBackgroundColor:[UIColor orangeColor]];
-UIApplication.sharedApplication.delegate;
+[UIApplication sharedApplication].delegate;
 ```
 
 ## Espaciado
