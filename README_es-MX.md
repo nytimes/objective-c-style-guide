@@ -6,11 +6,11 @@ Gracias a todos [nuestros contribuyentes](https://github.com/NYTimes/objective-c
 
 ## Introducción
 
-Aquí puedes encontrar algunos de los documentos de Apple sobre las guías de estudio. Si algo no se menciona aquí, probablemente estará cubierto con gran detalle en alguno de éstos:
+Aquí puedes encontrar algunos de los documentos de Apple sobre las guías de estudio. Si algo no se menciona aquí, probablemente estará cubierto con gran detalle en alguno de los siguientes enlaces:
 
 * [El lenguaje de programación Objective -C](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html)
 * [Guía de fundamentos de Cocoa](https://developer.apple.com/legacy/library/documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
-* [líneamientos de desarrollo para Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
+* [Líneamientos de desarrollo para Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
 * [Guía de desarrollo de aplicaciones iOS](http://developer.apple.com/library/ios/#documentation/iphone/conceptual/iphoneosprogrammingguide/Introduction/Introduction.html)
 
 ## Contenido
@@ -153,17 +153,17 @@ Las variables deben de ser nombradas de la manera más descriptiva posible, con 
 
 * `NSString *title`: Es algo razonable asumir que "title" es un string.
 * `NSString *titleHTML`: Esto indica que el título puede incluir HTML por lo que necesita que se parsee para ser mostrado. _El prefijo "HTML" es necesario para que un programador use la variable correctamente._
-* `NSAttributedString *titleAttributedString`: Un titulo que ya tiene formato para ser mostrado._En este caso, _`AttributedString` ayuda al programador a tomar una buena decisión dependiendo del contexto._
+* `NSAttributedString *titleAttributedString`: Un título que ya tiene formato para ser mostrado._En este caso, _`AttributedString` ayuda al programador a tomar una buena decisión dependiendo del contexto._
 * `NSDate *now`: _No se necesita más información en el nombre._
 * `NSDate *lastModifiedDate`: Sólo usar `lastModified` podría generar ambigüedad; dependiendo del contexto, uno podría asumir distintos tipos con el nombre.
 * `NSURL *URL` vs. `NSString *URLString`: En el caso en que un mismo valor pueda ser presentado en diferences clases, es recomendado distinguirlos en el nombre para evitar la confusión que se pueda generar.
 * `NSString *releaseDateString`: Otro ejemplo de como una variable puede ser representada por otra clase, por lo que el nombre ayuda a evitar ambigüedades.
 
-Variables con una sola letra como nombre se deben de evitar excepto en los contadores de los ciclos.
+Variables con una sola letra como nombre se deben de evitar, excepto en los contadores de los ciclos.
 
 Los asteriscos que indican apuntadores pertenecen a la variable, por ejemplo, `NSString *text` no `NSString* text` o `NSString * text`, excepto en los casos de las constantes (`NSString * const NYTConstantString`).
 
-La definición de propiedades debe de ser usada siempre que sea posible, en lugar de la definición de variables de instancia. Las variables directas de instancia deben de ser evitadas, excepto en los métodos de inicialización (`init`, `initWithCoder:`, etc…), los métodos `dealloc` y los métodos de acceso (`set` y `get`). Para más información de el uso de métodos de acceso en inicializadores  y `dealloc` [consulte esta página](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
+La definición de propiedades debe de ser usada siempre que sea posible, en lugar de la definición de variables de instancia. Las variables directas de instancia deben de ser evitadas, excepto en los métodos de inicialización (`init`, `initWithCoder:`, etc…), los métodos `dealloc` y los métodos de acceso (`set` y `get`). Para más información acerca del uso de métodos de acceso en inicializadores  y `dealloc` [consulte esta página](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
 
 **Por ejemplo:**
 
@@ -279,7 +279,7 @@ Los bloques de comentarios deben de ser evitados, el código debe de ser lo más
 
 ## init y dealloc
 
-Los métodos `dealloc`deben de ser incluidos al principio de la implementación, justo después de las líneas `@synthesize` y `@dynamic`. El `init` debe de ser puesto debajo de los métodos `dealloc` de cualquier clase.
+Los métodos `dealloc` deben de ser incluidos al principio de la implementación, justo después de las líneas `@synthesize` y `@dynamic`. El `init` debe de ser puesto debajo de los métodos `dealloc` de cualquier clase.
 
 Los métodos de `init` deben de ser estructurados de la siguiente manera:
 
@@ -409,14 +409,14 @@ Las propiedades privadas deben de ser declaradas en las extensiones de las clase
 
 ## Nombres de imágenes
 
-Los nombres de imágenes deben de preservar la organización de manera consistente y ayudar al desarrollador. Los nombres deben de utilizar 'camel-case' y describir de manera explicita su proposito, seguido por el nombre de la clase o propiedad a la que serán asignados sin prefijo (en caso de que exista una), seguido de una descripción de color y/o colocación, y por último el estado al que corresponde.
+Los nombres de imágenes deben de preservar la organización de manera consistente y ayudar al desarrollador. Los nombres deben de utilizar 'camel-case' y describir de manera explícita su propósito, seguido por el nombre de la clase o propiedad a la que serán asignados sin prefijo (en caso de que exista una), seguido de una descripción de color y/o colocación, y por último el estado al que corresponde.
 
 **Ejemplo:**
 
 * `RefreshBarButtonItem` / `RefreshBarButtonItem@2x` and `RefreshBarButtonItemSelected` / `RefreshBarButtonItemSelected@2x`
 * `ArticleNavigationBarWhite` / `ArticleNavigationBarWhite@2x` and `ArticleNavigationBarBlackSelected` / `ArticleNavigationBarBlackSelected@2x`.
 
-Las imágenes que se utilicen para propositos similares deben de estar agrupadas respectivamente en la carpeta de Imágenes o el catálogo de 'Assets'.
+Las imágenes que se utilicen para propósitos similares deben de estar agrupadas respectivamente en la carpeta de Imágenes o el catálogo de 'Assets'.
 
 ## Booleanos
 
@@ -446,7 +446,7 @@ if (someNumber.boolValue == NO)
 if (isAwesome == YES) // Nunca hacer esto.
 ```
 
-Si el nombre de una propiedad `BOOL` está expresado como un adjetivo la propiedad puede omitir el prefijo `is` pero debe de especificar el nombre convencional para el acceso (‘getter’).
+Si el nombre de una propiedad `BOOL` está expresado como un adjetivo, la propiedad puede omitir el prefijo `is` pero debe de especificar el nombre convencional para el acceso (‘getter’).
 
 **Por ejemplo:**
 
@@ -479,7 +479,7 @@ Esto ayudará a prevenir [que la aplicación deje de funcionar de manera ocasion
 
 Si hay más de una declaración de 'import', se deben de agrupar las declaraciones [juntas](http://ashfurrow.com/blog/structuring-modern-objective-c). Comentar cada grupo es opcional.
 
-Nota: Para los modulos usar la sintaxis [@import](http://clang.llvm.org/docs/Modules.html#using-modules).
+Nota: Para los módulos, usar la sintaxis [@import](http://clang.llvm.org/docs/Modules.html#using-modules).
 
 **Por ejemplo:**
 
@@ -515,9 +515,9 @@ Esto ayuda a evitar ambigüedades en los casos en que un objeto es delegado de m
 
 ## Proyecto de Xcode
 
-Los archivos físicos deben de asemejar al proyecto de Xcode para evitar el desorden de los archivos. Cualquier grupo que se haga en Xcode debe de ser reflejado en las carpetas del proyecto. El código debe de ser agrupado no sólo por su tipo, si no además por su funcionalidad para mayor claridad.
+Los archivos físicos deben de asemejar al proyecto de Xcode para evitar el desorden de los archivos. Cualquier grupo que se haga en Xcode debe de ser reflejado en las carpetas del proyecto. El código debe de ser agrupado no sólo por su tipo, sino además por su funcionalidad para mayor claridad.
 
-Cuando sea posible, siempre hay que activar el "Treat Warnings as Errors" (tratar alertas como errores) en los 'Build Settings' del objetivo y activar la mayor cantidad de [alertas adicionales](http://boredzo.org/blog/archives/2009-11-07/warnings) como sea posible. Si es necesario ignorar ciertas alertas, se puede utilizar la [funcionalidad Clang’s pragma](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
+Cuando sea posible, siempre hay que activar el "Treat Warnings as Errors" ("Tratar alertas como errores") en los 'Build Settings' del objetivo y activar la mayor cantidad de [alertas adicionales](http://boredzo.org/blog/archives/2009-11-07/warnings) como sea posible. Si es necesario ignorar ciertas alertas, se puede utilizar la [funcionalidad Clang’s pragma](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
 
 ## Otras guías de estilo de Objective-C
 
