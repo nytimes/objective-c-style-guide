@@ -524,7 +524,7 @@ Cuando sea posible, siempre hay que activar el "Treat Warnings as Errors" (trata
 
 Si nuestra guía de estilo no es lo que estás buscando, puedes encontrar otras guías de estilo aquí:
 
-* [Google](https://google.github.io/styleguide/objcguide.xml)
+* [Google](https://github.com/google/styleguide/blob/gh-pages/objcguide.md)
 * [GitHub](https://github.com/github/objective-c-conventions)
 * [Adium](https://trac.adium.im/wiki/CodingStyle)
 * [Sam Soffes](https://gist.github.com/soffes/812796)
