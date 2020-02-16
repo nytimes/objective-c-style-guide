@@ -10,7 +10,7 @@ Aquí puedes encontrar algunos de los documentos de Apple sobre las guías de es
 
 * [El lenguaje de programación Objective -C](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html)
 * [Guía de fundamentos de Cocoa](https://developer.apple.com/legacy/library/documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
-* [líneamientos de desarrollo para Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
+* [Líneamientos de desarrollo para Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
 * [Guía de desarrollo de aplicaciones iOS](http://developer.apple.com/library/ios/#documentation/iphone/conceptual/iphoneosprogrammingguide/Introduction/Introduction.html)
 
 ## Contenido
@@ -153,7 +153,7 @@ Las variables deben de ser nombradas de la manera más descriptiva posible, con 
 
 * `NSString *title`: Es algo razonable asumir que "title" es un string.
 * `NSString *titleHTML`: Esto indica que el título puede incluir HTML por lo que necesita que se parsee para ser mostrado. _El prefijo "HTML" es necesario para que un programador use la variable correctamente._
-* `NSAttributedString *titleAttributedString`: Un titulo que ya tiene formato para ser mostrado._En este caso, _`AttributedString` ayuda al programador a tomar una buena decisión dependiendo del contexto._
+* `NSAttributedString *titleAttributedString`: Un título que ya tiene formato para ser mostrado._En este caso, _`AttributedString` ayuda al programador a tomar una buena decisión dependiendo del contexto._
 * `NSDate *now`: _No se necesita más información en el nombre._
 * `NSDate *lastModifiedDate`: Sólo usar `lastModified` podría generar ambigüedad; dependiendo del contexto, uno podría asumir distintos tipos con el nombre.
 * `NSURL *URL` vs. `NSString *URLString`: En el caso en que un mismo valor pueda ser presentado en diferences clases, es recomendado distinguirlos en el nombre para evitar la confusión que se pueda generar.
@@ -163,7 +163,7 @@ Variables con una sola letra como nombre se deben de evitar excepto en los conta
 
 Los asteriscos que indican apuntadores pertenecen a la variable, por ejemplo, `NSString *text` no `NSString* text` o `NSString * text`, excepto en los casos de las constantes (`NSString * const NYTConstantString`).
 
-La definición de propiedades debe de ser usada siempre que sea posible, en lugar de la definición de variables de instancia. Las variables directas de instancia deben de ser evitadas, excepto en los métodos de inicialización (`init`, `initWithCoder:`, etc…), los métodos `dealloc` y los métodos de acceso (`set` y `get`). Para más información de el uso de métodos de acceso en inicializadores  y `dealloc` [consulte esta página](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
+La definición de propiedades debe de ser usada siempre que sea posible, en lugar de la definición de variables de instancia. Las variables directas de instancia deben de ser evitadas, excepto en los métodos de inicialización (`init`, `initWithCoder:`, etc…), los métodos `dealloc` y los métodos de acceso (`set` y `get`). Para más información sobre el uso de métodos de acceso en inicializadores  y `dealloc` [consulte esta página](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6).
 
 **Por ejemplo:**
 
@@ -273,7 +273,7 @@ Los métodos y las propiedades agregadas a una categoría deben ser nombrados co
 
 ## Comentarios
 
-Cuando sean necesarios, los comentarios deben de ser usados para explicar el **porque** de una sección del código hace algo. Los comentarios deben de ser actualizados o eliminados.
+Cuando sean necesarios, los comentarios deben de ser usados para explicar el **porque** de una sección del código. Los comentarios deben de ser actualizados o eliminados.
 
 Los bloques de comentarios deben de ser evitados, el código debe de ser lo más entendible posible, con la necesidad de pequeñas explicaciones intermitentes en el mismo. Esto no aplica con los comentarios usados para generar documentación.
 
@@ -409,14 +409,14 @@ Las propiedades privadas deben de ser declaradas en las extensiones de las clase
 
 ## Nombres de imágenes
 
-Los nombres de imágenes deben de preservar la organización de manera consistente y ayudar al desarrollador. Los nombres deben de utilizar 'camel-case' y describir de manera explicita su proposito, seguido por el nombre de la clase o propiedad a la que serán asignados sin prefijo (en caso de que exista una), seguido de una descripción de color y/o colocación, y por último el estado al que corresponde.
+Los nombres de imágenes deben de preservar la organización de manera consistente y ayudar al desarrollador. Los nombres deben de utilizar 'camel-case' y describir de manera explicita su propósito, seguido por el nombre de la clase o propiedad a la que serán asignados sin prefijo (en caso de que exista una), seguido de una descripción de color y/o colocación, y por último el estado al que corresponde.
 
 **Ejemplo:**
 
 * `RefreshBarButtonItem` / `RefreshBarButtonItem@2x` and `RefreshBarButtonItemSelected` / `RefreshBarButtonItemSelected@2x`
 * `ArticleNavigationBarWhite` / `ArticleNavigationBarWhite@2x` and `ArticleNavigationBarBlackSelected` / `ArticleNavigationBarBlackSelected@2x`.
 
-Las imágenes que se utilicen para propositos similares deben de estar agrupadas respectivamente en la carpeta de Imágenes o el catálogo de 'Assets'.
+Las imágenes que se utilicen para propósitos similares deben de estar agrupadas respectivamente en la carpeta de Imágenes o el catálogo de 'Assets'.
 
 ## Booleanos
 
