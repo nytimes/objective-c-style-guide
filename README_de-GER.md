@@ -1,6 +1,6 @@
 # NYTimes • Objective-C Stilanleitung
 
-Diese Anleitung fasst die Coding Standards des iOS Teams der New York Times zusammen. Wir freuen uns über Feedback unter [issues] (https://github.com/NYTimes/objetive-c-style-guide/issues), [pull requests](https://github.com/NYTimes/objetive-c-style-guide/pulls) und [tweets](https://twitter.com/nytimesmobile). [Wir suchen aktuell noch Verstärkung](http://jobs.nytco.com/job/New-York-iOS-Developer-Job-NY/2572221/).
+Diese Anleitung fasst die Coding Standards des iOS Teams der New York Times zusammen. Wir freuen uns über Feedback unter [issues](https://github.com/NYTimes/objetive-c-style-guide/issues), [pull requests](https://github.com/NYTimes/objetive-c-style-guide/pulls) und [tweets](https://twitter.com/nytimesmobile). [Wir suchen aktuell noch Verstärkung](http://jobs.nytco.com/job/New-York-iOS-Developer-Job-NY/2572221/).
 
 Danke an alle [Beitragenden](https://github.com/NYTimes/objective-c-style-guide/contributors).
 
