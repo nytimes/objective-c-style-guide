@@ -454,7 +454,7 @@ Notiz: Für Module soll die [@import](http://clang.llvm.org/docs/Modules.html#us
 
 Die real vorhanden Dateien sollten mit den Dateien in Xcode synchronisiert werden, um ein Durcheinander zu vermeiden. Alle Gruppen, die in Xcode erstellt wurden, sollten sich im Dateisystem widerspiegeln. Code sollte nicht nur nach seinem Typ, sondern auch nach den entsprechenden Features gruppiert werden, um eine bessere Übersicht zu gewährleisten.
 
-Wenn möglich, sollte die Option "Treat Warnings as Errors" in den Target Build Einstellungen angepasst werden und soviel [zusätzliche Warnungen] wie möglich ausgeben (http://boredzo.org/blog/archives/2009-11-07/warnings). Verwende [Clangs pragma feature] (http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas), wenn eine bestimmte Warnung ignoriert werden soll.
+Wenn möglich, sollte die Option "Treat Warnings as Errors" in den Target Build Einstellungen angepasst werden und soviel [zusätzliche Warnungen](http://boredzo.org/blog/archives/2009-11-07/warnings) wie möglich ausgeben . Verwende [Clangs pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas), wenn eine bestimmte Warnung ignoriert werden soll.
 
 # Weitere Objective-C Styleguides
 
